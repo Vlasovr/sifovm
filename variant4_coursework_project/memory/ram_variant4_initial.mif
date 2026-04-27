@@ -1,0 +1,18 @@
+WIDTH=16;
+DEPTH=256;
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+  [00..FF] : 0000;
+  0A : 0000; -- DMA target word 0
+  0B : 0000; -- DMA target word 1
+  0C : 0000; -- DMA target word 2
+  20 : 8001; -- source for SRA
+  21 : 00F0; -- source for OR/NOR chain
+  22 : 0F0F; -- OR operand
+  23 : 0000; -- NOR operand for R2
+  24 : 1234; -- must be skipped by JZ/JMP
+  25 : FFFF; -- operand for zero result
+  30 : 0000; -- destination for MOV R3, 0030h
+END;

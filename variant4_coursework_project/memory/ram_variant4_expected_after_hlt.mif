@@ -1,0 +1,18 @@
+WIDTH=16;
+DEPTH=256;
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+  [00..FF] : 0000;
+  0A : 1111; -- first word written by DMA/KPDP
+  0B : 2222; -- second word written by DMA/KPDP
+  0C : 3333; -- third word written by DMA/KPDP
+  20 : 8001;
+  21 : 00F0;
+  22 : 0F0F;
+  23 : 0000;
+  24 : 1234; -- unchanged: skipped instructions must not use it
+  25 : FFFF;
+  30 : C001; -- result saved from R3
+END;
