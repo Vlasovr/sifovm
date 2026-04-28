@@ -31,8 +31,10 @@ architecture rtl of branch_predictor_a4 is
   signal ghr_r     : std_logic_vector(1 downto 0) := "00";
 
   function idx_of(pc : addr_t; hist : std_logic_vector(1 downto 0)) return integer is
+    variable idx_v : std_logic_vector(3 downto 0);
   begin
-    return to_integer(unsigned(pc(1 downto 0) & hist));
+    idx_v := std_logic_vector(pc(1 downto 0)) & hist;
+    return to_integer(unsigned(idx_v));
   end function;
 
   function sat_dec(v : unsigned(1 downto 0)) return unsigned is

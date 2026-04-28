@@ -9,7 +9,7 @@ do run_tb_system_variant4.do
 ```
 
 4. Если в transcript есть `tb_system_variant4: TEST PASSED`, снимай скриншоты по `docs/TESTING_SCENARIO.md`.
-5. Экспортируй схемы из `schemes/` в PNG/PDF.
+5. Возьми готовые PDF-схемы из `schemes/pdf/`: 4 основных листа и дополнительные детальные.
 6. Вставь схемы, скриншоты и дампы в `Курсовая/Записка Власов.docx` по `docs/REPORT_INTEGRATION_TODO.md`.
 
 Главные файлы:

@@ -37,6 +37,30 @@ vsim work.tb_system_variant4
 run 5 us
 ```
 
+## Как это выглядит в Quartus
+
+Блоки проекта сделаны не как ручная `.bdf`-схема, а как отдельные VHDL-модули.
+Quartus собирает их в иерархию от верхнего файла `system_variant4_top.vhd`.
+
+Основные блоки:
+
+- `cpu_core_variant4` - процессорное ядро и автомат выполнения команд;
+- `alu_variant4` - АЛУ варианта 4;
+- `reg_file12x16` - 12 регистров общего назначения;
+- `flags_reg` - регистр флагов `Z/S/C/O`;
+- `stack7x16` - стек глубиной 7 слов;
+- `rom_sync` - синхронное ПЗУ команд;
+- `ram_sync` - синхронное ОЗУ данных;
+- `cache4way_age` - 4-way кэш с замещением по возрасту;
+- `dma_controller_3word` - КПДП на 3 слова;
+- `bus_arbiter_2master` - централизованный параллельный арбитр;
+- `branch_predictor_a4` - предсказатель A4.
+
+После компиляции их можно открыть через `Tools -> Netlist Viewers -> RTL Viewer`
+или посмотреть дерево `Project Navigator -> Hierarchy`. Если преподаватель
+требует именно символы для `.bdf`, в Quartus можно открыть каждый `.vhd` и
+выполнить `File -> Create / Update -> Create Symbol Files for Current File`.
+
 ## Сигналы для добавления на waveform
 
 Для полной модели добавить:
