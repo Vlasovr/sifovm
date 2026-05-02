@@ -1,0 +1,37 @@
+
+State Machine - |microcomputer_top|system_core:U_SYSTEM|dma_controller_3word:U_DMA|state_r
+Name state_r.FINISH state_r.WRITE_WORD state_r.REQ_BUS state_r.IDLE 
+state_r.IDLE 0 0 0 0 
+state_r.REQ_BUS 0 0 1 1 
+state_r.WRITE_WORD 0 1 0 1 
+state_r.FINISH 1 0 0 1 
+
+State Machine - |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|state_r
+Name state_r.WAIT_WRITE_GRANT state_r.WAIT_READ_DATA state_r.WAIT_READ_GRANT state_r.IDLE 
+state_r.IDLE 0 0 0 0 
+state_r.WAIT_READ_GRANT 0 0 1 1 
+state_r.WAIT_READ_DATA 0 1 0 1 
+state_r.WAIT_WRITE_GRANT 1 0 0 1 
+
+State Machine - |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|state_r
+Name state_r.S_HALT state_r.S_FINISH state_r.S_BRANCH_JZ state_r.S_BRANCH_JMP state_r.S_RF_WRITE_POP state_r.S_STACK_POP state_r.S_STACK_PUSH state_r.S_RF_WRITE_MEM state_r.S_ALU_WRITE state_r.S_ALU_SETUP_REG state_r.S_CACHE_WRITE state_r.S_CACHE_READ state_r.S_DECODE state_r.S_FETCH1_LATCH state_r.S_FETCH1_WAIT state_r.S_FETCH1_REQ state_r.S_FETCH0_LATCH state_r.S_FETCH0_WAIT state_r.S_FETCH0_REQ state_r.S_RESET 
+state_r.S_RESET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state_r.S_FETCH0_REQ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state_r.S_FETCH0_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state_r.S_FETCH0_LATCH 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state_r.S_FETCH1_REQ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state_r.S_FETCH1_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state_r.S_FETCH1_LATCH 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state_r.S_DECODE 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state_r.S_CACHE_READ 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state_r.S_CACHE_WRITE 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state_r.S_ALU_SETUP_REG 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state_r.S_ALU_WRITE 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_RF_WRITE_MEM 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_STACK_PUSH 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_STACK_POP 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_RF_WRITE_POP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_BRANCH_JMP 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_BRANCH_JZ 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_FINISH 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state_r.S_HALT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

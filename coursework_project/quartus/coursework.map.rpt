@@ -1,0 +1,1226 @@
+Analysis & Synthesis report for coursework
+Sat May 02 14:01:55 2026
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |microcomputer_top|system_core:U_SYSTEM|dma_controller_3word:U_DMA|state_r
+ 10. State Machine - |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|state_r
+ 11. State Machine - |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|state_r
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Registers Packed Into Inferred Megafunctions
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated
+ 19. Source assignments for system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated|altsyncram_ocm1:altsyncram1
+ 20. Source assignments for system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1|altsyncram_dn11:auto_generated
+ 21. Parameter Settings for User Entity Instance: system_core:U_SYSTEM|dma_controller_3word:U_DMA
+ 22. Parameter Settings for Inferred Entity Instance: system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0
+ 23. Parameter Settings for Inferred Entity Instance: system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1
+ 24. altsyncram Parameter Settings by Entity Instance
+ 25. Port Connectivity Checks: "system_core:U_SYSTEM|dma_controller_3word:U_DMA"
+ 26. Port Connectivity Checks: "system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK"
+ 27. Port Connectivity Checks: "system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF"
+ 28. Port Connectivity Checks: "system_core:U_SYSTEM"
+ 29. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++------------------------------------+-----------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat May 02 14:01:55 2026   ;
+; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
+; Revision Name                      ; coursework                              ;
+; Top-level Entity Name              ; microcomputer_top                       ;
+; Family                             ; Cyclone II                              ;
+; Total logic elements               ; 4,126                                   ;
+;     Total combinational functions  ; 2,430                                   ;
+;     Dedicated logic registers      ; 2,104                                   ;
+; Total registers                    ; 2104                                    ;
+; Total pins                         ; 22                                      ;
+; Total virtual pins                 ; 0                                       ;
+; Total memory bits                  ; 6,912                                   ;
+; Embedded Multiplier 9-bit elements ; 0                                       ;
+; Total PLLs                         ; 0                                       ;
++------------------------------------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; microcomputer_top  ; coursework         ;
+; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                         ;
++----------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                          ;
++----------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------+
+; ../src/microcomputer_pkg.vhd                 ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/microcomputer_pkg.vhd                            ;
+; ../src/program_image_pkg.vhd                 ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/program_image_pkg.vhd                            ;
+; ../src/data_image_pkg.vhd                    ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/data_image_pkg.vhd                               ;
+; ../src/alu_core.vhd                          ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/alu_core.vhd                                     ;
+; ../src/reg_file12x16_dbg.vhd                 ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/reg_file12x16_dbg.vhd                            ;
+; ../src/flags_reg.vhd                         ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/flags_reg.vhd                                    ;
+; ../src/stack7x16.vhd                         ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/stack7x16.vhd                                    ;
+; ../src/rom_sync.vhd                          ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/rom_sync.vhd                                     ;
+; ../src/ram_sync.vhd                          ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/ram_sync.vhd                                     ;
+; ../src/bus_arbiter_2master.vhd               ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/bus_arbiter_2master.vhd                          ;
+; ../src/dma_controller_3word.vhd              ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/dma_controller_3word.vhd                         ;
+; ../src/branch_predictor.vhd                  ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/branch_predictor.vhd                             ;
+; ../src/cache_4way_age.vhd                    ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/cache_4way_age.vhd                               ;
+; ../src/cpu_core.vhd                          ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/cpu_core.vhd                                     ;
+; ../src/system_core.vhd                       ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/system_core.vhd                                  ;
+; ../src/microcomputer_top.vhd                 ; yes             ; User VHDL File                                        ; D:/git/sifovm/coursework_project/src/microcomputer_top.vhd                            ;
+; altsyncram.tdf                               ; yes             ; Megafunction                                          ; d:/quartus/libraries/megafunctions/altsyncram.tdf                                     ;
+; db/altsyncram_mpi1.tdf                       ; yes             ; Auto-Generated Megafunction                           ; D:/git/sifovm/coursework_project/quartus/db/altsyncram_mpi1.tdf                       ;
+; db/altsyncram_ocm1.tdf                       ; yes             ; Auto-Generated Megafunction                           ; D:/git/sifovm/coursework_project/quartus/db/altsyncram_ocm1.tdf                       ;
+; db/coursework.ram0_ram_sync_18452fb9.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/git/sifovm/coursework_project/quartus/db/coursework.ram0_ram_sync_18452fb9.hdl.mif ;
+; db/altsyncram_dn11.tdf                       ; yes             ; Auto-Generated Megafunction                           ; D:/git/sifovm/coursework_project/quartus/db/altsyncram_dn11.tdf                       ;
++----------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 4,126 ;
+;                                             ;       ;
+; Total combinational functions               ; 2430  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 2072  ;
+;     -- 3 input functions                    ; 178   ;
+;     -- <=2 input functions                  ; 180   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 2402  ;
+;     -- arithmetic mode                      ; 28    ;
+;                                             ;       ;
+; Total registers                             ; 2104  ;
+;     -- Dedicated logic registers            ; 2104  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 22    ;
+; Total memory bits                           ; 6912  ;
+; Maximum fan-out node                        ; CLK   ;
+; Maximum fan-out                             ; 2131  ;
+; Total fan-out                               ; 18905 ;
+; Average fan-out                             ; 4.13  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                              ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |microcomputer_top                           ; 2430 (1)          ; 2104 (0)     ; 6912        ; 0            ; 0       ; 0         ; 22   ; 0            ; |microcomputer_top                                                                                                                     ; work         ;
+;    |system_core:U_SYSTEM|                    ; 2429 (24)         ; 2104 (0)     ; 6912        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM                                                                                                ;              ;
+;       |cache_4way_age:U_CACHE|               ; 2000 (2000)       ; 1740 (1740)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE                                                                         ; work         ;
+;       |cpu_core:U_CPU|                       ; 390 (108)         ; 357 (96)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU                                                                                 ; work         ;
+;          |alu_core:U_ALU|                    ; 89 (89)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|alu_core:U_ALU                                                                  ; work         ;
+;          |flags_reg:U_FLAGS|                 ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|flags_reg:U_FLAGS                                                               ; work         ;
+;          |reg_file12x16_dbg:U_RF|            ; 106 (106)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF                                                          ; work         ;
+;          |stack7x16:U_STACK|                 ; 85 (85)           ; 131 (131)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK                                                               ; work         ;
+;       |dma_controller_3word:U_DMA|           ; 14 (14)           ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|dma_controller_3word:U_DMA                                                                     ; work         ;
+;       |ram_sync:U_RAM|                       ; 1 (1)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|ram_sync:U_RAM                                                                                 ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0                                                            ;              ;
+;             |altsyncram_mpi1:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated                             ;              ;
+;                |altsyncram_ocm1:altsyncram1| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated|altsyncram_ocm1:altsyncram1 ;              ;
+;       |rom_sync:U_ROM|                       ; 0 (0)             ; 0 (0)        ; 2816        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|rom_sync:U_ROM                                                                                 ; work         ;
+;          |altsyncram:Mux0_rtl_1|             ; 0 (0)             ; 0 (0)        ; 2816        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1                                                           ;              ;
+;             |altsyncram_dn11:auto_generated| ; 0 (0)             ; 0 (0)        ; 2816        ; 0            ; 0       ; 0         ; 0    ; 0            ; |microcomputer_top|system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1|altsyncram_dn11:auto_generated                            ;              ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                         ;
++--------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------------------------------------+
+; Name                                                                                                                           ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                          ;
++--------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------------------------------------+
+; system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated|altsyncram_ocm1:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 256          ; 16           ; 256          ; 16           ; 4096 ; db/coursework.ram0_ram_sync_18452fb9.hdl.mif ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1|altsyncram_dn11:auto_generated|ALTSYNCRAM                            ; AUTO ; ROM            ; 256          ; 11           ; --           ; --           ; 2816 ; coursework.microcomputer_top0.rtl.mif        ;
++--------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------+
+; State Machine - |microcomputer_top|system_core:U_SYSTEM|dma_controller_3word:U_DMA|state_r ;
++--------------------+----------------+--------------------+-----------------+---------------+
+; Name               ; state_r.FINISH ; state_r.WRITE_WORD ; state_r.REQ_BUS ; state_r.IDLE  ;
++--------------------+----------------+--------------------+-----------------+---------------+
+; state_r.IDLE       ; 0              ; 0                  ; 0               ; 0             ;
+; state_r.REQ_BUS    ; 0              ; 0                  ; 1               ; 1             ;
+; state_r.WRITE_WORD ; 0              ; 1                  ; 0               ; 1             ;
+; state_r.FINISH     ; 1              ; 0                  ; 0               ; 1             ;
++--------------------+----------------+--------------------+-----------------+---------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|state_r                                ;
++--------------------------+--------------------------+------------------------+-------------------------+--------------+
+; Name                     ; state_r.WAIT_WRITE_GRANT ; state_r.WAIT_READ_DATA ; state_r.WAIT_READ_GRANT ; state_r.IDLE ;
++--------------------------+--------------------------+------------------------+-------------------------+--------------+
+; state_r.IDLE             ; 0                        ; 0                      ; 0                       ; 0            ;
+; state_r.WAIT_READ_GRANT  ; 0                        ; 0                      ; 1                       ; 1            ;
+; state_r.WAIT_READ_DATA   ; 0                        ; 1                      ; 0                       ; 1            ;
+; state_r.WAIT_WRITE_GRANT ; 1                        ; 0                      ; 0                       ; 1            ;
++--------------------------+--------------------------+------------------------+-------------------------+--------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|state_r                                                                                                                                                                                                                                                                                                                                                                                                              ;
++-------------------------+----------------+------------------+---------------------+----------------------+------------------------+---------------------+----------------------+------------------------+---------------------+-------------------------+-----------------------+----------------------+------------------+------------------------+-----------------------+----------------------+------------------------+-----------------------+----------------------+-----------------+
+; Name                    ; state_r.S_HALT ; state_r.S_FINISH ; state_r.S_BRANCH_JZ ; state_r.S_BRANCH_JMP ; state_r.S_RF_WRITE_POP ; state_r.S_STACK_POP ; state_r.S_STACK_PUSH ; state_r.S_RF_WRITE_MEM ; state_r.S_ALU_WRITE ; state_r.S_ALU_SETUP_REG ; state_r.S_CACHE_WRITE ; state_r.S_CACHE_READ ; state_r.S_DECODE ; state_r.S_FETCH1_LATCH ; state_r.S_FETCH1_WAIT ; state_r.S_FETCH1_REQ ; state_r.S_FETCH0_LATCH ; state_r.S_FETCH0_WAIT ; state_r.S_FETCH0_REQ ; state_r.S_RESET ;
++-------------------------+----------------+------------------+---------------------+----------------------+------------------------+---------------------+----------------------+------------------------+---------------------+-------------------------+-----------------------+----------------------+------------------+------------------------+-----------------------+----------------------+------------------------+-----------------------+----------------------+-----------------+
+; state_r.S_RESET         ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 0               ;
+; state_r.S_FETCH0_REQ    ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 1                    ; 1               ;
+; state_r.S_FETCH0_WAIT   ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 1                     ; 0                    ; 1               ;
+; state_r.S_FETCH0_LATCH  ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 1                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_FETCH1_REQ    ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 1                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_FETCH1_WAIT   ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 1                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_FETCH1_LATCH  ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 1                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_DECODE        ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 1                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_CACHE_READ    ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 1                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_CACHE_WRITE   ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 1                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_ALU_SETUP_REG ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 1                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_ALU_WRITE     ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 1                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_RF_WRITE_MEM  ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 1                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_STACK_PUSH    ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 1                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_STACK_POP     ; 0              ; 0                ; 0                   ; 0                    ; 0                      ; 1                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_RF_WRITE_POP  ; 0              ; 0                ; 0                   ; 0                    ; 1                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_BRANCH_JMP    ; 0              ; 0                ; 0                   ; 1                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_BRANCH_JZ     ; 0              ; 0                ; 1                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_FINISH        ; 0              ; 1                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
+; state_r.S_HALT          ; 1              ; 0                ; 0                   ; 0                    ; 0                      ; 0                   ; 0                    ; 0                      ; 0                   ; 0                       ; 0                     ; 0                    ; 0                ; 0                      ; 0                     ; 0                    ; 0                      ; 0                     ; 0                    ; 1               ;
++-------------------------+----------------+------------------+---------------------+----------------------+------------------------+---------------------+----------------------+------------------------+---------------------+-------------------------+-----------------------+----------------------+------------------+------------------------+-----------------------+----------------------+------------------------+-----------------------+----------------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal                                                      ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[7,12..15]                       ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[6]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[2]    ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[1]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|set_r[1]        ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[2]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|set_r[2]        ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[14]                           ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[12]               ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir0_r[13,15]                        ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|ir0_r[7]                ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir0_r[14]                           ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|ir0_r[12]               ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[10]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[8]    ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[6]                     ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[4]         ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|cur_reg_r[3]                        ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[5]         ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[13]                           ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[7]                ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[15]                           ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[12]               ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[4]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[0]    ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[7]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[9]    ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[7]                     ; Merged with system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[5]         ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[11]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[8]    ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[5]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[1]    ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[9]                ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[3]    ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[0]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|set_r[0]        ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_addr_r[3]               ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|set_r[3]        ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[7,12]                         ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir0_r[7,12]                         ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[3,8]              ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[4..5]                  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][0]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][1]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][2]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][3]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][4]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][5]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][6]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][7]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][8]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][9]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][10] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][11] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][12] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][13] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][14] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[11][15] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][0]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][1]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][2]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][3]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][4]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][5]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][6]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][7]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][8]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][9]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][10] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][11] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][12] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][13] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][14] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[10][15] ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][0]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][1]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][2]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][3]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][4]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][5]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][6]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][7]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][8]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][9]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][10]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][11]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][12]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][13]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][14]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[9][15]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][0]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][1]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][2]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][3]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][4]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][5]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][6]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][7]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][8]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][9]   ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][10]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][11]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][12]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][13]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][14]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[8][15]  ; Stuck at GND due to stuck port data_in                                  ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][3][9]             ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][3][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][3][10]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][3][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][11]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][3] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][9]             ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][10]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][11]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][3] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][9]             ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][10]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][11]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][3] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][9]             ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][10]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][8] ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][3][11]            ; Merged with system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][3][3] ;
+; Total Number of Removed Registers = 427                                 ;                                                                         ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+
+* Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                      ;
++----------------------------------------------------------+---------------------------+-----------------------------------------------------------+
+; Register name                                            ; Reason for Removal        ; Registers Removed due to This Register                    ;
++----------------------------------------------------------+---------------------------+-----------------------------------------------------------+
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[12]            ; Stuck at GND              ; system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[15],             ;
+;                                                          ; due to stuck port data_in ; system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[14]              ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[7]             ; Stuck at GND              ; system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[13]              ;
+;                                                          ; due to stuck port data_in ;                                                           ;
+; system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_req_r[3] ; Stuck at GND              ; system_core:U_SYSTEM|cache_4way_age:U_CACHE|ram_addr_r[7] ;
+;                                                          ; due to stuck port data_in ;                                                           ;
++----------------------------------------------------------+---------------------------+-----------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2104  ;
+; Number of registers using Synchronous Clear  ; 1118  ;
+; Number of registers using Synchronous Load   ; 1056  ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2051  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------+
+; Inverted Register Statistics                                            ;
++---------------------------------------------------------------+---------+
+; Inverted Register                                             ; Fan out ;
++---------------------------------------------------------------+---------+
+; system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|sp_r[1] ; 39      ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|sp_r[2] ; 38      ;
+; system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|sp_r[0] ; 10      ;
+; Total number of inverted registers = 3                        ;         ;
++---------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                    ;
++---------------------------------------------+--------------------------------------------+------+
+; Register Name                               ; Megafunction                               ; Type ;
++---------------------------------------------+--------------------------------------------+------+
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[0]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[1]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[2]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[3]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[4]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[5]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[6]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[7]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[8]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[9]  ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[10] ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[11] ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[12] ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[13] ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[14] ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|ram_sync:U_RAM|q_r[15] ; system_core:U_SYSTEM|ram_sync:U_RAM|mem~25 ; RAM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[11] ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[10] ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[9]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[8]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[6]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[5]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[4]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[3]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[2]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[1]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
+; system_core:U_SYSTEM|rom_sync:U_ROM|q_r[0]  ; system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0 ; ROM  ;
++---------------------------------------------+--------------------------------------------+------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|ir0_r[11]                          ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[9]                           ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|cur_opcode_r[3]                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|flags_reg:U_FLAGS|s_r              ;
+; 4:1                ; 27 bits   ; 54 LEs        ; 27 LEs               ; 27 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|req_wdata_r[8]             ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[0][4]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[1][9]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[2][9]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[3][13] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[4][4]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[5][13] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[6][4]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|regs[7][11] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[3][12]       ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[4][9]        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[0][9]        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[5][4]        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[1][4]        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[6][12]       ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|mem[2][14]       ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|rom_addr_r[6]                      ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|dma_controller_3word:U_DMA|index_r[1]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|ram_addr_r[6]              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|ram_req_r                  ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|alu_a_r[0]                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|alu_op_r[1]                        ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[0][0]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[0][0][7]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[1][0]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[1][0][2]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[2][0]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[2][0][7]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][0][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][0][1]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[4][0]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[4][0][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[5][0]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[5][0][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[6][0][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[6][0][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[7][0][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[7][0][4]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[8][0]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[8][0][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][0][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][0][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[10][0]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[10][0][6]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[11][0]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[11][0][6]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[12][0]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[12][0][2]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[13][0][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[13][0][2]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][0][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][0][5]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][0][0]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[0][1]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[0][1][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[1][1]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[1][1][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[2][1]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[2][1][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][1][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][1][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[4][1][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[4][1][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[5][1][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[5][1][1]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[6][1]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[6][1][1]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[7][1]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[7][1][6]             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[8][1][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[8][1][4]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][1][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][1][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[10][1][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[10][1][7]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[11][1]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[11][1][1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[12][1]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[12][1][5]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[13][1]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[13][1][1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[14][1]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][1][4]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][1][2]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[0][2]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[0][2][7]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[1][2][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[1][2][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[2][2][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[2][2][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[3][2]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][2][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[4][2]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[4][2][7]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[5][2]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[5][2][7]             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[6][2]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[6][2][7]             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[7][2][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[7][2][7]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[8][2][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[8][2][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][2][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][2][5]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[10][2][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[10][2][1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[11][2][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[11][2][1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[12][2][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[12][2][6]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[13][2]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[13][2][1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][2][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][2][4]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][2][4]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[0][3][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[0][3][2]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[1][3]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[1][3][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[2][3][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[2][3][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][3][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[3][3][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[4][3][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[4][3][6]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[5][3][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[5][3][6]             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[6][3][8]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[6][3][0]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[7][3]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[7][3][4]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[8][3]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[8][3][4]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[9][3]              ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[9][3][2]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[10][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[10][3][5]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[11][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[11][3][0]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|valid_r[12][3]             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[12][3][1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[13][3][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[13][3][4]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][3][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[14][3][0]            ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][3][3]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|tag_r[15][3][2]            ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[12]                           ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[6]                            ;
+; 11:1               ; 16 bits   ; 112 LEs       ; 80 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|dout_r[3]        ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|ram_wdata_r[0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|victim_r[1]                ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[0][0][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[1][0][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[2][0][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[3][0][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[4][0][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[5][0][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[6][0][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[7][0][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[8][0][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[9][0][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[10][0][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[11][0][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[12][0][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[13][0][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[14][0][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[15][0][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[0][1][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[1][1][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[2][1][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[3][1][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[4][1][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[5][1][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[6][1][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[7][1][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[8][1][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[9][1][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[10][1][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[11][1][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[12][1][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[13][1][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[14][1][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[15][1][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[0][2][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[1][2][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[2][2][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[3][2][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[4][2][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[5][2][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[6][2][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[7][2][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[8][2][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[9][2][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[10][2][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[11][2][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[12][2][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[13][2][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[14][2][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[15][2][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[0][3][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[1][3][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[2][3][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[3][3][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[4][3][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[5][3][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[6][3][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[7][3][1]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[8][3][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[9][3][0]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[10][3][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[11][3][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[12][3][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[13][3][1]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[14][3][0]            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|age_r[15][3][1]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[0][0][10]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[1][0][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[2][0][4]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[3][0][12]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[4][0][11]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[5][0][15]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[6][0][7]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[7][0][15]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[8][0][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[9][0][11]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[10][0][13]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[11][0][3]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[12][0][6]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[13][0][5]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[14][0][12]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[15][0][12]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[0][1][3]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[1][1][4]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[2][1][6]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[3][1][13]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[4][1][1]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[5][1][4]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[6][1][3]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[7][1][14]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[8][1][5]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[9][1][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[10][1][13]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[11][1][7]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[12][1][10]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[13][1][15]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[14][1][15]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[15][1][11]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[0][2][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[1][2][11]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[2][2][13]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[3][2][1]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[4][2][8]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[5][2][3]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[6][2][13]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[7][2][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[8][2][0]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[9][2][3]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[10][2][2]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[11][2][5]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[12][2][14]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[13][2][1]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[14][2][2]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[15][2][1]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[0][3][13]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[1][3][12]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[2][3][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[3][3][15]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[4][3][1]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[5][3][10]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[6][3][8]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[7][3][10]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[8][3][2]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[9][3][0]            ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[10][3][13]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[11][3][15]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[12][3][8]           ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[13][3][11]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[14][3][14]          ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 32 LEs               ; 112 LEs                ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[15][3][14]          ;
+; 69:1               ; 16 bits   ; 736 LEs       ; 704 LEs              ; 32 LEs                 ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|cpu_rdata_r[0]             ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK|sp_r[0]          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|rf_din[0]                          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|alu_b_r                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux40                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux40                      ;
+; 8:1                ; 15 bits   ; 75 LEs        ; 45 LEs               ; 30 LEs                 ; No         ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|alu_core:U_ALU|Mux3                ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF|Mux3        ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux41                      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux17                      ;
+; 16:1               ; 41 bits   ; 410 LEs       ; 410 LEs              ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux8                       ;
+; 16:1               ; 12 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux389                     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cpu_core:U_CPU|state_r                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux14                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|state_r                    ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|dma_controller_3word:U_DMA|state_r                ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|state_r                    ;
+; 32:1               ; 3 bits    ; 63 LEs        ; 63 LEs               ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux56                      ;
+; 64:1               ; 3 bits    ; 126 LEs       ; 126 LEs              ; 0 LEs                  ; No         ; |microcomputer_top|system_core:U_SYSTEM|cache_4way_age:U_CACHE|Mux112                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Source assignments for system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                               ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated|altsyncram_ocm1:altsyncram1 ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Source assignments for system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1|altsyncram_dn11:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: system_core:U_SYSTEM|dma_controller_3word:U_DMA ;
++----------------+------------------+----------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                     ;
++----------------+------------------+----------------------------------------------------------+
+; base_addr_g    ; 0000000000001010 ; Unsigned Binary                                          ;
++----------------+------------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------------------------------+-----------------------+
+; Parameter Name                     ; Value                                        ; Type                  ;
++------------------------------------+----------------------------------------------+-----------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                            ; Untyped               ;
+; AUTO_CARRY_CHAINS                  ; ON                                           ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                          ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS                ; ON                                           ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                          ; IGNORE_CASCADE        ;
+; WIDTH_BYTEENA                      ; 1                                            ; Untyped               ;
+; OPERATION_MODE                     ; DUAL_PORT                                    ; Untyped               ;
+; WIDTH_A                            ; 16                                           ; Untyped               ;
+; WIDTHAD_A                          ; 8                                            ; Untyped               ;
+; NUMWORDS_A                         ; 256                                          ; Untyped               ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                 ; Untyped               ;
+; ADDRESS_ACLR_A                     ; NONE                                         ; Untyped               ;
+; OUTDATA_ACLR_A                     ; NONE                                         ; Untyped               ;
+; WRCONTROL_ACLR_A                   ; NONE                                         ; Untyped               ;
+; INDATA_ACLR_A                      ; NONE                                         ; Untyped               ;
+; BYTEENA_ACLR_A                     ; NONE                                         ; Untyped               ;
+; WIDTH_B                            ; 16                                           ; Untyped               ;
+; WIDTHAD_B                          ; 8                                            ; Untyped               ;
+; NUMWORDS_B                         ; 256                                          ; Untyped               ;
+; INDATA_REG_B                       ; CLOCK1                                       ; Untyped               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                       ; Untyped               ;
+; RDCONTROL_REG_B                    ; CLOCK1                                       ; Untyped               ;
+; ADDRESS_REG_B                      ; CLOCK1                                       ; Untyped               ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                 ; Untyped               ;
+; BYTEENA_REG_B                      ; CLOCK1                                       ; Untyped               ;
+; INDATA_ACLR_B                      ; NONE                                         ; Untyped               ;
+; WRCONTROL_ACLR_B                   ; NONE                                         ; Untyped               ;
+; ADDRESS_ACLR_B                     ; NONE                                         ; Untyped               ;
+; OUTDATA_ACLR_B                     ; NONE                                         ; Untyped               ;
+; RDCONTROL_ACLR_B                   ; NONE                                         ; Untyped               ;
+; BYTEENA_ACLR_B                     ; NONE                                         ; Untyped               ;
+; WIDTH_BYTEENA_A                    ; 1                                            ; Untyped               ;
+; WIDTH_BYTEENA_B                    ; 1                                            ; Untyped               ;
+; RAM_BLOCK_TYPE                     ; AUTO                                         ; Untyped               ;
+; BYTE_SIZE                          ; 8                                            ; Untyped               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ; Untyped               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                         ; Untyped               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                         ; Untyped               ;
+; INIT_FILE                          ; db/coursework.ram0_ram_sync_18452fb9.hdl.mif ; Untyped               ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                       ; Untyped               ;
+; MAXIMUM_DEPTH                      ; 0                                            ; Untyped               ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                       ; Untyped               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                       ; Untyped               ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                       ; Untyped               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                       ; Untyped               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                              ; Untyped               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                              ; Untyped               ;
+; ENABLE_ECC                         ; FALSE                                        ; Untyped               ;
+; DEVICE_FAMILY                      ; Cyclone II                                   ; Untyped               ;
+; CBXI_PARAMETER                     ; altsyncram_mpi1                              ; Untyped               ;
++------------------------------------+----------------------------------------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1 ;
++------------------------------------+---------------------------------------+-------------------------------+
+; Parameter Name                     ; Value                                 ; Type                          ;
++------------------------------------+---------------------------------------+-------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                     ; Untyped                       ;
+; AUTO_CARRY_CHAINS                  ; ON                                    ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                   ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                ; ON                                    ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                   ; IGNORE_CASCADE                ;
+; WIDTH_BYTEENA                      ; 1                                     ; Untyped                       ;
+; OPERATION_MODE                     ; ROM                                   ; Untyped                       ;
+; WIDTH_A                            ; 11                                    ; Untyped                       ;
+; WIDTHAD_A                          ; 8                                     ; Untyped                       ;
+; NUMWORDS_A                         ; 256                                   ; Untyped                       ;
+; OUTDATA_REG_A                      ; UNREGISTERED                          ; Untyped                       ;
+; ADDRESS_ACLR_A                     ; NONE                                  ; Untyped                       ;
+; OUTDATA_ACLR_A                     ; NONE                                  ; Untyped                       ;
+; WRCONTROL_ACLR_A                   ; NONE                                  ; Untyped                       ;
+; INDATA_ACLR_A                      ; NONE                                  ; Untyped                       ;
+; BYTEENA_ACLR_A                     ; NONE                                  ; Untyped                       ;
+; WIDTH_B                            ; 1                                     ; Untyped                       ;
+; WIDTHAD_B                          ; 1                                     ; Untyped                       ;
+; NUMWORDS_B                         ; 1                                     ; Untyped                       ;
+; INDATA_REG_B                       ; CLOCK1                                ; Untyped                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                ; Untyped                       ;
+; RDCONTROL_REG_B                    ; CLOCK1                                ; Untyped                       ;
+; ADDRESS_REG_B                      ; CLOCK1                                ; Untyped                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED                          ; Untyped                       ;
+; BYTEENA_REG_B                      ; CLOCK1                                ; Untyped                       ;
+; INDATA_ACLR_B                      ; NONE                                  ; Untyped                       ;
+; WRCONTROL_ACLR_B                   ; NONE                                  ; Untyped                       ;
+; ADDRESS_ACLR_B                     ; NONE                                  ; Untyped                       ;
+; OUTDATA_ACLR_B                     ; NONE                                  ; Untyped                       ;
+; RDCONTROL_ACLR_B                   ; NONE                                  ; Untyped                       ;
+; BYTEENA_ACLR_B                     ; NONE                                  ; Untyped                       ;
+; WIDTH_BYTEENA_A                    ; 1                                     ; Untyped                       ;
+; WIDTH_BYTEENA_B                    ; 1                                     ; Untyped                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                                  ; Untyped                       ;
+; BYTE_SIZE                          ; 8                                     ; Untyped                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                  ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                  ; Untyped                       ;
+; INIT_FILE                          ; coursework.microcomputer_top0.rtl.mif ; Untyped                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                ; Untyped                       ;
+; MAXIMUM_DEPTH                      ; 0                                     ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                ; Untyped                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                       ; Untyped                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                       ; Untyped                       ;
+; ENABLE_ECC                         ; FALSE                                 ; Untyped                       ;
+; DEVICE_FAMILY                      ; Cyclone II                            ; Untyped                       ;
+; CBXI_PARAMETER                     ; altsyncram_dn11                       ; Untyped                       ;
++------------------------------------+---------------------------------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                      ;
++-------------------------------------------+-----------------------------------------------------------+
+; Name                                      ; Value                                                     ;
++-------------------------------------------+-----------------------------------------------------------+
+; Number of entity instances                ; 2                                                         ;
+; Entity Instance                           ; system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0  ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                 ;
+;     -- WIDTH_A                            ; 16                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 16                                                        ;
+;     -- NUMWORDS_B                         ; 256                                                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
+; Entity Instance                           ; system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1 ;
+;     -- OPERATION_MODE                     ; ROM                                                       ;
+;     -- WIDTH_A                            ; 11                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 1                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
++-------------------------------------------+-----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_core:U_SYSTEM|dma_controller_3word:U_DMA"                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; busy_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK"                                 ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; empty_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; full_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF"                                ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; rd_addr_b_i ; Input  ; Info     ; Stuck at GND                                                                        ;
+; dout_b_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r0_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r8_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r9_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r10_o       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r11_o       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "system_core:U_SYSTEM"                                                                           ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; dbg_state_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_pc_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_ir0_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_ir1_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r1_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r2_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r3_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r4_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r5_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r6_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_r7_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_flags_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_sp_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_cache_hit_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_cache_miss_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_req_cpu_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_req_dma_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_gnt_cpu_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_gnt_dma_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_ram_we_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_ram_addr_o   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_ram_wdata_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_ram_rdata_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_bp_hist_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_bp_pred_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dbg_bp_target_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Sat May 02 14:01:37 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off coursework -c coursework
+Info: Found 2 design units, including 0 entities, in source file /git/sifovm/coursework_project/src/microcomputer_pkg.vhd
+    Info: Found design unit 1: microcomputer_pkg
+    Info: Found design unit 2: microcomputer_pkg-body
+Info: Found 1 design units, including 0 entities, in source file /git/sifovm/coursework_project/src/program_image_pkg.vhd
+    Info: Found design unit 1: program_image_pkg
+Info: Found 1 design units, including 0 entities, in source file /git/sifovm/coursework_project/src/data_image_pkg.vhd
+    Info: Found design unit 1: data_image_pkg
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/alu_core.vhd
+    Info: Found design unit 1: alu_core-rtl
+    Info: Found entity 1: alu_core
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/reg_file12x16.vhd
+    Info: Found design unit 1: reg_file12x16-rtl
+    Info: Found entity 1: reg_file12x16
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/reg_file12x16_dbg.vhd
+    Info: Found design unit 1: reg_file12x16_dbg-rtl
+    Info: Found entity 1: reg_file12x16_dbg
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/flags_reg.vhd
+    Info: Found design unit 1: flags_reg-rtl
+    Info: Found entity 1: flags_reg
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/stack7x16.vhd
+    Info: Found design unit 1: stack7x16-rtl
+    Info: Found entity 1: stack7x16
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/rom_sync.vhd
+    Info: Found design unit 1: rom_sync-rtl
+    Info: Found entity 1: rom_sync
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/ram_sync.vhd
+    Info: Found design unit 1: ram_sync-rtl
+    Info: Found entity 1: ram_sync
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/bus_arbiter_2master.vhd
+    Info: Found design unit 1: bus_arbiter_2master-rtl
+    Info: Found entity 1: bus_arbiter_2master
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/dma_controller_3word.vhd
+    Info: Found design unit 1: dma_controller_3word-rtl
+    Info: Found entity 1: dma_controller_3word
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/branch_predictor.vhd
+    Info: Found design unit 1: branch_predictor-rtl
+    Info: Found entity 1: branch_predictor
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/cache_4way_age.vhd
+    Info: Found design unit 1: cache_4way_age-rtl
+    Info: Found entity 1: cache_4way_age
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/cpu_core.vhd
+    Info: Found design unit 1: cpu_core-rtl
+    Info: Found entity 1: cpu_core
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/system_core.vhd
+    Info: Found design unit 1: system_core-structural
+    Info: Found entity 1: system_core
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/coursework_project/src/microcomputer_top.vhd
+    Info: Found design unit 1: microcomputer_top-structural
+    Info: Found entity 1: microcomputer_top
+Info: Elaborating entity "microcomputer_top" for the top level hierarchy
+Info: Elaborating entity "system_core" for hierarchy "system_core:U_SYSTEM"
+Info: Elaborating entity "cpu_core" for hierarchy "system_core:U_SYSTEM|cpu_core:U_CPU"
+Warning (10036): Verilog HDL or VHDL warning at cpu_core.vhd(94): object "rf_b" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu_core.vhd(115): object "stack_empty" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu_core.vhd(116): object "stack_full" assigned a value but never read
+Info: Elaborating entity "reg_file12x16_dbg" for hierarchy "system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF"
+Info: Elaborating entity "alu_core" for hierarchy "system_core:U_SYSTEM|cpu_core:U_CPU|alu_core:U_ALU"
+Info: Elaborating entity "flags_reg" for hierarchy "system_core:U_SYSTEM|cpu_core:U_CPU|flags_reg:U_FLAGS"
+Info: Elaborating entity "stack7x16" for hierarchy "system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK"
+Info: Elaborating entity "rom_sync" for hierarchy "system_core:U_SYSTEM|rom_sync:U_ROM"
+Info: Elaborating entity "cache_4way_age" for hierarchy "system_core:U_SYSTEM|cache_4way_age:U_CACHE"
+Warning (10036): Verilog HDL or VHDL warning at cache_4way_age.vhd(45): object "req_we_r" assigned a value but never read
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "data_r" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tag_r" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "age_r" into its bus
+Info: Elaborating entity "ram_sync" for hierarchy "system_core:U_SYSTEM|ram_sync:U_RAM"
+Info: Elaborating entity "bus_arbiter_2master" for hierarchy "system_core:U_SYSTEM|bus_arbiter_2master:U_ARB"
+Info: Elaborating entity "dma_controller_3word" for hierarchy "system_core:U_SYSTEM|dma_controller_3word:U_DMA"
+Info: Elaborating entity "branch_predictor" for hierarchy "system_core:U_SYSTEM|branch_predictor:U_BP"
+Warning: Inferred dual-clock RAM node "system_core:U_SYSTEM|ram_sync:U_RAM|mem~25" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info: Inferred 2 megafunctions from design logic
+    Info: Inferred altsyncram megafunction from the following design logic: "system_core:U_SYSTEM|ram_sync:U_RAM|mem~25" 
+        Info: Parameter OPERATION_MODE set to DUAL_PORT
+        Info: Parameter WIDTH_A set to 16
+        Info: Parameter WIDTHAD_A set to 8
+        Info: Parameter NUMWORDS_A set to 256
+        Info: Parameter WIDTH_B set to 16
+        Info: Parameter WIDTHAD_B set to 8
+        Info: Parameter NUMWORDS_B set to 256
+        Info: Parameter ADDRESS_ACLR_A set to NONE
+        Info: Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info: Parameter ADDRESS_ACLR_B set to NONE
+        Info: Parameter OUTDATA_ACLR_B set to NONE
+        Info: Parameter ADDRESS_REG_B set to CLOCK1
+        Info: Parameter INDATA_ACLR_A set to NONE
+        Info: Parameter WRCONTROL_ACLR_A set to NONE
+        Info: Parameter INIT_FILE set to db/coursework.ram0_ram_sync_18452fb9.hdl.mif
+    Info: Inferred altsyncram megafunction from the following design logic: "system_core:U_SYSTEM|rom_sync:U_ROM|Mux0~0"
+        Info: Parameter OPERATION_MODE set to ROM
+        Info: Parameter WIDTH_A set to 11
+        Info: Parameter WIDTHAD_A set to 8
+        Info: Parameter NUMWORDS_A set to 256
+        Info: Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info: Parameter RAM_BLOCK_TYPE set to AUTO
+        Info: Parameter INIT_FILE set to coursework.microcomputer_top0.rtl.mif
+Info: Elaborated megafunction instantiation "system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0"
+Info: Instantiated megafunction "system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0" with the following parameter:
+    Info: Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info: Parameter "WIDTH_A" = "16"
+    Info: Parameter "WIDTHAD_A" = "8"
+    Info: Parameter "NUMWORDS_A" = "256"
+    Info: Parameter "WIDTH_B" = "16"
+    Info: Parameter "WIDTHAD_B" = "8"
+    Info: Parameter "NUMWORDS_B" = "256"
+    Info: Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info: Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info: Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info: Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info: Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info: Parameter "INDATA_ACLR_A" = "NONE"
+    Info: Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info: Parameter "INIT_FILE" = "db/coursework.ram0_ram_sync_18452fb9.hdl.mif"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_mpi1.tdf
+    Info: Found entity 1: altsyncram_mpi1
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_ocm1.tdf
+    Info: Found entity 1: altsyncram_ocm1
+Info: Elaborated megafunction instantiation "system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1"
+Info: Instantiated megafunction "system_core:U_SYSTEM|rom_sync:U_ROM|altsyncram:Mux0_rtl_1" with the following parameter:
+    Info: Parameter "OPERATION_MODE" = "ROM"
+    Info: Parameter "WIDTH_A" = "11"
+    Info: Parameter "WIDTHAD_A" = "8"
+    Info: Parameter "NUMWORDS_A" = "256"
+    Info: Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info: Parameter "RAM_BLOCK_TYPE" = "AUTO"
+    Info: Parameter "INIT_FILE" = "coursework.microcomputer_top0.rtl.mif"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_dn11.tdf
+    Info: Found entity 1: altsyncram_dn11
+Info: 8 registers lost all their fanouts during netlist optimizations. The first 8 are displayed below.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "system_core:U_SYSTEM|cpu_core:U_CPU|pc_r[8]" lost all its fanouts during netlist optimizations.
+Info: Implemented 4253 device resources after synthesis - the final resource count might be different
+    Info: Implemented 20 input pins
+    Info: Implemented 2 output pins
+    Info: Implemented 4204 logic cells
+    Info: Implemented 27 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 280 megabytes
+    Info: Processing ended: Sat May 02 14:01:55 2026
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:20
+
+

@@ -1,0 +1,4 @@
+QUARTUS_VERSION = "9.1"
+DATE = "April 28, 2026"
+
+PROJECT_REVISION = "coursework"

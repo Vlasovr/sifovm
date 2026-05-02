@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat May 02 14:02:07 2026
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : coursework
+Top-level Entity Name : microcomputer_top
+Family : Cyclone II
+Device : EP2C5T144C6
+Timing Models : Final
+Total logic elements : 3,801 / 4,608 ( 82 % )
+    Total combinational functions : 2,430 / 4,608 ( 53 % )
+    Dedicated logic registers : 2,104 / 4,608 ( 46 % )
+Total registers : 2104
+Total pins : 22 / 89 ( 25 % )
+Total virtual pins : 0
+Total memory bits : 6,912 / 119,808 ( 6 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

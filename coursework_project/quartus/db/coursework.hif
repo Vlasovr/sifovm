@@ -1,0 +1,2077 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+11
+3500
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+system_core
+# storage
+db|coursework.(1).cnf
+db|coursework.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|system_core.vhd
+ea2a9137fdd5136968b5d9b15aa0c036
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(dma_data_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_state_o)
+4 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_pc_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir0_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r2_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r3_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r4_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r5_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r6_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r7_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_flags_o)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_sp_o)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ram_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ram_wdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ram_rdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_bp_hist_o)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_bp_target_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|program_image_pkg.vhd
+4c16bbc67c26b820142e1dcf3855fb5b
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+|git|sifovm|coursework_project|src|ram_sync.vhd
+9669cde3b143996c6fb6adfd2ed30
+|git|sifovm|coursework_project|src|data_image_pkg.vhd
+b15ee067652d42bdfbbbc96e9018da6
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+|git|sifovm|coursework_project|src|cpu_core.vhd
+253866e719f625ee41cf852b4eefa7f
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+|git|sifovm|coursework_project|src|branch_predictor.vhd
+58d0f5c5a3faabe4c05940b22349df
+|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
+632b3c1f2f2fce22fbc1bc0fa9db98
+|git|sifovm|coursework_project|src|cache_4way_age.vhd
+249930fcbde4826e4622a86b45e7229
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+|git|sifovm|coursework_project|src|dma_controller_3word.vhd
+eeff20fa2d215d4b4cc1efd98eeb18
+|git|sifovm|coursework_project|src|rom_sync.vhd
+b73b99daa0307fc9b7ed76eef452066
+}
+# hierarchies {
+system_core:U_SYSTEM
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+cpu_core
+# storage
+db|coursework.(2).cnf
+db|coursework.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|cpu_core.vhd
+253866e719f625ee41cf852b4eefa7f
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(rom_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(rom_data_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cache_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cache_wdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cache_rdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_pc_query_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_hist_i)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_target_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_pc_update_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_hist_o)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_target_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_state_o)
+4 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_pc_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir0_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r2_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r3_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r4_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r5_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r6_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r7_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_flags_o)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_sp_o)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+}
+# hierarchies {
+system_core:U_SYSTEM|cpu_core:U_CPU
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+reg_file12x16_dbg
+# storage
+db|coursework.(3).cnf
+db|coursework.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(wr_addr_i)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(rd_addr_a_i)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(rd_addr_b_i)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(din_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dout_a_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dout_b_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r0_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r2_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r3_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r4_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r5_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r6_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r7_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r8_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r9_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r10_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(r11_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+alu_core
+# storage
+db|coursework.(4).cnf
+db|coursework.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(b_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(op_i)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(y_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|cpu_core:U_CPU|alu_core:U_ALU
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+flags_reg
+# storage
+db|coursework.(5).cnf
+db|coursework.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+system_core:U_SYSTEM|cpu_core:U_CPU|flags_reg:U_FLAGS
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+stack7x16
+# storage
+db|coursework.(6).cnf
+db|coursework.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(din_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dout_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(sp_o)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+rom_sync
+# storage
+db|coursework.(7).cnf
+db|coursework.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|rom_sync.vhd
+b73b99daa0307fc9b7ed76eef452066
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(addr_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|program_image_pkg.vhd
+4c16bbc67c26b820142e1dcf3855fb5b
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|rom_sync:U_ROM
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+cache_4way_age
+# storage
+db|coursework.(8).cnf
+db|coursework.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|cache_4way_age.vhd
+249930fcbde4826e4622a86b45e7229
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(cpu_addr_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_wdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_rdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_wdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_rdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|cache_4way_age:U_CACHE
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ram_sync
+# storage
+db|coursework.(9).cnf
+db|coursework.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|ram_sync.vhd
+9669cde3b143996c6fb6adfd2ed30
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(addr_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(din_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dout_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|data_image_pkg.vhd
+b15ee067652d42bdfbbbc96e9018da6
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|ram_sync:U_RAM
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+bus_arbiter_2master
+# storage
+db|coursework.(10).cnf
+db|coursework.(10).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
+632b3c1f2f2fce22fbc1bc0fa9db98
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+system_core:U_SYSTEM|bus_arbiter_2master:U_ARB
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+dma_controller_3word
+# storage
+db|coursework.(11).cnf
+db|coursework.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|dma_controller_3word.vhd
+eeff20fa2d215d4b4cc1efd98eeb18
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+base_addr_g
+0000000000001010
+PARAMETER_UNSIGNED_BIN
+USR
+ constraint(base_addr_g)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dev_data_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|dma_controller_3word:U_DMA
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+branch_predictor
+# storage
+db|coursework.(12).cnf
+db|coursework.(12).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|branch_predictor.vhd
+58d0f5c5a3faabe4c05940b22349df
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(pc_query_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(hist_o)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(pred_target_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(pc_update_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(hist_i)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(actual_tgt_i)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+}
+# hierarchies {
+system_core:U_SYSTEM|branch_predictor:U_BP
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+altsyncram
+# storage
+db|coursework.(13).cnf
+db|coursework.(13).cnf
+# case_insensitive
+# source_file
+|quartus|libraries|megafunctions|altsyncram.tdf
+11126d23236b22214ea7531dfb5e29be
+7
+# user_parameter {
+BYTE_SIZE_BLOCK
+8
+PARAMETER_UNKNOWN
+DEF
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+WIDTH_BYTEENA
+1
+PARAMETER_UNKNOWN
+DEF
+OPERATION_MODE
+DUAL_PORT
+PARAMETER_UNKNOWN
+USR
+WIDTH_A
+16
+PARAMETER_UNKNOWN
+USR
+WIDTHAD_A
+8
+PARAMETER_UNKNOWN
+USR
+NUMWORDS_A
+256
+PARAMETER_UNKNOWN
+USR
+OUTDATA_REG_A
+UNREGISTERED
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+OUTDATA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+INDATA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+BYTEENA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+WIDTH_B
+16
+PARAMETER_UNKNOWN
+USR
+WIDTHAD_B
+8
+PARAMETER_UNKNOWN
+USR
+NUMWORDS_B
+256
+PARAMETER_UNKNOWN
+USR
+INDATA_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_WRADDRESS_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+RDCONTROL_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+USR
+OUTDATA_REG_B
+UNREGISTERED
+PARAMETER_UNKNOWN
+USR
+BYTEENA_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+INDATA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+USR
+OUTDATA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+USR
+RDCONTROL_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+BYTEENA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_A
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_B
+1
+PARAMETER_UNKNOWN
+DEF
+RAM_BLOCK_TYPE
+AUTO
+PARAMETER_UNKNOWN
+DEF
+BYTE_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_MIXED_PORTS
+DONT_CARE
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_PORT_A
+NEW_DATA_NO_NBE_READ
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_PORT_B
+NEW_DATA_NO_NBE_READ
+PARAMETER_UNKNOWN
+DEF
+INIT_FILE
+db/coursework.ram0_ram_sync_18452fb9.hdl.mif
+PARAMETER_UNKNOWN
+USR
+INIT_FILE_LAYOUT
+PORT_A
+PARAMETER_UNKNOWN
+DEF
+MAXIMUM_DEPTH
+0
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_INPUT_A
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_INPUT_B
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_OUTPUT_A
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_OUTPUT_B
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_CORE_A
+USE_INPUT_CLKEN
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_CORE_B
+USE_INPUT_CLKEN
+PARAMETER_UNKNOWN
+DEF
+ENABLE_ECC
+FALSE
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+Cyclone II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+altsyncram_mpi1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+wren_a
+-1
+3
+q_b9
+-1
+3
+q_b8
+-1
+3
+q_b7
+-1
+3
+q_b6
+-1
+3
+q_b5
+-1
+3
+q_b4
+-1
+3
+q_b3
+-1
+3
+q_b2
+-1
+3
+q_b15
+-1
+3
+q_b14
+-1
+3
+q_b13
+-1
+3
+q_b12
+-1
+3
+q_b11
+-1
+3
+q_b10
+-1
+3
+q_b1
+-1
+3
+q_b0
+-1
+3
+data_a9
+-1
+3
+data_a8
+-1
+3
+data_a7
+-1
+3
+data_a6
+-1
+3
+data_a5
+-1
+3
+data_a4
+-1
+3
+data_a3
+-1
+3
+data_a2
+-1
+3
+data_a15
+-1
+3
+data_a14
+-1
+3
+data_a13
+-1
+3
+data_a12
+-1
+3
+data_a11
+-1
+3
+data_a10
+-1
+3
+data_a1
+-1
+3
+data_a0
+-1
+3
+clocken1
+-1
+3
+clock1
+-1
+3
+clock0
+-1
+3
+address_b6
+-1
+3
+address_b5
+-1
+3
+address_b4
+-1
+3
+address_b3
+-1
+3
+address_b2
+-1
+3
+address_b1
+-1
+3
+address_b0
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+address_b7
+-1
+1
+address_a7
+-1
+1
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram_mpi1
+# storage
+db|coursework.(14).cnf
+db|coursework.(14).cnf
+# case_insensitive
+# source_file
+db|altsyncram_mpi1.tdf
+60828bf946dba89989a1b419790f230
+7
+# used_port {
+wren_a
+-1
+3
+q_b9
+-1
+3
+q_b8
+-1
+3
+q_b7
+-1
+3
+q_b6
+-1
+3
+q_b5
+-1
+3
+q_b4
+-1
+3
+q_b3
+-1
+3
+q_b2
+-1
+3
+q_b15
+-1
+3
+q_b14
+-1
+3
+q_b13
+-1
+3
+q_b12
+-1
+3
+q_b11
+-1
+3
+q_b10
+-1
+3
+q_b1
+-1
+3
+q_b0
+-1
+3
+data_a9
+-1
+3
+data_a8
+-1
+3
+data_a7
+-1
+3
+data_a6
+-1
+3
+data_a5
+-1
+3
+data_a4
+-1
+3
+data_a3
+-1
+3
+data_a2
+-1
+3
+data_a15
+-1
+3
+data_a14
+-1
+3
+data_a13
+-1
+3
+data_a12
+-1
+3
+data_a11
+-1
+3
+data_a10
+-1
+3
+data_a1
+-1
+3
+data_a0
+-1
+3
+clocken1
+-1
+3
+clock1
+-1
+3
+clock0
+-1
+3
+address_b7
+-1
+3
+address_b6
+-1
+3
+address_b5
+-1
+3
+address_b4
+-1
+3
+address_b3
+-1
+3
+address_b2
+-1
+3
+address_b1
+-1
+3
+address_b0
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram_ocm1
+# storage
+db|coursework.(15).cnf
+db|coursework.(15).cnf
+# case_insensitive
+# source_file
+db|altsyncram_ocm1.tdf
+6a80289b99e7b2c8523a19bba2f727d1
+7
+# used_port {
+wren_b
+-1
+3
+q_a9
+-1
+3
+q_a8
+-1
+3
+q_a7
+-1
+3
+q_a6
+-1
+3
+q_a5
+-1
+3
+q_a4
+-1
+3
+q_a3
+-1
+3
+q_a2
+-1
+3
+q_a15
+-1
+3
+q_a14
+-1
+3
+q_a13
+-1
+3
+q_a12
+-1
+3
+q_a11
+-1
+3
+q_a10
+-1
+3
+q_a1
+-1
+3
+q_a0
+-1
+3
+data_b9
+-1
+3
+data_b8
+-1
+3
+data_b7
+-1
+3
+data_b6
+-1
+3
+data_b5
+-1
+3
+data_b4
+-1
+3
+data_b3
+-1
+3
+data_b2
+-1
+3
+data_b15
+-1
+3
+data_b14
+-1
+3
+data_b13
+-1
+3
+data_b12
+-1
+3
+data_b11
+-1
+3
+data_b10
+-1
+3
+data_b1
+-1
+3
+data_b0
+-1
+3
+clocken1
+-1
+3
+clocken0
+-1
+3
+clock1
+-1
+3
+clock0
+-1
+3
+address_b7
+-1
+3
+address_b6
+-1
+3
+address_b5
+-1
+3
+address_b4
+-1
+3
+address_b3
+-1
+3
+address_b2
+-1
+3
+address_b1
+-1
+3
+address_b0
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+wren_a
+-1
+1
+data_a9
+-1
+2
+data_a8
+-1
+2
+data_a7
+-1
+2
+data_a6
+-1
+2
+data_a5
+-1
+2
+data_a4
+-1
+2
+data_a3
+-1
+2
+data_a2
+-1
+2
+data_a15
+-1
+2
+data_a14
+-1
+2
+data_a13
+-1
+2
+data_a12
+-1
+2
+data_a11
+-1
+2
+data_a10
+-1
+2
+data_a1
+-1
+2
+data_a0
+-1
+2
+}
+# memory_file {
+db|coursework.ram0_ram_sync_18452fb9.hdl.mif
+f9c2be2ea967a642632c4c25691320a8
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram
+# storage
+db|coursework.(16).cnf
+db|coursework.(16).cnf
+# case_insensitive
+# source_file
+|quartus|libraries|megafunctions|altsyncram.tdf
+11126d23236b22214ea7531dfb5e29be
+7
+# user_parameter {
+BYTE_SIZE_BLOCK
+8
+PARAMETER_UNKNOWN
+DEF
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+WIDTH_BYTEENA
+1
+PARAMETER_UNKNOWN
+DEF
+OPERATION_MODE
+ROM
+PARAMETER_UNKNOWN
+USR
+WIDTH_A
+11
+PARAMETER_UNKNOWN
+USR
+WIDTHAD_A
+8
+PARAMETER_UNKNOWN
+USR
+NUMWORDS_A
+256
+PARAMETER_UNKNOWN
+USR
+OUTDATA_REG_A
+UNREGISTERED
+PARAMETER_UNKNOWN
+USR
+ADDRESS_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+OUTDATA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+INDATA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+BYTEENA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+WIDTH_B
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTHAD_B
+1
+PARAMETER_UNKNOWN
+DEF
+NUMWORDS_B
+1
+PARAMETER_UNKNOWN
+DEF
+INDATA_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_WRADDRESS_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+RDCONTROL_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+OUTDATA_REG_B
+UNREGISTERED
+PARAMETER_UNKNOWN
+DEF
+BYTEENA_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+INDATA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+OUTDATA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+RDCONTROL_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+BYTEENA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_A
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_B
+1
+PARAMETER_UNKNOWN
+DEF
+RAM_BLOCK_TYPE
+AUTO
+PARAMETER_UNKNOWN
+USR
+BYTE_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_MIXED_PORTS
+DONT_CARE
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_PORT_A
+NEW_DATA_NO_NBE_READ
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_PORT_B
+NEW_DATA_NO_NBE_READ
+PARAMETER_UNKNOWN
+DEF
+INIT_FILE
+coursework.microcomputer_top0.rtl.mif
+PARAMETER_UNKNOWN
+USR
+INIT_FILE_LAYOUT
+PORT_A
+PARAMETER_UNKNOWN
+DEF
+MAXIMUM_DEPTH
+0
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_INPUT_A
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_INPUT_B
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_OUTPUT_A
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_OUTPUT_B
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_CORE_A
+USE_INPUT_CLKEN
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_CORE_B
+USE_INPUT_CLKEN
+PARAMETER_UNKNOWN
+DEF
+ENABLE_ECC
+FALSE
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+Cyclone II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+altsyncram_dn11
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+q_a9
+-1
+3
+q_a8
+-1
+3
+q_a7
+-1
+3
+q_a6
+-1
+3
+q_a5
+-1
+3
+q_a4
+-1
+3
+q_a3
+-1
+3
+q_a2
+-1
+3
+q_a10
+-1
+3
+q_a1
+-1
+3
+q_a0
+-1
+3
+clocken0
+-1
+3
+clock0
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram_dn11
+# storage
+db|coursework.(17).cnf
+db|coursework.(17).cnf
+# case_insensitive
+# source_file
+db|altsyncram_dn11.tdf
+2f3c87193c8d403c7063d1b67cd7a894
+7
+# used_port {
+q_a9
+-1
+3
+q_a8
+-1
+3
+q_a7
+-1
+3
+q_a6
+-1
+3
+q_a5
+-1
+3
+q_a4
+-1
+3
+q_a3
+-1
+3
+q_a2
+-1
+3
+q_a10
+-1
+3
+q_a1
+-1
+3
+q_a0
+-1
+3
+clocken0
+-1
+3
+clock0
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+}
+# memory_file {
+coursework.microcomputer_top0.rtl.mif
+63dd86c851a0976c55668b72ae137f7c
+}
+# macro_sequence
+
+# end
+# entity
+microcomputer_top
+# storage
+db|coursework.(0).cnf
+db|coursework.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|microcomputer_top.vhd
+67a6f032e87d376842b364f2dc97f7
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# include_file {
+|git|sifovm|coursework_project|src|cpu_core.vhd
+253866e719f625ee41cf852b4eefa7f
+|git|sifovm|coursework_project|src|branch_predictor.vhd
+58d0f5c5a3faabe4c05940b22349df
+|git|sifovm|coursework_project|src|rom_sync.vhd
+b73b99daa0307fc9b7ed76eef452066
+|git|sifovm|coursework_project|src|dma_controller_3word.vhd
+eeff20fa2d215d4b4cc1efd98eeb18
+|git|sifovm|coursework_project|src|program_image_pkg.vhd
+4c16bbc67c26b820142e1dcf3855fb5b
+|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
+632b3c1f2f2fce22fbc1bc0fa9db98
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+|git|sifovm|coursework_project|src|ram_sync.vhd
+9669cde3b143996c6fb6adfd2ed30
+|git|sifovm|coursework_project|src|system_core.vhd
+ea2a9137fdd5136968b5d9b15aa0c036
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+|git|sifovm|coursework_project|src|cache_4way_age.vhd
+249930fcbde4826e4622a86b45e7229
+|git|sifovm|coursework_project|src|data_image_pkg.vhd
+b15ee067652d42bdfbbbc96e9018da6
+}
+# hierarchies {
+|
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

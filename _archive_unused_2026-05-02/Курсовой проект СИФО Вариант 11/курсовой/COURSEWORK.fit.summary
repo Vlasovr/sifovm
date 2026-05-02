@@ -1,0 +1,17 @@
+Fitter Status : Successful - Thu May 17 12:55:19 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : COURSEWORK
+Top-level Entity Name : CPU
+Family : Stratix II
+Device : EP2S15F484C3
+Timing Models : Final
+Logic utilization : 4 %
+    Combinational ALUTs : 311 / 12,480 ( 2 % )
+    Dedicated logic registers : 300 / 12,480 ( 2 % )
+Total registers : 300
+Total pins : 281 / 343 ( 82 % )
+Total virtual pins : 0
+Total block memory bits : 4,096 / 419,328 ( < 1 % )
+DSP block 9-bit elements : 0 / 96 ( 0 % )
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

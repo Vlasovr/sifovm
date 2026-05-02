@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.339 ns
+From           : RESET
+To             : system_core:U_SYSTEM|cache_4way_age:U_CACHE|data_r[7][3][7]
+From Clock     : --
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.832 ns
+From           : system_core:U_SYSTEM|dma_controller_3word:U_DMA|done_r
+To             : DMA_DONE
+From Clock     : CLK
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.336 ns
+From           : DMA_DATA[3]
+To             : system_core:U_SYSTEM|ram_sync:U_RAM|altsyncram:mem_rtl_0|altsyncram_mpi1:auto_generated|altsyncram_ocm1:altsyncram1|ram_block2a0~portb_datain_reg3
+From Clock     : --
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLK'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 73.36 MHz ( period = 13.632 ns )
+From           : system_core:U_SYSTEM|cpu_core:U_CPU|ir1_r[2]
+To             : system_core:U_SYSTEM|cache_4way_age:U_CACHE|victim_r[0]
+From Clock     : CLK
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+
