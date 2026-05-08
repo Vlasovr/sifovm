@@ -22,6 +22,9 @@ DOC_DIR = ROOT / "coursework_project" / "documents"
 OUT_REPORT = DOC_DIR / "Пояснительная_записка.docx"
 FULL_COPY = DOC_DIR / "Пояснительная_записка_полная.docx"
 SHORT_BACKUP = DOC_DIR / "Пояснительная_записка_краткая_архив.docx"
+RTL_IMAGE_DIR = DOC_DIR / "images" / "quartus_rtl"
+RTL_SYSTEM_FIGURE = RTL_IMAGE_DIR / "rtl_1_3_system_fragment.png"
+RTL_MEMORY_FIGURE = RTL_IMAGE_DIR / "rtl_1_3_memory_fragment.png"
 
 
 REPLACEMENTS = [
@@ -339,6 +342,20 @@ def add_caption(doc: Document, text: str):
     return paragraph
 
 
+def add_picture_paragraph(doc: Document, image_path: Path, width_cm: float = 15.5):
+    paragraph = doc.add_paragraph(style="Normal")
+    paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    paragraph.paragraph_format.first_line_indent = None
+    paragraph.paragraph_format.space_before = Pt(4)
+    paragraph.paragraph_format.space_after = Pt(2)
+    run = paragraph.add_run()
+    if image_path.exists():
+        run.add_picture(str(image_path), width=Cm(width_cm))
+    else:
+        run.add_text(f"[Рисунок не найден: {image_path.name}]")
+    return paragraph
+
+
 def add_table(doc: Document, headers: list[str], rows: list[list[str]]):
     table = doc.add_table(rows=1, cols=len(headers))
     table.style = "Table Grid"
@@ -525,28 +542,107 @@ def patch_chapter_1_1_1_2(doc: Document) -> None:
         body.insert(body.index(insert_before), deepcopy(element))
 
 
-def patch_chapter_1_3_heading_cleanup(doc: Document) -> None:
+def patch_chapter_1_3(doc: Document) -> None:
     old_title = "Описание взаимодействия всех блоков микро-ЭВМ при выполнении команд программы."
     new_title = "1.3 Описание взаимодействия всех блоков микро-ЭВМ при выполнении команд программы"
 
-    for paragraph in doc.paragraphs:
-        if paragraph.text.strip() == old_title:
-            set_paragraph_text(paragraph, new_title)
-            try:
-                paragraph.style = "Heading 2"
-            except KeyError:
-                pass
-            clear_paragraph_numbering(paragraph)
-            break
-
     body = doc.element.body
-    start = find_body_index(doc, new_title)
-    end = find_body_index(doc, "Общая последовательность выполнения команды")
+    start = find_body_index(doc, old_title)
+    if start is None:
+        start = find_body_index(doc, new_title)
+    end = find_body_index(doc, "2 РАЗРАБОТКА ОСНОВНЫХ УСТРОЙСТВ МИКРО-ЭВМ")
     if start is None or end is None or end <= start:
         return
 
-    for element in list(body)[start + 1 : end]:
+    insert_before = list(body)[end]
+    for element in list(body)[start:end]:
         body.remove(element)
+
+    added = []
+
+    def remember(paragraph):
+        added.append(paragraph._p)
+
+    remember(add_body_paragraph(doc, new_title, "Heading 2", indent=False))
+    remember(
+        add_body_paragraph(
+            doc,
+            "Главным блоком в иерархии микро-ЭВМ является устройство управления. Именно оно выполняет выборку двухсловной команды из ПЗУ, фиксирует слова команды в регистрах IR0 и IR1, декодирует код операции и номер регистра, а затем формирует последовательность управляющих сигналов для остальных узлов. Исполнительные блоки не работают независимо от устройства управления: они получают разрешение на чтение, запись или изменение состояния только в те такты, которые заданы фазовым автоматом T0...T5 и дополнительным тактом ожидания Tw.",
+        )
+    )
+    remember(
+        add_body_paragraph(
+            doc,
+            "Непосредственно извне для работы микро-ЭВМ задаются тактовый сигнал CLK, сигнал сброса RESET, содержимое ПЗУ команд и начальные данные ОЗУ. Дальнейшее поведение системы определяется последовательностью команд программы. После декодирования команды устройство управления выбирает маршрут данных: обращение к памяти через кэш, выполнение операции в АЛУ, обмен со стеком, изменение указателя команд или останов.",
+        )
+    )
+
+    p = doc.add_paragraph(style="Normal")
+    p.paragraph_format.first_line_indent = None
+    p.add_run("К исполнительным и служебным блокам, взаимодействующим при выполнении программы, относятся:").bold = True
+    added.append(p._p)
+    for line in [
+        "- блок общих операций: HLT, JMP, JZ, MOV adr, Rn и MOV Rn, adr;",
+        "- арифметико-логический блок: OR, NOR, SRA и INCS;",
+        "- блок стека: PUSH, POP, память стека и указатель SP;",
+        "- блок регистров общего назначения R0-R11 и регистр флагов FR;",
+        "- подсистема памяти: кэш данных, ОЗУ, ПЗУ команд и мультиплексоры адресов/данных;",
+        "- служебные подсистемы: арбитр общей шины, КПДП и предсказатель переходов A4.",
+    ]:
+        remember(add_list_line(doc, line))
+
+    remember(
+        add_body_paragraph(
+            doc,
+            "Общий RTL-фрагмент схемы, полученный после анализа и синтеза проекта в Quartus II, приведён на рисунке 1.1. На нём видны реальные экземпляры модулей верхнего уровня: процессорное ядро, кэш, ОЗУ, ПЗУ, КПДП, арбитр шины и предсказатель переходов. По этому фрагменту удобно проследить, что обмен данными внутри системы идёт не напрямую между всеми блоками, а через ограниченный набор общих линий и управляющих разрешений.",
+        )
+    )
+    remember(add_picture_paragraph(doc, RTL_SYSTEM_FIGURE, width_cm=15.7))
+    remember(add_caption(doc, "Рисунок 1.1 - RTL-фрагмент взаимодействия основных блоков микро-ЭВМ в Quartus II"))
+
+    remember(
+        add_body_paragraph(
+            doc,
+            "При выполнении команд обмена с памятью процессорное ядро формирует адрес, направление обмена и слово данных. Запрос поступает в кэш данных. При попадании кэш возвращает требуемое слово без обращения к ОЗУ, при промахе или записи формируется обращение к синхронной памяти данных. Так как к ОЗУ может обращаться не только процессор, но и КПДП, доступ к общей памяти согласуется арбитром шины. В данной реализации арбитр выдаёт разрешающие сигналы grant_cpu и grant_dma и тем самым не допускает одновременной записи разными источниками в одну и ту же память.",
+        )
+    )
+    remember(
+        add_body_paragraph(
+            doc,
+            "Фрагмент RTL-схемы подсистемы памяти приведён на рисунке 1.2. Здесь показаны кэш, ОЗУ, КПДП, арбитр и мультиплексоры выбора адреса и данных. Такая организация особенно важна для Гарвардской архитектуры проекта: ПЗУ команд используется только для выборки программы, а ОЗУ данных обслуживает операции чтения/записи, кэширование и передачу данных через КПДП.",
+        )
+    )
+    remember(add_picture_paragraph(doc, RTL_MEMORY_FIGURE, width_cm=15.2))
+    remember(add_caption(doc, "Рисунок 1.2 - RTL-фрагмент взаимодействия кэша, ОЗУ, КПДП и арбитра шины"))
+
+    remember(
+        add_body_paragraph(
+            doc,
+            "Для арифметико-логических и стековых команд устройство управления разрешает чтение выбранного регистра Rn, передаёт операнды на входы АЛУ или в стековый блок и фиксирует результат в регистровом файле. При выполнении OR и NOR второй операнд считывается из памяти данных через кэш, поэтому эти команды задействуют одновременно регистровый файл, АЛУ и подсистему памяти. Команда SRA использует только регистровый операнд, а INCS увеличивает значение регистра на величину, определяемую флагом S. После выполнения арифметико-логических операций обновляются флаги Z, S, C и O.",
+        )
+    )
+    remember(
+        add_body_paragraph(
+            doc,
+            "Команды PUSH и POP работают через стек глубиной 7 слов. При PUSH устройство управления разрешает чтение регистра и запись слова в текущую вершину стека, после чего изменяется указатель SP. При POP выполняется обратная операция: слово считывается из стека, записывается в выбранный регистр общего назначения, затем указатель вершины корректируется. Состояния пустого и полного стека контролируются аппаратно, чтобы исключить некорректное изменение памяти стека.",
+        )
+    )
+    remember(
+        add_body_paragraph(
+            doc,
+            "Команды передачи управления меняют содержимое IP. Для безусловного перехода JMP в IP загружается адрес из второго слова команды. Для условного перехода JZ дополнительно проверяется флаг Z. Предсказатель переходов A4 получает текущий адрес команды и историю переходов, выдаёт предполагаемый адрес следующей команды и обновляет свои таблицы после фактического выполнения перехода. Если предсказание оказалось неверным, устройство управления сбрасывает ошибочно выбранное направление и продолжает выборку с правильного адреса.",
+        )
+    )
+    remember(
+        add_body_paragraph(
+            doc,
+            "Таким образом, взаимодействие всех блоков организовано централизованно: устройство управления задаёт текущую фазу команды и активные разрешающие сигналы, исполнительные блоки выполняют только назначенную им часть операции, а арбитр и кэш ограничивают доступ к общей памяти. Такая структура уменьшает вероятность конфликтов на шинах и делает выполнение команд предсказуемым при моделировании и синтезе в Quartus II.",
+        )
+    )
+
+    for element in added:
+        body.remove(element)
+        body.insert(body.index(insert_before), element)
 
 
 def append_application_list(doc: Document) -> None:
@@ -642,7 +738,7 @@ def main() -> None:
     replace_everywhere(doc)
     patch_intro(doc)
     patch_chapter_1_1_1_2(doc)
-    patch_chapter_1_3_heading_cleanup(doc)
+    patch_chapter_1_3(doc)
     prepend_front_matter(doc)
     append_application_list(doc)
     finalize_formatting(doc)
