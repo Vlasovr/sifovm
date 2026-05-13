@@ -1,0 +1,2375 @@
+﻿-- ==============================================================================
+-- Аннотированный сплошной VHDL-листинг
+--
+-- Файл: all_vhdl_code.txt
+--
+-- В этом файле код идет одним сплошным листингом. Пояснения вставлены прямо перед
+-- соответствующими блоками как VHDL-комментарии. Оставлен сокращенный рабочий состав:
+-- синтезируемые исходники, реально подключенные в системе. Тестбенчи, архивные варианты,
+-- debug-верхний уровень, неиспользуемый обычный РОН и документационная структурная
+-- модель кэша вынесены из этого листинга, чтобы приложение было короче.
+-- ==============================================================================
+
+-- ==============================================================================
+-- Общий пакет проекта
+--
+-- Файл: src/microcomputer_pkg.vhd
+--
+-- Задает разрядность, общие типы данных, коды операций, коды команд и функцию насыщения для
+-- 2-битных счетчиков.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+package microcomputer_pkg is
+-- ==============================================================================
+-- Общие параметры микро-ЭВМ
+--
+-- Файл: src/microcomputer_pkg.vhd
+--
+-- Здесь задаются единые параметры всей системы: 16-битные слово и адрес, 12 регистров, стек
+-- на 7 слов и 4-way кэш на 16 множеств.
+-- ==============================================================================
+
+  constant DATA_W      : positive := 16;
+  constant ADDR_W      : positive := 16;
+  constant REG_COUNT   : positive := 12;
+  constant STACK_DEPTH : positive := 7;
+  constant CACHE_SETS  : positive := 16;
+  constant CACHE_WAYS  : positive := 4;
+
+-- ==============================================================================
+-- Общие типы данных
+--
+-- Файл: src/microcomputer_pkg.vhd
+--
+-- word_t, addr_t и reg_idx_t используются во всех модулях, поэтому интерфейсы CPU, памяти,
+-- кэша и DMA согласованы по разрядности.
+-- ==============================================================================
+
+  subtype word_t    is std_logic_vector(DATA_W-1 downto 0);
+  subtype addr_t    is std_logic_vector(ADDR_W-1 downto 0);
+  subtype reg_idx_t is unsigned(3 downto 0);
+
+  type ram256_t is array (0 to 255) of word_t;
+
+-- ==============================================================================
+-- Коды операций АЛУ
+--
+-- Файл: src/microcomputer_pkg.vhd
+--
+-- Эти 3-битные коды выбирают действие alu_core: пропуск A, OR, NOR, SRA или INCS.
+-- ==============================================================================
+
+  constant ALU_PASS_A : std_logic_vector(2 downto 0) := "000";
+  constant ALU_OR     : std_logic_vector(2 downto 0) := "001";
+  constant ALU_NOR    : std_logic_vector(2 downto 0) := "010";
+  constant ALU_SRA    : std_logic_vector(2 downto 0) := "011";
+  constant ALU_INCS   : std_logic_vector(2 downto 0) := "100";
+
+-- ==============================================================================
+-- Коды машинных команд
+--
+-- Файл: src/microcomputer_pkg.vhd
+--
+-- Opcode хранится в старшем байте первого слова команды. cpu_core сравнивает его с этими
+-- константами на этапе декодирования.
+-- ==============================================================================
+
+  constant OP_HLT     : std_logic_vector(7 downto 0) := x"00";
+  constant OP_MOV_MR  : std_logic_vector(7 downto 0) := x"01";
+  constant OP_MOV_RM  : std_logic_vector(7 downto 0) := x"02";
+  constant OP_OR      : std_logic_vector(7 downto 0) := x"03";
+  constant OP_NOR     : std_logic_vector(7 downto 0) := x"04";
+  constant OP_SRA     : std_logic_vector(7 downto 0) := x"05";
+  constant OP_INCS    : std_logic_vector(7 downto 0) := x"06";
+  constant OP_PUSH    : std_logic_vector(7 downto 0) := x"07";
+  constant OP_POP     : std_logic_vector(7 downto 0) := x"08";
+  constant OP_JMP     : std_logic_vector(7 downto 0) := x"09";
+  constant OP_JZ      : std_logic_vector(7 downto 0) := x"0A";
+
+-- ==============================================================================
+-- Насыщающее увеличение 2-битного счетчика
+--
+-- Файл: src/microcomputer_pkg.vhd
+--
+-- Функция увеличивает счетчик до максимума 11 и дальше не переполняет его. Она нужна для PHT
+-- предсказателя и счетчиков возраста.
+-- ==============================================================================
+
+  function sat_inc2(v : unsigned(1 downto 0)) return unsigned;
+end package;
+
+package body microcomputer_pkg is
+  function sat_inc2(v : unsigned(1 downto 0)) return unsigned is
+  begin
+    if v = "11" then
+      return v;
+    else
+      return v + 1;
+    end if;
+  end function;
+end package body;
+
+-- ==============================================================================
+-- Начальный образ ПЗУ команд
+--
+-- Файл: src/program_image_pkg.vhd
+--
+-- Содержит демонстрационную программу в двухсловном формате команд.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+package program_image_pkg is
+-- ==============================================================================
+-- Начальный образ ROM
+--
+-- Файл: src/program_image_pkg.vhd
+--
+-- ROM_INIT содержит программу. Каждая команда занимает два слова: первое слово
+-- opcode+регистр, второе слово адрес или операнд перехода.
+-- ==============================================================================
+
+  constant ROM_INIT : ram256_t := (
+    16#00# => x"0110", -- MOV 0020h, R1
+    16#01# => x"0020",
+    16#02# => x"0510", -- SRA R1
+    16#03# => x"0000",
+    16#04# => x"0610", -- INCS R1
+    16#05# => x"0000",
+    16#06# => x"0710", -- PUSH R1
+    16#07# => x"0000",
+    16#08# => x"0120", -- MOV 0021h, R2
+    16#09# => x"0021",
+    16#0A# => x"0320", -- OR R2, 0022h
+    16#0B# => x"0022",
+    16#0C# => x"0420", -- NOR R2, 0023h
+    16#0D# => x"0023",
+    16#0E# => x"0830", -- POP R3
+    16#0F# => x"0000",
+    16#10# => x"0230", -- MOV R3, 0030h
+    16#11# => x"0030",
+    16#12# => x"0140", -- MOV 0025h, R4
+    16#13# => x"0025",
+    16#14# => x"0440", -- NOR R4, 0025h
+    16#15# => x"0025",
+    16#16# => x"0A00", -- JZ 001Ah
+    16#17# => x"001A",
+    16#18# => x"0150", -- MOV 0024h, R5 (must be skipped)
+    16#19# => x"0024",
+    16#1A# => x"0900", -- JMP 001Eh
+    16#1B# => x"001E",
+    16#1C# => x"0160", -- MOV 0024h, R6 (must be skipped)
+    16#1D# => x"0024",
+    16#1E# => x"0170", -- MOV 000Ah, R7
+    16#1F# => x"000A",
+    16#20# => x"0000", -- HLT
+    16#21# => x"0000",
+    others  => (others => '0')
+  );
+end package;
+
+-- ==============================================================================
+-- Начальный образ ОЗУ данных
+--
+-- Файл: src/data_image_pkg.vhd
+--
+-- Содержит исходные данные программы и область, в которую записывает DMA.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+package data_image_pkg is
+-- ==============================================================================
+-- Начальный образ RAM
+--
+-- Файл: src/data_image_pkg.vhd
+--
+-- RAM_INIT задает исходные данные. Адреса 000Ah...000Ch оставлены под DMA, адреса
+-- 0020h...0025h используются программой.
+-- ==============================================================================
+
+  constant RAM_INIT : ram256_t := (
+    16#0A# => x"0000",
+    16#0B# => x"0000",
+    16#0C# => x"0000",
+    16#20# => x"8001",
+    16#21# => x"00F0",
+    16#22# => x"0F0F",
+    16#23# => x"0000",
+    16#24# => x"1234",
+    16#25# => x"FFFF",
+    16#30# => x"0000",
+    others  => (others => '0')
+  );
+end package;
+
+-- ==============================================================================
+-- Верхний модуль устройства
+--
+-- Файл: src/microcomputer_top.vhd
+--
+-- Оставляет только пользовательские порты и подключает system_core без отладочных выходов.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+-- ==============================================================================
+-- Верхний модуль устройства
+--
+-- Файл: src/microcomputer_top.vhd
+--
+-- Это внешний интерфейс проекта: такт, сброс, входы DMA и два признака завершения
+-- HALT/DMA_DONE.
+-- ==============================================================================
+
+entity microcomputer_top is
+  port (
+    CLK              : in  std_logic;
+    RESET            : in  std_logic;
+    DMA_START        : in  std_logic;
+    DMA_VALID        : in  std_logic;
+    DMA_DATA         : in  word_t;
+
+    HALT             : out std_logic;
+    DMA_DONE         : out std_logic
+  );
+end entity;
+
+architecture structural of microcomputer_top is
+-- ==============================================================================
+-- Подключение системного ядра
+--
+-- Файл: src/microcomputer_top.vhd
+--
+-- В обычном верхнем уровне все отладочные выходы system_core подключены к open, чтобы наружу
+-- выходили только нужные пользовательские сигналы.
+-- ==============================================================================
+
+begin
+  U_SYSTEM : entity work.system_core
+    port map (
+      clk_i            => CLK,
+      rst_i            => RESET,
+      dma_start_i      => DMA_START,
+      dma_valid_i      => DMA_VALID,
+      dma_data_i       => DMA_DATA,
+      halt_o           => HALT,
+      dma_done_o       => DMA_DONE,
+      dbg_state_o      => open,
+      dbg_pc_o         => open,
+      dbg_ir0_o        => open,
+      dbg_ir1_o        => open,
+      dbg_r1_o         => open,
+      dbg_r2_o         => open,
+      dbg_r3_o         => open,
+      dbg_r4_o         => open,
+      dbg_r5_o         => open,
+      dbg_r6_o         => open,
+      dbg_r7_o         => open,
+      dbg_flags_o      => open,
+      dbg_sp_o         => open,
+      dbg_cache_hit_o  => open,
+      dbg_cache_miss_o => open,
+      dbg_req_cpu_o    => open,
+      dbg_req_dma_o    => open,
+      dbg_gnt_cpu_o    => open,
+      dbg_gnt_dma_o    => open,
+      dbg_ram_we_o     => open,
+      dbg_ram_addr_o   => open,
+      dbg_ram_wdata_o  => open,
+      dbg_ram_rdata_o  => open,
+      dbg_bp_hist_o    => open,
+      dbg_bp_pred_o    => open,
+      dbg_bp_target_o  => open
+    );
+end architecture;
+
+-- ==============================================================================
+-- Системное ядро микро-ЭВМ
+--
+-- Файл: src/system_core.vhd
+--
+-- Структурно соединяет CPU, ROM, кэш, RAM, DMA, арбитр и предсказатель переходов.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity system_core is
+  port (
+    clk_i          : in  std_logic;
+    rst_i          : in  std_logic;
+    dma_start_i    : in  std_logic;
+    dma_valid_i    : in  std_logic;
+    dma_data_i     : in  word_t;
+
+    halt_o         : out std_logic;
+    dma_done_o     : out std_logic;
+
+    dbg_state_o    : out std_logic_vector(4 downto 0);
+    dbg_pc_o       : out addr_t;
+    dbg_ir0_o      : out word_t;
+    dbg_ir1_o      : out word_t;
+    dbg_r1_o       : out word_t;
+    dbg_r2_o       : out word_t;
+    dbg_r3_o       : out word_t;
+    dbg_r4_o       : out word_t;
+    dbg_r5_o       : out word_t;
+    dbg_r6_o       : out word_t;
+    dbg_r7_o       : out word_t;
+    dbg_flags_o    : out std_logic_vector(3 downto 0);
+    dbg_sp_o       : out unsigned(2 downto 0);
+
+    dbg_cache_hit_o  : out std_logic;
+    dbg_cache_miss_o : out std_logic;
+    dbg_req_cpu_o    : out std_logic;
+    dbg_req_dma_o    : out std_logic;
+    dbg_gnt_cpu_o    : out std_logic;
+    dbg_gnt_dma_o    : out std_logic;
+    dbg_ram_we_o     : out std_logic;
+    dbg_ram_addr_o   : out addr_t;
+    dbg_ram_wdata_o  : out word_t;
+    dbg_ram_rdata_o  : out word_t;
+    dbg_bp_hist_o    : out std_logic_vector(1 downto 0);
+    dbg_bp_pred_o    : out std_logic;
+    dbg_bp_target_o  : out addr_t
+  );
+end entity;
+
+-- ==============================================================================
+-- Системное ядро
+--
+-- Файл: src/system_core.vhd
+--
+-- В architecture structural объявлены внутренние шины между CPU, ROM, кэшем, RAM, DMA,
+-- арбитром и предсказателем переходов.
+-- ==============================================================================
+
+architecture structural of system_core is
+  signal rom_addr     : addr_t;
+  signal rom_en       : std_logic;
+  signal rom_data     : word_t;
+
+  signal cache_req    : std_logic;
+  signal cache_we     : std_logic;
+  signal cache_addr   : addr_t;
+  signal cache_wdata  : word_t;
+  signal cache_rdata  : word_t;
+  signal cache_ready  : std_logic;
+  signal cache_hit    : std_logic;
+  signal cache_miss   : std_logic;
+
+  signal cache_ram_req   : std_logic;
+  signal cache_ram_we    : std_logic;
+  signal cache_ram_addr  : addr_t;
+  signal cache_ram_wdata : word_t;
+
+  signal dma_req      : std_logic;
+  signal dma_grant    : std_logic;
+  signal cpu_grant    : std_logic;
+  signal dma_done     : std_logic;
+  signal dma_we       : std_logic;
+  signal dma_addr     : addr_t;
+  signal dma_wdata    : word_t;
+
+  signal ram_en       : std_logic;
+  signal ram_we       : std_logic;
+  signal ram_addr     : addr_t;
+  signal ram_wdata    : word_t;
+  signal ram_rdata    : word_t;
+
+  signal bp_query     : std_logic;
+  signal bp_pc_query  : addr_t;
+  signal bp_hist      : std_logic_vector(1 downto 0);
+  signal bp_pred      : std_logic;
+  signal bp_target    : addr_t;
+  signal bp_update    : std_logic;
+  signal bp_pc_update : addr_t;
+  signal bp_hist_upd  : std_logic_vector(1 downto 0);
+  signal bp_taken     : std_logic;
+  signal bp_tgt_upd   : addr_t;
+-- ==============================================================================
+-- Мультиплексирование доступа к RAM
+--
+-- Файл: src/system_core.vhd
+--
+-- RAM может обслуживать либо кэш CPU, либо DMA. Если grant получает DMA, на RAM подаются его
+-- адрес, данные и сигнал записи; иначе используется тракт кэша.
+-- ==============================================================================
+
+begin
+  ram_en    <= (cache_ram_req and cpu_grant) or (dma_we and dma_grant);
+  ram_we    <= dma_we when dma_grant = '1' else cache_ram_we;
+  ram_addr  <= dma_addr when dma_grant = '1' else cache_ram_addr;
+  ram_wdata <= dma_wdata when dma_grant = '1' else cache_ram_wdata;
+
+  dma_done_o        <= dma_done;
+  dbg_cache_hit_o   <= cache_hit;
+  dbg_cache_miss_o  <= cache_miss;
+  dbg_req_cpu_o     <= cache_ram_req;
+  dbg_req_dma_o     <= dma_req;
+  dbg_gnt_cpu_o     <= cpu_grant;
+  dbg_gnt_dma_o     <= dma_grant;
+  dbg_ram_we_o      <= ram_we;
+  dbg_ram_addr_o    <= ram_addr;
+  dbg_ram_wdata_o   <= ram_wdata;
+  dbg_ram_rdata_o   <= ram_rdata;
+  dbg_bp_hist_o     <= bp_hist;
+  dbg_bp_pred_o     <= bp_pred;
+  dbg_bp_target_o   <= bp_target;
+
+-- ==============================================================================
+-- Подключение CPU
+--
+-- Файл: src/system_core.vhd
+--
+-- Процессор получает команды из ROM, обращается к данным через кэш и обменивается информацией
+-- с предсказателем переходов.
+-- ==============================================================================
+
+  U_CPU : entity work.cpu_core
+    port map (
+      clk_i          => clk_i,
+      rst_i          => rst_i,
+      rom_addr_o     => rom_addr,
+      rom_en_o       => rom_en,
+      rom_data_i     => rom_data,
+      cache_req_o    => cache_req,
+      cache_we_o     => cache_we,
+      cache_addr_o   => cache_addr,
+      cache_wdata_o  => cache_wdata,
+      cache_rdata_i  => cache_rdata,
+      cache_ready_i  => cache_ready,
+      cache_hit_i    => cache_hit,
+      cache_miss_i   => cache_miss,
+      bp_query_o     => bp_query,
+      bp_pc_query_o  => bp_pc_query,
+      bp_hist_i      => bp_hist,
+      bp_pred_i      => bp_pred,
+      bp_target_i    => bp_target,
+      bp_update_o    => bp_update,
+      bp_pc_update_o => bp_pc_update,
+      bp_hist_o      => bp_hist_upd,
+      bp_taken_o     => bp_taken,
+      bp_target_o    => bp_tgt_upd,
+      halt_o         => halt_o,
+      dbg_state_o    => dbg_state_o,
+      dbg_pc_o       => dbg_pc_o,
+      dbg_ir0_o      => dbg_ir0_o,
+      dbg_ir1_o      => dbg_ir1_o,
+      dbg_r1_o       => dbg_r1_o,
+      dbg_r2_o       => dbg_r2_o,
+      dbg_r3_o       => dbg_r3_o,
+      dbg_r4_o       => dbg_r4_o,
+      dbg_r5_o       => dbg_r5_o,
+      dbg_r6_o       => dbg_r6_o,
+      dbg_r7_o       => dbg_r7_o,
+      dbg_flags_o    => dbg_flags_o,
+      dbg_sp_o       => dbg_sp_o
+    );
+
+-- ==============================================================================
+-- Подключение ROM
+--
+-- Файл: src/system_core.vhd
+--
+-- ROM получает адрес от процессора и возвращает слово команды.
+-- ==============================================================================
+
+  U_ROM : entity work.rom_sync
+    port map (
+      clk_i  => clk_i,
+      en_i   => rom_en,
+      addr_i => rom_addr,
+      data_o => rom_data
+    );
+
+-- ==============================================================================
+-- Подключение кэша данных
+--
+-- Файл: src/system_core.vhd
+--
+-- Кэш стоит между CPU и RAM: быстрые обращения обслуживает сам, при промахах запрашивает RAM
+-- через арбитр.
+-- ==============================================================================
+
+  U_CACHE : entity work.cache_4way_age
+    port map (
+      clk_i       => clk_i,
+      rst_i       => rst_i,
+      cpu_req_i   => cache_req,
+      cpu_we_i    => cache_we,
+      cpu_addr_i  => cache_addr,
+      cpu_wdata_i => cache_wdata,
+      cpu_rdata_o => cache_rdata,
+      cpu_ready_o => cache_ready,
+      hit_o       => cache_hit,
+      miss_o      => cache_miss,
+      ram_req_o   => cache_ram_req,
+      ram_we_o    => cache_ram_we,
+      ram_addr_o  => cache_ram_addr,
+      ram_wdata_o => cache_ram_wdata,
+      ram_rdata_i => ram_rdata,
+      ram_grant_i => cpu_grant
+    );
+
+-- ==============================================================================
+-- Подключение RAM
+--
+-- Файл: src/system_core.vhd
+--
+-- ОЗУ данных является общей памятью для процессора и DMA.
+-- ==============================================================================
+
+  U_RAM : entity work.ram_sync
+    port map (
+      clk_i  => clk_i,
+      en_i   => ram_en,
+      we_i   => ram_we,
+      addr_i => ram_addr,
+      din_i  => ram_wdata,
+      dout_o => ram_rdata
+    );
+
+-- ==============================================================================
+-- Подключение арбитра
+--
+-- Файл: src/system_core.vhd
+--
+-- Арбитр выдает разрешение на RAM либо кэшу CPU, либо DMA.
+-- ==============================================================================
+
+  U_ARB : entity work.bus_arbiter_2master
+    port map (
+      req_cpu_i   => cache_ram_req,
+      req_dma_i   => dma_req,
+      grant_cpu_o => cpu_grant,
+      grant_dma_o => dma_grant
+    );
+
+-- ==============================================================================
+-- Подключение DMA
+--
+-- Файл: src/system_core.vhd
+--
+-- DMA получает входные слова внешнего устройства и записывает их в RAM после получения grant.
+-- ==============================================================================
+
+  U_DMA : entity work.dma_controller_3word
+    port map (
+      clk_i       => clk_i,
+      rst_i       => rst_i,
+      start_i     => dma_start_i,
+      grant_i     => dma_grant,
+      dev_valid_i => dma_valid_i,
+      dev_data_i  => dma_data_i,
+      req_o       => dma_req,
+      busy_o      => open,
+      done_o      => dma_done,
+      ram_we_o    => dma_we,
+      ram_addr_o  => dma_addr,
+      ram_data_o  => dma_wdata
+    );
+
+-- ==============================================================================
+-- Подключение предсказателя переходов
+--
+-- Файл: src/system_core.vhd
+--
+-- Предсказатель получает запрос от CPU при выборке и обновляется после выполнения условного
+-- перехода JZ.
+-- ==============================================================================
+
+  U_BP : entity work.branch_predictor
+    port map (
+      clk_i          => clk_i,
+      rst_i          => rst_i,
+      query_valid_i  => bp_query,
+      pc_query_i     => bp_pc_query,
+      hist_o         => bp_hist,
+      pred_taken_o   => bp_pred,
+      pred_target_o  => bp_target,
+      update_valid_i => bp_update,
+      pc_update_i    => bp_pc_update,
+      hist_i         => bp_hist_upd,
+      actual_taken_i => bp_taken,
+      actual_tgt_i   => bp_tgt_upd
+    );
+end architecture;
+
+-- ==============================================================================
+-- Процессорное ядро
+--
+-- Файл: src/cpu_core.vhd
+--
+-- Выбирает двухсловные команды, декодирует opcode и управляет исполнительным трактом.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity cpu_core is
+  port (
+    clk_i          : in  std_logic;
+    rst_i          : in  std_logic;
+
+    rom_addr_o     : out addr_t;
+    rom_en_o       : out std_logic;
+    rom_data_i     : in  word_t;
+
+    cache_req_o    : out std_logic;
+    cache_we_o     : out std_logic;
+    cache_addr_o   : out addr_t;
+    cache_wdata_o  : out word_t;
+    cache_rdata_i  : in  word_t;
+    cache_ready_i  : in  std_logic;
+    cache_hit_i    : in  std_logic;
+    cache_miss_i   : in  std_logic;
+
+    bp_query_o     : out std_logic;
+    bp_pc_query_o  : out addr_t;
+    bp_hist_i      : in  std_logic_vector(1 downto 0);
+    bp_pred_i      : in  std_logic;
+    bp_target_i    : in  addr_t;
+    bp_update_o    : out std_logic;
+    bp_pc_update_o : out addr_t;
+    bp_hist_o      : out std_logic_vector(1 downto 0);
+    bp_taken_o     : out std_logic;
+    bp_target_o    : out addr_t;
+
+    halt_o         : out std_logic;
+
+    dbg_state_o    : out std_logic_vector(4 downto 0);
+    dbg_pc_o       : out addr_t;
+    dbg_ir0_o      : out word_t;
+    dbg_ir1_o      : out word_t;
+    dbg_r1_o       : out word_t;
+    dbg_r2_o       : out word_t;
+    dbg_r3_o       : out word_t;
+    dbg_r4_o       : out word_t;
+    dbg_r5_o       : out word_t;
+    dbg_r6_o       : out word_t;
+    dbg_r7_o       : out word_t;
+    dbg_flags_o    : out std_logic_vector(3 downto 0);
+    dbg_sp_o       : out unsigned(2 downto 0)
+  );
+end entity;
+
+architecture rtl of cpu_core is
+-- ==============================================================================
+-- Автомат управления CPU
+--
+-- Файл: src/cpu_core.vhd
+--
+-- state_t перечисляет микрошаги процессора: сброс, выборку двух слов команды, декодирование,
+-- работу с памятью, АЛУ, стеком, переходами и остановом.
+-- ==============================================================================
+
+  subtype state_code_t is std_logic_vector(4 downto 0);
+  type state_t is (
+    S_RESET,
+    S_FETCH0_REQ,
+    S_FETCH0_WAIT,
+    S_FETCH0_LATCH,
+    S_FETCH1_REQ,
+    S_FETCH1_WAIT,
+    S_FETCH1_LATCH,
+    S_DECODE,
+    S_CACHE_READ,
+    S_CACHE_WRITE,
+    S_ALU_SETUP_REG,
+    S_ALU_WRITE,
+    S_RF_WRITE_MEM,
+    S_STACK_PUSH,
+    S_STACK_POP,
+    S_RF_WRITE_POP,
+    S_BRANCH_JMP,
+    S_BRANCH_JZ,
+    S_FINISH,
+    S_HALT
+  );
+
+  signal state_r       : state_t := S_RESET;
+  signal pc_r          : addr_t := (others => '0');
+  signal ir0_r         : word_t := (others => '0');
+  signal ir1_r         : word_t := (others => '0');
+  signal cur_reg_r     : reg_idx_t := (others => '0');
+  signal cur_opcode_r  : std_logic_vector(7 downto 0) := OP_HLT;
+
+  signal rom_addr_r    : addr_t := (others => '0');
+  signal rom_en_r      : std_logic := '0';
+
+  signal rf_we         : std_logic;
+  signal rf_wr_addr    : reg_idx_t;
+  signal rf_rd_a       : reg_idx_t;
+  signal rf_rd_b       : reg_idx_t;
+  signal rf_din        : word_t;
+  signal rf_a          : word_t;
+  signal rf_b          : word_t;
+
+  signal alu_a_r       : word_t := (others => '0');
+  signal alu_b_r       : word_t := (others => '0');
+  signal alu_op_r      : std_logic_vector(2 downto 0) := ALU_PASS_A;
+  signal alu_y         : word_t;
+  signal alu_z         : std_logic;
+  signal alu_s         : std_logic;
+  signal alu_c         : std_logic;
+  signal alu_o         : std_logic;
+
+  signal flag_we       : std_logic;
+  signal flag_z        : std_logic;
+  signal flag_s        : std_logic;
+  signal flag_c        : std_logic;
+  signal flag_o        : std_logic;
+
+  signal stack_push    : std_logic;
+  signal stack_pop     : std_logic;
+  signal stack_dout    : word_t;
+  signal stack_sp      : unsigned(2 downto 0);
+  signal stack_empty   : std_logic;
+  signal stack_full    : std_logic;
+
+  signal r1_dbg        : word_t;
+  signal r2_dbg        : word_t;
+  signal r3_dbg        : word_t;
+  signal r4_dbg        : word_t;
+  signal r5_dbg        : word_t;
+  signal r6_dbg        : word_t;
+  signal r7_dbg        : word_t;
+
+  function state_code(s : state_t) return state_code_t is
+-- ==============================================================================
+-- Кодирование состояний CPU для отладки
+--
+-- Файл: src/cpu_core.vhd
+--
+-- state_code переводит состояние автомата в 5-битный код dbg_state_o для временных диаграмм.
+-- ==============================================================================
+
+  begin
+    case s is
+      when S_RESET        => return "00000";
+      when S_FETCH0_REQ   => return "00001";
+      when S_FETCH0_WAIT  => return "00010";
+      when S_FETCH0_LATCH => return "00011";
+      when S_FETCH1_REQ   => return "00100";
+      when S_FETCH1_WAIT  => return "00101";
+      when S_FETCH1_LATCH => return "00110";
+      when S_DECODE       => return "00111";
+      when S_CACHE_READ   => return "01000";
+      when S_CACHE_WRITE  => return "01001";
+      when S_ALU_SETUP_REG=> return "01010";
+      when S_ALU_WRITE    => return "01011";
+      when S_RF_WRITE_MEM => return "01100";
+      when S_STACK_PUSH   => return "01101";
+      when S_STACK_POP    => return "01110";
+      when S_RF_WRITE_POP => return "01111";
+      when S_BRANCH_JMP   => return "10000";
+      when S_BRANCH_JZ    => return "10001";
+      when S_FINISH       => return "10010";
+      when S_HALT         => return "11111";
+    end case;
+  end function;
+-- ==============================================================================
+-- Формирование управляющих сигналов CPU
+--
+-- Файл: src/cpu_core.vhd
+--
+-- Здесь задаются сигналы записи РОН, выбора источника данных, доступа к кэшу, работы стека и
+-- обновления предсказателя.
+-- ==============================================================================
+
+begin
+  rom_addr_o <= rom_addr_r;
+  rom_en_o   <= rom_en_r;
+
+  rf_wr_addr <= cur_reg_r;
+  rf_rd_a    <= cur_reg_r;
+  rf_rd_b    <= (others => '0');
+  rf_we      <= '1' when state_r = S_ALU_WRITE or state_r = S_RF_WRITE_MEM or state_r = S_RF_WRITE_POP else '0';
+  rf_din     <= alu_y when state_r = S_ALU_WRITE else
+                cache_rdata_i when state_r = S_RF_WRITE_MEM else
+                stack_dout;
+
+  flag_we <= '1' when state_r = S_ALU_WRITE else '0';
+
+  stack_push <= '1' when state_r = S_STACK_PUSH else '0';
+  stack_pop  <= '1' when state_r = S_STACK_POP else '0';
+
+  cache_req_o   <= '1' when state_r = S_CACHE_READ or state_r = S_CACHE_WRITE else '0';
+  cache_we_o    <= '1' when state_r = S_CACHE_WRITE else '0';
+  cache_addr_o  <= ir1_r;
+  cache_wdata_o <= rf_a;
+
+  bp_query_o     <= '1' when state_r = S_FETCH0_REQ else '0';
+  bp_pc_query_o  <= pc_r;
+  bp_update_o    <= '1' when state_r = S_BRANCH_JZ else '0';
+  bp_pc_update_o <= pc_r;
+  bp_hist_o      <= bp_hist_i;
+  bp_taken_o     <= flag_z;
+  bp_target_o    <= ir1_r;
+
+  halt_o      <= '1' when state_r = S_HALT else '0';
+  dbg_state_o <= state_code(state_r);
+  dbg_pc_o    <= pc_r;
+  dbg_ir0_o   <= ir0_r;
+  dbg_ir1_o   <= ir1_r;
+  dbg_r1_o    <= r1_dbg;
+  dbg_r2_o    <= r2_dbg;
+  dbg_r3_o    <= r3_dbg;
+  dbg_r4_o    <= r4_dbg;
+  dbg_r5_o    <= r5_dbg;
+  dbg_r6_o    <= r6_dbg;
+  dbg_r7_o    <= r7_dbg;
+  dbg_flags_o <= flag_z & flag_s & flag_c & flag_o;
+  dbg_sp_o    <= stack_sp;
+
+-- ==============================================================================
+-- Подключение регистрового файла
+--
+-- Файл: src/cpu_core.vhd
+--
+-- CPU использует debug-версию РОН, чтобы после моделирования можно было проверить значения
+-- R1...R7.
+-- ==============================================================================
+
+  U_RF : entity work.reg_file12x16_dbg
+    port map (
+      clk_i       => clk_i,
+      rst_i       => rst_i,
+      we_i        => rf_we,
+      wr_addr_i   => rf_wr_addr,
+      rd_addr_a_i => rf_rd_a,
+      rd_addr_b_i => rf_rd_b,
+      din_i       => rf_din,
+      dout_a_o    => rf_a,
+      dout_b_o    => rf_b,
+      r0_o        => open,
+      r1_o        => r1_dbg,
+      r2_o        => r2_dbg,
+      r3_o        => r3_dbg,
+      r4_o        => r4_dbg,
+      r5_o        => r5_dbg,
+      r6_o        => r6_dbg,
+      r7_o        => r7_dbg,
+      r8_o        => open,
+      r9_o        => open,
+      r10_o       => open,
+      r11_o       => open
+    );
+
+-- ==============================================================================
+-- Подключение АЛУ
+--
+-- Файл: src/cpu_core.vhd
+--
+-- АЛУ получает подготовленные операнды и код операции, а возвращает результат и флаги.
+-- ==============================================================================
+
+  U_ALU : entity work.alu_core
+    port map (
+      a_i      => alu_a_r,
+      b_i      => alu_b_r,
+      flag_s_i => flag_s,
+      op_i     => alu_op_r,
+      y_o      => alu_y,
+      z_o      => alu_z,
+      s_o      => alu_s,
+      c_o      => alu_c,
+      o_o      => alu_o
+    );
+
+-- ==============================================================================
+-- Подключение регистра флагов
+--
+-- Файл: src/cpu_core.vhd
+--
+-- Флаги записываются только при flag_we, то есть после выполнения АЛУ-команд.
+-- ==============================================================================
+
+  U_FLAGS : entity work.flags_reg
+    port map (
+      clk_i => clk_i,
+      rst_i => rst_i,
+      we_i  => flag_we,
+      z_i   => alu_z,
+      s_i   => alu_s,
+      c_i   => alu_c,
+      o_i   => alu_o,
+      z_o   => flag_z,
+      s_o   => flag_s,
+      c_o   => flag_c,
+      o_o   => flag_o
+    );
+
+-- ==============================================================================
+-- Подключение стека
+--
+-- Файл: src/cpu_core.vhd
+--
+-- PUSH записывает в стек значение выбранного регистра, POP возвращает слово из стека в
+-- регистр.
+-- ==============================================================================
+
+  U_STACK : entity work.stack7x16
+    port map (
+      clk_i   => clk_i,
+      rst_i   => rst_i,
+      push_i  => stack_push,
+      pop_i   => stack_pop,
+      din_i   => rf_a,
+      dout_o  => stack_dout,
+      sp_o    => stack_sp,
+      empty_o => stack_empty,
+      full_o  => stack_full
+    );
+
+-- ==============================================================================
+-- Главный синхронный процесс CPU
+--
+-- Файл: src/cpu_core.vhd
+--
+-- На каждом фронте clk_i автомат либо сбрасывается, либо выполняет один микрошаг текущей
+-- команды.
+-- ==============================================================================
+
+  process(clk_i)
+    variable opcode_v : std_logic_vector(7 downto 0);
+    variable next_pc  : unsigned(15 downto 0);
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        state_r      <= S_RESET;
+        pc_r         <= (others => '0');
+        ir0_r        <= (others => '0');
+        ir1_r        <= (others => '0');
+        cur_reg_r    <= (others => '0');
+        cur_opcode_r <= OP_HLT;
+        rom_addr_r   <= (others => '0');
+        rom_en_r     <= '0';
+        alu_a_r      <= (others => '0');
+        alu_b_r      <= (others => '0');
+        alu_op_r     <= ALU_PASS_A;
+      else
+        rom_en_r <= '1';
+        next_pc := unsigned(pc_r) + 2;
+
+        case state_r is
+-- ==============================================================================
+-- Сброс и старт выполнения
+--
+-- Файл: src/cpu_core.vhd
+--
+-- После reset PC обнуляется, и процессор начинает выборку команды с адреса 0000h.
+-- ==============================================================================
+
+          when S_RESET =>
+            pc_r       <= (others => '0');
+            rom_addr_r <= (others => '0');
+            state_r    <= S_FETCH0_REQ;
+
+-- ==============================================================================
+-- Выборка первого слова команды
+--
+-- Файл: src/cpu_core.vhd
+--
+-- В ROM выставляется PC; после задержки синхронного ПЗУ первое слово команды фиксируется в
+-- IR0.
+-- ==============================================================================
+
+          when S_FETCH0_REQ =>
+            rom_addr_r <= pc_r;
+            state_r    <= S_FETCH0_WAIT;
+
+          when S_FETCH0_WAIT =>
+            state_r <= S_FETCH0_LATCH;
+
+-- ==============================================================================
+-- Фиксация первого слова и адрес второго слова
+--
+-- Файл: src/cpu_core.vhd
+--
+-- IR0 получает opcode+регистр, затем ROM переводится на адрес PC+1 для чтения второго слова.
+-- ==============================================================================
+
+          when S_FETCH0_LATCH =>
+            ir0_r      <= rom_data_i;
+            rom_addr_r <= std_logic_vector(unsigned(pc_r) + 1);
+            state_r    <= S_FETCH1_REQ;
+
+          when S_FETCH1_REQ =>
+            state_r <= S_FETCH1_WAIT;
+
+          when S_FETCH1_WAIT =>
+            state_r <= S_FETCH1_LATCH;
+
+-- ==============================================================================
+-- Фиксация второго слова команды
+--
+-- Файл: src/cpu_core.vhd
+--
+-- IR1 получает адрес операнда, адрес записи или адрес перехода.
+-- ==============================================================================
+
+          when S_FETCH1_LATCH =>
+            ir1_r   <= rom_data_i;
+            state_r <= S_DECODE;
+
+-- ==============================================================================
+-- Декодирование команды
+--
+-- Файл: src/cpu_core.vhd
+--
+-- Из IR0 выделяются opcode и номер регистра. По opcode автомат выбирает следующий
+-- исполнительный блок.
+-- ==============================================================================
+
+          when S_DECODE =>
+            opcode_v     := ir0_r(15 downto 8);
+            cur_opcode_r <= opcode_v;
+            cur_reg_r    <= unsigned(ir0_r(7 downto 4));
+            if opcode_v = OP_MOV_MR or opcode_v = OP_OR or opcode_v = OP_NOR then
+              state_r <= S_CACHE_READ;
+            elsif opcode_v = OP_MOV_RM then
+              state_r <= S_CACHE_WRITE;
+            elsif opcode_v = OP_SRA or opcode_v = OP_INCS then
+              state_r <= S_ALU_SETUP_REG;
+            elsif opcode_v = OP_PUSH then
+              state_r <= S_STACK_PUSH;
+            elsif opcode_v = OP_POP then
+              state_r <= S_STACK_POP;
+            elsif opcode_v = OP_JMP then
+              state_r <= S_BRANCH_JMP;
+            elsif opcode_v = OP_JZ then
+              state_r <= S_BRANCH_JZ;
+            elsif opcode_v = OP_HLT then
+              state_r <= S_HALT;
+            else
+              state_r <= S_HALT;
+            end if;
+
+-- ==============================================================================
+-- Команды чтения из памяти
+--
+-- Файл: src/cpu_core.vhd
+--
+-- MOV adr,reg сразу записывает cache_rdata_i в РОН, а OR/NOR используют прочитанное слово как
+-- второй операнд АЛУ.
+-- ==============================================================================
+
+          when S_CACHE_READ =>
+            if cache_ready_i = '1' then
+              if cur_opcode_r = OP_MOV_MR then
+                state_r <= S_RF_WRITE_MEM;
+              else
+                alu_a_r <= rf_a;
+                alu_b_r <= cache_rdata_i;
+                if cur_opcode_r = OP_OR then
+                  alu_op_r <= ALU_OR;
+                else
+                  alu_op_r <= ALU_NOR;
+                end if;
+                state_r <= S_ALU_WRITE;
+              end if;
+            end if;
+
+-- ==============================================================================
+-- Команда записи в память
+--
+-- Файл: src/cpu_core.vhd
+--
+-- MOV reg,adr ждет готовности кэша после записи выбранного регистра по адресу IR1.
+-- ==============================================================================
+
+          when S_CACHE_WRITE =>
+            if cache_ready_i = '1' then
+              state_r <= S_FINISH;
+            end if;
+
+-- ==============================================================================
+-- Подготовка регистровых операций АЛУ
+--
+-- Файл: src/cpu_core.vhd
+--
+-- SRA и INCS берут операнд из выбранного регистра и не обращаются к памяти.
+-- ==============================================================================
+
+          when S_ALU_SETUP_REG =>
+            alu_a_r <= rf_a;
+            alu_b_r <= (others => '0');
+            if cur_opcode_r = OP_SRA then
+              alu_op_r <= ALU_SRA;
+            else
+              alu_op_r <= ALU_INCS;
+            end if;
+            state_r <= S_ALU_WRITE;
+
+          when S_ALU_WRITE =>
+            state_r <= S_FINISH;
+
+          when S_RF_WRITE_MEM =>
+            state_r <= S_FINISH;
+
+-- ==============================================================================
+-- Команда PUSH
+--
+-- Файл: src/cpu_core.vhd
+--
+-- В этом состоянии активируется stack_push, и значение регистра помещается в стек.
+-- ==============================================================================
+
+          when S_STACK_PUSH =>
+            state_r <= S_FINISH;
+
+-- ==============================================================================
+-- Команда POP
+--
+-- Файл: src/cpu_core.vhd
+--
+-- Сначала активируется stack_pop, затем отдельным состоянием результат stack_dout
+-- записывается в РОН.
+-- ==============================================================================
+
+          when S_STACK_POP =>
+            state_r <= S_RF_WRITE_POP;
+
+          when S_RF_WRITE_POP =>
+            state_r <= S_FINISH;
+
+-- ==============================================================================
+-- Обработка переходов и завершение команды
+--
+-- Файл: src/cpu_core.vhd
+--
+-- JMP сразу загружает PC адресом IR1. JZ проверяет флаг Z: при Z=1 выполняется переход, иначе
+-- PC увеличивается на 2.
+-- ==============================================================================
+
+          when S_BRANCH_JMP =>
+            pc_r    <= ir1_r;
+            state_r <= S_FETCH0_REQ;
+
+          when S_BRANCH_JZ =>
+            if flag_z = '1' then
+              pc_r <= ir1_r;
+            else
+              pc_r <= std_logic_vector(next_pc);
+            end if;
+            state_r <= S_FETCH0_REQ;
+
+-- ==============================================================================
+-- Обычное завершение команды
+--
+-- Файл: src/cpu_core.vhd
+--
+-- После обычной команды PC увеличивается на 2, потому что формат команды двухсловный.
+-- ==============================================================================
+
+          when S_FINISH =>
+            pc_r    <= std_logic_vector(next_pc);
+            state_r <= S_FETCH0_REQ;
+
+-- ==============================================================================
+-- Останов процессора
+--
+-- Файл: src/cpu_core.vhd
+--
+-- В S_HALT автомат остается постоянно, а halt_o становится равным 1.
+-- ==============================================================================
+
+          when S_HALT =>
+            state_r <= S_HALT;
+        end case;
+      end if;
+    end if;
+  end process;
+
+end architecture;
+
+-- ==============================================================================
+-- Арифметико-логическое устройство
+--
+-- Файл: src/alu_core.vhd
+--
+-- Выполняет OR, NOR, SRA, INCS и формирует флаги результата.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity alu_core is
+  port (
+    a_i      : in  word_t;
+    b_i      : in  word_t;
+    flag_s_i : in  std_logic;
+    op_i     : in  std_logic_vector(2 downto 0);
+    y_o      : out word_t;
+    z_o      : out std_logic;
+    s_o      : out std_logic;
+    c_o      : out std_logic;
+    o_o      : out std_logic
+  );
+end entity;
+
+architecture rtl of alu_core is
+-- ==============================================================================
+-- Комбинационная логика АЛУ
+--
+-- Файл: src/alu_core.vhd
+--
+-- АЛУ не хранит состояние: результат и флаги полностью зависят от входов a_i, b_i, flag_s_i и
+-- op_i.
+-- ==============================================================================
+
+begin
+  process(a_i, b_i, flag_s_i, op_i)
+    variable a_u   : unsigned(15 downto 0);
+    variable sum17 : unsigned(16 downto 0);
+    variable y_v   : word_t;
+    variable z_v   : std_logic;
+    variable s_v   : std_logic;
+    variable c_v   : std_logic;
+    variable o_v   : std_logic;
+  begin
+    a_u := unsigned(a_i);
+    y_v := a_i;
+    c_v := '0';
+    o_v := '0';
+
+-- ==============================================================================
+-- Выбор операции АЛУ
+--
+-- Файл: src/alu_core.vhd
+--
+-- case op_i выбирает одну из операций, заданных в microcomputer_pkg.
+-- ==============================================================================
+
+    case op_i is
+-- ==============================================================================
+-- Операция OR
+--
+-- Файл: src/alu_core.vhd
+--
+-- Результат равен побитовому ИЛИ операндов.
+-- ==============================================================================
+
+      when ALU_OR =>
+        y_v := a_i or b_i;
+-- ==============================================================================
+-- Операция NOR
+--
+-- Файл: src/alu_core.vhd
+--
+-- Результат равен инверсии OR: not(a_i or b_i).
+-- ==============================================================================
+
+      when ALU_NOR =>
+        y_v := not (a_i or b_i);
+-- ==============================================================================
+-- Операция SRA
+--
+-- Файл: src/alu_core.vhd
+--
+-- Арифметический сдвиг вправо сохраняет знаковый бит, а вытесненный младший бит идет во флаг
+-- C.
+-- ==============================================================================
+
+      when ALU_SRA =>
+        y_v := a_i(15) & a_i(15 downto 1);
+        c_v := a_i(0);
+-- ==============================================================================
+-- Операция INCS
+--
+-- Файл: src/alu_core.vhd
+--
+-- Операнд увеличивается на 1 только при flag_s_i = 1; для переноса используется 17-битная
+-- сумма.
+-- ==============================================================================
+
+      when ALU_INCS =>
+        sum17 := ('0' & a_u);
+        if flag_s_i = '1' then
+          sum17 := ('0' & a_u) + to_unsigned(1, 17);
+        end if;
+        y_v := std_logic_vector(sum17(15 downto 0));
+        c_v := sum17(16);
+        o_v := (not a_i(15)) and flag_s_i and y_v(15);
+      when others =>
+        y_v := a_i;
+    end case;
+
+    if y_v = x"0000" then
+      z_v := '1';
+-- ==============================================================================
+-- Формирование флагов результата
+--
+-- Файл: src/alu_core.vhd
+--
+-- Z показывает нулевой результат, S равен старшему биту результата, C и O формируются
+-- выбранной операцией.
+-- ==============================================================================
+
+    else
+      z_v := '0';
+    end if;
+    s_v := y_v(15);
+
+    y_o <= y_v;
+    z_o <= z_v;
+    s_o <= s_v;
+    c_o <= c_v;
+    o_o <= o_v;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Регистр флагов
+--
+-- Файл: src/flags_reg.vhd
+--
+-- Синхронно хранит флаги Z, S, C, O после операций АЛУ.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity flags_reg is
+  port (
+    clk_i : in  std_logic;
+    rst_i : in  std_logic;
+    we_i  : in  std_logic;
+    z_i   : in  std_logic;
+    s_i   : in  std_logic;
+    c_i   : in  std_logic;
+    o_i   : in  std_logic;
+    z_o   : out std_logic;
+    s_o   : out std_logic;
+    c_o   : out std_logic;
+    o_o   : out std_logic
+  );
+end entity;
+
+architecture rtl of flags_reg is
+-- ==============================================================================
+-- Хранение флагов
+--
+-- Файл: src/flags_reg.vhd
+--
+-- Внутренние регистры z_r, s_r, c_r, o_r хранят состояние флагов между командами.
+-- ==============================================================================
+
+  signal z_r, s_r, c_r, o_r : std_logic := '0';
+begin
+  z_o <= z_r;
+  s_o <= s_r;
+  c_o <= c_r;
+  o_o <= o_r;
+-- ==============================================================================
+-- Синхронная запись флагов
+--
+-- Файл: src/flags_reg.vhd
+--
+-- При reset флаги очищаются, а при we_i=1 принимают значения, вычисленные АЛУ.
+-- ==============================================================================
+
+
+  process(clk_i)
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        z_r <= '0';
+        s_r <= '0';
+        c_r <= '0';
+        o_r <= '0';
+      elsif we_i = '1' then
+        z_r <= z_i;
+        s_r <= s_i;
+        c_r <= c_i;
+        o_r <= o_i;
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Регистровый файл с отладочными выходами
+--
+-- Файл: src/reg_file12x16_dbg.vhd
+--
+-- Повторяет обычный РОН, но дополнительно выводит содержимое всех регистров.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity reg_file12x16_dbg is
+  port (
+    clk_i       : in  std_logic;
+    rst_i       : in  std_logic;
+    we_i        : in  std_logic;
+    wr_addr_i   : in  reg_idx_t;
+    rd_addr_a_i : in  reg_idx_t;
+    rd_addr_b_i : in  reg_idx_t;
+    din_i       : in  word_t;
+    dout_a_o    : out word_t;
+    dout_b_o    : out word_t;
+    r0_o        : out word_t;
+    r1_o        : out word_t;
+    r2_o        : out word_t;
+    r3_o        : out word_t;
+    r4_o        : out word_t;
+    r5_o        : out word_t;
+    r6_o        : out word_t;
+    r7_o        : out word_t;
+    r8_o        : out word_t;
+    r9_o        : out word_t;
+    r10_o       : out word_t;
+    r11_o       : out word_t
+  );
+end entity;
+
+-- ==============================================================================
+-- Массив регистров с отладкой
+--
+-- Файл: src/reg_file12x16_dbg.vhd
+--
+-- Логика хранения такая же, как в обычном РОН, но есть отдельные выходы r0_o...r11_o.
+-- ==============================================================================
+
+architecture rtl of reg_file12x16_dbg is
+  type reg_array_t is array (0 to REG_COUNT-1) of word_t;
+  signal regs : reg_array_t := (others => (others => '0'));
+
+  function read_reg(mem : reg_array_t; idx : reg_idx_t) return word_t is
+  begin
+    if to_integer(idx) < REG_COUNT then
+      return mem(to_integer(idx));
+    else
+      return (others => '0');
+    end if;
+  end function;
+begin
+  dout_a_o <= read_reg(regs, rd_addr_a_i);
+  dout_b_o <= read_reg(regs, rd_addr_b_i);
+
+-- ==============================================================================
+-- Отладочные выходы регистров
+--
+-- Файл: src/reg_file12x16_dbg.vhd
+--
+-- Содержимое каждого регистра выводится наружу для проверки в tb_system.
+-- ==============================================================================
+
+  r0_o  <= regs(0);
+  r1_o  <= regs(1);
+  r2_o  <= regs(2);
+  r3_o  <= regs(3);
+  r4_o  <= regs(4);
+  r5_o  <= regs(5);
+  r6_o  <= regs(6);
+  r7_o  <= regs(7);
+  r8_o  <= regs(8);
+  r9_o  <= regs(9);
+  r10_o <= regs(10);
+  r11_o <= regs(11);
+
+-- ==============================================================================
+-- Синхронная запись debug-РОН
+--
+-- Файл: src/reg_file12x16_dbg.vhd
+--
+-- Запись и сброс совпадают с обычной версией регистрового файла.
+-- ==============================================================================
+
+  process(clk_i)
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        regs <= (others => (others => '0'));
+      elsif we_i = '1' and to_integer(wr_addr_i) < REG_COUNT then
+        regs(to_integer(wr_addr_i)) <= din_i;
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Стек 7 x 16
+--
+-- Файл: src/stack7x16.vhd
+--
+-- Реализует стек на 7 слов с ростом вниз и операциями PUSH/POP.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity stack7x16 is
+  port (
+    clk_i   : in  std_logic;
+    rst_i   : in  std_logic;
+    push_i  : in  std_logic;
+    pop_i   : in  std_logic;
+    din_i   : in  word_t;
+    dout_o  : out word_t;
+    sp_o    : out unsigned(2 downto 0);
+    empty_o : out std_logic;
+    full_o  : out std_logic
+  );
+end entity;
+
+-- ==============================================================================
+-- Память и указатель стека
+--
+-- Файл: src/stack7x16.vhd
+--
+-- mem хранит 7 слов, sp_r указывает вершину. Пустой стек имеет SP=7.
+-- ==============================================================================
+
+architecture rtl of stack7x16 is
+  type stack_mem_t is array (0 to STACK_DEPTH-1) of word_t;
+  signal mem    : stack_mem_t := (others => (others => '0'));
+  signal sp_r   : unsigned(2 downto 0) := to_unsigned(STACK_DEPTH, 3);
+  signal dout_r : word_t := (others => '0');
+begin
+-- ==============================================================================
+-- Признаки empty/full
+--
+-- Файл: src/stack7x16.vhd
+--
+-- empty_o активен при SP=7, full_o активен при SP=0.
+-- ==============================================================================
+
+  dout_o  <= dout_r;
+  sp_o    <= sp_r;
+  empty_o <= '1' when sp_r = to_unsigned(STACK_DEPTH, 3) else '0';
+  full_o  <= '1' when sp_r = to_unsigned(0, 3) else '0';
+
+-- ==============================================================================
+-- Синхронный процесс стека
+--
+-- Файл: src/stack7x16.vhd
+--
+-- PUSH и POP выполняются по фронту clk_i, что соответствует синхронному стеку.
+-- ==============================================================================
+
+  process(clk_i)
+    variable sp_i : integer;
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        mem    <= (others => (others => '0'));
+        sp_r   <= to_unsigned(STACK_DEPTH, 3);
+        dout_r <= (others => '0');
+-- ==============================================================================
+-- Операция PUSH
+--
+-- Файл: src/stack7x16.vhd
+--
+-- При PUSH указатель уменьшается, а входное слово записывается в новую вершину.
+-- ==============================================================================
+
+      else
+        sp_i := to_integer(sp_r);
+
+        if push_i = '1' and pop_i = '0' then
+          if sp_i > 0 then
+            mem(sp_i - 1) <= din_i;
+-- ==============================================================================
+-- Операция POP
+--
+-- Файл: src/stack7x16.vhd
+--
+-- При POP слово читается из вершины, затем указатель увеличивается.
+-- ==============================================================================
+
+            sp_r <= to_unsigned(sp_i - 1, 3);
+          end if;
+        elsif pop_i = '1' and push_i = '0' then
+          if sp_i < STACK_DEPTH then
+            dout_r <= mem(sp_i);
+            sp_r   <= to_unsigned(sp_i + 1, 3);
+          end if;
+        end if;
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Синхронное ПЗУ команд
+--
+-- Файл: src/rom_sync.vhd
+--
+-- Возвращает слово команды из ROM_INIT по младшим 8 битам адреса.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+use work.program_image_pkg.all;
+
+entity rom_sync is
+  port (
+    clk_i  : in  std_logic;
+    en_i   : in  std_logic;
+    addr_i : in  addr_t;
+    data_o : out word_t
+  );
+end entity;
+
+-- ==============================================================================
+-- Выходной регистр ROM
+--
+-- Файл: src/rom_sync.vhd
+--
+-- q_r хранит последнее считанное слово команды.
+-- ==============================================================================
+
+architecture rtl of rom_sync is
+  signal q_r : word_t := (others => '0');
+begin
+  data_o <= q_r;
+-- ==============================================================================
+-- Синхронное чтение ROM
+--
+-- Файл: src/rom_sync.vhd
+--
+-- При en_i=1 слово выбирается из ROM_INIT по младшим 8 битам адреса.
+-- ==============================================================================
+
+
+  process(clk_i)
+    variable idx : integer;
+  begin
+    if rising_edge(clk_i) then
+      if en_i = '1' then
+        idx := to_integer(unsigned(addr_i(7 downto 0)));
+        q_r <= ROM_INIT(idx);
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Синхронное ОЗУ данных
+--
+-- Файл: src/ram_sync.vhd
+--
+-- Хранит данные программы, поддерживает синхронное чтение и запись.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+use work.data_image_pkg.all;
+
+entity ram_sync is
+  port (
+    clk_i  : in  std_logic;
+    en_i   : in  std_logic;
+    we_i   : in  std_logic;
+    addr_i : in  addr_t;
+    din_i  : in  word_t;
+    dout_o : out word_t
+  );
+end entity;
+
+-- ==============================================================================
+-- Память RAM с начальной инициализацией
+--
+-- Файл: src/ram_sync.vhd
+--
+-- mem инициализируется константой RAM_INIT из data_image_pkg.
+-- ==============================================================================
+
+architecture rtl of ram_sync is
+  signal mem : ram256_t := RAM_INIT;
+  signal q_r : word_t := (others => '0');
+begin
+-- ==============================================================================
+-- Синхронное чтение и запись RAM
+--
+-- Файл: src/ram_sync.vhd
+--
+-- При en_i=1 выполняется доступ к ячейке. Если we_i=1, дополнительно записывается din_i.
+-- ==============================================================================
+
+  dout_o <= q_r;
+
+  process(clk_i)
+    variable idx : integer;
+  begin
+    if rising_edge(clk_i) then
+      if en_i = '1' then
+        idx := to_integer(unsigned(addr_i(7 downto 0)));
+        if we_i = '1' then
+          mem(idx) <= din_i;
+        end if;
+        q_r <= mem(idx);
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Рабочий кэш данных
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Реализует 4-way кэш на 16 множеств со сквозной записью и замещением по возрасту.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity cache_4way_age is
+  port (
+    clk_i        : in  std_logic;
+    rst_i        : in  std_logic;
+
+    cpu_req_i    : in  std_logic;
+    cpu_we_i     : in  std_logic;
+    cpu_addr_i   : in  addr_t;
+    cpu_wdata_i  : in  word_t;
+    cpu_rdata_o  : out word_t;
+    cpu_ready_o  : out std_logic;
+    hit_o        : out std_logic;
+    miss_o       : out std_logic;
+
+    ram_req_o    : out std_logic;
+    ram_we_o     : out std_logic;
+    ram_addr_o   : out addr_t;
+    ram_wdata_o  : out word_t;
+    ram_rdata_i  : in  word_t;
+    ram_grant_i  : in  std_logic
+  );
+end entity;
+
+-- ==============================================================================
+-- Структуры хранения кэша
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Для каждого множества и направления хранятся data, tag, age и valid.
+-- ==============================================================================
+
+architecture rtl of cache_4way_age is
+  subtype cache_tag_t is std_logic_vector(11 downto 0);
+  type cache_state_t is (IDLE, WAIT_READ_GRANT, WAIT_READ_DATA, WAIT_WRITE_GRANT);
+  type set_way_word_t is array (0 to CACHE_SETS-1, 0 to CACHE_WAYS-1) of word_t;
+  type set_way_tag_t is array (0 to CACHE_SETS-1, 0 to CACHE_WAYS-1) of cache_tag_t;
+  type set_way_age_t is array (0 to CACHE_SETS-1, 0 to CACHE_WAYS-1) of unsigned(1 downto 0);
+  type set_way_valid_t is array (0 to CACHE_SETS-1, 0 to CACHE_WAYS-1) of std_logic;
+
+  signal state_r      : cache_state_t := IDLE;
+  signal data_r       : set_way_word_t := (others => (others => (others => '0')));
+  signal tag_r        : set_way_tag_t := (others => (others => (others => '0')));
+  signal age_r        : set_way_age_t := (others => (others => (others => '0')));
+  signal valid_r      : set_way_valid_t := (others => (others => '0'));
+
+  signal req_addr_r   : addr_t := (others => '0');
+  signal req_wdata_r  : word_t := (others => '0');
+  signal req_we_r     : std_logic := '0';
+  signal write_hit_r  : std_logic := '0';
+  signal victim_r     : integer range 0 to CACHE_WAYS-1 := 0;
+  signal set_r        : integer range 0 to CACHE_SETS-1 := 0;
+  signal tag_req_r    : cache_tag_t := (others => '0');
+
+  signal cpu_rdata_r  : word_t := (others => '0');
+  signal cpu_ready_r  : std_logic := '0';
+  signal hit_r        : std_logic := '0';
+  signal miss_r       : std_logic := '0';
+  signal ram_req_r    : std_logic := '0';
+  signal ram_we_r     : std_logic := '0';
+  signal ram_addr_r   : addr_t := (others => '0');
+  signal ram_wdata_r  : word_t := (others => '0');
+
+-- ==============================================================================
+-- Разбиение адреса кэша
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Младшие 4 бита адреса выбирают множество, старшие 12 бит являются тегом.
+-- ==============================================================================
+
+  function cache_set(addr : addr_t) return integer is
+  begin
+    return to_integer(unsigned(addr(3 downto 0)));
+  end function;
+
+  function cache_tag(addr : addr_t) return cache_tag_t is
+  begin
+    return addr(15 downto 4);
+  end function;
+
+-- ==============================================================================
+-- Увеличение возраста строки
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Возраст увеличивается с насыщением, чтобы значение 11 оставалось максимальным.
+-- ==============================================================================
+
+  function inc_age(v : unsigned(1 downto 0)) return unsigned is
+  begin
+    if v = "11" then
+      return v;
+    else
+      return v + 1;
+    end if;
+  end function;
+begin
+  cpu_rdata_o <= cpu_rdata_r;
+  cpu_ready_o <= cpu_ready_r;
+  hit_o       <= hit_r;
+  miss_o      <= miss_r;
+  ram_req_o   <= ram_req_r;
+  ram_we_o    <= ram_we_r;
+  ram_addr_o  <= ram_addr_r;
+  ram_wdata_o <= ram_wdata_r;
+
+-- ==============================================================================
+-- Автомат кэша
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Синхронный процесс обрабатывает запросы CPU, промахи, заполнение строк и сквозную запись.
+-- ==============================================================================
+
+  process(clk_i)
+    variable set_v    : integer range 0 to CACHE_SETS-1;
+    variable hit_v    : boolean;
+    variable hit_way  : integer range 0 to CACHE_WAYS-1;
+    variable victim_v : integer range 0 to CACHE_WAYS-1;
+    variable tag_v    : std_logic_vector(11 downto 0);
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        state_r     <= IDLE;
+        data_r      <= (others => (others => (others => '0')));
+        tag_r       <= (others => (others => (others => '0')));
+        age_r       <= (others => (others => (others => '0')));
+        valid_r     <= (others => (others => '0'));
+        req_addr_r  <= (others => '0');
+        req_wdata_r <= (others => '0');
+        req_we_r    <= '0';
+        write_hit_r <= '0';
+        victim_r    <= 0;
+        set_r       <= 0;
+        tag_req_r   <= (others => '0');
+        cpu_rdata_r <= (others => '0');
+        cpu_ready_r <= '0';
+        hit_r       <= '0';
+        miss_r      <= '0';
+        ram_req_r   <= '0';
+        ram_we_r    <= '0';
+        ram_addr_r  <= (others => '0');
+        ram_wdata_r <= (others => '0');
+      else
+        cpu_ready_r <= '0';
+        hit_r       <= '0';
+        miss_r      <= '0';
+
+        case state_r is
+-- ==============================================================================
+-- Состояние IDLE
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- В IDLE кэш принимает запрос CPU, ищет hit и выбирает строку для возможного замещения.
+-- ==============================================================================
+
+          when IDLE =>
+            ram_req_r <= '0';
+            ram_we_r  <= '0';
+
+            if cpu_req_i = '1' and cpu_ready_r = '0' then
+              set_v := cache_set(cpu_addr_i);
+              tag_v := cache_tag(cpu_addr_i);
+              hit_v := false;
+              hit_way := 0;
+              victim_v := 0;
+
+-- ==============================================================================
+-- Проверка попадания
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Попадание есть, если valid=1 и тег направления равен тегу адреса запроса.
+-- ==============================================================================
+
+              for way in 0 to CACHE_WAYS-1 loop
+                if valid_r(set_v, way) = '1' and tag_r(set_v, way) = tag_v then
+                  hit_v := true;
+                  hit_way := way;
+                end if;
+              end loop;
+
+-- ==============================================================================
+-- Выбор жертвы
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Сначала выбирается пустая строка, а если пустых нет - строка с наибольшим возрастом.
+-- ==============================================================================
+
+              for way in 0 to CACHE_WAYS-1 loop
+                if valid_r(set_v, way) = '0' then
+                  victim_v := way;
+                elsif valid_r(set_v, victim_v) = '1' and age_r(set_v, way) > age_r(set_v, victim_v) then
+                  victim_v := way;
+                end if;
+              end loop;
+
+              req_addr_r  <= cpu_addr_i;
+              req_wdata_r <= cpu_wdata_i;
+              req_we_r    <= cpu_we_i;
+              write_hit_r <= '0';
+              victim_r    <= victim_v;
+              set_r       <= set_v;
+              tag_req_r   <= tag_v;
+
+-- ==============================================================================
+-- Попадание при чтении
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- При hit на чтение кэш сразу возвращает data_r выбранного направления и выставляет
+-- cpu_ready_o.
+-- ==============================================================================
+
+              if hit_v and cpu_we_i = '0' then
+                cpu_rdata_r <= data_r(set_v, hit_way);
+                cpu_ready_r <= '1';
+                hit_r       <= '1';
+-- ==============================================================================
+-- Сквозная запись
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Любая запись отправляется в RAM. Если адрес был в кэше, строка кэша также обновляется.
+-- ==============================================================================
+
+              elsif cpu_we_i = '1' then
+                if hit_v then
+                  data_r(set_v, hit_way) <= cpu_wdata_i;
+                  victim_v := hit_way;
+                  write_hit_r <= '1';
+                end if;
+                ram_req_r   <= '1';
+                ram_we_r    <= '1';
+                ram_addr_r  <= cpu_addr_i;
+                ram_wdata_r <= cpu_wdata_i;
+                victim_r    <= victim_v;
+                state_r     <= WAIT_WRITE_GRANT;
+                if hit_v then
+                  hit_r <= '1';
+                else
+                  miss_r <= '1';
+                end if;
+              else
+                ram_req_r   <= '1';
+                ram_we_r    <= '0';
+                ram_addr_r  <= cpu_addr_i;
+                ram_wdata_r <= (others => '0');
+                state_r     <= WAIT_READ_GRANT;
+                miss_r      <= '1';
+              end if;
+            end if;
+
+-- ==============================================================================
+-- Ожидание доступа к RAM при чтении
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- При промахе чтения кэш держит ram_req_o до получения ram_grant_i.
+-- ==============================================================================
+
+          when WAIT_READ_GRANT =>
+            ram_req_r <= '1';
+            ram_we_r  <= '0';
+            ram_addr_r <= req_addr_r;
+            if ram_grant_i = '1' then
+              state_r <= WAIT_READ_DATA;
+            end if;
+
+-- ==============================================================================
+-- Заполнение строки после промаха
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- Слово из RAM записывается в выбранную строку, tag и valid обновляются, возраст новой строки
+-- сбрасывается.
+-- ==============================================================================
+
+          when WAIT_READ_DATA =>
+            ram_req_r <= '0';
+            ram_we_r  <= '0';
+            data_r(set_r, victim_r)  <= ram_rdata_i;
+            tag_r(set_r, victim_r)   <= tag_req_r;
+            valid_r(set_r, victim_r) <= '1';
+            age_r(set_r, victim_r)   <= (others => '0');
+            for way in 0 to CACHE_WAYS-1 loop
+              if way /= victim_r and valid_r(set_r, way) = '1' then
+                age_r(set_r, way) <= inc_age(age_r(set_r, way));
+              end if;
+            end loop;
+            cpu_rdata_r <= ram_rdata_i;
+            cpu_ready_r <= '1';
+            miss_r      <= '1';
+            state_r     <= IDLE;
+
+-- ==============================================================================
+-- Ожидание доступа к RAM при записи
+--
+-- Файл: src/cache_4way_age.vhd
+--
+-- В этом состоянии завершается write-through запись в RAM и при необходимости обновляется
+-- строка кэша.
+-- ==============================================================================
+
+          when WAIT_WRITE_GRANT =>
+            ram_req_r   <= '1';
+            ram_we_r    <= '1';
+            ram_addr_r  <= req_addr_r;
+            ram_wdata_r <= req_wdata_r;
+            if ram_grant_i = '1' then
+              if write_hit_r = '0' then
+                data_r(set_r, victim_r)  <= req_wdata_r;
+                tag_r(set_r, victim_r)   <= tag_req_r;
+                valid_r(set_r, victim_r) <= '1';
+                age_r(set_r, victim_r)   <= (others => '0');
+                for way in 0 to CACHE_WAYS-1 loop
+                  if way /= victim_r and valid_r(set_r, way) = '1' then
+                    age_r(set_r, way) <= inc_age(age_r(set_r, way));
+                  end if;
+                end loop;
+              end if;
+              cpu_ready_r <= '1';
+              state_r     <= IDLE;
+              ram_req_r   <= '0';
+              ram_we_r    <= '0';
+            end if;
+        end case;
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- DMA/КПДП
+--
+-- Файл: src/dma_controller_3word.vhd
+--
+-- Записывает три слова внешнего устройства в RAM начиная с адреса 000Ah.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity dma_controller_3word is
+  generic (
+    BASE_ADDR_G : addr_t := x"000A"
+  );
+  port (
+    clk_i       : in  std_logic;
+    rst_i       : in  std_logic;
+    start_i     : in  std_logic;
+    grant_i     : in  std_logic;
+    dev_valid_i : in  std_logic;
+    dev_data_i  : in  word_t;
+    req_o       : out std_logic;
+    busy_o      : out std_logic;
+    done_o      : out std_logic;
+    ram_we_o    : out std_logic;
+    ram_addr_o  : out addr_t;
+    ram_data_o  : out word_t
+  );
+end entity;
+
+-- ==============================================================================
+-- Состояния DMA
+--
+-- Файл: src/dma_controller_3word.vhd
+--
+-- IDLE ожидает запуск, REQ_BUS запрашивает шину, WRITE_WORD пишет слова, FINISH завершает
+-- передачу.
+-- ==============================================================================
+
+architecture rtl of dma_controller_3word is
+  type state_t is (IDLE, REQ_BUS, WRITE_WORD, FINISH);
+  signal state_r  : state_t := IDLE;
+  signal index_r  : unsigned(1 downto 0) := (others => '0');
+  signal done_r   : std_logic := '0';
+begin
+-- ==============================================================================
+-- Выходные сигналы DMA
+--
+-- Файл: src/dma_controller_3word.vhd
+--
+-- Адрес записи равен BASE_ADDR_G + index_r, данные берутся с dev_data_i.
+-- ==============================================================================
+
+  busy_o     <= '0' when state_r = IDLE else '1';
+  req_o      <= '1' when state_r = REQ_BUS or state_r = WRITE_WORD else '0';
+  ram_we_o   <= '1' when state_r = WRITE_WORD and grant_i = '1' and dev_valid_i = '1' else '0';
+  ram_addr_o <= std_logic_vector(unsigned(BASE_ADDR_G) + resize(index_r, ADDR_W));
+  ram_data_o <= dev_data_i;
+  done_o     <= done_r;
+
+  process(clk_i)
+-- ==============================================================================
+-- Автомат DMA
+--
+-- Файл: src/dma_controller_3word.vhd
+--
+-- Синхронный процесс управляет запросом шины и счетчиком переданных слов.
+-- ==============================================================================
+
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        state_r <= IDLE;
+        index_r <= (others => '0');
+        done_r  <= '0';
+      else
+        case state_r is
+          when IDLE =>
+            if start_i = '1' then
+              index_r <= (others => '0');
+-- ==============================================================================
+-- Запись слова DMA
+--
+-- Файл: src/dma_controller_3word.vhd
+--
+-- При grant_i и dev_valid_i формируется запись в RAM; после третьего слова автомат переходит
+-- к FINISH.
+-- ==============================================================================
+
+              done_r  <= '0';
+              state_r <= REQ_BUS;
+            end if;
+          when REQ_BUS =>
+            if grant_i = '1' then
+              state_r <= WRITE_WORD;
+            end if;
+          when WRITE_WORD =>
+            if grant_i = '1' and dev_valid_i = '1' then
+              if index_r = "10" then
+                state_r <= FINISH;
+              else
+                index_r <= index_r + 1;
+              end if;
+            end if;
+          when FINISH =>
+            done_r  <= '1';
+            state_r <= IDLE;
+        end case;
+      end if;
+    end if;
+  end process;
+end architecture;
+
+-- ==============================================================================
+-- Арбитр шины
+--
+-- Файл: src/bus_arbiter_2master.vhd
+--
+-- Распределяет доступ к RAM между CPU/кэшем и DMA, отдавая приоритет DMA.
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity bus_arbiter_2master is
+  port (
+    req_cpu_i   : in  std_logic;
+    req_dma_i   : in  std_logic;
+    grant_cpu_o : out std_logic;
+    grant_dma_o : out std_logic
+  );
+end entity;
+
+-- ==============================================================================
+-- Централизованный параллельный арбитр
+--
+-- Файл: src/bus_arbiter_2master.vhd
+--
+-- Арбитр имеет два мастера: CPU/кэш и DMA.
+-- ==============================================================================
+
+architecture rtl of bus_arbiter_2master is
+begin
+-- ==============================================================================
+-- Приоритет DMA
+--
+-- Файл: src/bus_arbiter_2master.vhd
+--
+-- DMA получает grant при любом своем запросе, CPU получает grant только если DMA не
+-- запрашивает шину.
+-- ==============================================================================
+
+  grant_dma_o <= req_dma_i;
+  grant_cpu_o <= req_cpu_i and (not req_dma_i);
+end architecture;
+
+-- ==============================================================================
+-- Предсказатель переходов A4
+--
+-- Файл: src/branch_predictor.vhd
+--
+-- Использует PHT, BTB и GHR, индексируя таблицы как PC(1:0) || GHR(1:0).
+-- ==============================================================================
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.microcomputer_pkg.all;
+
+entity branch_predictor is
+  port (
+    clk_i          : in  std_logic;
+    rst_i          : in  std_logic;
+    query_valid_i  : in  std_logic;
+    pc_query_i     : in  addr_t;
+    hist_o         : out std_logic_vector(1 downto 0);
+    pred_taken_o   : out std_logic;
+    pred_target_o  : out addr_t;
+    update_valid_i : in  std_logic;
+    pc_update_i    : in  addr_t;
+    hist_i         : in  std_logic_vector(1 downto 0);
+    actual_taken_i : in  std_logic;
+    actual_tgt_i   : in  addr_t
+  );
+end entity;
+
+-- ==============================================================================
+-- Структуры предсказателя A4
+--
+-- Файл: src/branch_predictor.vhd
+--
+-- PHT хранит 2-битные счетчики, BTB хранит цели переходов, ghr_r хранит 2-битную глобальную
+-- историю.
+-- ==============================================================================
+
+architecture rtl of branch_predictor is
+  type pht_t   is array (0 to 15) of unsigned(1 downto 0);
+  type target_t is array (0 to 15) of addr_t;
+  type valid_t  is array (0 to 15) of std_logic;
+
+  signal pht       : pht_t    := (others => "01");
+  signal btb_tgt   : target_t := (others => (others => '0'));
+  signal btb_valid : valid_t  := (others => '0');
+  signal ghr_r     : std_logic_vector(1 downto 0) := "00";
+
+-- ==============================================================================
+-- Индекс предсказателя
+--
+-- Файл: src/branch_predictor.vhd
+--
+-- Индекс строится как PC(1 downto 0) || GHR, что дает 16 строк таблицы.
+-- ==============================================================================
+
+  function idx_of(pc : addr_t; hist : std_logic_vector(1 downto 0)) return integer is
+    variable idx_v : std_logic_vector(3 downto 0);
+  begin
+    idx_v := std_logic_vector(pc(1 downto 0)) & hist;
+    return to_integer(unsigned(idx_v));
+  end function;
+
+  function sat_dec(v : unsigned(1 downto 0)) return unsigned is
+  begin
+    if v = "00" then
+      return v;
+    else
+      return v - 1;
+    end if;
+  end function;
+-- ==============================================================================
+-- Выдача прогноза
+--
+-- Файл: src/branch_predictor.vhd
+--
+-- Если старший бит счетчика PHT равен 1 и BTB валиден, предсказывается переход на сохраненный
+-- адрес.
+-- ==============================================================================
+
+begin
+  hist_o <= ghr_r;
+
+  process(query_valid_i, pc_query_i, ghr_r, pht, btb_valid, btb_tgt)
+    variable idx : integer;
+  begin
+    pred_taken_o  <= '0';
+    pred_target_o <= (others => '0');
+    if query_valid_i = '1' then
+      idx := idx_of(pc_query_i, ghr_r);
+      if pht(idx)(1) = '1' and btb_valid(idx) = '1' then
+        pred_taken_o  <= '1';
+        pred_target_o <= btb_tgt(idx);
+-- ==============================================================================
+-- Обновление предсказателя
+--
+-- Файл: src/branch_predictor.vhd
+--
+-- После выполнения JZ счетчик увеличивается или уменьшается, BTB обновляется при taken, а GHR
+-- сдвигается.
+-- ==============================================================================
+
+      end if;
+    end if;
+  end process;
+
+  process(clk_i)
+    variable idx : integer;
+  begin
+    if rising_edge(clk_i) then
+      if rst_i = '1' then
+        pht       <= (others => "01");
+        btb_tgt   <= (others => (others => '0'));
+        btb_valid <= (others => '0');
+        ghr_r     <= "00";
+      elsif update_valid_i = '1' then
+        idx := idx_of(pc_update_i, hist_i);
+        if actual_taken_i = '1' then
+          pht(idx)       <= sat_inc2(pht(idx));
+          btb_tgt(idx)   <= actual_tgt_i;
+          btb_valid(idx) <= '1';
+        else
+          pht(idx) <= sat_dec(pht(idx));
+        end if;
+        ghr_r <= ghr_r(0) & actual_taken_i;
+      end if;
+    end if;
+  end process;
+end architecture;

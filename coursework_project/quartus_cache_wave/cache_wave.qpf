@@ -1,0 +1,4 @@
+QUARTUS_VERSION = "9.1"
+DATE = "00:00:00  May 09, 2026"
+
+PROJECT_REVISION = "cache_wave"
