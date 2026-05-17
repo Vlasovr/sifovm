@@ -1,0 +1,867 @@
+// Copyright (C) 1991-2009 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "09/18/2025 17:05:13"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    control_unit
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module control_unit_vlg_sample_tst(
+	clk,
+	opcode,
+	rst_n,
+	sampler_tx
+);
+input  clk;
+input [7:0] opcode;
+input  rst_n;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clk or opcode or rst_n)
+                                                                                
+begin                                         
+ if ($time > 0)                               
+ begin                                        
+	if ($time == 0 || $time != current_time)  
+	begin									  
+		if (sample === 1'bx)                  
+			sample = 0;                       
+		else                                  
+			sample = ~sample;                 
+	end										  
+	current_time = $time;					  
+ end                                          
+end                                           
+
+assign sampler_tx = sample;
+endmodule
+
+module control_unit_vlg_check_tst (
+	addr_sel,
+	ar_load,
+	dr_load,
+	dr_sec_sel,
+	ip_en,
+	ip_load,
+	ir_load,
+	isJMP,
+	isRM,
+	p0,
+	p1,
+	p2,
+	p3,
+	ram_en,
+	ram_we,
+	rom_en,
+	ron_rd_addr,
+	sampler_rx
+);
+input  addr_sel;
+input  ar_load;
+input  dr_load;
+input  dr_sec_sel;
+input  ip_en;
+input  ip_load;
+input  ir_load;
+input  isJMP;
+input  isRM;
+input  p0;
+input  p1;
+input  p2;
+input  p3;
+input  ram_en;
+input  ram_we;
+input  rom_en;
+input [1:0] ron_rd_addr;
+input sampler_rx;
+
+reg  addr_sel_expected;
+reg  ar_load_expected;
+reg  dr_load_expected;
+reg  dr_sec_sel_expected;
+reg  ip_en_expected;
+reg  ip_load_expected;
+reg  ir_load_expected;
+reg  isJMP_expected;
+reg  isRM_expected;
+reg  p0_expected;
+reg  p1_expected;
+reg  p2_expected;
+reg  p3_expected;
+reg  ram_en_expected;
+reg  ram_we_expected;
+reg  rom_en_expected;
+reg [1:0] ron_rd_addr_expected;
+
+reg  addr_sel_prev;
+reg  ar_load_prev;
+reg  dr_load_prev;
+reg  dr_sec_sel_prev;
+reg  ip_en_prev;
+reg  ip_load_prev;
+reg  ir_load_prev;
+reg  isJMP_prev;
+reg  isRM_prev;
+reg  p0_prev;
+reg  p1_prev;
+reg  p2_prev;
+reg  p3_prev;
+reg  ram_en_prev;
+reg  ram_we_prev;
+reg  rom_en_prev;
+reg [1:0] ron_rd_addr_prev;
+
+reg  addr_sel_expected_prev;
+reg  ar_load_expected_prev;
+reg  dr_load_expected_prev;
+reg  dr_sec_sel_expected_prev;
+reg  ip_en_expected_prev;
+reg  ip_load_expected_prev;
+reg  ir_load_expected_prev;
+reg  isJMP_expected_prev;
+reg  isRM_expected_prev;
+reg  p0_expected_prev;
+reg  p1_expected_prev;
+reg  p2_expected_prev;
+reg  p3_expected_prev;
+reg  ram_en_expected_prev;
+reg  ram_we_expected_prev;
+reg  rom_en_expected_prev;
+reg [1:0] ron_rd_addr_expected_prev;
+
+reg  last_addr_sel_exp;
+reg  last_ar_load_exp;
+reg  last_dr_load_exp;
+reg  last_dr_sec_sel_exp;
+reg  last_ip_en_exp;
+reg  last_ip_load_exp;
+reg  last_ir_load_exp;
+reg  last_isJMP_exp;
+reg  last_isRM_exp;
+reg  last_p0_exp;
+reg  last_p1_exp;
+reg  last_p2_exp;
+reg  last_p3_exp;
+reg  last_ram_en_exp;
+reg  last_ram_we_exp;
+reg  last_rom_en_exp;
+reg [1:0] last_ron_rd_addr_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:17] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 17'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	addr_sel_prev = addr_sel;
+	ar_load_prev = ar_load;
+	dr_load_prev = dr_load;
+	dr_sec_sel_prev = dr_sec_sel;
+	ip_en_prev = ip_en;
+	ip_load_prev = ip_load;
+	ir_load_prev = ir_load;
+	isJMP_prev = isJMP;
+	isRM_prev = isRM;
+	p0_prev = p0;
+	p1_prev = p1;
+	p2_prev = p2;
+	p3_prev = p3;
+	ram_en_prev = ram_en;
+	ram_we_prev = ram_we;
+	rom_en_prev = rom_en;
+	ron_rd_addr_prev = ron_rd_addr;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	addr_sel_expected_prev = addr_sel_expected;
+	ar_load_expected_prev = ar_load_expected;
+	dr_load_expected_prev = dr_load_expected;
+	dr_sec_sel_expected_prev = dr_sec_sel_expected;
+	ip_en_expected_prev = ip_en_expected;
+	ip_load_expected_prev = ip_load_expected;
+	ir_load_expected_prev = ir_load_expected;
+	isJMP_expected_prev = isJMP_expected;
+	isRM_expected_prev = isRM_expected;
+	p0_expected_prev = p0_expected;
+	p1_expected_prev = p1_expected;
+	p2_expected_prev = p2_expected;
+	p3_expected_prev = p3_expected;
+	ram_en_expected_prev = ram_en_expected;
+	ram_we_expected_prev = ram_we_expected;
+	rom_en_expected_prev = rom_en_expected;
+	ron_rd_addr_expected_prev = ron_rd_addr_expected;
+end
+
+
+
+// expected p0
+initial
+begin
+	p0_expected = 1'b1;
+	p0_expected = #50000 1'b0;
+	# 50000;
+	repeat(3)
+	begin
+		p0_expected = 1'b1;
+		p0_expected = #50000 1'b0;
+		# 750000;
+	end
+	p0_expected = 1'b1;
+	p0_expected = #50000 1'b0;
+end 
+
+// expected p1
+initial
+begin
+	p1_expected = 1'b0;
+	# 300000;
+	repeat(3)
+	begin
+		p1_expected = 1'b1;
+		p1_expected = #50000 1'b0;
+		# 750000;
+	end
+	p1_expected = 1'b1;
+	p1_expected = #50000 1'b0;
+end 
+
+// expected p2
+initial
+begin
+	p2_expected = 1'b0;
+	# 500000;
+	repeat(3)
+	begin
+		p2_expected = 1'b1;
+		p2_expected = #50000 1'b0;
+		# 750000;
+	end
+	p2_expected = 1'b1;
+	p2_expected = #50000 1'b0;
+end 
+
+// expected p3
+initial
+begin
+	p3_expected = 1'b0;
+	# 700000;
+	repeat(2)
+	begin
+		p3_expected = 1'b1;
+		p3_expected = #50000 1'b0;
+		# 750000;
+	end
+	p3_expected = 1'b1;
+	p3_expected = #50000 1'b0;
+end 
+
+// expected addr_sel
+initial
+begin
+	addr_sel_expected = 1'b0;
+	addr_sel_expected = #700000 1'b1;
+	addr_sel_expected = #50000 1'b0;
+end 
+
+// expected ar_load
+initial
+begin
+	ar_load_expected = 1'b0;
+	# 500000;
+	repeat(3)
+	begin
+		ar_load_expected = 1'b1;
+		ar_load_expected = #50000 1'b0;
+		# 750000;
+	end
+	ar_load_expected = 1'b1;
+	ar_load_expected = #50000 1'b0;
+end 
+
+// expected dr_load
+initial
+begin
+	dr_load_expected = 1'b0;
+	dr_load_expected = #500000 1'b1;
+	dr_load_expected = #50000 1'b0;
+end 
+
+// expected dr_sec_sel
+initial
+begin
+	dr_sec_sel_expected = 1'b0;
+	dr_sec_sel_expected = #500000 1'b1;
+	dr_sec_sel_expected = #50000 1'b0;
+end 
+
+// expected ip_en
+initial
+begin
+	ip_en_expected = 1'b1;
+	ip_en_expected = #50000 1'b0;
+	# 50000;
+	repeat(3)
+	begin
+		ip_en_expected = 1'b1;
+		ip_en_expected = #50000 1'b0;
+		ip_en_expected = #150000 1'b1;
+		ip_en_expected = #50000 1'b0;
+		# 550000;
+	end
+	ip_en_expected = 1'b1;
+	ip_en_expected = #50000 1'b0;
+	ip_en_expected = #150000 1'b1;
+	ip_en_expected = #50000 1'b0;
+end 
+
+// expected ip_load
+initial
+begin
+	ip_load_expected = 1'b0;
+	ip_load_expected = #1500000 1'b1;
+	ip_load_expected = #50000 1'b0;
+end 
+
+// expected ir_load
+initial
+begin
+	ir_load_expected = 1'b0;
+	# 300000;
+	repeat(3)
+	begin
+		ir_load_expected = 1'b1;
+		ir_load_expected = #50000 1'b0;
+		# 750000;
+	end
+	ir_load_expected = 1'b1;
+	ir_load_expected = #50000 1'b0;
+end 
+
+// expected isJMP
+initial
+begin
+	isJMP_expected = 1'b0;
+	isJMP_expected = #800000 1'b1;
+	isJMP_expected = #800000 1'b0;
+end 
+
+// expected isRM
+initial
+begin
+	isRM_expected = 1'b0;
+	isRM_expected = #100000 1'b1;
+	isRM_expected = #700000 1'b0;
+end 
+
+// expected ram_en
+initial
+begin
+	ram_en_expected = 1'b0;
+end 
+
+// expected ram_we
+initial
+begin
+	ram_we_expected = 1'b0;
+	ram_we_expected = #700000 1'b1;
+	ram_we_expected = #50000 1'b0;
+end 
+
+// expected rom_en
+initial
+begin
+	rom_en_expected = 1'b1;
+	rom_en_expected = #50000 1'b0;
+	# 50000;
+	repeat(2)
+	begin
+		repeat(2)
+		begin
+			rom_en_expected = 1'b1;
+			rom_en_expected = #50000 1'b0;
+			# 150000;
+		end
+		rom_en_expected = 1'b1;
+		rom_en_expected = #50000 1'b0;
+		# 350000;
+	end
+	repeat(2)
+	begin
+		rom_en_expected = 1'b1;
+		rom_en_expected = #50000 1'b0;
+		# 150000;
+	end
+	rom_en_expected = 1'b1;
+	rom_en_expected = #50000 1'b0;
+	# 350000;
+	repeat(2)
+	begin
+		rom_en_expected = 1'b1;
+		rom_en_expected = #50000 1'b0;
+		# 150000;
+	end
+	rom_en_expected = 1'b1;
+	rom_en_expected = #50000 1'b0;
+end 
+// expected ron_rd_addr[ 1 ]
+initial
+begin
+	ron_rd_addr_expected[1] = 1'b0;
+end 
+// expected ron_rd_addr[ 0 ]
+initial
+begin
+	ron_rd_addr_expected[0] = 1'b0;
+	ron_rd_addr_expected[0] = #100000 1'b1;
+	ron_rd_addr_expected[0] = #700000 1'b0;
+end 
+// generate trigger
+always @(addr_sel_expected or addr_sel or ar_load_expected or ar_load or dr_load_expected or dr_load or dr_sec_sel_expected or dr_sec_sel or ip_en_expected or ip_en or ip_load_expected or ip_load or ir_load_expected or ir_load or isJMP_expected or isJMP or isRM_expected or isRM or p0_expected or p0 or p1_expected or p1 or p2_expected or p2 or p3_expected or p3 or ram_en_expected or ram_en or ram_we_expected or ram_we or rom_en_expected or rom_en or ron_rd_addr_expected or ron_rd_addr)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected addr_sel = %b | expected ar_load = %b | expected dr_load = %b | expected dr_sec_sel = %b | expected ip_en = %b | expected ip_load = %b | expected ir_load = %b | expected isJMP = %b | expected isRM = %b | expected p0 = %b | expected p1 = %b | expected p2 = %b | expected p3 = %b | expected ram_en = %b | expected ram_we = %b | expected rom_en = %b | expected ron_rd_addr = %b | ",addr_sel_expected_prev,ar_load_expected_prev,dr_load_expected_prev,dr_sec_sel_expected_prev,ip_en_expected_prev,ip_load_expected_prev,ir_load_expected_prev,isJMP_expected_prev,isRM_expected_prev,p0_expected_prev,p1_expected_prev,p2_expected_prev,p3_expected_prev,ram_en_expected_prev,ram_we_expected_prev,rom_en_expected_prev,ron_rd_addr_expected_prev);
+	$display("| real addr_sel = %b | real ar_load = %b | real dr_load = %b | real dr_sec_sel = %b | real ip_en = %b | real ip_load = %b | real ir_load = %b | real isJMP = %b | real isRM = %b | real p0 = %b | real p1 = %b | real p2 = %b | real p3 = %b | real ram_en = %b | real ram_we = %b | real rom_en = %b | real ron_rd_addr = %b | ",addr_sel_prev,ar_load_prev,dr_load_prev,dr_sec_sel_prev,ip_en_prev,ip_load_prev,ir_load_prev,isJMP_prev,isRM_prev,p0_prev,p1_prev,p2_prev,p3_prev,ram_en_prev,ram_we_prev,rom_en_prev,ron_rd_addr_prev);
+`endif
+	if (
+		( addr_sel_expected_prev !== 1'bx ) && ( addr_sel_prev !== addr_sel_expected_prev )
+		&& ((addr_sel_expected_prev !== last_addr_sel_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port addr_sel :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", addr_sel_expected_prev);
+		$display ("     Real value = %b", addr_sel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_addr_sel_exp = addr_sel_expected_prev;
+	end
+	if (
+		( ar_load_expected_prev !== 1'bx ) && ( ar_load_prev !== ar_load_expected_prev )
+		&& ((ar_load_expected_prev !== last_ar_load_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ar_load :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ar_load_expected_prev);
+		$display ("     Real value = %b", ar_load_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ar_load_exp = ar_load_expected_prev;
+	end
+	if (
+		( dr_load_expected_prev !== 1'bx ) && ( dr_load_prev !== dr_load_expected_prev )
+		&& ((dr_load_expected_prev !== last_dr_load_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port dr_load :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", dr_load_expected_prev);
+		$display ("     Real value = %b", dr_load_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_dr_load_exp = dr_load_expected_prev;
+	end
+	if (
+		( dr_sec_sel_expected_prev !== 1'bx ) && ( dr_sec_sel_prev !== dr_sec_sel_expected_prev )
+		&& ((dr_sec_sel_expected_prev !== last_dr_sec_sel_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port dr_sec_sel :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", dr_sec_sel_expected_prev);
+		$display ("     Real value = %b", dr_sec_sel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_dr_sec_sel_exp = dr_sec_sel_expected_prev;
+	end
+	if (
+		( ip_en_expected_prev !== 1'bx ) && ( ip_en_prev !== ip_en_expected_prev )
+		&& ((ip_en_expected_prev !== last_ip_en_exp) ||
+			on_first_change[5])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ip_en :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ip_en_expected_prev);
+		$display ("     Real value = %b", ip_en_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[5] = 1'b0;
+		last_ip_en_exp = ip_en_expected_prev;
+	end
+	if (
+		( ip_load_expected_prev !== 1'bx ) && ( ip_load_prev !== ip_load_expected_prev )
+		&& ((ip_load_expected_prev !== last_ip_load_exp) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ip_load :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ip_load_expected_prev);
+		$display ("     Real value = %b", ip_load_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_ip_load_exp = ip_load_expected_prev;
+	end
+	if (
+		( ir_load_expected_prev !== 1'bx ) && ( ir_load_prev !== ir_load_expected_prev )
+		&& ((ir_load_expected_prev !== last_ir_load_exp) ||
+			on_first_change[7])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ir_load :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ir_load_expected_prev);
+		$display ("     Real value = %b", ir_load_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[7] = 1'b0;
+		last_ir_load_exp = ir_load_expected_prev;
+	end
+	if (
+		( isJMP_expected_prev !== 1'bx ) && ( isJMP_prev !== isJMP_expected_prev )
+		&& ((isJMP_expected_prev !== last_isJMP_exp) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port isJMP :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", isJMP_expected_prev);
+		$display ("     Real value = %b", isJMP_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_isJMP_exp = isJMP_expected_prev;
+	end
+	if (
+		( isRM_expected_prev !== 1'bx ) && ( isRM_prev !== isRM_expected_prev )
+		&& ((isRM_expected_prev !== last_isRM_exp) ||
+			on_first_change[9])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port isRM :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", isRM_expected_prev);
+		$display ("     Real value = %b", isRM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[9] = 1'b0;
+		last_isRM_exp = isRM_expected_prev;
+	end
+	if (
+		( p0_expected_prev !== 1'bx ) && ( p0_prev !== p0_expected_prev )
+		&& ((p0_expected_prev !== last_p0_exp) ||
+			on_first_change[10])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port p0 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", p0_expected_prev);
+		$display ("     Real value = %b", p0_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[10] = 1'b0;
+		last_p0_exp = p0_expected_prev;
+	end
+	if (
+		( p1_expected_prev !== 1'bx ) && ( p1_prev !== p1_expected_prev )
+		&& ((p1_expected_prev !== last_p1_exp) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port p1 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", p1_expected_prev);
+		$display ("     Real value = %b", p1_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_p1_exp = p1_expected_prev;
+	end
+	if (
+		( p2_expected_prev !== 1'bx ) && ( p2_prev !== p2_expected_prev )
+		&& ((p2_expected_prev !== last_p2_exp) ||
+			on_first_change[12])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port p2 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", p2_expected_prev);
+		$display ("     Real value = %b", p2_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[12] = 1'b0;
+		last_p2_exp = p2_expected_prev;
+	end
+	if (
+		( p3_expected_prev !== 1'bx ) && ( p3_prev !== p3_expected_prev )
+		&& ((p3_expected_prev !== last_p3_exp) ||
+			on_first_change[13])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port p3 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", p3_expected_prev);
+		$display ("     Real value = %b", p3_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[13] = 1'b0;
+		last_p3_exp = p3_expected_prev;
+	end
+	if (
+		( ram_en_expected_prev !== 1'bx ) && ( ram_en_prev !== ram_en_expected_prev )
+		&& ((ram_en_expected_prev !== last_ram_en_exp) ||
+			on_first_change[14])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ram_en :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ram_en_expected_prev);
+		$display ("     Real value = %b", ram_en_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[14] = 1'b0;
+		last_ram_en_exp = ram_en_expected_prev;
+	end
+	if (
+		( ram_we_expected_prev !== 1'bx ) && ( ram_we_prev !== ram_we_expected_prev )
+		&& ((ram_we_expected_prev !== last_ram_we_exp) ||
+			on_first_change[15])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ram_we :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ram_we_expected_prev);
+		$display ("     Real value = %b", ram_we_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[15] = 1'b0;
+		last_ram_we_exp = ram_we_expected_prev;
+	end
+	if (
+		( rom_en_expected_prev !== 1'bx ) && ( rom_en_prev !== rom_en_expected_prev )
+		&& ((rom_en_expected_prev !== last_rom_en_exp) ||
+			on_first_change[16])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port rom_en :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", rom_en_expected_prev);
+		$display ("     Real value = %b", rom_en_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[16] = 1'b0;
+		last_rom_en_exp = rom_en_expected_prev;
+	end
+	if (
+		( ron_rd_addr_expected_prev[0] !== 1'bx ) && ( ron_rd_addr_prev[0] !== ron_rd_addr_expected_prev[0] )
+		&& ((ron_rd_addr_expected_prev[0] !== last_ron_rd_addr_exp[0]) ||
+			on_first_change[17])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ron_rd_addr[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ron_rd_addr_expected_prev);
+		$display ("     Real value = %b", ron_rd_addr_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[17] = 1'b0;
+		last_ron_rd_addr_exp[0] = ron_rd_addr_expected_prev[0];
+	end
+	if (
+		( ron_rd_addr_expected_prev[1] !== 1'bx ) && ( ron_rd_addr_prev[1] !== ron_rd_addr_expected_prev[1] )
+		&& ((ron_rd_addr_expected_prev[1] !== last_ron_rd_addr_exp[1]) ||
+			on_first_change[17])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ron_rd_addr[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ron_rd_addr_expected_prev);
+		$display ("     Real value = %b", ron_rd_addr_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[17] = 1'b0;
+		last_ron_rd_addr_exp[1] = ron_rd_addr_expected_prev[1];
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#3000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$stop;
+end 
+endmodule
+
+module control_unit_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk;
+reg [7:0] opcode;
+reg rst_n;
+// wires                                               
+wire addr_sel;
+wire ar_load;
+wire dr_load;
+wire dr_sec_sel;
+wire ip_en;
+wire ip_load;
+wire ir_load;
+wire isJMP;
+wire isRM;
+wire p0;
+wire p1;
+wire p2;
+wire p3;
+wire ram_en;
+wire ram_we;
+wire rom_en;
+wire [1:0] ron_rd_addr;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+control_unit i1 (
+// port map - connection between master ports and signals/registers   
+	.addr_sel(addr_sel),
+	.ar_load(ar_load),
+	.clk(clk),
+	.dr_load(dr_load),
+	.dr_sec_sel(dr_sec_sel),
+	.ip_en(ip_en),
+	.ip_load(ip_load),
+	.ir_load(ir_load),
+	.isJMP(isJMP),
+	.isRM(isRM),
+	.opcode(opcode),
+	.p0(p0),
+	.p1(p1),
+	.p2(p2),
+	.p3(p3),
+	.ram_en(ram_en),
+	.ram_we(ram_we),
+	.rom_en(rom_en),
+	.ron_rd_addr(ron_rd_addr),
+	.rst_n(rst_n)
+);
+
+// rst_n
+initial
+begin
+	rst_n = 1'b0;
+	rst_n = #100000 1'b1;
+end 
+
+// clk
+initial
+begin
+	repeat(29)
+	begin
+		clk = 1'b0;
+		clk = #50000 1'b1;
+		# 50000;
+	end
+	clk = 1'b0;
+	clk = #50000 1'b1;
+end 
+// opcode[ 7 ]
+initial
+begin
+	opcode[7] = 1'b0;
+end 
+// opcode[ 6 ]
+initial
+begin
+	opcode[6] = 1'b0;
+end 
+// opcode[ 5 ]
+initial
+begin
+	opcode[5] = 1'b0;
+	opcode[5] = #800000 1'b1;
+	opcode[5] = #800000 1'b0;
+end 
+// opcode[ 4 ]
+initial
+begin
+	opcode[4] = 1'b0;
+	opcode[4] = #100000 1'b1;
+	opcode[4] = #700000 1'b0;
+end 
+// opcode[ 3 ]
+initial
+begin
+	opcode[3] = 1'b0;
+end 
+// opcode[ 2 ]
+initial
+begin
+	opcode[2] = 1'b0;
+end 
+// opcode[ 1 ]
+initial
+begin
+	opcode[1] = 1'b0;
+end 
+// opcode[ 0 ]
+initial
+begin
+	opcode[0] = 1'b0;
+	opcode[0] = #100000 1'b1;
+	opcode[0] = #700000 1'b0;
+end 
+
+control_unit_vlg_sample_tst tb_sample (
+	.clk(clk),
+	.opcode(opcode),
+	.rst_n(rst_n),
+	.sampler_tx(sampler)
+);
+
+control_unit_vlg_check_tst tb_out(
+	.addr_sel(addr_sel),
+	.ar_load(ar_load),
+	.dr_load(dr_load),
+	.dr_sec_sel(dr_sec_sel),
+	.ip_en(ip_en),
+	.ip_load(ip_load),
+	.ir_load(ir_load),
+	.isJMP(isJMP),
+	.isRM(isRM),
+	.p0(p0),
+	.p1(p1),
+	.p2(p2),
+	.p3(p3),
+	.ram_en(ram_en),
+	.ram_we(ram_we),
+	.rom_en(rom_en),
+	.ron_rd_addr(ron_rd_addr),
+	.sampler_rx(sampler)
+);
+endmodule
+

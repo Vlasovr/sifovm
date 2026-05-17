@@ -1,0 +1,324 @@
+Classic Timing Analyzer report for lab5_alu
+Thu May 14 23:24:12 2026
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Parallel Compilation
+  5. tpd
+  6. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                          ;
++------------------------------+-------+---------------+-------------+-------------------------------+----------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time ; From                          ; To                   ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+-------------+-------------------------------+----------------------+------------+----------+--------------+
+; Worst-case tpd               ; N/A   ; None          ; 13.511 ns   ; cmd_opcode_alu_operation_i[3] ; flag_z_zero_result_o ; --         ; --       ; 0            ;
+; Total number of failed paths ;       ;               ;             ;                               ;                      ;            ;          ; 0            ;
++------------------------------+-------+---------------+-------------+-------------------------------+----------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2S15F484C3       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; Off                ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tpd                                                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+-----------------+------------------------------------+---------------------------------+
+; Slack                                   ; Required P2P Time                                   ; Actual P2P Time ; From                               ; To                              ;
++-----------------------------------------+-----------------------------------------------------+-----------------+------------------------------------+---------------------------------+
+; N/A                                     ; None                                                ; 13.511 ns       ; cmd_opcode_alu_operation_i[3]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 13.360 ns       ; cmd_opcode_alu_operation_i[4]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 13.357 ns       ; cmd_opcode_alu_operation_i[0]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 13.288 ns       ; cmd_opcode_alu_operation_i[5]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 13.214 ns       ; cmd_opcode_alu_operation_i[1]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 12.809 ns       ; cmd_opcode_alu_operation_i[6]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 12.788 ns       ; cmd_opcode_alu_operation_i[7]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 12.782 ns       ; cmd_opcode_alu_operation_i[2]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 12.501 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 12.454 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 12.347 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 12.337 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 12.221 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 12.218 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 12.204 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 12.183 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 12.149 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 12.075 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 12.074 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 12.040 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 12.002 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 11.987 ns       ; operand_a_from_register_i[15]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.939 ns       ; operand_a_from_register_i[6]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.932 ns       ; operand_a_from_register_i[4]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.917 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 11.910 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 11.899 ns       ; operand_a_from_register_i[13]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.840 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.838 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 11.836 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 11.820 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 11.781 ns       ; operand_a_from_register_i[7]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.776 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 11.763 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 11.749 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.686 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.672 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 11.670 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 11.649 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 11.640 ns       ; operand_a_from_register_i[8]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.636 ns       ; flag_s_from_flags_register_i       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.636 ns       ; operand_a_from_register_i[0]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.635 ns       ; operand_a_from_register_i[5]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.634 ns       ; operand_a_from_register_i[2]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.629 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 11.623 ns       ; operand_a_from_register_i[1]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.622 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 11.620 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 11.600 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 11.598 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.595 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.558 ns       ; operand_a_from_register_i[3]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.543 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.528 ns       ; operand_a_from_register_i[12]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.526 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.523 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 11.502 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[13] ;
+; N/A                                     ; None                                                ; 11.490 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 11.479 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 11.452 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.418 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 11.414 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 11.413 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.407 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 11.396 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 11.393 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 11.359 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 11.349 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 11.344 ns       ; operand_a_from_register_i[9]       ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 11.341 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.338 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 11.335 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 11.324 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 11.277 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 11.277 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[2]  ;
+; N/A                                     ; None                                                ; 11.271 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 11.252 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 11.250 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 11.239 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[4]  ;
+; N/A                                     ; None                                                ; 11.195 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.188 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.175 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.168 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[9]  ;
+; N/A                                     ; None                                                ; 11.123 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[2]  ;
+; N/A                                     ; None                                                ; 11.111 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 11.085 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[4]  ;
+; N/A                                     ; None                                                ; 11.081 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 11.047 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.037 ns       ; operand_a_from_register_i[7]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 11.026 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.020 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[14] ;
+; N/A                                     ; None                                                ; 11.014 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[9]  ;
+; N/A                                     ; None                                                ; 10.995 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 10.992 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.980 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[2]  ;
+; N/A                                     ; None                                                ; 10.966 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.942 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[4]  ;
+; N/A                                     ; None                                                ; 10.939 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 10.918 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 10.892 ns       ; operand_a_from_register_i[15]      ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.892 ns       ; flag_s_from_flags_register_i       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.892 ns       ; operand_a_from_register_i[0]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.891 ns       ; operand_a_from_register_i[5]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.890 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 10.890 ns       ; operand_a_from_register_i[2]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.887 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 10.879 ns       ; operand_a_from_register_i[1]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.873 ns       ; operand_a_from_register_i[14]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.871 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[9]  ;
+; N/A                                     ; None                                                ; 10.862 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.861 ns       ; operand_a_from_register_i[8]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.856 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.850 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[2]  ;
+; N/A                                     ; None                                                ; 10.845 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 10.844 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.841 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.837 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.836 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[3]  ;
+; N/A                                     ; None                                                ; 10.835 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.826 ns       ; cmd_opcode_alu_operation_i[3]      ; flag_c_carry_or_shift_out_o     ;
+; N/A                                     ; None                                                ; 10.824 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 10.824 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[4]  ;
+; N/A                                     ; None                                                ; 10.818 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 10.814 ns       ; operand_a_from_register_i[3]       ; result_y_to_register_file_o[8]  ;
+; N/A                                     ; None                                                ; 10.804 ns       ; operand_a_from_register_i[13]      ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.798 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 10.797 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.790 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.778 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[2]  ;
+; N/A                                     ; None                                                ; 10.777 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 10.767 ns       ; operand_a_from_register_i[11]      ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.752 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[4]  ;
+; N/A                                     ; None                                                ; 10.744 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 10.741 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[9]  ;
+; N/A                                     ; None                                                ; 10.697 ns       ; operand_b_from_memory_or_reg_i[14] ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.696 ns       ; flag_s_from_flags_register_i       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.696 ns       ; operand_a_from_register_i[0]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.694 ns       ; operand_a_from_register_i[2]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.686 ns       ; operand_a_from_register_i[7]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.683 ns       ; operand_a_from_register_i[1]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.682 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[3]  ;
+; N/A                                     ; None                                                ; 10.679 ns       ; operand_a_from_register_i[5]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.669 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[9]  ;
+; N/A                                     ; None                                                ; 10.668 ns       ; operand_a_from_register_i[15]      ; flag_s_negative_result_o        ;
+; N/A                                     ; None                                                ; 10.655 ns       ; operand_b_from_memory_or_reg_i[2]  ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.639 ns       ; operand_a_from_register_i[7]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.636 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[0]  ;
+; N/A                                     ; None                                                ; 10.620 ns       ; operand_a_from_register_i[6]       ; flag_s_negative_result_o        ;
+; N/A                                     ; None                                                ; 10.618 ns       ; operand_a_from_register_i[3]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.613 ns       ; operand_a_from_register_i[4]       ; flag_s_negative_result_o        ;
+; N/A                                     ; None                                                ; 10.612 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[2]  ;
+; N/A                                     ; None                                                ; 10.605 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[5]  ;
+; N/A                                     ; None                                                ; 10.592 ns       ; flag_s_from_flags_register_i       ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 10.592 ns       ; operand_a_from_register_i[0]       ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 10.580 ns       ; operand_a_from_register_i[13]      ; flag_s_negative_result_o        ;
+; N/A                                     ; None                                                ; 10.574 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[4]  ;
+; N/A                                     ; None                                                ; 10.563 ns       ; operand_a_from_register_i[1]       ; result_y_to_register_file_o[1]  ;
+; N/A                                     ; None                                                ; 10.562 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 10.547 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 10.545 ns       ; operand_a_from_register_i[8]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.541 ns       ; flag_s_from_flags_register_i       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.541 ns       ; operand_a_from_register_i[0]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.540 ns       ; operand_a_from_register_i[5]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.540 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 10.539 ns       ; operand_a_from_register_i[2]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.539 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[3]  ;
+; N/A                                     ; None                                                ; 10.534 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[6]  ;
+; N/A                                     ; None                                                ; 10.528 ns       ; operand_a_from_register_i[1]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.526 ns       ; operand_a_from_register_i[6]       ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 10.519 ns       ; operand_a_from_register_i[4]       ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 10.519 ns       ; cmd_opcode_alu_operation_i[4]      ; result_y_to_register_file_o[3]  ;
+; N/A                                     ; None                                                ; 10.503 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[9]  ;
+; N/A                                     ; None                                                ; 10.498 ns       ; operand_a_from_register_i[8]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.494 ns       ; flag_s_from_flags_register_i       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.494 ns       ; operand_a_from_register_i[0]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.493 ns       ; operand_a_from_register_i[5]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.492 ns       ; operand_a_from_register_i[2]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.491 ns       ; operand_b_from_memory_or_reg_i[0]  ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.491 ns       ; operand_b_from_memory_or_reg_i[1]  ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.482 ns       ; cmd_opcode_alu_operation_i[0]      ; result_y_to_register_file_o[0]  ;
+; N/A                                     ; None                                                ; 10.481 ns       ; operand_a_from_register_i[1]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.463 ns       ; operand_a_from_register_i[3]       ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.462 ns       ; operand_a_from_register_i[7]       ; flag_s_negative_result_o        ;
+; N/A                                     ; None                                                ; 10.458 ns       ; cmd_opcode_alu_operation_i[4]      ; flag_c_carry_or_shift_out_o     ;
+; N/A                                     ; None                                                ; 10.449 ns       ; cmd_opcode_alu_operation_i[3]      ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.447 ns       ; cmd_opcode_alu_operation_i[2]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 10.447 ns       ; cmd_opcode_alu_operation_i[5]      ; result_y_to_register_file_o[3]  ;
+; N/A                                     ; None                                                ; 10.433 ns       ; operand_a_from_register_i[12]      ; result_y_to_register_file_o[15] ;
+; N/A                                     ; None                                                ; 10.416 ns       ; operand_a_from_register_i[3]       ; result_y_to_register_file_o[11] ;
+; N/A                                     ; None                                                ; 10.412 ns       ; operand_b_from_memory_or_reg_i[7]  ; flag_z_zero_result_o            ;
+; N/A                                     ; None                                                ; 10.402 ns       ; operand_a_from_register_i[15]      ; flag_c_carry_or_shift_out_o     ;
+; N/A                                     ; None                                                ; 10.389 ns       ; operand_a_from_register_i[7]       ; result_y_to_register_file_o[10] ;
+; N/A                                     ; None                                                ; 10.386 ns       ; cmd_opcode_alu_operation_i[5]      ; flag_c_carry_or_shift_out_o     ;
+; N/A                                     ; None                                                ; 10.377 ns       ; operand_a_from_register_i[7]       ; result_y_to_register_file_o[7]  ;
+; N/A                                     ; None                                                ; 10.355 ns       ; operand_a_from_register_i[6]       ; flag_c_carry_or_shift_out_o     ;
+; N/A                                     ; None                                                ; 10.348 ns       ; operand_a_from_register_i[4]       ; flag_c_carry_or_shift_out_o     ;
+; N/A                                     ; None                                                ; 10.339 ns       ; cmd_opcode_alu_operation_i[6]      ; result_y_to_register_file_o[12] ;
+; N/A                                     ; None                                                ; 10.339 ns       ; cmd_opcode_alu_operation_i[1]      ; result_y_to_register_file_o[0]  ;
+; N/A                                     ; None                                                ; 10.321 ns       ; operand_a_from_register_i[8]       ; flag_s_negative_result_o        ;
+; N/A                                     ; None                                                ; 10.318 ns       ; cmd_opcode_alu_operation_i[7]      ; result_y_to_register_file_o[12] ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                 ;                                    ;                                 ;
++-----------------------------------------+-----------------------------------------------------+-----------------+------------------------------------+---------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Thu May 14 23:24:12 2026
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off lab5_alu -c lab5_alu --timing_analysis_only
+Info: Longest tpd from source pin "cmd_opcode_alu_operation_i[3]" to destination pin "flag_z_zero_result_o" is 13.511 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.807 ns) = 0.807 ns; Loc. = PIN_G12; Fanout = 4; PIN Node = 'cmd_opcode_alu_operation_i[3]'
+    Info: 2: + IC(4.516 ns) + CELL(0.346 ns) = 5.669 ns; Loc. = LCCOMB_X17_Y6_N18; Fanout = 25; COMB Node = 'lab5_alu_top:U_ALU|alu_control:U_CTRL|Mux2~0'
+    Info: 3: + IC(0.258 ns) + CELL(0.346 ns) = 6.273 ns; Loc. = LCCOMB_X17_Y6_N28; Fanout = 14; COMB Node = 'lab5_alu_top:U_ALU|alu_control:U_CTRL|Mux2~1'
+    Info: 4: + IC(1.036 ns) + CELL(0.366 ns) = 7.675 ns; Loc. = LCCOMB_X14_Y3_N28; Fanout = 1; COMB Node = 'lab5_alu_top:U_ALU|Mux1~0'
+    Info: 5: + IC(0.972 ns) + CELL(0.378 ns) = 9.025 ns; Loc. = LCCOMB_X15_Y4_N16; Fanout = 2; COMB Node = 'lab5_alu_top:U_ALU|Mux1~1'
+    Info: 6: + IC(0.933 ns) + CELL(0.053 ns) = 10.011 ns; Loc. = LCCOMB_X14_Y2_N8; Fanout = 1; COMB Node = 'lab5_alu_top:U_ALU|alu_flags:U_FLAGS|Equal0~3'
+    Info: 7: + IC(0.261 ns) + CELL(0.378 ns) = 10.650 ns; Loc. = LCCOMB_X14_Y2_N30; Fanout = 1; COMB Node = 'lab5_alu_top:U_ALU|alu_flags:U_FLAGS|Equal0~4'
+    Info: 8: + IC(0.919 ns) + CELL(1.942 ns) = 13.511 ns; Loc. = PIN_T14; Fanout = 0; PIN Node = 'flag_z_zero_result_o'
+    Info: Total cell delay = 4.616 ns ( 34.16 % )
+    Info: Total interconnect delay = 8.895 ns ( 65.84 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 185 megabytes
+    Info: Processing ended: Thu May 14 23:24:12 2026
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

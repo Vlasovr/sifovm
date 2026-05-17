@@ -1,0 +1,157 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.1 Build 222 10/21/2009 SJ Web Edition
+# Date created = 08:44:53  September 18, 2025
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Lab4_CPU_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Stratix II"
+set_global_assignment -name DEVICE AUTO
+set_global_assignment -name TOP_LEVEL_ENTITY "chain-tests"
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "08:44:53  SEPTEMBER 18, 2025"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.1
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE FASTEST
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name BDF_FILE DCaH.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE "DCaH-test.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE DCaGen.vwf
+set_global_assignment -name BDF_FILE DCaGen.bdf
+set_global_assignment -name BDF_FILE fr_unit.bdf
+set_global_assignment -name AHDL_FILE lpm_add_sub0.tdf
+set_global_assignment -name AHDL_FILE lpm_ff0.tdf
+set_global_assignment -name AHDL_FILE lpm_ff1.tdf
+set_global_assignment -name AHDL_FILE lpm_ff2.tdf
+set_global_assignment -name AHDL_FILE lpm_mux0.tdf
+set_global_assignment -name AHDL_FILE lpm_rom0.tdf
+set_global_assignment -name QIP_FILE lpm_add_sub0.qip
+set_global_assignment -name QIP_FILE lpm_ff0.qip
+set_global_assignment -name QIP_FILE lpm_mux0.qip
+set_global_assignment -name BDF_FILE ip_unit.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE ip_unit_test.vwf
+set_global_assignment -name QIP_FILE lpm_ff1.qip
+set_global_assignment -name BDF_FILE ar_unit.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE ar_unit_test.vwf
+set_global_assignment -name BDF_FILE ir_unit.bdf
+set_global_assignment -name QIP_FILE lpm_ff2.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE ir_unit_test.vwf
+set_global_assignment -name BDF_FILE fetch_chain.bdf
+set_global_assignment -name QIP_FILE lpm_rom0.qip
+set_global_assignment -name MIF_FILE program.mif
+set_global_assignment -name VECTOR_WAVEFORM_FILE fetch_chain_test.vwf
+set_global_assignment -name BDF_FILE dr_unit.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE dr_unit_test.vwf
+set_global_assignment -name QIP_FILE lpm_ff3.qip
+set_global_assignment -name QIP_FILE lpm_ff4.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE fr_unit_test.vwf
+set_global_assignment -name QIP_FILE lpm_decode0.qip
+set_global_assignment -name BDF_FILE ron_unit.bdf
+set_global_assignment -name QIP_FILE lpm_mux1.qip
+set_global_assignment -name QIP_FILE lpm_ff5.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE ron_unit_test.vwf
+set_global_assignment -name BDF_FILE memory_unit.bdf
+set_global_assignment -name QIP_FILE lpm_rom1.qip
+set_global_assignment -name QIP_FILE lpm_ram_dp0.qip
+set_global_assignment -name QIP_FILE altsyncram0.qip
+set_global_assignment -name MIF_FILE memory_unit_rom.mif
+set_global_assignment -name VECTOR_WAVEFORM_FILE memory_unit_test.vwf
+set_global_assignment -name QIP_FILE altsyncram1.qip
+set_global_assignment -name QIP_FILE lpm_mux2.qip
+set_global_assignment -name QIP_FILE lpm_constant0.qip
+set_global_assignment -name QIP_FILE lpm_mux3.qip
+set_global_assignment -name QIP_FILE lpm_mux4.qip
+set_global_assignment -name BDF_FILE control_unit.bdf
+set_global_assignment -name QIP_FILE lpm_compare0.qip
+set_global_assignment -name QIP_FILE lpm_compare1.qip
+set_global_assignment -name QIP_FILE lpm_constant1.qip
+set_global_assignment -name QIP_FILE lpm_constant2.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE control_unit_test.vwf
+set_global_assignment -name QIP_FILE lpm_mux5.qip
+set_global_assignment -name QIP_FILE lpm_mux6.qip
+set_global_assignment -name QIP_FILE lpm_constant3.qip
+set_global_assignment -name QIP_FILE lpm_constant4.qip
+set_global_assignment -name QIP_FILE lpm_constant5.qip
+set_global_assignment -name QIP_FILE lpm_constant6.qip
+set_global_assignment -name QIP_FILE lpm_constant7.qip
+set_global_assignment -name QIP_FILE lpm_mux7.qip
+set_global_assignment -name BDF_FILE "chain-tests.bdf"
+set_global_assignment -name QIP_FILE lpm_constant8.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE chain_tests.vwf
+set_global_assignment -name QIP_FILE lpm_ff6.qip
+set_global_assignment -name QIP_FILE lpm_ff7.qip
+set_global_assignment -name QIP_FILE lpm_ff8.qip
+set_global_assignment -name QIP_FILE lpm_counter0.qip
+set_global_assignment -name QIP_FILE lpm_ff9.qip
+set_global_assignment -name QIP_FILE lpm_mux8.qip
+set_global_assignment -name QIP_FILE lpm_constant9.qip
+set_global_assignment -name QIP_FILE lpm_dff0.qip
+set_global_assignment -name QIP_FILE lpm_mux9.qip
+set_global_assignment -name QIP_FILE lpm_constant10.qip
+set_global_assignment -name QIP_FILE lpm_constant11.qip
+set_global_assignment -name QIP_FILE lpm_compare2.qip
+set_global_assignment -name QIP_FILE lpm_compare3.qip
+set_global_assignment -name QIP_FILE lpm_compare4.qip
+set_global_assignment -name QIP_FILE lpm_constant12.qip
+set_global_assignment -name QIP_FILE lpm_add_sub1.qip
+set_global_assignment -name BDF_FILE alu_unit.bdf
+set_global_assignment -name QIP_FILE lpm_or0.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE alu_unit.vwf
+set_global_assignment -name QIP_FILE lpm_constant13.qip
+set_global_assignment -name QIP_FILE lpm_constant14.qip
+set_global_assignment -name QIP_FILE lpm_constant15.qip
+set_global_assignment -name QIP_FILE lpm_constant16.qip
+set_global_assignment -name QIP_FILE lpm_add_sub2.qip
+set_global_assignment -name BDF_FILE alu_addc.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE alu_addc.vwf
+set_global_assignment -name QIP_FILE lpm_ff10.qip
+set_global_assignment -name QIP_FILE lpm_ff11.qip
+set_global_assignment -name QIP_FILE lpm_decode1.qip
+set_global_assignment -name QIP_FILE lpm_add_sub3.qip
+set_global_assignment -name QIP_FILE lpm_mux10.qip
+set_global_assignment -name QIP_FILE lpm_compare5.qip
+set_global_assignment -name QIP_FILE lpm_compare6.qip
+set_global_assignment -name QIP_FILE lpm_add_sub4.qip
+set_global_assignment -name QIP_FILE lpm_mux11.qip
+set_global_assignment -name BDF_FILE stack.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE stack.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE chain_tests.vwf
+set_global_assignment -name QIP_FILE lpm_mux12.qip
+set_global_assignment -name QIP_FILE lpm_compare7.qip
+set_global_assignment -name QIP_FILE lpm_compare8.qip
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

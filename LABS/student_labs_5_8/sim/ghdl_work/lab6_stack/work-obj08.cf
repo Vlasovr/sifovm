@@ -1,0 +1,16 @@
+v 4
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab6_stack\tb\tb_lab6_stack.vhd" "0296e7aca7cd0e18dd356d3d565a2aa227ee3892" "20260514202355.479":
+  entity tb_lab6_stack at 1( 0) + 0 on 19;
+  architecture sim of tb_lab6_stack at 9( 137) + 0 on 20;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab6_stack\src\stack_control.vhd" "66344a3a8f257ca14a30347ed699ed70785cd14d" "20260514202355.433":
+  entity stack_control at 1( 0) + 0 on 15;
+  architecture rtl of stack_control at 14( 271) + 0 on 16;
+file / "D:\git\sifovm\LABS\student_labs_5_8\common\lab_variant_pkg.vhd" "81022f608aeaedf58f8a6a30895beb8b4b63c5e7" "20260514202355.392":
+  package lab_variant_pkg at 1( 0) + 0 on 11 body;
+  package body lab_variant_pkg at 40( 1687) + 0 on 12;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab6_stack\src\stack7x16.vhd" "133f7a937cba7e9268bc8ea7e296bcb2778fd7bd" "20260514202355.413":
+  entity stack7x16 at 1( 0) + 0 on 13;
+  architecture rtl of stack7x16 at 22( 514) + 0 on 14;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab6_stack\src\lab6_stack_top.vhd" "2a8a90c012637a0e88d1c0911055e8bde734812d" "20260514202355.455":
+  entity lab6_stack_top at 1( 0) + 0 on 17;
+  architecture structural of lab6_stack_top at 24( 601) + 0 on 18;

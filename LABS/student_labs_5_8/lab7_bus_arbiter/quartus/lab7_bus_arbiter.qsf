@@ -1,0 +1,18 @@
+set_global_assignment -name FAMILY "Stratix II"
+set_global_assignment -name DEVICE AUTO
+set_global_assignment -name TOP_LEVEL_ENTITY lab7_bus_rtl_view_top
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+
+set_global_assignment -name VHDL_FILE ../../common/lab_variant_pkg.vhd
+set_global_assignment -name VHDL_FILE ../src/master_device.vhd
+set_global_assignment -name VHDL_FILE ../src/bus_arbiter_parallel_quantum.vhd
+set_global_assignment -name VHDL_FILE ../src/bus_mux_4.vhd
+set_global_assignment -name VHDL_FILE ../src/slave_sync.vhd
+set_global_assignment -name VHDL_FILE ../src/lab7_bus_top.vhd
+set_global_assignment -name VHDL_FILE ../src/lab7_bus_rtl_view_top.vhd
+
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name VECTOR_OUTPUT_FORMAT VCD
+set_global_assignment -name LAST_QUARTUS_VERSION 9.1
+
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

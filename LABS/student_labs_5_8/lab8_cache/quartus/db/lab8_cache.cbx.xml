@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="lab8_cache">
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|altsyncram:mem_r_rtl_0" CBX_FILE_NAME="altsyncram_tlm1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

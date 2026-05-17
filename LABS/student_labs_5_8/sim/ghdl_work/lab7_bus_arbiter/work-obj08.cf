@@ -1,0 +1,22 @@
+v 4
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab7_bus_arbiter\tb\tb_lab7_bus.vhd" "d686fd34c78ffcb28084e6647d1de06c82a881c4" "20260514202355.729":
+  entity tb_lab7_bus at 1( 0) + 0 on 23;
+  architecture sim of tb_lab7_bus at 9( 135) + 0 on 24;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab7_bus_arbiter\src\slave_sync.vhd" "7fd2247a4aeaa3b69fc2e3c8b756efa5122d9cac" "20260514202355.681":
+  entity slave_sync at 1( 0) + 0 on 19;
+  architecture rtl of slave_sync at 16( 295) + 0 on 20;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab7_bus_arbiter\src\bus_arbiter_parallel_quantum.vhd" "d12b3f1d116d05f530ef207142f8f706b6ca1c0a" "20260514202355.638":
+  entity bus_arbiter_parallel_quantum at 1( 0) + 0 on 15;
+  architecture rtl of bus_arbiter_parallel_quantum at 20( 488) + 0 on 16;
+file / "D:\git\sifovm\LABS\student_labs_5_8\common\lab_variant_pkg.vhd" "81022f608aeaedf58f8a6a30895beb8b4b63c5e7" "20260514202355.597":
+  package lab_variant_pkg at 1( 0) + 0 on 11 body;
+  package body lab_variant_pkg at 40( 1687) + 0 on 12;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab7_bus_arbiter\src\master_device.vhd" "0890a04415ebabf84121648cadadc998ccefa9c8" "20260514202355.617":
+  entity master_device at 1( 0) + 0 on 13;
+  architecture rtl of master_device at 22( 433) + 0 on 14;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab7_bus_arbiter\src\bus_mux_4.vhd" "17325db8ee0996fd7de809806140631a80918a59" "20260514202355.659":
+  entity bus_mux_4 at 1( 0) + 0 on 17;
+  architecture rtl of bus_mux_4 at 16( 298) + 0 on 18;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab7_bus_arbiter\src\lab7_bus_top.vhd" "70e9393dec3e41e5dcb8c1b0c40e1942cbbfa5bb" "20260514202355.704":
+  entity lab7_bus_top at 1( 0) + 0 on 21;
+  architecture structural of lab7_bus_top at 20( 509) + 0 on 22;

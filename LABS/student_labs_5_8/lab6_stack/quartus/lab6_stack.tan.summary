@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.055 ns
+From           : stack_command_idle_push_pop_i[0]
+To             : lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[4][3]
+From Clock     : --
+To Clock       : clock_i
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.883 ns
+From           : lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[1]
+To             : status_stack_empty_o
+From Clock     : clock_i
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.455 ns
+From           : stack_command_idle_push_pop_i[0]
+To             : ctrl_pop_enable_o
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -2.246 ns
+From           : stack_command_idle_push_pop_i[1]
+To             : lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[1][2]
+From Clock     : --
+To Clock       : clock_i
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clock_i'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 411.35 MHz ( period = 2.431 ns )
+From           : lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[1]
+To             : lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[5][15]
+From Clock     : clock_i
+To Clock       : clock_i
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

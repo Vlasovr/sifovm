@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 12.680 ns
+From           : cpu_address_tag_set_i[2]
+To             : lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|victim_r[1]
+From Clock     : --
+To Clock       : clock_i
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.670 ns
+From           : lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_wdata_r[2]
+To             : memory_data_debug_o[2]
+From Clock     : clock_i
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -2.503 ns
+From           : cpu_write_data_to_cache_i[8]
+To             : lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_wdata_r[8]
+From Clock     : --
+To Clock       : clock_i
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clock_i'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 116.75 MHz ( period = 8.565 ns )
+From           : lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[14][0][0]
+To             : lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|victim_r[1]
+From Clock     : clock_i
+To Clock       : clock_i
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+
