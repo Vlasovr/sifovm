@@ -1,0 +1,187 @@
+$comment
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+$end
+
+$date 
+  05/17/2026 17:16:47 
+$end
+$version 
+ QUARTUS_VCD_EXPORT 1.0 
+$end
+$timescale
+  1 ps
+$end
+$scope module lab7_bus_rtl_view_top $end
+$var reg 1 ! clock_i $end
+$var reg 1 " reset_i $end
+$var reg 4 # master_bus_request_lines_o[3:0] $end
+$var reg 4 $ arbiter_bus_grant_lines_o[3:0] $end
+$var reg 16 % shared_data_bus_to_slave_o[15:0] $end
+$var reg 16 & slave_latched_data_from_bus_o[15:0] $end
+$var reg 1 ' slave_data_valid_strobe_o $end
+$var reg 2 ( current_time_quantum_slot_o[1:0] $end
+$var reg 4 ) master_was_serviced_debug_o[3:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+1"
+b0 #
+b0 $
+b0 %
+b0 &
+0'
+b0 (
+b0 )
+$end
+#5000
+1!
+#10000
+0!
+#15000
+1!
+#20000
+0!
+0"
+#25000
+1!
+b1 #
+b1 $
+b1000100010001 %
+#30000
+0!
+#35000
+1!
+b11 #
+b10 $
+b10001000100010 %
+b1000100010001 &
+1'
+b1 (
+b1 )
+#40000
+0!
+#45000
+1!
+b10001000100010 &
+b11 )
+#50000
+0!
+#55000
+1!
+b111 #
+b100 $
+b11001100110011 %
+b10 (
+#60000
+0!
+#65000
+1!
+b11001100110011 &
+b111 )
+#70000
+0!
+#75000
+1!
+b1111 #
+b1000 $
+b100010001000100 %
+b11 (
+#80000
+0!
+#85000
+1!
+b100010001000100 &
+b1111 )
+#90000
+0!
+#95000
+1!
+b1 $
+b1000100010001 %
+b0 (
+#100000
+0!
+#105000
+1!
+b1000100010001 &
+#110000
+0!
+#115000
+1!
+b10 $
+b10001000100010 %
+b1 (
+#120000
+0!
+#125000
+1!
+b1110 #
+b10001000100010 &
+#130000
+0!
+#135000
+1!
+b1100 #
+b100 $
+b11001100110011 %
+b10 (
+#140000
+0!
+#145000
+1!
+b11001100110011 &
+#150000
+0!
+#155000
+1!
+b1000 #
+b1000 $
+b100010001000100 %
+b11 (
+#160000
+0!
+#165000
+1!
+b100010001000100 &
+#170000
+0!
+#175000
+1!
+b0 #
+b0 $
+b0 %
+b0 (
+#180000
+0!
+#185000
+1!
+0'
+#190000
+0!
+#195000
+1!
+b1 (
+#200000
+0!
+#205000
+1!
+#210000
+0!
+#215000
+1!
+b10 (
+#220000
