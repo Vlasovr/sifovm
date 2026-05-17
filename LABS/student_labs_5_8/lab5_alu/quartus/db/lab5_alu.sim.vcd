@@ -1,0 +1,90 @@
+$comment
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+$end
+
+$date 
+  05/17/2026 14:54:27 
+$end
+$version 
+ QUARTUS_VCD_EXPORT 1.0 
+$end
+$timescale
+  1 ps
+$end
+$scope module lab5_alu_rtl_view_top $end
+$var reg 8 ! cmd_opcode_alu_operation_i[7:0] $end
+$var reg 16 " operand_a_from_register_i[15:0] $end
+$var reg 16 # operand_b_from_memory_or_reg_i[15:0] $end
+$var reg 16 $ result_y_to_register_file_o[15:0] $end
+$var reg 1 % flag_z_zero_result_o $end
+$var reg 1 & flag_s_negative_result_o $end
+$var reg 1 ' flag_c_carry_or_shift_out_o $end
+$var reg 1 ( flag_o_overflow_o $end
+$var reg 1 ) ctrl_selected_alu_operation_o[0] $end
+$var reg 1 * ctrl_selected_alu_operation_o[1] $end
+$var reg 1 + ctrl_selected_alu_operation_o[2] $end
+$var reg 1 , ctrl_second_operand_is_used_o $end
+$var reg 1 - ctrl_write_flags_register_o $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11 !
+b1001000110100 "
+b100000 #
+b1001000010100 $
+0%
+0&
+0'
+0(
+1)
+0*
+0+
+1,
+1-
+$end
+#10000
+b10001000100010 "
+b10001000100010 #
+b0 $
+1%
+#20000
+b10000 "
+b100000 #
+b1111111111110000 $
+0%
+1&
+1'
+#30000
+b100 !
+b111100001111 "
+b1111000011110000 #
+b0 $
+1%
+0&
+0'
+0)
+1*
+#40000
+b101 !
+b1000000000000001 "
+b0 #
+b1100000000000000 $
+0%
+1&
+1'
+1)
+0,
+#50000

@@ -20,8 +20,8 @@ begin
     write_flags_o <= '0';
 
     case opcode_i is
-      when OP_OR =>
-        alu_op_o      <= ALU_OR;
+      when OP_CMP =>
+        alu_op_o      <= ALU_CMP;
         use_b_o       <= '1';
         write_flags_o <= '1';
       when OP_NOR =>
@@ -30,9 +30,6 @@ begin
         write_flags_o <= '1';
       when OP_SRA =>
         alu_op_o      <= ALU_SRA;
-        write_flags_o <= '1';
-      when OP_INCS =>
-        alu_op_o      <= ALU_INCS;
         write_flags_o <= '1';
       when others =>
         null;

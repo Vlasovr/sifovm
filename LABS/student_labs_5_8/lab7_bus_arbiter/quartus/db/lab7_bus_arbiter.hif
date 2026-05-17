@@ -20,271 +20,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-lab7_bus_top
-# storage
-db|lab7_bus_arbiter.(0).cnf
-db|lab7_bus_arbiter.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|lab7_bus_top.vhd
-9e86a2a1635f78c0216b4a5b768a9a98
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|slave_sync.vhd
-5e806427d374a5197de74ba4cf95b1a4
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_mux_4.vhd
-ea58b5876c60929361407ad28b27ca91
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_arbiter_parallel_quantum.vhd
-1833a2c64eff2532af2a6e2f1dade8
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
-1103be959cb75b424cbfccf143dda3
-}
-# hierarchies {
-lab7_bus_top:U_BUS_SYSTEM
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-master_device
-# storage
-db|lab7_bus_arbiter.(1).cnf
-db|lab7_bus_arbiter.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
-1103be959cb75b424cbfccf143dda3
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-id_value
-4369
-PARAMETER_SIGNED_DEC
-USR
-start_cycle
-1
-PARAMETER_SIGNED_DEC
-USR
-hold_cycles
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(data_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER0
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-master_device
-# storage
-db|lab7_bus_arbiter.(2).cnf
-db|lab7_bus_arbiter.(2).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
-1103be959cb75b424cbfccf143dda3
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-id_value
-8738
-PARAMETER_SIGNED_DEC
-USR
-start_cycle
-2
-PARAMETER_SIGNED_DEC
-USR
-hold_cycles
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(data_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER1
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-master_device
-# storage
-db|lab7_bus_arbiter.(3).cnf
-db|lab7_bus_arbiter.(3).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
-1103be959cb75b424cbfccf143dda3
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-id_value
-13107
-PARAMETER_SIGNED_DEC
-USR
-start_cycle
-4
-PARAMETER_SIGNED_DEC
-USR
-hold_cycles
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(data_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER2
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-master_device
-# storage
-db|lab7_bus_arbiter.(4).cnf
-db|lab7_bus_arbiter.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
-1103be959cb75b424cbfccf143dda3
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-id_value
-17476
-PARAMETER_SIGNED_DEC
-USR
-start_cycle
-6
-PARAMETER_SIGNED_DEC
-USR
-hold_cycles
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(data_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER3
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 bus_arbiter_parallel_quantum
 # storage
 db|lab7_bus_arbiter.(5).cnf
@@ -336,10 +71,348 @@ a36c8ec425c8a2589af98b2d4daabc3
 
 # end
 # entity
-bus_mux_4
+lab7_bus_rtl_view_top
+# storage
+db|lab7_bus_arbiter.(0).cnf
+db|lab7_bus_arbiter.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|lab7_bus_rtl_view_top.vhd
+4533c43687333a1f8748c5cbaeb36
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|lab7_bus_top.vhd
+9e86a2a1635f78c0216b4a5b768a9a98
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_arbiter_parallel_quantum.vhd
+1833a2c64eff2532af2a6e2f1dade8
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|slave_sync.vhd
+5e806427d374a5197de74ba4cf95b1a4
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_mux_4.vhd
+ea58b5876c60929361407ad28b27ca91
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
+1103be959cb75b424cbfccf143dda3
+}
+# hierarchies {
+|
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+lab7_bus_top
+# storage
+db|lab7_bus_arbiter.(1).cnf
+db|lab7_bus_arbiter.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|lab7_bus_top.vhd
+9e86a2a1635f78c0216b4a5b768a9a98
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(req_o)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(grant_o)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(bus_data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(slave_data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(slot_o)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(used_o)
+3 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_arbiter_parallel_quantum.vhd
+1833a2c64eff2532af2a6e2f1dade8
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|slave_sync.vhd
+5e806427d374a5197de74ba4cf95b1a4
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_mux_4.vhd
+ea58b5876c60929361407ad28b27ca91
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
+1103be959cb75b424cbfccf143dda3
+}
+# hierarchies {
+lab7_bus_top:U_BUS_SYSTEM
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+master_device
+# storage
+db|lab7_bus_arbiter.(2).cnf
+db|lab7_bus_arbiter.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
+1103be959cb75b424cbfccf143dda3
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+id_value
+4369
+PARAMETER_SIGNED_DEC
+USR
+start_cycle
+1
+PARAMETER_SIGNED_DEC
+USR
+hold_cycles
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+}
+# hierarchies {
+lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER0
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+master_device
+# storage
+db|lab7_bus_arbiter.(3).cnf
+db|lab7_bus_arbiter.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
+1103be959cb75b424cbfccf143dda3
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+id_value
+8738
+PARAMETER_SIGNED_DEC
+USR
+start_cycle
+2
+PARAMETER_SIGNED_DEC
+USR
+hold_cycles
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+}
+# hierarchies {
+lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER1
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+master_device
+# storage
+db|lab7_bus_arbiter.(4).cnf
+db|lab7_bus_arbiter.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
+1103be959cb75b424cbfccf143dda3
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+id_value
+13107
+PARAMETER_SIGNED_DEC
+USR
+start_cycle
+4
+PARAMETER_SIGNED_DEC
+USR
+hold_cycles
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+}
+# hierarchies {
+lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER2
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+master_device
 # storage
 db|lab7_bus_arbiter.(6).cnf
 db|lab7_bus_arbiter.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
+1103be959cb75b424cbfccf143dda3
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+id_value
+17476
+PARAMETER_SIGNED_DEC
+USR
+start_cycle
+6
+PARAMETER_SIGNED_DEC
+USR
+hold_cycles
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+}
+# hierarchies {
+lab7_bus_top:U_BUS_SYSTEM|master_device:U_MASTER3
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+bus_mux_4
+# storage
+db|lab7_bus_arbiter.(7).cnf
+db|lab7_bus_arbiter.(7).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -387,7 +460,7 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
 lab7_bus_top:U_BUS_SYSTEM|bus_mux_4:U_BUS
@@ -401,8 +474,8 @@ a36c8ec425c8a2589af98b2d4daabc3
 # entity
 slave_sync
 # storage
-db|lab7_bus_arbiter.(7).cnf
-db|lab7_bus_arbiter.(7).cnf
+db|lab7_bus_arbiter.(8).cnf
+db|lab7_bus_arbiter.(8).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -434,57 +507,10 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
 lab7_bus_top:U_BUS_SYSTEM|slave_sync:U_SLAVE
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-lab7_bus_rtl_view_top
-# storage
-db|lab7_bus_arbiter.(8).cnf
-db|lab7_bus_arbiter.(8).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|lab7_bus_rtl_view_top.vhd
-4533c43687333a1f8748c5cbaeb36
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_arbiter_parallel_quantum.vhd
-1833a2c64eff2532af2a6e2f1dade8
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|slave_sync.vhd
-5e806427d374a5197de74ba4cf95b1a4
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|master_device.vhd
-1103be959cb75b424cbfccf143dda3
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|bus_mux_4.vhd
-ea58b5876c60929361407ad28b27ca91
-|git|sifovm|labs|student_labs_5_8|lab7_bus_arbiter|src|lab7_bus_top.vhd
-9e86a2a1635f78c0216b4a5b768a9a98
-}
-# hierarchies {
-|
 }
 # lmf
 |quartus|lmf|maxplus2.lmf

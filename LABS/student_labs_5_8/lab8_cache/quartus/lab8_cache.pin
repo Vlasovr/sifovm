@@ -79,19 +79,19 @@ TEMPDIODEp                   : A2        :        :                   :         
 VCCIO4                       : A3        : power  :                   : 3.3V    : 4         :                
 MSEL3                        : A4        :        :                   :         : 4         :                
 RESERVED_INPUT               : A5        :        :                   :         : 4         :                
-RESERVED_INPUT               : A6        :        :                   :         : 4         :                
-RESERVED_INPUT               : A7        :        :                   :         : 4         :                
-memory_address_debug_o[2]    : A8        : output : 3.3-V LVTTL       :         : 4         : N              
+cpu_address_tag_set_i[8]     : A6        : input  : 3.3-V LVTTL       :         : 4         : N              
+cpu_address_tag_set_i[3]     : A7        : input  : 3.3-V LVTTL       :         : 4         : N              
+cpu_read_data_from_cache_o[6] : A8        : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : A9        : gnd    :                   :         :           :                
-cpu_write_data_to_cache_i[12] : A10       : input  : 3.3-V LVTTL       :         : 9         : N              
+cpu_read_data_from_cache_o[2] : A10       : output : 3.3-V LVTTL       :         : 9         : N              
 VCCIO4                       : A11       : power  :                   : 3.3V    : 4         :                
 VCCIO3                       : A12       : power  :                   : 3.3V    : 3         :                
-cpu_write_data_to_cache_i[7] : A13       : input  : 3.3-V LVTTL       :         : 3         : N              
+cpu_write_data_to_cache_i[14] : A13       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND                          : A14       : gnd    :                   :         :           :                
-cpu_read_data_from_cache_o[11] : A15       : output : 3.3-V LVTTL       :         : 3         : N              
-memory_data_debug_o[4]       : A16       : output : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : A15       :        :                   :         : 3         :                
+RESERVED_INPUT               : A16       :        :                   :         : 3         :                
 RESERVED_INPUT               : A17       :        :                   :         : 3         :                
-cpu_address_tag_set_i[1]     : A18       : input  : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : A18       :        :                   :         : 3         :                
 RESERVED_INPUT               : A19       :        :                   :         : 3         :                
 VCCIO3                       : A20       : power  :                   : 3.3V    : 3         :                
 nCE                          : A21       :        :                   :         : 3         :                
@@ -103,14 +103,14 @@ RESERVED_INPUT               : AA4       :        :                   :         
 RESERVED_INPUT               : AA5       :        :                   :         : 7         :                
 RESERVED_INPUT               : AA6       :        :                   :         : 7         :                
 RESERVED_INPUT               : AA7       :        :                   :         : 7         :                
-memory_address_debug_o[7]    : AA8       : output : 3.3-V LVTTL       :         : 7         : N              
-cpu_address_tag_set_i[15]    : AA9       : input  : 3.3-V LVTTL       :         : 10        : N              
+memory_data_debug_o[11]      : AA8       : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : AA9       :        :                   :         : 10        :                
 RESERVED_INPUT               : AA10      :        :                   :         : 10        :                
-cpu_read_data_from_cache_o[15] : AA11      : output : 3.3-V LVTTL       :         : 7         : N              
-cpu_read_data_from_cache_o[2] : AA12      : output : 3.3-V LVTTL       :         : 8         : N              
-memory_data_debug_o[15]      : AA13      : output : 3.3-V LVTTL       :         : 8         : N              
+cpu_cache_response_ready_o   : AA11      : output : 3.3-V LVTTL       :         : 7         : N              
+memory_data_debug_o[12]      : AA12      : output : 3.3-V LVTTL       :         : 8         : N              
+memory_data_debug_o[4]       : AA13      : output : 3.3-V LVTTL       :         : 8         : N              
 VREFB8                       : AA14      : power  :                   :         : 8         :                
-cpu_read_data_from_cache_o[8] : AA15      : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : AA15      :        :                   :         : 8         :                
 RESERVED_INPUT               : AA16      :        :                   :         : 8         :                
 RESERVED_INPUT               : AA17      :        :                   :         : 8         :                
 RESERVED_INPUT               : AA18      :        :                   :         : 8         :                
@@ -125,15 +125,15 @@ GND                          : AB4       : gnd    :                   :         
 RESERVED_INPUT               : AB5       :        :                   :         : 7         :                
 RESERVED_INPUT               : AB6       :        :                   :         : 7         :                
 RESERVED_INPUT               : AB7       :        :                   :         : 7         :                
-RESERVED_INPUT               : AB8       :        :                   :         : 7         :                
+memory_address_debug_o[6]    : AB8       : output : 3.3-V LVTTL       :         : 7         : N              
 GND                          : AB9       : gnd    :                   :         :           :                
-memory_address_debug_o[13]   : AB10      : output : 3.3-V LVTTL       :         : 10        : N              
+cpu_address_tag_set_i[11]    : AB10      : input  : 3.3-V LVTTL       :         : 10        : N              
 VCCIO7                       : AB11      : power  :                   : 3.3V    : 7         :                
 VCCIO8                       : AB12      : power  :                   : 3.3V    : 8         :                
-memory_data_debug_o[14]      : AB13      : output : 3.3-V LVTTL       :         : 8         : N              
+memory_address_debug_o[15]   : AB13      : output : 3.3-V LVTTL       :         : 8         : N              
 GND                          : AB14      : gnd    :                   :         :           :                
 RESERVED_INPUT               : AB15      :        :                   :         : 8         :                
-cpu_read_data_from_cache_o[4] : AB16      : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : AB16      :        :                   :         : 8         :                
 RESERVED_INPUT               : AB17      :        :                   :         : 8         :                
 RESERVED_INPUT               : AB18      :        :                   :         : 8         :                
 TRST                         : AB19      : input  :                   :         : 8         :                
@@ -144,20 +144,20 @@ VCCIO5                       : B1        : power  :                   : 3.3V    
 GND                          : B2        : gnd    :                   :         :           :                
 TDO                          : B3        : output :                   :         : 4         :                
 MSEL2                        : B4        :        :                   :         : 4         :                
-cpu_write_data_to_cache_i[9] : B5        : input  : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : B5        :        :                   :         : 4         :                
 RESERVED_INPUT               : B6        :        :                   :         : 4         :                
-cpu_address_tag_set_i[14]    : B7        : input  : 3.3-V LVTTL       :         : 4         : N              
-memory_address_debug_o[4]    : B8        : output : 3.3-V LVTTL       :         : 4         : N              
-cpu_write_data_to_cache_i[15] : B9        : input  : 3.3-V LVTTL       :         : 9         : N              
-memory_address_debug_o[6]    : B10       : output : 3.3-V LVTTL       :         : 9         : N              
-memory_address_debug_o[1]    : B11       : output : 3.3-V LVTTL       :         : 4         : N              
-cpu_write_data_to_cache_i[1] : B12       : input  : 3.3-V LVTTL       :         : 4         : N              
-cpu_address_tag_set_i[6]     : B13       : input  : 3.3-V LVTTL       :         : 3         : N              
+cpu_write_enable_i           : B7        : input  : 3.3-V LVTTL       :         : 4         : N              
+cpu_read_data_from_cache_o[15] : B8        : output : 3.3-V LVTTL       :         : 4         : N              
+cpu_address_tag_set_i[9]     : B9        : input  : 3.3-V LVTTL       :         : 9         : N              
+cpu_write_data_to_cache_i[0] : B10       : input  : 3.3-V LVTTL       :         : 9         : N              
+cpu_address_tag_set_i[13]    : B11       : input  : 3.3-V LVTTL       :         : 4         : N              
+memory_address_debug_o[12]   : B12       : output : 3.3-V LVTTL       :         : 4         : N              
+cpu_write_data_to_cache_i[11] : B13       : input  : 3.3-V LVTTL       :         : 3         : N              
 VREFB3                       : B14       : power  :                   :         : 3         :                
-memory_data_debug_o[13]      : B15       : output : 3.3-V LVTTL       :         : 3         : N              
-memory_data_debug_o[3]       : B16       : output : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : B15       :        :                   :         : 3         :                
+RESERVED_INPUT               : B16       :        :                   :         : 3         :                
 RESERVED_INPUT               : B17       :        :                   :         : 3         :                
-cpu_address_tag_set_i[2]     : B18       : input  : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : B18       :        :                   :         : 3         :                
 RESERVED_INPUT               : B19       :        :                   :         : 3         :                
 nSTATUS                      : B20       :        :                   :         : 3         :                
 GND                          : B21       : gnd    :                   :         :           :                
@@ -166,20 +166,20 @@ RESERVED_INPUT               : C1        :        :                   :         
 RESERVED_INPUT               : C2        :        :                   :         : 5         :                
 TEMPDIODEn                   : C3        :        :                   :         :           :                
 RESERVED_INPUT               : C4        :        :                   :         : 4         :                
-cpu_write_data_to_cache_i[0] : C5        : input  : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : C5        :        :                   :         : 4         :                
 RESERVED_INPUT               : C6        :        :                   :         : 4         :                
-cpu_write_data_to_cache_i[13] : C7        : input  : 3.3-V LVTTL       :         : 4         : N              
-RESERVED_INPUT               : C8        :        :                   :         : 4         :                
-cpu_address_tag_set_i[4]     : C9        : input  : 3.3-V LVTTL       :         : 9         : N              
-memory_address_debug_o[5]    : C10       : output : 3.3-V LVTTL       :         : 9         : N              
+cpu_read_data_from_cache_o[9] : C7        : output : 3.3-V LVTTL       :         : 4         : N              
+cpu_read_data_from_cache_o[12] : C8        : output : 3.3-V LVTTL       :         : 4         : N              
+cpu_address_tag_set_i[15]    : C9        : input  : 3.3-V LVTTL       :         : 9         : N              
+cpu_address_tag_set_i[2]     : C10       : input  : 3.3-V LVTTL       :         : 9         : N              
 cache_miss_signal_o          : C11       : output : 3.3-V LVTTL       :         : 4         : N              
-cpu_write_data_to_cache_i[6] : C12       : input  : 3.3-V LVTTL       :         : 4         : N              
-cpu_address_tag_set_i[5]     : C13       : input  : 3.3-V LVTTL       :         : 3         : N              
+memory_address_debug_o[9]    : C12       : output : 3.3-V LVTTL       :         : 4         : N              
+cpu_read_data_from_cache_o[3] : C13       : output : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : C14       :        :                   :         : 3         :                
-cpu_read_data_from_cache_o[9] : C15       : output : 3.3-V LVTTL       :         : 3         : N              
-memory_data_debug_o[10]      : C16       : output : 3.3-V LVTTL       :         : 3         : N              
-reset_i                      : C17       : input  : 3.3-V LVTTL       :         : 3         : N              
-RESERVED_INPUT               : C18       :        :                   :         : 3         :                
+cpu_address_tag_set_i[10]    : C15       : input  : 3.3-V LVTTL       :         : 3         : N              
+memory_address_debug_o[0]    : C16       : output : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : C17       :        :                   :         : 3         :                
+cpu_address_tag_set_i[4]     : C18       : input  : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : C19       :        :                   :         : 3         :                
 CONF_DONE                    : C20       :        :                   :         : 3         :                
 RESERVED_INPUT               : C21       :        :                   :         : 2         :                
@@ -193,11 +193,11 @@ RESERVED_INPUT               : D6        :        :                   :         
 VREFB4                       : D7        : power  :                   :         : 4         :                
 RESERVED_INPUT               : D8        :        :                   :         : 4         :                
 VREFB4                       : D9        : power  :                   :         : 4         :                
-cpu_address_tag_set_i[7]     : D10       : input  : 3.3-V LVTTL       :         : 9         : N              
-RESERVED_INPUT               : D11       :        :                   :         : 3         :                
-cpu_write_data_to_cache_i[3] : D12       : input  : 3.3-V LVTTL       :         : 3         : N              
-memory_request_from_cache_debug_o : D13       : output : 3.3-V LVTTL       :         : 3         : N              
-RESERVED_INPUT               : D14       :        :                   :         : 3         :                
+cpu_address_tag_set_i[14]    : D10       : input  : 3.3-V LVTTL       :         : 9         : N              
+cpu_address_tag_set_i[1]     : D11       : input  : 3.3-V LVTTL       :         : 3         : N              
+memory_data_debug_o[0]       : D12       : output : 3.3-V LVTTL       :         : 3         : N              
+memory_data_debug_o[13]      : D13       : output : 3.3-V LVTTL       :         : 3         : N              
+memory_data_debug_o[14]      : D14       : output : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : D15       :        :                   :         : 3         :                
 VREFB3                       : D16       : power  :                   :         : 3         :                
 RESERVED_INPUT               : D17       :        :                   :         : 3         :                
@@ -207,7 +207,7 @@ RESERVED_INPUT               : D20       :        :                   :         
 RESERVED_INPUT               : D21       :        :                   :         : 2         :                
 RESERVED_INPUT               : D22       :        :                   :         : 2         :                
 RESERVED_INPUT               : E1        :        :                   :         : 5         :                
-memory_address_debug_o[12]   : E2        : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : E2        :        :                   :         : 5         :                
 RESERVED_INPUT               : E3        :        :                   :         : 5         :                
 RESERVED_INPUT               : E4        :        :                   :         : 5         :                
 MSEL0                        : E5        :        :                   :         : 4         :                
@@ -215,9 +215,9 @@ RESERVED_INPUT               : E6        :        :                   :         
 RESERVED_INPUT               : E7        :        :                   :         : 4         :                
 RESERVED_INPUT               : E8        :        :                   :         : 4         :                
 RESERVED_INPUT               : E9        :        :                   :         : 4         :                
-cpu_address_tag_set_i[9]     : E10       : input  : 3.3-V LVTTL       :         : 4         : N              
-memory_data_debug_o[12]      : E11       : output : 3.3-V LVTTL       :         : 3         : N              
-cpu_write_data_to_cache_i[2] : E12       : input  : 3.3-V LVTTL       :         : 3         : N              
+cpu_write_data_to_cache_i[3] : E10       : input  : 3.3-V LVTTL       :         : 4         : N              
+memory_request_from_cache_debug_o : E11       : output : 3.3-V LVTTL       :         : 3         : N              
+memory_address_debug_o[1]    : E12       : output : 3.3-V LVTTL       :         : 3         : N              
 ~DATA0~ / RESERVED_INPUT     : E13       : input  : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : E14       :        :                   :         : 3         :                
 RESERVED_INPUT               : E15       :        :                   :         : 3         :                
@@ -228,19 +228,19 @@ RESERVED_INPUT               : E19       :        :                   :         
 RESERVED_INPUT               : E20       :        :                   :         : 2         :                
 RESERVED_INPUT               : E21       :        :                   :         : 2         :                
 RESERVED_INPUT               : E22       :        :                   :         : 2         :                
-RESERVED_INPUT               : F1        :        :                   :         : 5         :                
+memory_address_debug_o[10]   : F1        : output : 3.3-V LVTTL       :         : 5         : N              
 RESERVED_INPUT               : F2        :        :                   :         : 5         :                
 VREFB5                       : F3        : power  :                   :         : 5         :                
 RESERVED_INPUT               : F4        :        :                   :         : 5         :                
 RESERVED_INPUT               : F5        :        :                   :         : 5         :                
-RESERVED_INPUT               : F6        :        :                   :         : 4         :                
+cpu_read_data_from_cache_o[13] : F6        : output : 3.3-V LVTTL       :         : 4         : N              
 RESERVED_INPUT               : F7        :        :                   :         : 4         :                
 RESERVED_INPUT               : F8        :        :                   :         : 4         :                
 RESERVED_INPUT               : F9        :        :                   :         : 4         :                
 GNDA_PLL5                    : F10       : gnd    :                   :         :           :                
 GNDA_PLL5                    : F11       : gnd    :                   :         :           :                
 VCCA_PLL5                    : F12       : power  :                   : 1.2V    :           :                
-cpu_read_data_from_cache_o[6] : F13       : output : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : F13       :        :                   :         : 3         :                
 RESERVED_INPUT               : F14       :        :                   :         : 3         :                
 RESERVED_INPUT               : F15       :        :                   :         : 3         :                
 RESERVED_INPUT               : F16       :        :                   :         : 3         :                
@@ -250,8 +250,8 @@ RESERVED_INPUT               : F19       :        :                   :         
 RESERVED_INPUT               : F20       :        :                   :         : 2         :                
 RESERVED_INPUT               : F21       :        :                   :         : 2         :                
 RESERVED_INPUT               : F22       :        :                   :         : 2         :                
-memory_address_debug_o[14]   : G1        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_address_debug_o[3]    : G2        : output : 3.3-V LVTTL       :         : 5         : N              
+memory_address_debug_o[5]    : G1        : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : G2        :        :                   :         : 5         :                
 RESERVED_INPUT               : G3        :        :                   :         : 5         :                
 RESERVED_INPUT               : G4        :        :                   :         : 5         :                
 RESERVED_INPUT               : G5        :        :                   :         : 5         :                
@@ -261,8 +261,8 @@ RESERVED_INPUT               : G8        :        :                   :         
 RESERVED_INPUT               : G9        :        :                   :         : 4         :                
 VCC_PLL5_OUT                 : G10       : power  :                   : 3.3V    : 9         :                
 VCCD_PLL5                    : G11       : power  :                   : 1.2V    :           :                
-cpu_read_data_from_cache_o[0] : G12       : output : 3.3-V LVTTL       :         : 3         : N              
-RESERVED_INPUT               : G13       :        :                   :         : 3         :                
+reset_i                      : G12       : input  : 3.3-V LVTTL       :         : 3         : N              
+cpu_write_data_to_cache_i[6] : G13       : input  : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : G14       :        :                   :         : 3         :                
 RESERVED_INPUT               : G15       :        :                   :         : 3         :                
 RESERVED_INPUT               : G16       :        :                   :         : 3         :                
@@ -272,36 +272,36 @@ RESERVED_INPUT               : G19       :        :                   :         
 RESERVED_INPUT               : G20       :        :                   :         : 2         :                
 RESERVED_INPUT               : G21       :        :                   :         : 2         :                
 RESERVED_INPUT               : G22       :        :                   :         : 2         :                
-cpu_write_data_to_cache_i[11] : H1        : input  : 3.3-V LVTTL       :         : 5         : N              
-cpu_read_data_from_cache_o[13] : H2        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_data_debug_o[1]       : H3        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_address_debug_o[11]   : H4        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_address_debug_o[8]    : H5        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_address_debug_o[0]    : H6        : output : 3.3-V LVTTL       :         : 5         : N              
+cpu_cache_request_i          : H1        : input  : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : H2        :        :                   :         : 5         :                
+RESERVED_INPUT               : H3        :        :                   :         : 5         :                
+RESERVED_INPUT               : H4        :        :                   :         : 5         :                
+RESERVED_INPUT               : H5        :        :                   :         : 5         :                
+cpu_address_tag_set_i[0]     : H6        : input  : 3.3-V LVTTL       :         : 5         : N              
 RESERVED_INPUT               : H7        :        :                   :         : 4         :                
 VCCINT                       : H8        : power  :                   : 1.2V    :           :                
 RESERVED_INPUT               : H9        :        :                   :         : 4         :                
 VCCPD4                       : H10       : power  :                   : 3.3V    : 4         :                
-RESERVED_INPUT               : H11       :        :                   :         : 3         :                
-RESERVED_INPUT               : H12       :        :                   :         : 3         :                
+cpu_write_data_to_cache_i[2] : H11       : input  : 3.3-V LVTTL       :         : 3         : N              
+cpu_address_tag_set_i[6]     : H12       : input  : 3.3-V LVTTL       :         : 3         : N              
 VCCPD3                       : H13       : power  :                   : 3.3V    : 3         :                
 RESERVED_INPUT               : H14       :        :                   :         : 3         :                
 GND                          : H15       : gnd    :                   :         :           :                
 RESERVED_INPUT               : H16       :        :                   :         : 3         :                
-cache_hit_signal_o           : H17       : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : H17       :        :                   :         : 2         :                
 RESERVED_INPUT               : H18       :        :                   :         : 2         :                
 RESERVED_INPUT               : H19       :        :                   :         : 2         :                
 RESERVED_INPUT               : H20       :        :                   :         : 2         :                
-cpu_read_data_from_cache_o[12] : H21       : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : H21       :        :                   :         : 2         :                
 RESERVED_INPUT               : H22       :        :                   :         : 2         :                
 GND                          : J1        : gnd    :                   :         :           :                
-cpu_address_tag_set_i[3]     : J2        : input  : 3.3-V LVTTL       :         : 5         : N              
-cpu_address_tag_set_i[0]     : J3        : input  : 3.3-V LVTTL       :         : 5         : N              
+cpu_write_data_to_cache_i[5] : J2        : input  : 3.3-V LVTTL       :         : 5         : N              
+cache_hit_signal_o           : J3        : output : 3.3-V LVTTL       :         : 5         : N              
 VREFB5                       : J4        : power  :                   :         : 5         :                
-cpu_write_data_to_cache_i[14] : J5        : input  : 3.3-V LVTTL       :         : 5         : N              
-memory_data_debug_o[11]      : J6        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_address_debug_o[10]   : J7        : output : 3.3-V LVTTL       :         : 5         : N              
-cpu_write_data_to_cache_i[8] : J8        : input  : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : J5        :        :                   :         : 5         :                
+memory_data_debug_o[5]       : J6        : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : J7        :        :                   :         : 5         :                
+RESERVED_INPUT               : J8        :        :                   :         : 5         :                
 VCCINT                       : J9        : power  :                   : 1.2V    :           :                
 GND                          : J10       : gnd    :                   :         :           :                
 VCCINT                       : J11       : power  :                   : 1.2V    :           :                
@@ -310,20 +310,20 @@ VCCINT                       : J13       : power  :                   : 1.2V    
 GND                          : J14       : gnd    :                   :         :           :                
 RESERVED_INPUT               : J15       :        :                   :         : 3         :                
 RESERVED_INPUT               : J16       :        :                   :         : 2         :                
-cpu_address_tag_set_i[10]    : J17       : input  : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : J17       :        :                   :         : 2         :                
 RESERVED_INPUT               : J18       :        :                   :         : 2         :                
-cpu_cache_response_ready_o   : J19       : output : 3.3-V LVTTL       :         : 2         : N              
-RESERVED_INPUT               : J20       :        :                   :         : 2         :                
+cpu_write_data_to_cache_i[8] : J19       : input  : 3.3-V LVTTL       :         : 2         : N              
+memory_write_enable_debug_o  : J20       : output : 3.3-V LVTTL       :         : 2         : N              
 RESERVED_INPUT               : J21       :        :                   :         : 2         :                
 GND                          : J22       : gnd    :                   :         :           :                
-RESERVED_INPUT               : K1        :        :                   :         : 5         :                
-RESERVED_INPUT               : K2        :        :                   :         : 5         :                
-memory_address_debug_o[9]    : K3        : output : 3.3-V LVTTL       :         : 5         : N              
-cpu_write_enable_i           : K4        : input  : 3.3-V LVTTL       :         : 5         : N              
-RESERVED_INPUT               : K5        :        :                   :         : 5         :                
-memory_write_enable_debug_o  : K6        : output : 3.3-V LVTTL       :         : 5         : N              
-RESERVED_INPUT               : K7        :        :                   :         : 5         :                
-cpu_address_tag_set_i[12]    : K8        : input  : 3.3-V LVTTL       :         : 5         : N              
+memory_address_debug_o[7]    : K1        : output : 3.3-V LVTTL       :         : 5         : N              
+memory_address_debug_o[4]    : K2        : output : 3.3-V LVTTL       :         : 5         : N              
+cpu_write_data_to_cache_i[7] : K3        : input  : 3.3-V LVTTL       :         : 5         : N              
+cpu_write_data_to_cache_i[12] : K4        : input  : 3.3-V LVTTL       :         : 5         : N              
+memory_data_debug_o[8]       : K5        : output : 3.3-V LVTTL       :         : 5         : N              
+memory_data_debug_o[2]       : K6        : output : 3.3-V LVTTL       :         : 5         : N              
+memory_address_debug_o[2]    : K7        : output : 3.3-V LVTTL       :         : 5         : N              
+cpu_write_data_to_cache_i[9] : K8        : input  : 3.3-V LVTTL       :         : 5         : N              
 GND                          : K9        : gnd    :                   :         :           :                
 VCCINT                       : K10       : power  :                   : 1.2V    :           :                
 GND                          : K11       : gnd    :                   :         :           :                
@@ -332,37 +332,37 @@ GND                          : K13       : gnd    :                   :         
 VCCPD2                       : K14       : power  :                   : 3.3V    : 2         :                
 RESERVED_INPUT               : K15       :        :                   :         : 2         :                
 RESERVED_INPUT               : K16       :        :                   :         : 2         :                
-RESERVED_INPUT               : K17       :        :                   :         : 2         :                
-cpu_read_data_from_cache_o[14] : K18       : output : 3.3-V LVTTL       :         : 2         : N              
-cpu_read_data_from_cache_o[1] : K19       : output : 3.3-V LVTTL       :         : 2         : N              
-memory_data_debug_o[2]       : K20       : output : 3.3-V LVTTL       :         : 2         : N              
-memory_data_debug_o[6]       : K21       : output : 3.3-V LVTTL       :         : 2         : N              
-memory_data_debug_o[9]       : K22       : output : 3.3-V LVTTL       :         : 2         : N              
+cpu_address_tag_set_i[7]     : K17       : input  : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : K18       :        :                   :         : 2         :                
+RESERVED_INPUT               : K19       :        :                   :         : 2         :                
+RESERVED_INPUT               : K20       :        :                   :         : 2         :                
+RESERVED_INPUT               : K21       :        :                   :         : 2         :                
+memory_address_debug_o[3]    : K22       : output : 3.3-V LVTTL       :         : 2         : N              
 VCCIO5                       : L1        : power  :                   : 3.3V    : 5         :                
-memory_data_debug_o[0]       : L2        : output : 3.3-V LVTTL       :         : 5         : N              
-memory_data_debug_o[5]       : L3        : output : 3.3-V LVTTL       :         : 5         : N              
+memory_address_debug_o[13]   : L2        : output : 3.3-V LVTTL       :         : 5         : N              
+cpu_read_data_from_cache_o[0] : L3        : output : 3.3-V LVTTL       :         : 5         : N              
 GNDA_PLL4                    : L4        : gnd    :                   :         :           :                
 GNDA_PLL4                    : L5        : gnd    :                   :         :           :                
 VCCD_PLL4                    : L6        : power  :                   : 1.2V    :           :                
-memory_address_debug_o[15]   : L7        : output : 3.3-V LVTTL       :         : 5         : N              
-cpu_write_data_to_cache_i[4] : L8        : input  : 3.3-V LVTTL       :         : 5         : N              
+cpu_read_data_from_cache_o[1] : L7        : output : 3.3-V LVTTL       :         : 5         : N              
+cpu_read_data_from_cache_o[10] : L8        : output : 3.3-V LVTTL       :         : 5         : N              
 VCCPD5                       : L9        : power  :                   : 3.3V    : 5         :                
 GND                          : L10       : gnd    :                   :         :           :                
 VCCINT                       : L11       : power  :                   : 1.2V    :           :                
 GND                          : L12       : gnd    :                   :         :           :                
 VCCINT                       : L13       : power  :                   : 1.2V    :           :                
 GND                          : L14       : gnd    :                   :         :           :                
-RESERVED_INPUT               : L15       :        :                   :         : 2         :                
-cpu_read_data_from_cache_o[10] : L16       : output : 3.3-V LVTTL       :         : 2         : N              
+memory_data_debug_o[6]       : L15       : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : L16       :        :                   :         : 2         :                
 GNDA_PLL1                    : L17       : gnd    :                   :         :           :                
 GNDA_PLL1                    : L18       : gnd    :                   :         :           :                
 VREFB2                       : L19       : power  :                   :         : 2         :                
-cpu_read_data_from_cache_o[3] : L20       : output : 3.3-V LVTTL       :         : 2         : N              
+cpu_read_data_from_cache_o[4] : L20       : output : 3.3-V LVTTL       :         : 2         : N              
 cpu_read_data_from_cache_o[5] : L21       : output : 3.3-V LVTTL       :         : 2         : N              
 VCCIO2                       : L22       : power  :                   : 3.3V    : 2         :                
 VCCIO6                       : M1        : power  :                   : 3.3V    : 6         :                
-cpu_address_tag_set_i[8]     : M2        : input  : 3.3-V LVTTL       :         : 5         : N              
-GND+                         : M3        :        :                   :         : 5         :                
+cpu_write_data_to_cache_i[1] : M2        : input  : 3.3-V LVTTL       :         : 5         : N              
+cpu_write_data_to_cache_i[13] : M3        : input  : 3.3-V LVTTL       :         : 5         : N              
 VCCA_PLL3                    : M4        : power  :                   : 1.2V    :           :                
 VCCD_PLL3                    : M5        : power  :                   : 1.2V    :           :                
 VCCA_PLL4                    : M6        : power  :                   : 1.2V    :           :                
@@ -380,15 +380,15 @@ VCCA_PLL1                    : M17       : power  :                   : 1.2V    
 VCCD_PLL2                    : M18       : power  :                   : 1.2V    :           :                
 VCCA_PLL2                    : M19       : power  :                   : 1.2V    :           :                
 GND+                         : M20       :        :                   :         : 2         :                
-GND+                         : M21       :        :                   :         : 2         :                
+cpu_write_data_to_cache_i[10] : M21       : input  : 3.3-V LVTTL       :         : 2         : N              
 VCCIO1                       : M22       : power  :                   : 3.3V    : 1         :                
-RESERVED_INPUT               : N1        :        :                   :         : 6         :                
-RESERVED_INPUT               : N2        :        :                   :         : 6         :                
+memory_address_debug_o[14]   : N1        : output : 3.3-V LVTTL       :         : 6         : N              
+cpu_read_data_from_cache_o[7] : N2        : output : 3.3-V LVTTL       :         : 6         : N              
 GND+                         : N3        :        :                   :         : 6         :                
 GND+                         : N4        :        :                   :         : 6         :                
 GNDA_PLL3                    : N5        : gnd    :                   :         :           :                
 GNDA_PLL3                    : N6        : gnd    :                   :         :           :                
-RESERVED_INPUT               : N7        :        :                   :         : 6         :                
+cpu_write_data_to_cache_i[4] : N7        : input  : 3.3-V LVTTL       :         : 6         : N              
 RESERVED_INPUT               : N8        :        :                   :         : 6         :                
 VCCPD6                       : N9        : power  :                   : 3.3V    : 6         :                
 GND                          : N10       : gnd    :                   :         :           :                
@@ -402,13 +402,13 @@ GNDA_PLL2                    : N17       : gnd    :                   :         
 GNDA_PLL2                    : N18       : gnd    :                   :         :           :                
 GND+                         : N19       :        :                   :         : 1         :                
 clock_i                      : N20       : input  : 3.3-V LVTTL       :         : 1         : N              
-RESERVED_INPUT               : N21       :        :                   :         : 1         :                
+cpu_read_data_from_cache_o[11] : N21       : output : 3.3-V LVTTL       :         : 1         : N              
 RESERVED_INPUT               : N22       :        :                   :         : 1         :                
 GND                          : P1        : gnd    :                   :         :           :                
 RESERVED_INPUT               : P2        :        :                   :         : 6         :                
-RESERVED_INPUT               : P3        :        :                   :         : 6         :                
+memory_address_debug_o[8]    : P3        : output : 3.3-V LVTTL       :         : 6         : N              
 VREFB6                       : P4        : power  :                   :         : 6         :                
-RESERVED_INPUT               : P5        :        :                   :         : 6         :                
+cpu_address_tag_set_i[5]     : P5        : input  : 3.3-V LVTTL       :         : 6         : N              
 RESERVED_INPUT               : P6        :        :                   :         : 6         :                
 RESERVED_INPUT               : P7        :        :                   :         : 6         :                
 RESERVED_INPUT               : P8        :        :                   :         : 6         :                
@@ -427,7 +427,7 @@ RESERVED_INPUT               : P20       :        :                   :         
 RESERVED_INPUT               : P21       :        :                   :         : 1         :                
 GND                          : P22       : gnd    :                   :         :           :                
 RESERVED_INPUT               : R1        :        :                   :         : 6         :                
-RESERVED_INPUT               : R2        :        :                   :         : 6         :                
+cpu_read_data_from_cache_o[14] : R2        : output : 3.3-V LVTTL       :         : 6         : N              
 RESERVED_INPUT               : R3        :        :                   :         : 6         :                
 RESERVED_INPUT               : R4        :        :                   :         : 6         :                
 RESERVED_INPUT               : R5        :        :                   :         : 6         :                
@@ -479,7 +479,7 @@ RESERVED_INPUT               : U6        :        :                   :         
 RESERVED_INPUT               : U7        :        :                   :         : 7         :                
 RESERVED_INPUT               : U8        :        :                   :         : 7         :                
 RESERVED_INPUT               : U9        :        :                   :         : 7         :                
-cpu_address_tag_set_i[11]    : U10       : input  : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : U10       :        :                   :         : 7         :                
 VCCD_PLL6                    : U11       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT               : U12       :        :                   :         : 8         :                
 RESERVED_INPUT               : U13       :        :                   :         : 8         :                
@@ -500,10 +500,10 @@ PORSEL                       : V5        :        :                   :         
 RESERVED_INPUT               : V6        :        :                   :         : 7         :                
 RESERVED_INPUT               : V7        :        :                   :         : 7         :                
 RESERVED_INPUT               : V8        :        :                   :         : 7         :                
-RESERVED_INPUT               : V9        :        :                   :         : 10        :                
+memory_data_debug_o[10]      : V9        : output : 3.3-V LVTTL       :         : 10        : N              
 RESERVED_INPUT               : V10       :        :                   :         : 7         :                
 memory_data_debug_o[7]       : V11       : output : 3.3-V LVTTL       :         : 8         : N              
-RESERVED_INPUT               : V12       :        :                   :         : 8         :                
+memory_data_debug_o[1]       : V12       : output : 3.3-V LVTTL       :         : 8         : N              
 RESERVED_INPUT               : V13       :        :                   :         : 8         :                
 RESERVED_INPUT               : V14       :        :                   :         : 8         :                
 RESERVED_INPUT               : V15       :        :                   :         : 8         :                
@@ -522,10 +522,10 @@ RESERVED_INPUT               : W5        :        :                   :         
 VREFB7                       : W6        : power  :                   :         : 7         :                
 RESERVED_INPUT               : W7        :        :                   :         : 7         :                
 VREFB7                       : W8        : power  :                   :         : 7         :                
-RESERVED_INPUT               : W9        :        :                   :         : 10        :                
-RESERVED_INPUT               : W10       :        :                   :         : 7         :                
+cpu_write_data_to_cache_i[15] : W9        : input  : 3.3-V LVTTL       :         : 10        : N              
+memory_data_debug_o[15]      : W10       : output : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : W11       :        :                   :         : 8         :                
-cpu_read_data_from_cache_o[7] : W12       : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : W12       :        :                   :         : 8         :                
 RESERVED_INPUT               : W13       :        :                   :         : 8         :                
 RESERVED_INPUT               : W14       :        :                   :         : 8         :                
 RESERVED_INPUT               : W15       :        :                   :         : 8         :                
@@ -542,15 +542,15 @@ RESERVED_INPUT               : Y3        :        :                   :         
 PLL_ENA                      : Y4        :        :                   :         : 7         :                
 RESERVED_INPUT               : Y5        :        :                   :         : 7         :                
 RESERVED_INPUT               : Y6        :        :                   :         : 7         :                
-cpu_address_tag_set_i[13]    : Y7        : input  : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : Y8        :        :                   :         : 7         :                
-RESERVED_INPUT               : Y9        :        :                   :         : 10        :                
-cpu_write_data_to_cache_i[10] : Y10       : input  : 3.3-V LVTTL       :         : 7         : N              
-cpu_write_data_to_cache_i[5] : Y11       : input  : 3.3-V LVTTL       :         : 7         : N              
-cpu_cache_request_i          : Y12       : input  : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : Y7        :        :                   :         : 7         :                
+cpu_read_data_from_cache_o[8] : Y8        : output : 3.3-V LVTTL       :         : 7         : N              
+memory_data_debug_o[3]       : Y9        : output : 3.3-V LVTTL       :         : 10        : N              
+cpu_address_tag_set_i[12]    : Y10       : input  : 3.3-V LVTTL       :         : 7         : N              
+memory_address_debug_o[11]   : Y11       : output : 3.3-V LVTTL       :         : 7         : N              
+memory_data_debug_o[9]       : Y12       : output : 3.3-V LVTTL       :         : 8         : N              
 RESERVED_INPUT               : Y13       :        :                   :         : 8         :                
 RESERVED_INPUT               : Y14       :        :                   :         : 8         :                
-memory_data_debug_o[8]       : Y15       : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : Y15       :        :                   :         : 8         :                
 RESERVED_INPUT               : Y16       :        :                   :         : 8         :                
 RESERVED_INPUT               : Y17       :        :                   :         : 8         :                
 RESERVED_INPUT               : Y18       :        :                   :         : 8         :                

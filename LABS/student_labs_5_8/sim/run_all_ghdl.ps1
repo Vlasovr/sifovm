@@ -32,10 +32,9 @@ function Invoke-GhdlLab {
 $common = @("common/lab_variant_pkg.vhd")
 
 Invoke-GhdlLab "lab5_alu" ($common + @(
-  "lab5_alu/src/alu_or.vhd",
+  "lab5_alu/src/alu_cmp.vhd",
   "lab5_alu/src/alu_nor.vhd",
   "lab5_alu/src/alu_sra.vhd",
-  "lab5_alu/src/alu_incs.vhd",
   "lab5_alu/src/alu_flags.vhd",
   "lab5_alu/src/alu_control.vhd",
   "lab5_alu/src/lab5_alu_top.vhd",
@@ -59,7 +58,7 @@ Invoke-GhdlLab "lab7_bus_arbiter" ($common + @(
 )) "tb_lab7_bus" "400ns"
 
 Invoke-GhdlLab "lab8_cache" ($common + @(
-  "lab8_cache/src/cache4way_age.vhd",
+  "lab8_cache/src/cache_direct_mapped.vhd",
   "lab8_cache/src/main_memory_sync.vhd",
   "lab8_cache/src/lab8_cache_top.vhd",
   "lab8_cache/tb/tb_lab8_cache.vhd"

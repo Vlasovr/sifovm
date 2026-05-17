@@ -7,7 +7,6 @@ entity lab5_alu_rtl_view_top is
     cmd_opcode_alu_operation_i       : in  std_logic_vector(7 downto 0);
     operand_a_from_register_i        : in  word_t;
     operand_b_from_memory_or_reg_i   : in  word_t;
-    flag_s_from_flags_register_i     : in  std_logic;
     result_y_to_register_file_o      : out word_t;
     flag_z_zero_result_o             : out std_logic;
     flag_s_negative_result_o         : out std_logic;
@@ -26,7 +25,6 @@ begin
       opcode_i       => cmd_opcode_alu_operation_i,
       a_i            => operand_a_from_register_i,
       b_i            => operand_b_from_memory_or_reg_i,
-      flag_s_i       => flag_s_from_flags_register_i,
       y_o            => result_y_to_register_file_o,
       z_o            => flag_z_zero_result_o,
       s_o            => flag_s_negative_result_o,

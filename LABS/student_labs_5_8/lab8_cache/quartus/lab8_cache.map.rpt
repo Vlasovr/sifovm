@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab8_cache
-Thu May 14 23:24:40 2026
+Sun May 17 14:14:43 2026
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -14,7 +14,7 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|state_r
+  9. State Machine - |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|state_r
  10. Registers Removed During Synthesis
  11. General Register Statistics
  12. Registers Added for RAM Pass-Through Logic
@@ -48,15 +48,15 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                            ;
 +-------------------------------+-----------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Thu May 14 23:24:40 2026   ;
+; Analysis & Synthesis Status   ; Successful - Sun May 17 14:14:43 2026   ;
 ; Quartus II Version            ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name                 ; lab8_cache                              ;
 ; Top-level Entity Name         ; lab8_cache_rtl_view_top                 ;
 ; Family                        ; Stratix II                              ;
 ; Logic utilization             ; N/A                                     ;
-;     Combinational ALUTs       ; 1,343                                   ;
-;     Dedicated logic registers ; 2,118                                   ;
-; Total registers               ; 2118                                    ;
+;     Combinational ALUTs       ; 193                                     ;
+;     Dedicated logic registers ; 371                                     ;
+; Total registers               ; 371                                     ;
 ; Total pins                    ; 89                                      ;
 ; Total virtual pins            ; 0                                       ;
 ; Total block memory bits       ; 4,096                                   ;
@@ -162,7 +162,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; File Name with User-Entered Path                     ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                ;
 +------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 ; ../../common/lab_variant_pkg.vhd                     ; yes             ; User VHDL File                                        ; D:/git/sifovm/LABS/student_labs_5_8/common/lab_variant_pkg.vhd                                              ;
-; ../src/cache4way_age.vhd                             ; yes             ; User VHDL File                                        ; D:/git/sifovm/LABS/student_labs_5_8/lab8_cache/src/cache4way_age.vhd                                        ;
+; ../src/cache_direct_mapped.vhd                       ; yes             ; User VHDL File                                        ; D:/git/sifovm/LABS/student_labs_5_8/lab8_cache/src/cache_direct_mapped.vhd                                  ;
 ; ../src/main_memory_sync.vhd                          ; yes             ; User VHDL File                                        ; D:/git/sifovm/LABS/student_labs_5_8/lab8_cache/src/main_memory_sync.vhd                                     ;
 ; ../src/lab8_cache_top.vhd                            ; yes             ; User VHDL File                                        ; D:/git/sifovm/LABS/student_labs_5_8/lab8_cache/src/lab8_cache_top.vhd                                       ;
 ; ../src/lab8_cache_rtl_view_top.vhd                   ; yes             ; User VHDL File                                        ; D:/git/sifovm/LABS/student_labs_5_8/lab8_cache/src/lab8_cache_rtl_view_top.vhd                              ;
@@ -177,39 +177,39 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------------+---------+
 ; Resource                                      ; Usage   ;
 +-----------------------------------------------+---------+
-; Estimated ALUTs Used                          ; 1343    ;
-; Dedicated logic registers                     ; 2118    ;
+; Estimated ALUTs Used                          ; 193     ;
+; Dedicated logic registers                     ; 371     ;
 ;                                               ;         ;
-; Estimated ALUTs Unavailable                   ; 1       ;
+; Estimated ALUTs Unavailable                   ; 56      ;
 ;                                               ;         ;
-; Total combinational functions                 ; 1343    ;
+; Total combinational functions                 ; 193     ;
 ; Combinational ALUT usage by number of inputs  ;         ;
-;     -- 7 input functions                      ; 1       ;
-;     -- 6 input functions                      ; 771     ;
-;     -- 5 input functions                      ; 247     ;
-;     -- 4 input functions                      ; 249     ;
-;     -- <=3 input functions                    ; 75      ;
+;     -- 7 input functions                      ; 0       ;
+;     -- 6 input functions                      ; 94      ;
+;     -- 5 input functions                      ; 44      ;
+;     -- 4 input functions                      ; 30      ;
+;     -- <=3 input functions                    ; 25      ;
 ;                                               ;         ;
 ; Combinational ALUTs by mode                   ;         ;
-;     -- normal mode                            ; 1342    ;
-;     -- extended LUT mode                      ; 1       ;
+;     -- normal mode                            ; 193     ;
+;     -- extended LUT mode                      ; 0       ;
 ;     -- arithmetic mode                        ; 0       ;
 ;     -- shared arithmetic mode                 ; 0       ;
 ;                                               ;         ;
-; Estimated ALUT/register pairs used            ; 3086    ;
+; Estimated ALUT/register pairs used            ; 550     ;
 ;                                               ;         ;
-; Total registers                               ; 2118    ;
-;     -- Dedicated logic registers              ; 2118    ;
+; Total registers                               ; 371     ;
+;     -- Dedicated logic registers              ; 371     ;
 ;     -- I/O registers                          ; 0       ;
 ;                                               ;         ;
-; Estimated ALMs:  partially or completely used ; 1,543   ;
+; Estimated ALMs:  partially or completely used ; 275     ;
 ;                                               ;         ;
 ; I/O pins                                      ; 89      ;
 ; Total block memory bits                       ; 4096    ;
 ; Maximum fan-out node                          ; clock_i ;
-; Maximum fan-out                               ; 2134    ;
-; Total fan-out                                 ; 15729   ;
-; Average fan-out                               ; 4.41    ;
+; Maximum fan-out                               ; 387     ;
+; Total fan-out                                 ; 3254    ;
+; Average fan-out                               ; 4.86    ;
 +-----------------------------------------------+---------+
 
 
@@ -218,9 +218,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                 ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |lab8_cache_rtl_view_top                     ; 1343 (1)          ; 2118 (0)     ; 4096              ; 0            ; 0       ; 0         ; 0         ; 89   ; 0            ; |lab8_cache_rtl_view_top                                                                                                            ; work         ;
-;    |lab8_cache_top:U_CACHE_SYSTEM|           ; 1342 (16)         ; 2118 (0)     ; 4096              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM                                                                              ;              ;
-;       |cache4way_age:U_CACHE|                ; 1305 (1305)       ; 2076 (2076)  ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE                                                        ; work         ;
+; |lab8_cache_rtl_view_top                     ; 193 (1)           ; 371 (0)      ; 4096              ; 0            ; 0       ; 0         ; 0         ; 89   ; 0            ; |lab8_cache_rtl_view_top                                                                                                            ; work         ;
+;    |lab8_cache_top:U_CACHE_SYSTEM|           ; 192 (16)          ; 371 (0)      ; 4096              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM                                                                              ;              ;
+;       |cache_direct_mapped:U_CACHE|          ; 155 (155)         ; 329 (329)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE                                                  ; work         ;
 ;       |main_memory_sync:U_RAM|               ; 21 (21)           ; 42 (42)      ; 4096              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM                                                       ; work         ;
 ;          |altsyncram:mem_r_rtl_0|            ; 0 (0)             ; 0 (0)        ; 4096              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|altsyncram:mem_r_rtl_0                                ;              ;
 ;             |altsyncram_tlm1:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|altsyncram:mem_r_rtl_0|altsyncram_tlm1:auto_generated ;              ;
@@ -239,7 +239,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------+
-; State Machine - |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|state_r                  ;
+; State Machine - |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|state_r            ;
 +--------------------------+--------------------------+------------------------+-------------------------+--------------+
 ; Name                     ; state_r.WAIT_WRITE_GRANT ; state_r.WAIT_READ_DATA ; state_r.WAIT_READ_GRANT ; state_r.IDLE ;
 +--------------------------+--------------------------+------------------------+-------------------------+--------------+
@@ -250,37 +250,37 @@ Encoding Type:  One-Hot
 +--------------------------+--------------------------+------------------------+-------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                       ;
-+--------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-; Register name                                                            ; Reason for Removal                                                            ;
-+--------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[4]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[0]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[5]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[1]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[6]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[2]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[7]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[3]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[8]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[4]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[9]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[5]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[10]       ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[6]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[11]       ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[7]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[12]       ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[8]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[13]       ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[9]  ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[14]       ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[10] ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[15]       ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_req_r[11] ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[0]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|set_r[0]      ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[1]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|set_r[1]      ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[2]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|set_r[2]      ;
-; lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_addr_r[3]        ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|set_r[3]      ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[2]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[0] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[4]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[1] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[6]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[2] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[8]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[3] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[10] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[4] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[12] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[5] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[14] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[6] ;
-; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[16] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[7] ;
-; Total Number of Removed Registers = 24                                   ;                                                                               ;
-+--------------------------------------------------------------------------+-------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                             ;
++--------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+; Register name                                                            ; Reason for Removal                                                                  ;
++--------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[3]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[0]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[4]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[1]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[5]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[2]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[6]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[3]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[7]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[4]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[8]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[5]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[9]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[6]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[10] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[7]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[11] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[8]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[12] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[9]  ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[13] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[10] ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[14] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[11] ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[15] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[12] ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[0]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|index_r[0]    ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[1]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|index_r[1]    ;
+; lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|req_addr_r[2]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|index_r[2]    ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[2]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[0] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[4]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[1] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[6]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[2] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[8]  ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[3] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[10] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[4] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[12] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[5] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[14] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[6] ;
+; lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r_25_bypass[16] ; Merged with lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[7] ;
+; Total Number of Removed Registers = 24                                   ;                                                                                     ;
++--------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -288,12 +288,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2118  ;
-; Number of registers using Synchronous Clear  ; 1933  ;
-; Number of registers using Synchronous Load   ; 58    ;
+; Total registers                              ; 371   ;
+; Number of registers using Synchronous Clear  ; 316   ;
+; Number of registers using Synchronous Load   ; 274   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2010  ;
+; Number of registers using Clock Enable       ; 320   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -339,218 +339,30 @@ Encoding Type:  One-Hot
 +--------------------------------------------------------------------------+---------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 ALUTs      ; 32 ALUTs             ; 0 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|rdata_r[15]      ;
-; 4:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|req_wdata_r[11]   ;
-; 6:1                ; 8 bits    ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r[13]    ;
-; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_req_r         ;
-; 7:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_wdata_r[4]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[0][0][3]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[1][0][1]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[2][0][6]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[3][0][1]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[4][0][4]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[5][0][11]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[6][0][6]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[7][0][10]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[8][0][5]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[9][0][6]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[10][0][1]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[11][0][5]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[12][0][1]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[13][0][0]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[14][0][1]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[15][0][3]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[0][1][1]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[1][1][9]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[2][1][9]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[3][1][3]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[4][1][6]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[5][1][4]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[6][1][3]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[7][1][6]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[8][1][5]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[9][1][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[10][1][0]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[11][1][5]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[12][1][1]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[13][1][11]  ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[14][1][11]  ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[15][1][7]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[0][2][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[1][2][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[2][2][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[3][2][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[4][2][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[5][2][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[6][2][10]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[7][2][7]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[8][2][10]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[9][2][7]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[10][2][0]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[11][2][7]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[12][2][9]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[13][2][11]  ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[14][2][2]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[15][2][11]  ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[0][3][6]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[1][3][3]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[2][3][8]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[3][3][1]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[4][3][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[5][3][7]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[6][3][5]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[7][3][2]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[8][3][9]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[9][3][7]    ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[10][3][8]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[11][3][5]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[12][3][2]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[13][3][1]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[14][3][2]   ;
-; 6:1                ; 12 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|tag_r[15][3][5]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 6 ALUTs              ; 2 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|victim_r[1]       ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[0][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[1][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[2][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[3][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[4][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[5][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[6][0][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[7][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[8][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[9][0][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[10][0][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[11][0][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[12][0][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[13][0][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[14][0][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[15][0][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[0][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[1][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[2][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[3][1][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[4][1][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[5][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[6][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[7][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[8][1][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[9][1][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[10][1][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[11][1][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[12][1][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[13][1][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[14][1][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[15][1][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[0][2][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[1][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[2][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[3][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[4][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[5][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[6][2][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[7][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[8][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[9][2][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[10][2][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[11][2][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[12][2][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[13][2][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[14][2][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[15][2][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[0][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[1][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[2][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[3][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[4][3][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[5][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[6][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[7][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[8][3][1]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[9][3][0]    ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[10][3][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[11][3][0]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[12][3][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[13][3][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[14][3][1]   ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|age_r[15][3][0]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[0][0][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[1][0][7]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[2][0][1]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[3][0][12]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[4][0][8]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[5][0][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[6][0][10]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[7][0][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[8][0][11]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[9][0][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[10][0][12] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[11][0][13] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[12][0][7]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[13][0][12] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[14][0][12] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[15][0][0]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[0][1][1]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[1][1][1]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[2][1][0]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[3][1][9]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[4][1][8]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[5][1][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[6][1][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[7][1][15]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[8][1][11]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[9][1][12]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[10][1][15] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[11][1][15] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[12][1][2]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[13][1][15] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[14][1][0]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[15][1][10] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[0][2][1]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[1][2][1]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[2][2][1]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[3][2][15]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[4][2][11]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[5][2][9]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[6][2][8]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[7][2][14]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[8][2][9]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[9][2][12]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[10][2][13] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[11][2][15] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[12][2][3]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[13][2][10] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[14][2][5]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[15][2][9]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[0][3][14]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[1][3][10]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[2][3][5]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[3][3][2]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[4][3][3]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[5][3][6]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[6][3][0]   ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[7][3][13]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[8][3][15]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[9][3][12]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[10][3][4]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[11][3][13] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[12][3][2]  ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[13][3][15] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[14][3][12] ;
-; 14:1               ; 16 bits   ; 144 ALUTs     ; 32 ALUTs             ; 112 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|data_r[15][3][13] ;
-; 69:1               ; 16 bits   ; 736 ALUTs     ; 672 ALUTs            ; 64 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|cpu_rdata_r[3]    ;
-; 16:1               ; 60 bits   ; 600 ALUTs     ; 600 ALUTs            ; 0 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|Mux58             ;
-; 16:1               ; 12 bits   ; 120 ALUTs     ; 120 ALUTs            ; 0 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|Mux386            ;
-; 6:1                ; 8 bits    ; 32 ALUTs      ; 16 ALUTs             ; 16 ALUTs               ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|ram_addr_r        ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 6 ALUTs              ; 2 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|state_r           ;
-; 9:1                ; 2 bits    ; 12 ALUTs      ; 8 ALUTs              ; 4 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|state_r           ;
-; 32:1               ; 3 bits    ; 63 ALUTs      ; 63 ALUTs             ; 0 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|Mux56             ;
-; 64:1               ; 3 bits    ; 126 ALUTs     ; 126 ALUTs            ; 0 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE|Mux112            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 ALUTs      ; 32 ALUTs             ; 0 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|rdata_r[1]           ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_req_r[1]    ;
+; 6:1                ; 8 bits    ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r[13]  ;
+; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_req_r       ;
+; 7:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_wdata_r[10] ;
+; 13:1               ; 16 bits   ; 128 ALUTs     ; 96 ALUTs             ; 32 ALUTs               ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|cpu_rdata_r[7]  ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|data_r[7][14]   ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|data_r[6][8]    ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|data_r[5][13]   ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_r[4][8]     ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_r[3][3]     ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_r[2][5]     ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_r[1][5]     ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 0 ALUTs              ; 174 ALUTs              ; Yes        ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|tag_r[0][5]     ;
+; 8:1                ; 14 bits   ; 70 ALUTs      ; 70 ALUTs             ; 0 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|Mux4            ;
+; 6:1                ; 8 bits    ; 32 ALUTs      ; 16 ALUTs             ; 16 ALUTs               ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|ram_addr_r      ;
+; 7:1                ; 2 bits    ; 8 ALUTs       ; 6 ALUTs              ; 2 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|state_r         ;
+; 9:1                ; 2 bits    ; 12 ALUTs      ; 8 ALUTs              ; 4 ALUTs                ; No         ; |lab8_cache_rtl_view_top|lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE|state_r         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------+
@@ -647,14 +459,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
-    Info: Processing started: Thu May 14 23:24:28 2026
+    Info: Processing started: Sun May 17 14:14:42 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab8_cache -c lab8_cache
 Info: Found 2 design units, including 0 entities, in source file /git/sifovm/labs/student_labs_5_8/common/lab_variant_pkg.vhd
     Info: Found design unit 1: lab_variant_pkg
     Info: Found design unit 2: lab_variant_pkg-body
-Info: Found 2 design units, including 1 entities, in source file /git/sifovm/labs/student_labs_5_8/lab8_cache/src/cache4way_age.vhd
-    Info: Found design unit 1: cache4way_age-rtl
-    Info: Found entity 1: cache4way_age
+Info: Found 2 design units, including 1 entities, in source file /git/sifovm/labs/student_labs_5_8/lab8_cache/src/cache_direct_mapped.vhd
+    Info: Found design unit 1: cache_direct_mapped-rtl
+    Info: Found entity 1: cache_direct_mapped
 Info: Found 2 design units, including 1 entities, in source file /git/sifovm/labs/student_labs_5_8/lab8_cache/src/main_memory_sync.vhd
     Info: Found design unit 1: main_memory_sync-rtl
     Info: Found entity 1: main_memory_sync
@@ -666,10 +478,7 @@ Info: Found 2 design units, including 1 entities, in source file /git/sifovm/lab
     Info: Found entity 1: lab8_cache_rtl_view_top
 Info: Elaborating entity "lab8_cache_rtl_view_top" for the top level hierarchy
 Info: Elaborating entity "lab8_cache_top" for hierarchy "lab8_cache_top:U_CACHE_SYSTEM"
-Info: Elaborating entity "cache4way_age" for hierarchy "lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "data_r" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tag_r" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "age_r" into its bus
+Info: Elaborating entity "cache_direct_mapped" for hierarchy "lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE"
 Info: Elaborating entity "main_memory_sync" for hierarchy "lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM"
 Warning: Inferred RAM node "lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM|mem_r~25" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info: Inferred 1 megafunctions from design logic
@@ -710,15 +519,15 @@ Info: Instantiated megafunction "lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:
     Info: Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info: Found 1 design units, including 1 entities, in source file db/altsyncram_tlm1.tdf
     Info: Found entity 1: altsyncram_tlm1
-Info: Implemented 3330 device resources after synthesis - the final resource count might be different
+Info: Implemented 620 device resources after synthesis - the final resource count might be different
     Info: Implemented 36 input pins
     Info: Implemented 53 output pins
-    Info: Implemented 3225 logic cells
+    Info: Implemented 515 logic cells
     Info: Implemented 16 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 270 megabytes
-    Info: Processing ended: Thu May 14 23:24:40 2026
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Peak virtual memory: 257 megabytes
+    Info: Processing ended: Sun May 17 14:14:43 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

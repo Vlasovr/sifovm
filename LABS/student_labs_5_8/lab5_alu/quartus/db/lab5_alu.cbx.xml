@@ -1,5 +1,27 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="lab5_alu">
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux14" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux5" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux15" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux6" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|alu_control:U_CTRL|lpm_mux:Mux2" CBX_FILE_NAME="mux_frc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux12" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux16" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux3" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux7" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|alu_control:U_CTRL|lpm_mux:Mux3" CBX_FILE_NAME="mux_frc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux0" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux13" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux17" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux4" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux8" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|alu_control:U_CTRL|lpm_mux:Mux0" CBX_FILE_NAME="mux_crc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux1" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux10" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux9" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|alu_control:U_CTRL|lpm_mux:Mux1" CBX_FILE_NAME="mux_frc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux11" CBX_FILE_NAME="mux_5oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab5_alu_rtl_view_top|lab5_alu_top:U_ALU|lpm_mux:Mux2" CBX_FILE_NAME="mux_5oc.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

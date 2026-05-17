@@ -7,7 +7,6 @@ entity lab5_alu_top is
     opcode_i      : in  std_logic_vector(7 downto 0);
     a_i           : in  word_t;
     b_i           : in  word_t;
-    flag_s_i      : in  std_logic;
     y_o           : out word_t;
     z_o           : out std_logic;
     s_o           : out std_logic;
@@ -24,14 +23,13 @@ architecture structural of lab5_alu_top is
   signal use_b      : std_logic;
   signal write_flags: std_logic;
 
-  signal y_or       : word_t;
+  signal y_cmp      : word_t;
   signal y_nor      : word_t;
   signal y_sra      : word_t;
-  signal y_incs     : word_t;
   signal y_mux      : word_t;
+  signal c_cmp      : std_logic;
+  signal o_cmp      : std_logic;
   signal c_sra      : std_logic;
-  signal c_incs     : std_logic;
-  signal o_incs     : std_logic;
   signal c_mux      : std_logic;
   signal o_mux      : std_logic;
 begin
@@ -43,8 +41,8 @@ begin
       write_flags_o => write_flags
     );
 
-  U_OR : entity work.alu_or
-    port map (a_i => a_i, b_i => b_i, y_o => y_or);
+  U_CMP : entity work.alu_cmp
+    port map (a_i => a_i, b_i => b_i, y_o => y_cmp, c_o => c_cmp, o_o => o_cmp);
 
   U_NOR : entity work.alu_nor
     port map (a_i => a_i, b_i => b_i, y_o => y_nor);
@@ -52,27 +50,22 @@ begin
   U_SRA : entity work.alu_sra
     port map (a_i => a_i, y_o => y_sra, c_o => c_sra);
 
-  U_INCS : entity work.alu_incs
-    port map (a_i => a_i, flag_s_i => flag_s_i, y_o => y_incs, c_o => c_incs, o_o => o_incs);
-
-  process(a_i, y_or, y_nor, y_sra, y_incs, c_sra, c_incs, o_incs, alu_op)
+  process(a_i, y_cmp, y_nor, y_sra, c_cmp, o_cmp, c_sra, alu_op)
   begin
     y_mux <= a_i;
     c_mux <= '0';
     o_mux <= '0';
 
     case alu_op is
-      when ALU_OR =>
-        y_mux <= y_or;
+      when ALU_CMP =>
+        y_mux <= y_cmp;
+        c_mux <= c_cmp;
+        o_mux <= o_cmp;
       when ALU_NOR =>
         y_mux <= y_nor;
       when ALU_SRA =>
         y_mux <= y_sra;
         c_mux <= c_sra;
-      when ALU_INCS =>
-        y_mux <= y_incs;
-        c_mux <= c_incs;
-        o_mux <= o_incs;
       when others =>
         null;
     end case;

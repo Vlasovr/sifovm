@@ -78,12 +78,12 @@ GND                          : A1        : gnd    :                   :         
 TEMPDIODEp                   : A2        :        :                   :         :           :                
 VCCIO4                       : A3        : power  :                   : 3.3V    : 4         :                
 MSEL3                        : A4        :        :                   :         : 4         :                
-data_popped_to_register_file_o[12] : A5        : output : 3.3-V LVTTL       :         : 4         : N              
-alu_result_for_push_i[12]    : A6        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[12] : A7        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[15] : A8        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_popped_to_register_file_o[4] : A5        : output : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[4]     : A6        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_popped_to_register_file_o[11] : A7        : output : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[3] : A8        : input  : 3.3-V LVTTL       :         : 4         : N              
 GND                          : A9        : gnd    :                   :         :           :                
-alu_result_for_push_i[1]     : A10       : input  : 3.3-V LVTTL       :         : 9         : N              
+alu_result_for_push_i[8]     : A10       : input  : 3.3-V LVTTL       :         : 9         : N              
 VCCIO4                       : A11       : power  :                   : 3.3V    : 4         :                
 VCCIO3                       : A12       : power  :                   : 3.3V    : 3         :                
 RESERVED_INPUT               : A13       :        :                   :         : 3         :                
@@ -100,9 +100,9 @@ VCCIO6                       : AA1       : power  :                   : 3.3V    
 GND                          : AA2       : gnd    :                   :         :           :                
 nCEO                         : AA3       :        :                   :         : 7         :                
 RESERVED_INPUT               : AA4       :        :                   :         : 7         :                
-data_popped_to_register_file_o[14] : AA5       : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : AA6       :        :                   :         : 7         :                
-RESERVED_INPUT               : AA7       :        :                   :         : 7         :                
+stack_pointer_current_value_o[2] : AA5       : output : 3.3-V LVTTL       :         : 7         : N              
+data_from_register_file_i[9] : AA6       : input  : 3.3-V LVTTL       :         : 7         : N              
+data_from_register_file_i[4] : AA7       : input  : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : AA8       :        :                   :         : 7         :                
 RESERVED_INPUT               : AA9       :        :                   :         : 10        :                
 RESERVED_INPUT               : AA10      :        :                   :         : 10        :                
@@ -122,9 +122,9 @@ GND                          : AB1       : gnd    :                   :         
 nIO_PULLUP                   : AB2       :        :                   :         : 7         :                
 VCCIO7                       : AB3       : power  :                   : 3.3V    : 7         :                
 GND                          : AB4       : gnd    :                   :         :           :                
-RESERVED_INPUT               : AB5       :        :                   :         : 7         :                
-data_popped_to_register_file_o[15] : AB6       : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : AB7       :        :                   :         : 7         :                
+data_popped_to_register_file_o[2] : AB5       : output : 3.3-V LVTTL       :         : 7         : N              
+stack_pointer_current_value_o[0] : AB6       : output : 3.3-V LVTTL       :         : 7         : N              
+data_popped_to_register_file_o[6] : AB7       : output : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : AB8       :        :                   :         : 7         :                
 GND                          : AB9       : gnd    :                   :         :           :                
 RESERVED_INPUT               : AB10      :        :                   :         : 10        :                
@@ -144,13 +144,13 @@ VCCIO5                       : B1        : power  :                   : 3.3V    
 GND                          : B2        : gnd    :                   :         :           :                
 TDO                          : B3        : output :                   :         : 4         :                
 MSEL2                        : B4        :        :                   :         : 4         :                
-alu_result_for_push_i[8]     : B5        : input  : 3.3-V LVTTL       :         : 4         : N              
-alu_result_for_push_i[11]    : B6        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[0] : B7        : input  : 3.3-V LVTTL       :         : 4         : N              
-reset_i                      : B8        : input  : 3.3-V LVTTL       :         : 4         : N              
-RESERVED_INPUT               : B9        :        :                   :         : 9         :                
+data_from_register_file_i[6] : B5        : input  : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[3]     : B6        : input  : 3.3-V LVTTL       :         : 4         : N              
+stack_pointer_current_value_o[1] : B7        : output : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : B8        :        :                   :         : 4         :                
+data_from_register_file_i[7] : B9        : input  : 3.3-V LVTTL       :         : 9         : N              
 RESERVED_INPUT               : B10       :        :                   :         : 9         :                
-alu_result_for_push_i[13]    : B11       : input  : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : B11       :        :                   :         : 4         :                
 RESERVED_INPUT               : B12       :        :                   :         : 4         :                
 RESERVED_INPUT               : B13       :        :                   :         : 3         :                
 VREFB3                       : B14       : power  :                   :         : 3         :                
@@ -165,13 +165,13 @@ VCCIO2                       : B22       : power  :                   : 3.3V    
 RESERVED_INPUT               : C1        :        :                   :         : 5         :                
 RESERVED_INPUT               : C2        :        :                   :         : 5         :                
 TEMPDIODEn                   : C3        :        :                   :         :           :                
-RESERVED_INPUT               : C4        :        :                   :         : 4         :                
-data_from_register_file_i[4] : C5        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_popped_to_register_file_o[4] : C6        : output : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[6] : C7        : input  : 3.3-V LVTTL       :         : 4         : N              
-alu_result_for_push_i[10]    : C8        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[3] : C9        : input  : 3.3-V LVTTL       :         : 9         : N              
-data_from_register_file_i[11] : C10       : input  : 3.3-V LVTTL       :         : 9         : N              
+data_popped_to_register_file_o[3] : C4        : output : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[7]     : C5        : input  : 3.3-V LVTTL       :         : 4         : N              
+reset_i                      : C6        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_popped_to_register_file_o[10] : C7        : output : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[12]    : C8        : input  : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : C9        :        :                   :         : 9         :                
+RESERVED_INPUT               : C10       :        :                   :         : 9         :                
 RESERVED_INPUT               : C11       :        :                   :         : 4         :                
 RESERVED_INPUT               : C12       :        :                   :         : 4         :                
 RESERVED_INPUT               : C13       :        :                   :         : 3         :                
@@ -186,14 +186,14 @@ RESERVED_INPUT               : C21       :        :                   :         
 RESERVED_INPUT               : C22       :        :                   :         : 2         :                
 RESERVED_INPUT               : D1        :        :                   :         : 5         :                
 RESERVED_INPUT               : D2        :        :                   :         : 5         :                
-data_popped_to_register_file_o[6] : D3        : output : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[1]     : D3        : input  : 3.3-V LVTTL       :         : 4         : N              
 MSEL1                        : D4        :        :                   :         : 4         :                
 RESERVED_INPUT               : D5        :        :                   :         : 4         :                
-RESERVED_INPUT               : D6        :        :                   :         : 4         :                
+data_from_register_file_i[13] : D6        : input  : 3.3-V LVTTL       :         : 4         : N              
 VREFB4                       : D7        : power  :                   :         : 4         :                
-alu_result_for_push_i[7]     : D8        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[5] : D8        : input  : 3.3-V LVTTL       :         : 4         : N              
 VREFB4                       : D9        : power  :                   :         : 4         :                
-data_from_register_file_i[14] : D10       : input  : 3.3-V LVTTL       :         : 9         : N              
+RESERVED_INPUT               : D10       :        :                   :         : 9         :                
 RESERVED_INPUT               : D11       :        :                   :         : 3         :                
 RESERVED_INPUT               : D12       :        :                   :         : 3         :                
 RESERVED_INPUT               : D13       :        :                   :         : 3         :                
@@ -212,10 +212,10 @@ RESERVED_INPUT               : E3        :        :                   :         
 RESERVED_INPUT               : E4        :        :                   :         : 5         :                
 MSEL0                        : E5        :        :                   :         : 4         :                
 RESERVED_INPUT               : E6        :        :                   :         : 4         :                
-data_from_register_file_i[7] : E7        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[8] : E8        : input  : 3.3-V LVTTL       :         : 4         : N              
-stack_pointer_current_value_o[0] : E9        : output : 3.3-V LVTTL       :         : 4         : N              
-alu_result_for_push_i[14]    : E10       : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[1] : E7        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[10] : E8        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[15] : E9        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_popped_to_register_file_o[1] : E10       : output : 3.3-V LVTTL       :         : 4         : N              
 RESERVED_INPUT               : E11       :        :                   :         : 3         :                
 RESERVED_INPUT               : E12       :        :                   :         : 3         :                
 ~DATA0~ / RESERVED_INPUT     : E13       : input  : 3.3-V LVTTL       :         : 3         : N              
@@ -233,10 +233,10 @@ RESERVED_INPUT               : F2        :        :                   :         
 VREFB5                       : F3        : power  :                   :         : 5         :                
 RESERVED_INPUT               : F4        :        :                   :         : 5         :                
 RESERVED_INPUT               : F5        :        :                   :         : 5         :                
-RESERVED_INPUT               : F6        :        :                   :         : 4         :                
-data_from_register_file_i[9] : F7        : input  : 3.3-V LVTTL       :         : 4         : N              
-alu_result_for_push_i[3]     : F8        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_popped_to_register_file_o[1] : F9        : output : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[9]     : F6        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[2] : F7        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[8] : F8        : input  : 3.3-V LVTTL       :         : 4         : N              
+data_from_register_file_i[11] : F9        : input  : 3.3-V LVTTL       :         : 4         : N              
 GNDA_PLL5                    : F10       : gnd    :                   :         :           :                
 GNDA_PLL5                    : F11       : gnd    :                   :         :           :                
 VCCA_PLL5                    : F12       : power  :                   : 1.2V    :           :                
@@ -251,36 +251,36 @@ RESERVED_INPUT               : F20       :        :                   :         
 RESERVED_INPUT               : F21       :        :                   :         : 2         :                
 RESERVED_INPUT               : F22       :        :                   :         : 2         :                
 RESERVED_INPUT               : G1        :        :                   :         : 5         :                
-stack_command_idle_push_pop_i[1] : G2        : input  : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : G2        :        :                   :         : 5         :                
 RESERVED_INPUT               : G3        :        :                   :         : 5         :                
 RESERVED_INPUT               : G4        :        :                   :         : 5         :                
-data_popped_to_register_file_o[0] : G5        : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : G5        :        :                   :         : 5         :                
 RESERVED_INPUT               : G6        :        :                   :         : 5         :                
 RESERVED_INPUT               : G7        :        :                   :         : 4         :                
-alu_result_for_push_i[5]     : G8        : input  : 3.3-V LVTTL       :         : 4         : N              
-data_from_register_file_i[5] : G9        : input  : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[14]    : G8        : input  : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[0]     : G9        : input  : 3.3-V LVTTL       :         : 4         : N              
 VCC_PLL5_OUT                 : G10       : power  :                   : 3.3V    : 9         :                
 VCCD_PLL5                    : G11       : power  :                   : 1.2V    :           :                
-data_from_register_file_i[13] : G12       : input  : 3.3-V LVTTL       :         : 3         : N              
+RESERVED_INPUT               : G12       :        :                   :         : 3         :                
 RESERVED_INPUT               : G13       :        :                   :         : 3         :                
 RESERVED_INPUT               : G14       :        :                   :         : 3         :                
 RESERVED_INPUT               : G15       :        :                   :         : 3         :                
 RESERVED_INPUT               : G16       :        :                   :         : 3         :                
 RESERVED_INPUT               : G17       :        :                   :         : 2         :                
 RESERVED_INPUT               : G18       :        :                   :         : 2         :                
-alu_result_for_push_i[15]    : G19       : input  : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : G19       :        :                   :         : 2         :                
 RESERVED_INPUT               : G20       :        :                   :         : 2         :                
 RESERVED_INPUT               : G21       :        :                   :         : 2         :                
-alu_result_for_push_i[2]     : G22       : input  : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : G22       :        :                   :         : 2         :                
 RESERVED_INPUT               : H1        :        :                   :         : 5         :                
-alu_result_for_push_i[0]     : H2        : input  : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : H2        :        :                   :         : 5         :                
 RESERVED_INPUT               : H3        :        :                   :         : 5         :                
-RESERVED_INPUT               : H4        :        :                   :         : 5         :                
+data_popped_to_register_file_o[0] : H4        : output : 3.3-V LVTTL       :         : 5         : N              
 RESERVED_INPUT               : H5        :        :                   :         : 5         :                
 RESERVED_INPUT               : H6        :        :                   :         : 5         :                
-RESERVED_INPUT               : H7        :        :                   :         : 4         :                
+data_popped_to_register_file_o[14] : H7        : output : 3.3-V LVTTL       :         : 4         : N              
 VCCINT                       : H8        : power  :                   : 1.2V    :           :                
-data_from_register_file_i[2] : H9        : input  : 3.3-V LVTTL       :         : 4         : N              
+alu_result_for_push_i[13]    : H9        : input  : 3.3-V LVTTL       :         : 4         : N              
 VCCPD4                       : H10       : power  :                   : 3.3V    : 4         :                
 RESERVED_INPUT               : H11       :        :                   :         : 3         :                
 RESERVED_INPUT               : H12       :        :                   :         : 3         :                
@@ -292,14 +292,14 @@ RESERVED_INPUT               : H17       :        :                   :         
 RESERVED_INPUT               : H18       :        :                   :         : 2         :                
 RESERVED_INPUT               : H19       :        :                   :         : 2         :                
 RESERVED_INPUT               : H20       :        :                   :         : 2         :                
-ctrl_push_enable_o           : H21       : output : 3.3-V LVTTL       :         : 2         : N              
-stack_command_idle_push_pop_i[0] : H22       : input  : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : H21       :        :                   :         : 2         :                
+RESERVED_INPUT               : H22       :        :                   :         : 2         :                
 GND                          : J1        : gnd    :                   :         :           :                
-data_popped_to_register_file_o[10] : J2        : output : 3.3-V LVTTL       :         : 5         : N              
-data_popped_to_register_file_o[7] : J3        : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : J2        :        :                   :         : 5         :                
+RESERVED_INPUT               : J3        :        :                   :         : 5         :                
 VREFB5                       : J4        : power  :                   :         : 5         :                
 RESERVED_INPUT               : J5        :        :                   :         : 5         :                
-data_popped_to_register_file_o[9] : J6        : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : J6        :        :                   :         : 5         :                
 RESERVED_INPUT               : J7        :        :                   :         : 5         :                
 RESERVED_INPUT               : J8        :        :                   :         : 5         :                
 VCCINT                       : J9        : power  :                   : 1.2V    :           :                
@@ -317,13 +317,13 @@ RESERVED_INPUT               : J20       :        :                   :         
 RESERVED_INPUT               : J21       :        :                   :         : 2         :                
 GND                          : J22       : gnd    :                   :         :           :                
 RESERVED_INPUT               : K1        :        :                   :         : 5         :                
-RESERVED_INPUT               : K2        :        :                   :         : 5         :                
+alu_result_for_push_i[6]     : K2        : input  : 3.3-V LVTTL       :         : 5         : N              
 RESERVED_INPUT               : K3        :        :                   :         : 5         :                
 RESERVED_INPUT               : K4        :        :                   :         : 5         :                
 RESERVED_INPUT               : K5        :        :                   :         : 5         :                
-alu_result_for_push_i[6]     : K6        : input  : 3.3-V LVTTL       :         : 5         : N              
-RESERVED_INPUT               : K7        :        :                   :         : 5         :                
-data_from_register_file_i[10] : K8        : input  : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : K6        :        :                   :         : 5         :                
+data_from_register_file_i[14] : K7        : input  : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : K8        :        :                   :         : 5         :                
 GND                          : K9        : gnd    :                   :         :           :                
 VCCINT                       : K10       : power  :                   : 1.2V    :           :                
 GND                          : K11       : gnd    :                   :         :           :                
@@ -331,9 +331,9 @@ VCCINT                       : K12       : power  :                   : 1.2V    
 GND                          : K13       : gnd    :                   :         :           :                
 VCCPD2                       : K14       : power  :                   : 3.3V    : 2         :                
 RESERVED_INPUT               : K15       :        :                   :         : 2         :                
-RESERVED_INPUT               : K16       :        :                   :         : 2         :                
-data_popped_to_register_file_o[11] : K17       : output : 3.3-V LVTTL       :         : 2         : N              
-data_popped_to_register_file_o[13] : K18       : output : 3.3-V LVTTL       :         : 2         : N              
+alu_result_for_push_i[11]    : K16       : input  : 3.3-V LVTTL       :         : 2         : N              
+alu_result_for_push_i[2]     : K17       : input  : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : K18       :        :                   :         : 2         :                
 RESERVED_INPUT               : K19       :        :                   :         : 2         :                
 RESERVED_INPUT               : K20       :        :                   :         : 2         :                
 RESERVED_INPUT               : K21       :        :                   :         : 2         :                
@@ -344,8 +344,8 @@ status_stack_full_o          : L3        : output : 3.3-V LVTTL       :         
 GNDA_PLL4                    : L4        : gnd    :                   :         :           :                
 GNDA_PLL4                    : L5        : gnd    :                   :         :           :                
 VCCD_PLL4                    : L6        : power  :                   : 1.2V    :           :                
-RESERVED_INPUT               : L7        :        :                   :         : 5         :                
-RESERVED_INPUT               : L8        :        :                   :         : 5         :                
+data_popped_to_register_file_o[9] : L7        : output : 3.3-V LVTTL       :         : 5         : N              
+stack_command_idle_push_pop_i[1] : L8        : input  : 3.3-V LVTTL       :         : 5         : N              
 VCCPD5                       : L9        : power  :                   : 3.3V    : 5         :                
 GND                          : L10       : gnd    :                   :         :           :                
 VCCINT                       : L11       : power  :                   : 1.2V    :           :                
@@ -357,12 +357,12 @@ RESERVED_INPUT               : L16       :        :                   :         
 GNDA_PLL1                    : L17       : gnd    :                   :         :           :                
 GNDA_PLL1                    : L18       : gnd    :                   :         :           :                
 VREFB2                       : L19       : power  :                   :         : 2         :                
-RESERVED_INPUT               : L20       :        :                   :         : 2         :                
+data_popped_to_register_file_o[13] : L20       : output : 3.3-V LVTTL       :         : 2         : N              
 RESERVED_INPUT               : L21       :        :                   :         : 2         :                
 VCCIO2                       : L22       : power  :                   : 3.3V    : 2         :                
 VCCIO6                       : M1        : power  :                   : 3.3V    : 6         :                
 GND+                         : M2        :        :                   :         : 5         :                
-GND+                         : M3        :        :                   :         : 5         :                
+data_from_register_file_i[12] : M3        : input  : 3.3-V LVTTL       :         : 5         : N              
 VCCA_PLL3                    : M4        : power  :                   : 1.2V    :           :                
 VCCD_PLL3                    : M5        : power  :                   : 1.2V    :           :                
 VCCA_PLL4                    : M6        : power  :                   : 1.2V    :           :                
@@ -379,7 +379,7 @@ VCCD_PLL1                    : M16       : power  :                   : 1.2V    
 VCCA_PLL1                    : M17       : power  :                   : 1.2V    :           :                
 VCCD_PLL2                    : M18       : power  :                   : 1.2V    :           :                
 VCCA_PLL2                    : M19       : power  :                   : 1.2V    :           :                
-GND+                         : M20       :        :                   :         : 2         :                
+alu_result_for_push_i[5]     : M20       : input  : 3.3-V LVTTL       :         : 2         : N              
 GND+                         : M21       :        :                   :         : 2         :                
 VCCIO1                       : M22       : power  :                   : 3.3V    : 1         :                
 RESERVED_INPUT               : N1        :        :                   :         : 6         :                
@@ -405,7 +405,7 @@ clock_i                      : N20       : input  : 3.3-V LVTTL       :         
 RESERVED_INPUT               : N21       :        :                   :         : 1         :                
 RESERVED_INPUT               : N22       :        :                   :         : 1         :                
 GND                          : P1        : gnd    :                   :         :           :                
-RESERVED_INPUT               : P2        :        :                   :         : 6         :                
+data_popped_to_register_file_o[7] : P2        : output : 3.3-V LVTTL       :         : 6         : N              
 RESERVED_INPUT               : P3        :        :                   :         : 6         :                
 VREFB6                       : P4        : power  :                   :         : 6         :                
 RESERVED_INPUT               : P5        :        :                   :         : 6         :                
@@ -434,7 +434,7 @@ RESERVED_INPUT               : R5        :        :                   :         
 RESERVED_INPUT               : R6        :        :                   :         : 6         :                
 RESERVED_INPUT               : R7        :        :                   :         : 6         :                
 RESERVED_INPUT               : R8        :        :                   :         : 6         :                
-data_popped_to_register_file_o[5] : R9        : output : 3.3-V LVTTL       :         : 7         : N              
+stack_command_idle_push_pop_i[0] : R9        : input  : 3.3-V LVTTL       :         : 7         : N              
 GND                          : R10       : gnd    :                   :         :           :                
 VCC_PLL6_OUT                 : R11       : power  :                   : 3.3V    : 10        :                
 VCCA_PLL6                    : R12       : power  :                   : 1.2V    :           :                
@@ -455,9 +455,9 @@ RESERVED_INPUT               : T4        :        :                   :         
 RESERVED_INPUT               : T5        :        :                   :         : 6         :                
 RESERVED_INPUT               : T6        :        :                   :         : 6         :                
 RESERVED_INPUT               : T7        :        :                   :         : 7         :                
-data_popped_to_register_file_o[2] : T8        : output : 3.3-V LVTTL       :         : 7         : N              
-stack_pointer_current_value_o[1] : T9        : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : T10       :        :                   :         : 7         :                
+data_popped_to_register_file_o[5] : T8        : output : 3.3-V LVTTL       :         : 7         : N              
+alu_result_for_push_i[15]    : T9        : input  : 3.3-V LVTTL       :         : 7         : N              
+data_popped_to_register_file_o[8] : T10       : output : 3.3-V LVTTL       :         : 7         : N              
 GNDA_PLL6                    : T11       : gnd    :                   :         :           :                
 GNDA_PLL6                    : T12       : gnd    :                   :         :           :                
 RESERVED_INPUT               : T13       :        :                   :         : 8         :                
@@ -477,9 +477,9 @@ RESERVED_INPUT               : U4        :        :                   :         
 RESERVED_INPUT               : U5        :        :                   :         : 6         :                
 RESERVED_INPUT               : U6        :        :                   :         : 7         :                
 RESERVED_INPUT               : U7        :        :                   :         : 7         :                
-stack_pointer_current_value_o[2] : U8        : output : 3.3-V LVTTL       :         : 7         : N              
-alu_result_for_push_i[9]     : U9        : input  : 3.3-V LVTTL       :         : 7         : N              
-status_stack_empty_o         : U10       : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : U8        :        :                   :         : 7         :                
+ctrl_push_enable_o           : U9        : output : 3.3-V LVTTL       :         : 7         : N              
+alu_result_for_push_i[10]    : U10       : input  : 3.3-V LVTTL       :         : 7         : N              
 VCCD_PLL6                    : U11       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT               : U12       :        :                   :         : 8         :                
 RESERVED_INPUT               : U13       :        :                   :         : 8         :                
@@ -498,10 +498,10 @@ RESERVED_INPUT               : V3        :        :                   :         
 RESERVED_INPUT               : V4        :        :                   :         : 6         :                
 PORSEL                       : V5        :        :                   :         : 7         :                
 RESERVED_INPUT               : V6        :        :                   :         : 7         :                
-data_popped_to_register_file_o[8] : V7        : output : 3.3-V LVTTL       :         : 7         : N              
-error_push_to_full_stack_o   : V8        : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : V7        :        :                   :         : 7         :                
+data_popped_to_register_file_o[15] : V8        : output : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : V9        :        :                   :         : 10        :                
-data_popped_to_register_file_o[3] : V10       : output : 3.3-V LVTTL       :         : 7         : N              
+ctrl_pop_enable_o            : V10       : output : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : V11       :        :                   :         : 8         :                
 RESERVED_INPUT               : V12       :        :                   :         : 8         :                
 RESERVED_INPUT               : V13       :        :                   :         : 8         :                
@@ -520,7 +520,7 @@ RESERVED_INPUT               : W3        :        :                   :         
 RESERVED_INPUT               : W4        :        :                   :         : 6         :                
 RESERVED_INPUT               : W5        :        :                   :         : 7         :                
 VREFB7                       : W6        : power  :                   :         : 7         :                
-RESERVED_INPUT               : W7        :        :                   :         : 7         :                
+data_popped_to_register_file_o[12] : W7        : output : 3.3-V LVTTL       :         : 7         : N              
 VREFB7                       : W8        : power  :                   :         : 7         :                
 RESERVED_INPUT               : W9        :        :                   :         : 10        :                
 RESERVED_INPUT               : W10       :        :                   :         : 7         :                
@@ -541,9 +541,9 @@ RESERVED_INPUT               : Y2        :        :                   :         
 RESERVED_INPUT               : Y3        :        :                   :         : 7         :                
 PLL_ENA                      : Y4        :        :                   :         : 7         :                
 error_pop_from_empty_stack_o : Y5        : output : 3.3-V LVTTL       :         : 7         : N              
-alu_result_for_push_i[4]     : Y6        : input  : 3.3-V LVTTL       :         : 7         : N              
-ctrl_pop_enable_o            : Y7        : output : 3.3-V LVTTL       :         : 7         : N              
-data_from_register_file_i[1] : Y8        : input  : 3.3-V LVTTL       :         : 7         : N              
+data_from_register_file_i[0] : Y6        : input  : 3.3-V LVTTL       :         : 7         : N              
+error_push_to_full_stack_o   : Y7        : output : 3.3-V LVTTL       :         : 7         : N              
+status_stack_empty_o         : Y8        : output : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : Y9        :        :                   :         : 10        :                
 RESERVED_INPUT               : Y10       :        :                   :         : 7         :                
 RESERVED_INPUT               : Y11       :        :                   :         : 7         :                

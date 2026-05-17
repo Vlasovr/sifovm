@@ -1,5 +1,5 @@
 Flow report for lab5_alu
-Thu May 14 23:24:12 2026
+Sun May 17 14:47:25 2026
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Flow Summary                                                            ;
 +-------------------------------+-----------------------------------------+
-; Flow Status                   ; Successful - Thu May 14 23:24:12 2026   ;
+; Flow Status                   ; Successful - Sun May 17 14:47:25 2026   ;
 ; Quartus II Version            ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name                 ; lab5_alu                                ;
 ; Top-level Entity Name         ; lab5_alu_rtl_view_top                   ;
 ; Family                        ; Stratix II                              ;
 ; Met timing requirements       ; Yes                                     ;
 ; Logic utilization             ; < 1 %                                   ;
-;     Combinational ALUTs       ; 90 / 12,480 ( < 1 % )                   ;
+;     Combinational ALUTs       ; 59 / 12,480 ( < 1 % )                   ;
 ;     Dedicated logic registers ; 0 / 12,480 ( 0 % )                      ;
 ; Total registers               ; 0                                       ;
-; Total pins                    ; 66 / 343 ( 19 % )                       ;
+; Total pins                    ; 65 / 343 ( 19 % )                       ;
 ; Total virtual pins            ; 0                                       ;
 ; Total block memory bits       ; 0 / 419,328 ( 0 % )                     ;
 ; DSP block 9-bit elements      ; 0 / 96 ( 0 % )                          ;
@@ -64,20 +64,22 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/14/2026 23:24:06 ;
+; Start date & time ; 05/17/2026 14:47:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab5_alu            ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                ;
-+-----------------------+------------------------------+---------------+-------------+------------+
-; Assignment Name       ; Value                        ; Default Value ; Entity Name ; Section Id ;
-+-----------------------+------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID ; 300159283300.177879024614600 ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY      ; lab5_alu_rtl_view_top        ; lab5_alu      ; --          ; --         ;
-+-----------------------+------------------------------+---------------+-------------+------------+
++------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                           ;
++------------------------+------------------------------+---------------+-----------------------+------------+
+; Assignment Name        ; Value                        ; Default Value ; Entity Name           ; Section Id ;
++------------------------+------------------------------+---------------+-----------------------+------------+
+; COMPILER_SIGNATURE_ID  ; 300159283300.177901843921524 ; --            ; --                    ; --         ;
+; PARTITION_COLOR        ; 16764057                     ; --            ; lab5_alu_rtl_view_top ; Top        ;
+; PARTITION_NETLIST_TYPE ; SOURCE                       ; --            ; lab5_alu_rtl_view_top ; Top        ;
+; TOP_LEVEL_ENTITY       ; lab5_alu_rtl_view_top        ; lab5_alu      ; --                    ; --         ;
++------------------------+------------------------------+---------------+-----------------------+------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -87,7 +89,7 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis    ; 00:00:01     ; 1.0                     ; 248 MB              ; 00:00:01                           ;
 ; Fitter                  ; 00:00:02     ; 1.0                     ; 272 MB              ; 00:00:02                           ;
-; Assembler               ; 00:00:01     ; 1.0                     ; 239 MB              ; 00:00:01                           ;
+; Assembler               ; 00:00:01     ; 1.0                     ; 238 MB              ; 00:00:01                           ;
 ; Classic Timing Analyzer ; 00:00:00     ; 1.0                     ; 169 MB              ; 00:00:00                           ;
 ; Total                   ; 00:00:04     ; --                      ; --                  ; 00:00:04                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+

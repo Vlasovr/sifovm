@@ -97,11 +97,43 @@ function Close-QuartusUpdateDialogs {
 function Wait-NoQuartusModal {
     param([int]$TimeoutSeconds = 10)
     $deadline = (Get-Date).AddSeconds($TimeoutSeconds)
+    $quietSince = $null
     while ((Get-Date) -lt $deadline) {
-        if (-not (Close-QuartusUpdateDialogs)) {
+        $closed = Close-QuartusUpdateDialogs
+        if ($closed) {
+            $quietSince = $null
+        }
+        elseif ($null -eq $quietSince) {
+            $quietSince = Get-Date
+        }
+        elseif (((Get-Date) - $quietSince).TotalSeconds -ge 2.0) {
             return
         }
         Start-Sleep -Milliseconds 400
+    }
+}
+
+function Save-WindowScreenshot {
+    param(
+        [object]$Window,
+        [string]$Path
+    )
+    $rect = New-Object QGui+RECT
+    [void][QGui]::GetWindowRect($Window.Handle, [ref]$rect)
+    $width = $rect.Right - $rect.Left
+    $height = $rect.Bottom - $rect.Top
+    if ($width -le 0 -or $height -le 0) {
+        throw "Invalid window bounds for screenshot."
+    }
+    $bitmap = New-Object System.Drawing.Bitmap $width, $height
+    $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
+    try {
+        $graphics.CopyFromScreen($rect.Left, $rect.Top, 0, 0, $bitmap.Size)
+        $bitmap.Save($Path, [System.Drawing.Imaging.ImageFormat]::Png)
+    }
+    finally {
+        $graphics.Dispose()
+        $bitmap.Dispose()
     }
 }
 
@@ -184,7 +216,8 @@ function Capture-RtlViewer {
     $proc = Start-Process -FilePath $QuartusExe -ArgumentList "`"$QpfPath`"" -PassThru
     try {
         $main = Wait-QuartusWindow -ProcessId $proc.Id -TitleFragment $ProjectTitle -TimeoutSeconds 90
-        Wait-NoQuartusModal -TimeoutSeconds 10
+        Start-Sleep -Seconds 4
+        Wait-NoQuartusModal -TimeoutSeconds 12
         Set-QuartusForeground -Window $main
 
         # Tools -> Netlist Viewers -> RTL Viewer. Coordinates are physical pixels for Quartus 9.1 on this VM.
@@ -198,6 +231,7 @@ function Capture-RtlViewer {
 
         # View -> Copy Image -> Full Image.
         [System.Windows.Forms.Clipboard]::Clear()
+        $out = Join-Path $OutDir "$Name`_scheme_full.png"
         for ($attempt = 1; $attempt -le 2; $attempt++) {
             Invoke-Click 86 33
             Invoke-Hover 95 107
@@ -208,9 +242,15 @@ function Capture-RtlViewer {
             }
         }
 
-        $out = Join-Path $OutDir "$Name`_rtl_viewer_full.png"
-        Save-ClipboardImage -Path $out
-        Write-Host "Saved $out"
+        if ([System.Windows.Forms.Clipboard]::ContainsImage()) {
+            Save-ClipboardImage -Path $out
+            Write-Host "Saved $out"
+        }
+        else {
+            $screenOut = Join-Path $OutDir "$Name`_scheme_window.png"
+            Save-WindowScreenshot -Window $rtl -Path $screenOut
+            Write-Host "Saved fallback screenshot $screenOut"
+        }
     }
     finally {
         if (-not $proc.HasExited) {

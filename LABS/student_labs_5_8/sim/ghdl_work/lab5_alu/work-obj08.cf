@@ -1,28 +1,25 @@
 v 4
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\tb\tb_lab5_alu.vhd" "f3bd1d219da04c7ffd687bf1d0de1045baf5cfe0" "20260514202355.230":
-  entity tb_lab5_alu at 1( 0) + 0 on 27;
-  architecture sim of tb_lab5_alu at 8( 109) + 0 on 28;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_control.vhd" "7d7126ebba22d644239449eddaa829d14d66266b" "20260514202355.179":
-  entity alu_control at 1( 0) + 0 on 23;
-  architecture rtl of alu_control at 14( 300) + 0 on 24;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_incs.vhd" "f61b5436699528adf14c89c75c136ed295ad3deb" "20260514202355.137":
-  entity alu_incs at 1( 0) + 0 on 19;
-  architecture rtl of alu_incs at 16( 289) + 0 on 20;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_nor.vhd" "2c92b1b3d0be75f3a0b33ecf5622e2e3e7520c37" "20260514202355.096":
-  entity alu_nor at 1( 0) + 0 on 15;
-  architecture rtl of alu_nor at 13( 184) + 0 on 16;
-file / "D:\git\sifovm\LABS\student_labs_5_8\common\lab_variant_pkg.vhd" "81022f608aeaedf58f8a6a30895beb8b4b63c5e7" "20260514202355.053":
-  package lab_variant_pkg at 1( 0) + 0 on 11 body;
-  package body lab_variant_pkg at 40( 1687) + 0 on 12;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_or.vhd" "be91498ded67debe5f70ba1fcfc62f88cd634584" "20260514202355.077":
-  entity alu_or at 1( 0) + 0 on 13;
-  architecture rtl of alu_or at 13( 183) + 0 on 14;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_sra.vhd" "22e73a30b6c7cec905009bb9a6d6d2a9834c5b91" "20260514202355.116":
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\tb\tb_lab5_alu.vhd" "db4c3bbc32458e8be91b7a4ffa53482a368ad355" "20260517111403.509":
+  entity tb_lab5_alu at 1( 0) + 0 on 25;
+  architecture sim of tb_lab5_alu at 8( 109) + 0 on 26;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_control.vhd" "dd05672edbc8fd74aae539ea8c6b6e5bd7b55fa9" "20260517111403.467":
+  entity alu_control at 1( 0) + 0 on 21;
+  architecture rtl of alu_control at 14( 300) + 0 on 22;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_sra.vhd" "22e73a30b6c7cec905009bb9a6d6d2a9834c5b91" "20260517111403.424":
   entity alu_sra at 1( 0) + 0 on 17;
   architecture rtl of alu_sra at 13( 187) + 0 on 18;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_flags.vhd" "300fb3a006023d16d2c05ddeb9cb63863a7e86e3" "20260514202355.158":
-  entity alu_flags at 1( 0) + 0 on 21;
-  architecture rtl of alu_flags at 17( 292) + 0 on 22;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\lab5_alu_top.vhd" "e832e4bca04d150a3fe01393ee90b085c9e4df5e" "20260514202355.201":
-  entity lab5_alu_top at 1( 0) + 0 on 25;
-  architecture structural of lab5_alu_top at 22( 572) + 0 on 26;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_cmp.vhd" "f19da3621b42580633b6a2ffb068b4d11692b7e6" "20260517111403.380":
+  entity alu_cmp at 1( 0) + 0 on 13;
+  architecture rtl of alu_cmp at 16( 260) + 0 on 14;
+file / "D:\git\sifovm\LABS\student_labs_5_8\common\lab_variant_pkg.vhd" "074f858d269a7b8c0c8d1c8ee3ff9bc07ec4ef40" "20260517111403.357":
+  package lab_variant_pkg at 1( 0) + 0 on 11;
+  package body lab_variant_pkg at 36( 1496) + 0 on 12;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_nor.vhd" "2c92b1b3d0be75f3a0b33ecf5622e2e3e7520c37" "20260517111403.402":
+  entity alu_nor at 1( 0) + 0 on 15;
+  architecture rtl of alu_nor at 13( 184) + 0 on 16;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\alu_flags.vhd" "300fb3a006023d16d2c05ddeb9cb63863a7e86e3" "20260517111403.445":
+  entity alu_flags at 1( 0) + 0 on 19;
+  architecture rtl of alu_flags at 17( 292) + 0 on 20;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab5_alu\src\lab5_alu_top.vhd" "930ed8641a3e58de614924149e59d5aa73d09fa7" "20260517111403.489":
+  entity lab5_alu_top at 1( 0) + 0 on 23;
+  architecture structural of lab5_alu_top at 21( 537) + 0 on 24;

@@ -58,8 +58,8 @@ begin
     cmd <= STACK_PUSH_REG;
     one_cycle(clk);
     cmd <= STACK_IDLE;
-    assert sp = to_unsigned(6, 3)
-      report "SP must decrement after first push" severity failure;
+    assert sp = to_unsigned(0, 3)
+      report "SP must point to first occupied cell after first push" severity failure;
 
     reg_data <= x"2222";
     cmd <= STACK_PUSH_REG;
@@ -69,14 +69,14 @@ begin
     cmd <= STACK_POP_REG;
     one_cycle(clk);
     cmd <= STACK_IDLE;
-    assert stack_out = x"2222" and sp = to_unsigned(6, 3)
+    assert stack_out = x"2222" and sp = to_unsigned(0, 3)
       report "POP must return the last pushed register value" severity failure;
 
-    alu_data <= x"C001";
+    alu_data <= x"000F";
     cmd <= STACK_PUSH_ALU;
     one_cycle(clk);
     cmd <= STACK_IDLE;
-    assert sp = to_unsigned(5, 3)
+    assert sp = to_unsigned(1, 3)
       report "ALU result push must occupy stack cell" severity failure;
 
     reg_data <= x"3333"; cmd <= STACK_PUSH_REG; one_cycle(clk);
@@ -85,7 +85,7 @@ begin
     reg_data <= x"6666"; cmd <= STACK_PUSH_REG; one_cycle(clk);
     reg_data <= x"7777"; cmd <= STACK_PUSH_REG; one_cycle(clk);
     cmd <= STACK_IDLE;
-    assert full = '1' and sp = to_unsigned(0, 3)
+    assert full = '1' and sp = to_unsigned(6, 3)
       report "Seven occupied words must set FULL" severity failure;
 
     reg_data <= x"8888";

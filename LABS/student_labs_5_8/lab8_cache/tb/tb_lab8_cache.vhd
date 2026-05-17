@@ -97,14 +97,13 @@ begin
     assert cpu_rdata = x"ABCD"
       report "Write-through hit must update the cached word" severity failure;
 
-    cpu_access(clk, cpu_req, cpu_we, cpu_addr, cpu_wdata, cpu_ready, false, x"0020", x"0000");
-    cpu_access(clk, cpu_req, cpu_we, cpu_addr, cpu_wdata, cpu_ready, false, x"0030", x"0000");
-    cpu_access(clk, cpu_req, cpu_we, cpu_addr, cpu_wdata, cpu_ready, false, x"0040", x"0000");
-    cpu_access(clk, cpu_req, cpu_we, cpu_addr, cpu_wdata, cpu_ready, false, x"0050", x"0000");
+    cpu_access(clk, cpu_req, cpu_we, cpu_addr, cpu_wdata, cpu_ready, false, x"0018", x"0000");
+    assert cpu_rdata = x"1198" and miss = '1'
+      report "Direct mapped cache must replace the line with the same index" severity failure;
 
     cpu_access(clk, cpu_req, cpu_we, cpu_addr, cpu_wdata, cpu_ready, false, x"0010", x"0000");
     assert cpu_rdata = x"ABCD" and miss = '1'
-      report "Oldest stored line must be replaced, so 0010h is fetched again from RAM" severity failure;
+      report "Reading the replaced direct-mapped line must fetch it again from RAM" severity failure;
 
     assert false report "tb_lab8_cache: TEST PASSED" severity note;
     wait;

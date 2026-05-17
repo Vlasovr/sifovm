@@ -1,16 +1,16 @@
 v 4
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\tb\tb_lab8_cache.vhd" "1d826ba894f3780cf2b1b58e0ec8ca0da5f81152" "20260514202355.932":
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\tb\tb_lab8_cache.vhd" "200cf77cddbe1669ec03c4a7421f5ae5115e6a00" "20260517111404.181":
   entity tb_lab8_cache at 1( 0) + 0 on 19;
   architecture sim of tb_lab8_cache at 8( 111) + 0 on 20;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\src\main_memory_sync.vhd" "ceee839e46b7b22370dc2749703a993f406118ac" "20260514202355.888":
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\src\main_memory_sync.vhd" "ceee839e46b7b22370dc2749703a993f406118ac" "20260517111404.135":
   entity main_memory_sync at 1( 0) + 0 on 15;
   architecture rtl of main_memory_sync at 18( 347) + 0 on 16;
-file / "D:\git\sifovm\LABS\student_labs_5_8\common\lab_variant_pkg.vhd" "81022f608aeaedf58f8a6a30895beb8b4b63c5e7" "20260514202355.846":
-  package lab_variant_pkg at 1( 0) + 0 on 11 body;
-  package body lab_variant_pkg at 40( 1687) + 0 on 12;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\src\cache4way_age.vhd" "840f45ae1e6784ae205bf0627774f84ab1203fee" "20260514202355.867":
-  entity cache4way_age at 1( 0) + 0 on 13;
-  architecture rtl of cache4way_age at 27( 676) + 0 on 14;
-file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\src\lab8_cache_top.vhd" "e1d8de9ee9bb910c6c2e808e03b9b8619091d440" "20260514202355.910":
+file / "D:\git\sifovm\LABS\student_labs_5_8\common\lab_variant_pkg.vhd" "074f858d269a7b8c0c8d1c8ee3ff9bc07ec4ef40" "20260517111404.086":
+  package lab_variant_pkg at 1( 0) + 0 on 11;
+  package body lab_variant_pkg at 36( 1496) + 0 on 12;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\src\cache_direct_mapped.vhd" "1237b6c36607cf597f333f1937fbf604a67ef901" "20260517111404.109":
+  entity cache_direct_mapped at 1( 0) + 0 on 13;
+  architecture rtl of cache_direct_mapped at 27( 682) + 0 on 14;
+file / "D:\git\sifovm\LABS\student_labs_5_8\lab8_cache\src\lab8_cache_top.vhd" "a67b673ab4d3d747b8e02b3e59704544eb5b66de" "20260517111404.160":
   entity lab8_cache_top at 1( 0) + 0 on 17;
   architecture structural of lab8_cache_top at 24( 614) + 0 on 18;

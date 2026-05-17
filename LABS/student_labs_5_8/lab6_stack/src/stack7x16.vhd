@@ -30,7 +30,7 @@ begin
   dout_o      <= dout_r;
   sp_o        <= sp_r;
   empty_o     <= '1' when sp_r = to_unsigned(STACK_DEPTH, 3) else '0';
-  full_o      <= '1' when sp_r = to_unsigned(0, 3) else '0';
+  full_o      <= '1' when sp_r = to_unsigned(STACK_DEPTH - 1, 3) else '0';
   overflow_o  <= overflow_r;
   underflow_o <= underflow_r;
 
@@ -50,18 +50,25 @@ begin
         sp_v := to_integer(sp_r);
 
         if push_i = '1' and pop_i = '0' then
-          if sp_v > 0 then
-            mem_r(sp_v - 1) <= din_i;
-            sp_r <= to_unsigned(sp_v - 1, 3);
-          else
+          if sp_v = STACK_DEPTH - 1 then
             overflow_r <= '1';
+          elsif sp_v = STACK_DEPTH then
+            mem_r(0) <= din_i;
+            sp_r <= to_unsigned(0, 3);
+          else
+            mem_r(sp_v + 1) <= din_i;
+            sp_r <= to_unsigned(sp_v + 1, 3);
           end if;
         elsif pop_i = '1' and push_i = '0' then
-          if sp_v < STACK_DEPTH then
-            dout_r <= mem_r(sp_v);
-            sp_r   <= to_unsigned(sp_v + 1, 3);
-          else
+          if sp_v = STACK_DEPTH then
             underflow_r <= '1';
+          else
+            dout_r <= mem_r(sp_v);
+            if sp_v = 0 then
+              sp_r <= to_unsigned(STACK_DEPTH, 3);
+            else
+              sp_r <= to_unsigned(sp_v - 1, 3);
+            end if;
           end if;
         end if;
       end if;

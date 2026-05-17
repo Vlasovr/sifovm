@@ -20,7 +20,7 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-lab5_alu_top
+lab5_alu_rtl_view_top
 # storage
 db|lab5_alu.(0).cnf
 db|lab5_alu.(0).cnf
@@ -30,8 +30,8 @@ ON
 }
 # case_insensitive
 # source_file
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|lab5_alu_top.vhd
-cca53d7ea7b99a9c9dedda726e639677
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|lab5_alu_rtl_view_top.vhd
+cb9ae58a4dd6167967697a38c6bee46
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -45,19 +45,88 @@ ON
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|lab5_alu_top.vhd
+475cfc8458d22466b1e323c99fa3dcd8
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_cmp.vhd
+e7334257fe62b9b538a5524578bf2eb
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_control.vhd
+1d469b8b5b2e5798f1ddbce2d85d6b9a
 |git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_flags.vhd
 53afb79648c736edfc69611b0ea042
 |git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_sra.vhd
 223a38171febeeca952d278f731966
 |git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_nor.vhd
 126c7223aa6347d43d6a8f5db9c1bf7b
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_incs.vhd
-3b2dc2e35c656d2ba37382b481016aa
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_or.vhd
-bc27ccc1a94fea44c6c32fec98316c4
+}
+# hierarchies {
+|
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+lab5_alu_top
+# storage
+db|lab5_alu.(1).cnf
+db|lab5_alu.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|lab5_alu_top.vhd
+475cfc8458d22466b1e323c99fa3dcd8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(opcode_i)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(a_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(b_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(y_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_op_dbg_o)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_cmp.vhd
+e7334257fe62b9b538a5524578bf2eb
 |git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_control.vhd
-689cf381691041d359d314d5b4698fa
+1d469b8b5b2e5798f1ddbce2d85d6b9a
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_flags.vhd
+53afb79648c736edfc69611b0ea042
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_sra.vhd
+223a38171febeeca952d278f731966
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_nor.vhd
+126c7223aa6347d43d6a8f5db9c1bf7b
 }
 # hierarchies {
 lab5_alu_top:U_ALU
@@ -71,8 +140,8 @@ a36c8ec425c8a2589af98b2d4daabc3
 # entity
 alu_control
 # storage
-db|lab5_alu.(1).cnf
-db|lab5_alu.(1).cnf
+db|lab5_alu.(2).cnf
+db|lab5_alu.(2).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -80,7 +149,7 @@ ON
 # case_insensitive
 # source_file
 |git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_control.vhd
-689cf381691041d359d314d5b4698fa
+1d469b8b5b2e5798f1ddbce2d85d6b9a
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -104,7 +173,7 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
 lab5_alu_top:U_ALU|alu_control:U_CTRL
@@ -116,18 +185,18 @@ a36c8ec425c8a2589af98b2d4daabc3
 
 # end
 # entity
-alu_or
+alu_cmp
 # storage
-db|lab5_alu.(2).cnf
-db|lab5_alu.(2).cnf
+db|lab5_alu.(3).cnf
+db|lab5_alu.(3).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_insensitive
 # source_file
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_or.vhd
-bc27ccc1a94fea44c6c32fec98316c4
+|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_cmp.vhd
+e7334257fe62b9b538a5524578bf2eb
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -155,10 +224,10 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
-lab5_alu_top:U_ALU|alu_or:U_OR
+lab5_alu_top:U_ALU|alu_cmp:U_CMP
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -169,8 +238,8 @@ a36c8ec425c8a2589af98b2d4daabc3
 # entity
 alu_nor
 # storage
-db|lab5_alu.(3).cnf
-db|lab5_alu.(3).cnf
+db|lab5_alu.(4).cnf
+db|lab5_alu.(4).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -206,7 +275,7 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
 lab5_alu_top:U_ALU|alu_nor:U_NOR
@@ -220,8 +289,8 @@ a36c8ec425c8a2589af98b2d4daabc3
 # entity
 alu_sra
 # storage
-db|lab5_alu.(4).cnf
-db|lab5_alu.(4).cnf
+db|lab5_alu.(5).cnf
+db|lab5_alu.(5).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -253,57 +322,10 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
 lab5_alu_top:U_ALU|alu_sra:U_SRA
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-alu_incs
-# storage
-db|lab5_alu.(5).cnf
-db|lab5_alu.(5).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_incs.vhd
-3b2dc2e35c656d2ba37382b481016aa
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(a_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(y_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab5_alu_top:U_ALU|alu_incs:U_INCS
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -343,61 +365,10 @@ USR
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
 }
 # hierarchies {
 lab5_alu_top:U_ALU|alu_flags:U_FLAGS
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-lab5_alu_rtl_view_top
-# storage
-db|lab5_alu.(7).cnf
-db|lab5_alu.(7).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|lab5_alu_rtl_view_top.vhd
-b53a9b0404e3d7be920e0d6474bbdd
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_flags.vhd
-53afb79648c736edfc69611b0ea042
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_control.vhd
-689cf381691041d359d314d5b4698fa
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_nor.vhd
-126c7223aa6347d43d6a8f5db9c1bf7b
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|lab5_alu_top.vhd
-cca53d7ea7b99a9c9dedda726e639677
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_incs.vhd
-3b2dc2e35c656d2ba37382b481016aa
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_sra.vhd
-223a38171febeeca952d278f731966
-|git|sifovm|labs|student_labs_5_8|lab5_alu|src|alu_or.vhd
-bc27ccc1a94fea44c6c32fec98316c4
-}
-# hierarchies {
-|
 }
 # lmf
 |quartus|lmf|maxplus2.lmf

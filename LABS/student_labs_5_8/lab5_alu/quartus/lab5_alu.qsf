@@ -4,10 +4,9 @@ set_global_assignment -name TOP_LEVEL_ENTITY lab5_alu_rtl_view_top
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 
 set_global_assignment -name VHDL_FILE ../../common/lab_variant_pkg.vhd
-set_global_assignment -name VHDL_FILE ../src/alu_or.vhd
+set_global_assignment -name VHDL_FILE ../src/alu_cmp.vhd
 set_global_assignment -name VHDL_FILE ../src/alu_nor.vhd
 set_global_assignment -name VHDL_FILE ../src/alu_sra.vhd
-set_global_assignment -name VHDL_FILE ../src/alu_incs.vhd
 set_global_assignment -name VHDL_FILE ../src/alu_flags.vhd
 set_global_assignment -name VHDL_FILE ../src/alu_control.vhd
 set_global_assignment -name VHDL_FILE ../src/lab5_alu_top.vhd
@@ -19,8 +18,11 @@ set_global_assignment -name LAST_QUARTUS_VERSION 9.1
 
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+
+set_global_assignment -name VECTOR_WAVEFORM_FILE lab5_alu_wave.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE lab5_alu_wave_prefilled.vwf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

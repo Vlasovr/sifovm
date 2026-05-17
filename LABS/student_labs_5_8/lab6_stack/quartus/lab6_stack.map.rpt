@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab6_stack
-Thu May 14 23:24:14 2026
+Sun May 17 14:14:28 2026
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                            ;
 +-------------------------------+-----------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Thu May 14 23:24:14 2026   ;
+; Analysis & Synthesis Status   ; Successful - Sun May 17 14:14:28 2026   ;
 ; Quartus II Version            ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name                 ; lab6_stack                              ;
 ; Top-level Entity Name         ; lab6_stack_rtl_view_top                 ;
@@ -198,8 +198,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; I/O pins                                      ; 61      ;
 ; Maximum fan-out node                          ; reset_i ;
 ; Maximum fan-out                               ; 141     ;
-; Total fan-out                                 ; 886     ;
-; Average fan-out                               ; 3.41    ;
+; Total fan-out                                 ; 885     ;
+; Average fan-out                               ; 3.40    ;
 +-----------------------------------------------+---------+
 
 
@@ -222,7 +222,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 133   ;
-; Number of registers using Synchronous Clear  ; 130   ;
+; Number of registers using Synchronous Clear  ; 129   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -238,7 +238,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------+---------+
 ; lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[0] ; 18      ;
 ; lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[1] ; 34      ;
-; lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[2] ; 33      ;
+; lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[2] ; 32      ;
 ; Total number of inverted registers = 3                  ;         ;
 +---------------------------------------------------------+---------+
 
@@ -248,15 +248,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[3][11] ;
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[4][10] ;
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[0][11] ;
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[5][1]  ;
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[1][6]  ;
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[6][10] ;
-; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[2][2]  ;
-; 11:1               ; 16 bits   ; 112 ALUTs     ; 64 ALUTs             ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|dout_r[3]    ;
-; 5:1                ; 3 bits    ; 9 ALUTs       ; 6 ALUTs              ; 3 ALUTs                ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[1]      ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[1][2]  ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[2][6]  ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[5][10] ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[6][5]  ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[3][10] ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[4][4]  ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|mem_r[0][4]  ;
+; 11:1               ; 16 bits   ; 112 ALUTs     ; 64 ALUTs             ; 48 ALUTs               ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|dout_r[1]    ;
+; 8:1                ; 2 bits    ; 10 ALUTs      ; 6 ALUTs              ; 4 ALUTs                ; Yes        ; |lab6_stack_rtl_view_top|lab6_stack_top:U_STACK_SYSTEM|stack7x16:U_STACK|sp_r[1]      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
 
 
@@ -266,7 +266,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
-    Info: Processing started: Thu May 14 23:24:13 2026
+    Info: Processing started: Sun May 17 14:14:27 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab6_stack -c lab6_stack
 Info: Found 2 design units, including 0 entities, in source file /git/sifovm/labs/student_labs_5_8/common/lab_variant_pkg.vhd
     Info: Found design unit 1: lab_variant_pkg
@@ -292,8 +292,8 @@ Info: Implemented 239 device resources after synthesis - the final resource coun
     Info: Implemented 25 output pins
     Info: Implemented 178 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 254 megabytes
-    Info: Processing ended: Thu May 14 23:24:14 2026
+    Info: Peak virtual memory: 255 megabytes
+    Info: Processing ended: Sun May 17 14:14:28 2026
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

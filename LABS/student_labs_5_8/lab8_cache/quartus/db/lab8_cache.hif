@@ -20,161 +20,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-lab8_cache_top
-# storage
-db|lab8_cache.(0).cnf
-db|lab8_cache.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|lab8_cache_top.vhd
-ad4a549f089d35c331c116718addc
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|main_memory_sync.vhd
-432a36b11f51e5494bc2b92b6328bd4
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|cache4way_age.vhd
-ecba29267586f2fb2972565a851348d
-}
-# hierarchies {
-lab8_cache_top:U_CACHE_SYSTEM
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-cache4way_age
-# storage
-db|lab8_cache.(1).cnf
-db|lab8_cache.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|cache4way_age.vhd
-ecba29267586f2fb2972565a851348d
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(cpu_addr_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(cpu_wdata_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(cpu_rdata_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(ram_addr_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(ram_wdata_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(ram_rdata_i)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab8_cache_top:U_CACHE_SYSTEM|cache4way_age:U_CACHE
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-main_memory_sync
-# storage
-db|lab8_cache.(2).cnf
-db|lab8_cache.(2).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|main_memory_sync.vhd
-432a36b11f51e5494bc2b92b6328bd4
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(addr_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(wdata_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(rdata_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
-}
-# hierarchies {
-lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 altsyncram
 # storage
 db|lab8_cache.(3).cnf
@@ -713,8 +558,8 @@ db|lab8_cache.ram0_main_memory_sync_4987f2ed.hdl.mif
 # entity
 lab8_cache_rtl_view_top
 # storage
-db|lab8_cache.(5).cnf
-db|lab8_cache.(5).cnf
+db|lab8_cache.(0).cnf
+db|lab8_cache.(0).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -736,16 +581,193 @@ ON
 }
 # include_file {
 |git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
-6cec1fc2f47cfff5ad17a1ebb9eebf7
+375b9ba53118e990b92692356c2eca39
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|lab8_cache_top.vhd
+fb585161bab574aab0cf66640989427
 |git|sifovm|labs|student_labs_5_8|lab8_cache|src|main_memory_sync.vhd
 432a36b11f51e5494bc2b92b6328bd4
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|cache4way_age.vhd
-ecba29267586f2fb2972565a851348d
-|git|sifovm|labs|student_labs_5_8|lab8_cache|src|lab8_cache_top.vhd
-ad4a549f089d35c331c116718addc
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|cache_direct_mapped.vhd
+788911bdb8da52d8d3ad645b0babd68
 }
 # hierarchies {
 |
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+lab8_cache_top
+# storage
+db|lab8_cache.(1).cnf
+db|lab8_cache.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|lab8_cache_top.vhd
+fb585161bab574aab0cf66640989427
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(cpu_addr_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_wdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_rdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_addr_dbg_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_data_dbg_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|main_memory_sync.vhd
+432a36b11f51e5494bc2b92b6328bd4
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|cache_direct_mapped.vhd
+788911bdb8da52d8d3ad645b0babd68
+}
+# hierarchies {
+lab8_cache_top:U_CACHE_SYSTEM
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+cache_direct_mapped
+# storage
+db|lab8_cache.(2).cnf
+db|lab8_cache.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|cache_direct_mapped.vhd
+788911bdb8da52d8d3ad645b0babd68
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(cpu_addr_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_wdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_rdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_wdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(ram_rdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+}
+# hierarchies {
+lab8_cache_top:U_CACHE_SYSTEM|cache_direct_mapped:U_CACHE
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+main_memory_sync
+# storage
+db|lab8_cache.(5).cnf
+db|lab8_cache.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|labs|student_labs_5_8|lab8_cache|src|main_memory_sync.vhd
+432a36b11f51e5494bc2b92b6328bd4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(addr_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(wdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(rdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|labs|student_labs_5_8|common|lab_variant_pkg.vhd
+375b9ba53118e990b92692356c2eca39
+}
+# hierarchies {
+lab8_cache_top:U_CACHE_SYSTEM|main_memory_sync:U_RAM
 }
 # lmf
 |quartus|lmf|maxplus2.lmf

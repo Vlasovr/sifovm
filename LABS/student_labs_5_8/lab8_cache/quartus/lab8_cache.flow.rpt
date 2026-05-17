@@ -1,5 +1,5 @@
 Flow report for lab8_cache
-Thu May 14 23:24:52 2026
+Sun May 17 14:14:50 2026
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -38,16 +38,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Flow Summary                                                            ;
 +-------------------------------+-----------------------------------------+
-; Flow Status                   ; Successful - Thu May 14 23:24:52 2026   ;
+; Flow Status                   ; Successful - Sun May 17 14:14:50 2026   ;
 ; Quartus II Version            ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name                 ; lab8_cache                              ;
 ; Top-level Entity Name         ; lab8_cache_rtl_view_top                 ;
 ; Family                        ; Stratix II                              ;
 ; Met timing requirements       ; Yes                                     ;
-; Logic utilization             ; 24 %                                    ;
-;     Combinational ALUTs       ; 1,351 / 12,480 ( 11 % )                 ;
-;     Dedicated logic registers ; 2,120 / 12,480 ( 17 % )                 ;
-; Total registers               ; 2120                                    ;
+; Logic utilization             ; 5 %                                     ;
+;     Combinational ALUTs       ; 200 / 12,480 ( 2 % )                    ;
+;     Dedicated logic registers ; 374 / 12,480 ( 3 % )                    ;
+; Total registers               ; 374                                     ;
 ; Total pins                    ; 89 / 343 ( 26 % )                       ;
 ; Total virtual pins            ; 0                                       ;
 ; Total block memory bits       ; 4,096 / 419,328 ( < 1 % )               ;
@@ -64,20 +64,22 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/14/2026 23:24:29 ;
+; Start date & time ; 05/17/2026 14:14:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab8_cache          ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                ;
-+-----------------------+------------------------------+---------------+-------------+------------+
-; Assignment Name       ; Value                        ; Default Value ; Entity Name ; Section Id ;
-+-----------------------+------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID ; 300159283300.177879026805280 ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY      ; lab8_cache_rtl_view_top      ; lab8_cache    ; --          ; --         ;
-+-----------------------+------------------------------+---------------+-------------+------------+
++--------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                             ;
++------------------------+------------------------------+---------------+-------------------------+------------+
+; Assignment Name        ; Value                        ; Default Value ; Entity Name             ; Section Id ;
++------------------------+------------------------------+---------------+-------------------------+------------+
+; COMPILER_SIGNATURE_ID  ; 300159283300.177901648221388 ; --            ; --                      ; --         ;
+; PARTITION_COLOR        ; 16764057                     ; --            ; lab8_cache_rtl_view_top ; Top        ;
+; PARTITION_NETLIST_TYPE ; SOURCE                       ; --            ; lab8_cache_rtl_view_top ; Top        ;
+; TOP_LEVEL_ENTITY       ; lab8_cache_rtl_view_top      ; lab8_cache    ; --                      ; --         ;
++------------------------+------------------------------+---------------+-------------------------+------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -85,11 +87,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:12     ; 1.0                     ; 270 MB              ; 00:00:12                           ;
-; Fitter                  ; 00:00:06     ; 1.0                     ; 281 MB              ; 00:00:07                           ;
-; Assembler               ; 00:00:01     ; 1.0                     ; 244 MB              ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 200 MB              ; 00:00:01                           ;
-; Total                   ; 00:00:20     ; --                      ; --                  ; 00:00:21                           ;
+; Analysis & Synthesis    ; 00:00:01     ; 1.0                     ; 257 MB              ; 00:00:01                           ;
+; Fitter                  ; 00:00:03     ; 1.0                     ; 274 MB              ; 00:00:03                           ;
+; Assembler               ; 00:00:01     ; 1.0                     ; 241 MB              ; 00:00:01                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 175 MB              ; 00:00:00                           ;
+; Total                   ; 00:00:06     ; --                      ; --                  ; 00:00:05                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -9,7 +9,6 @@ architecture sim of tb_lab5_alu is
   signal opcode      : std_logic_vector(7 downto 0) := OP_HLT;
   signal a           : word_t := (others => '0');
   signal b           : word_t := (others => '0');
-  signal flag_s      : std_logic := '0';
   signal y           : word_t;
   signal z, s, c, o  : std_logic;
   signal alu_op_dbg  : std_logic_vector(2 downto 0);
@@ -21,7 +20,6 @@ begin
       opcode_i       => opcode,
       a_i            => a,
       b_i            => b,
-      flag_s_i       => flag_s,
       y_o            => y,
       z_o            => z,
       s_o            => s,
@@ -34,14 +32,28 @@ begin
 
   stimulus : process
   begin
-    opcode <= OP_OR;
-    a <= x"00F0";
-    b <= x"0F0F";
+    opcode <= OP_CMP;
+    a <= x"0010";
+    b <= x"0001";
     wait for 10 ns;
-    assert y = x"0FFF" and z = '0' and s = '0' and c = '0' and o = '0'
-      report "OR operation failed" severity failure;
+    assert y = x"000F" and z = '0' and s = '0' and c = '0' and o = '0'
+      report "CMP positive difference failed" severity failure;
     assert use_b_dbg = '1' and wr_flags_dbg = '1'
-      report "OR control signals failed" severity failure;
+      report "CMP control signals failed" severity failure;
+
+    opcode <= OP_CMP;
+    a <= x"1234";
+    b <= x"1234";
+    wait for 10 ns;
+    assert y = x"0000" and z = '1'
+      report "CMP equality must set zero flag" severity failure;
+
+    opcode <= OP_CMP;
+    a <= x"0001";
+    b <= x"0002";
+    wait for 10 ns;
+    assert y = x"FFFF" and s = '1' and c = '1'
+      report "CMP borrow/sign flags failed" severity failure;
 
     opcode <= OP_NOR;
     a <= x"0FFF";
@@ -56,20 +68,6 @@ begin
     wait for 10 ns;
     assert y = x"C000" and c = '1' and s = '1'
       report "SRA operation failed" severity failure;
-
-    opcode <= OP_INCS;
-    a <= x"C000";
-    flag_s <= '1';
-    wait for 10 ns;
-    assert y = x"C001" and s = '1'
-      report "INCS with S=1 failed" severity failure;
-
-    opcode <= OP_INCS;
-    a <= x"1234";
-    flag_s <= '0';
-    wait for 10 ns;
-    assert y = x"1234"
-      report "INCS with S=0 must keep value" severity failure;
 
     opcode <= OP_NOR;
     a <= x"FFFF";

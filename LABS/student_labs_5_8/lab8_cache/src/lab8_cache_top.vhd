@@ -29,7 +29,7 @@ architecture structural of lab8_cache_top is
   signal ram_rdata_s : word_t;
   signal ram_grant_s : std_logic;
 begin
-  U_CACHE : entity work.cache4way_age
+  U_CACHE : entity work.cache_direct_mapped
     port map (
       clk_i        => clk_i,
       rst_i        => rst_i,
