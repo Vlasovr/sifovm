@@ -1,0 +1,44 @@
+       7
+ ГУИР.400201.30
+
+
+
+
+                                                                                                                                   Parameter         Value           Type
+                                                                                                                             LPM_ADDRESS_CONTROL REGISTERED   String
+                                                                                                                             LPM_FILE            ROM.hex      String
+                                                                                                                             LPM_NUMWORDS        256          Unsigned Integer
+                                                                                                                             LPM_OUTDATA         UNREGISTERED String
+                                                                   lpm_add_sub0                                              LPM_WIDTH           8            Unsigned Integer
+                                                                                                                             LPM_WIDTHAD         8            Unsigned Integer
+  ADD_IN[7..0]        INPUT                                dataa[7..0]
+                       VCC                                               A                                     LPM_ROM
+                                                                                result[7..0]
+                                                                          A+B                              address[]
+                                                           datab[7..0]                           CLK
+                                                                         B                                 inclock                                OUTPUT        DATA_OUT[7..0]
+                                                           inst5
+                                                                                                                       q[]
+  CLK                 INPUT                                                                    RD_ROM      memenab
+                       VCC
+                                      lpm_counter1                                                      inst
+                                              up counter
+                                 clock        modulus 3
+  RD_ROM              INPUT
+                       VCC      clk_en
+                                                q[7..0]
+                              inst1
+
+
+
+
+                                                                                     ГУИР.400201.307
+                                                                                                                                      Лит.           Масса          Масштаб
+Изюм Лист          N докум.           Подп.       Дата
+Разраб.          Каминская                                                                 ROM                                          У
+Пров.            Третьяков
+Т. контр.                                                                                                                           Лист         1         Листов          1
+Реценз.
+Н. контр.                                                                                                                              ЭВМ, гр. 550503
+Утв.
+

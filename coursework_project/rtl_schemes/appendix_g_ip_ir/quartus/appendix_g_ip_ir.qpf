@@ -1,0 +1,4 @@
+QUARTUS_VERSION = "9.1"
+DATE = "May 22, 2026"
+
+PROJECT_REVISION = "appendix_g_ip_ir"

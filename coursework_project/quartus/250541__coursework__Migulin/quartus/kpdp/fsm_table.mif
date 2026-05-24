@@ -1,0 +1,49 @@
+-- ============================================================
+-- FSM ROM для DMA контроллера (КПДП)
+-- ============================================================
+-- ВЫХОД [4..0]:
+-- [4] transfer_active
+-- [3] count_load_sel
+-- [2] addr_load_sel
+-- [1] next_state[1]
+-- [0] next_state[0]
+--
+-- АДРЕС [3..0]:
+-- [3] state_q[1]
+-- [2] state_q[0]
+-- [1] dmac_start
+-- [0] count_is_zero
+-- ============================================================
+
+WIDTH = 5;
+DEPTH = 16;
+ADDRESS_RADIX = DEC;
+DATA_RADIX = BIN;
+
+CONTENT BEGIN
+
+    -- СОСТОЯНИЕ 00 (IDLE) - адреса 0-3
+    0 : 00000;  -- start=0, zero=0: IDLE→IDLE
+    1 : 01100;  -- start=0, zero=1: IDLE→IDLE
+    2 : 00101;  -- start=1, zero=0: IDLE→REQUEST
+    3 : 00101;  -- start=1, zero=1: IDLE→REQUEST
+
+    -- СОСТОЯНИЕ 01 (REQUEST) - адреса 4-7
+    4 : 00010;  -- REQUEST→TRANSFER
+    5 : 00010;
+    6 : 00010;
+    7 : 00010;
+
+    -- СОСТОЯНИЕ 10 (TRANSFER) - адреса 8-11
+	8 : 10010;  -- [1][0][0][1][0] = trans=1, cnt_ld=0, addr_ld=0, next=10
+    9 : 00111;  -- zero=1: TRANSFER→COMPLETE
+    10: 10010;  -- zero=0: TRANSFER→TRANSFER
+    11: 00111;  -- zero=1: TRANSFER→COMPLETE
+
+    -- СОСТОЯНИЕ 11 (COMPLETE) - адреса 12-15
+    12: 00100;  -- COMPLETE→IDLE
+    13: 00100;
+    14: 00100;
+    15: 00100;
+
+END;

@@ -1,0 +1,94 @@
+v 4
+file "D:\git\sifovm\" "coursework_project\rtl_schemes\appendix_n_microevm_nowires\src\appendix_n_microevm_nowires_top.vhd" "d77c6d122889e111e50ac5e96b22579dfed78cd5" "20260521172024.659":
+  entity appendix_n_a2_phase_counter at 1( 0) + 0 on 51;
+  architecture structural of appendix_n_a2_phase_counter at 10( 332) + 0 on 52;
+  entity appendix_n_a2_special_registers at 17( 630) + 0 on 53;
+  architecture structural of appendix_n_a2_special_registers at 26( 966) + 0 on 54;
+  entity appendix_n_a2_command_rom at 34( 1326) + 0 on 55;
+  architecture structural of appendix_n_a2_command_rom at 43( 1656) + 0 on 56;
+  entity appendix_n_a2_branch_predictor at 48( 1825) + 0 on 57;
+  architecture structural of appendix_n_a2_branch_predictor at 57( 2160) + 0 on 58;
+  entity appendix_n_a2_cmd_compare at 67( 2590) + 0 on 59;
+  architecture structural of appendix_n_a2_cmd_compare at 75( 2894) + 0 on 60;
+  entity appendix_n_a2_decoder_unit at 84( 3376) + 0 on 61;
+  architecture structural of appendix_n_a2_decoder_unit at 93( 3707) + 0 on 62;
+  entity appendix_n_a2_register_file at 103( 4357) + 0 on 63;
+  architecture structural of appendix_n_a2_register_file at 112( 4689) + 0 on 64;
+  entity appendix_n_a2_alu_unit at 120( 5100) + 0 on 65;
+  architecture structural of appendix_n_a2_alu_unit at 128( 5401) + 0 on 66;
+  entity appendix_n_a2_flags_register at 136( 5718) + 0 on 67;
+  architecture structural of appendix_n_a2_flags_register at 144( 6025) + 0 on 68;
+  entity appendix_n_a2_mux_pair at 151( 6335) + 0 on 69;
+  architecture structural of appendix_n_a2_mux_pair at 159( 6636) + 0 on 70;
+  entity appendix_n_a2_addr_muxes at 167( 7005) + 0 on 71;
+  architecture structural of appendix_n_a2_addr_muxes at 175( 7308) + 0 on 72;
+  entity appendix_n_a2_lpm_mux_mem at 184( 7763) + 0 on 73;
+  architecture structural of appendix_n_a2_lpm_mux_mem at 192( 8067) + 0 on 74;
+  entity appendix_n_a2_stack_control at 197( 8245) + 0 on 75;
+  architecture structural of appendix_n_a2_stack_control at 206( 8577) + 0 on 76;
+  entity appendix_n_a2_data_cache at 215( 8977) + 0 on 77;
+  architecture structural of appendix_n_a2_data_cache at 223( 9280) + 0 on 78;
+  entity appendix_n_a2_dmac_controller at 232( 9680) + 0 on 79;
+  architecture structural of appendix_n_a2_dmac_controller at 240( 9988) + 0 on 80;
+  entity appendix_n_a2_bus_arbiter at 249( 10402) + 0 on 81;
+  architecture structural of appendix_n_a2_bus_arbiter at 257( 10706) + 0 on 82;
+  entity appendix_n_a2_memory at 264( 10965) + 0 on 83;
+  architecture structural of appendix_n_a2_memory at 272( 11264) + 0 on 84;
+  entity appendix_n_a2_debug_outputs at 277( 11435) + 0 on 85;
+  architecture rtl of appendix_n_a2_debug_outputs at 285( 11741) + 0 on 86;
+  entity appendix_n_microevm_nowires_top at 290( 11871) + 0 on 87;
+  architecture a2_nowires of appendix_n_microevm_nowires_top at 326( 12937) + 0 on 88;
+file "D:\git\sifovm\" "coursework_project\rtl_schemes\appendix_n_microevm\src\appendix_n_microevm_top.vhd" "541506b1b0549f17a78be016051dc2f052f0027e" "20260521172024.644":
+  entity appendix_n_phase_counter_unit at 1( 0) + 0 on 35;
+  architecture rtl of appendix_n_phase_counter_unit at 18( 399) + 0 on 36;
+  entity appendix_n_special_registers at 38( 970) + 0 on 37;
+  architecture rtl of appendix_n_special_registers at 61( 1639) + 0 on 38;
+  entity appendix_n_decoder_unit at 101( 2741) + 0 on 39;
+  architecture rtl of appendix_n_decoder_unit at 127( 3469) + 0 on 40;
+  entity appendix_n_cmp_is_jmp at 161( 4938) + 0 on 41;
+  architecture rtl of appendix_n_cmp_is_jmp at 172( 5155) + 0 on 42;
+  entity appendix_n_cmp_is_mem_to_reg at 177( 5297) + 0 on 43;
+  architecture rtl of appendix_n_cmp_is_mem_to_reg at 188( 5521) + 0 on 44;
+  entity appendix_n_cmp_is_reg_to_mem at 193( 5651) + 0 on 45;
+  architecture rtl of appendix_n_cmp_is_reg_to_mem at 204( 5875) + 0 on 46;
+  entity appendix_n_mux2_16 at 209( 6005) + 0 on 47;
+  architecture rtl of appendix_n_mux2_16 at 222( 6247) + 0 on 48;
+  entity appendix_n_microevm_top at 227( 6367) + 0 on 49;
+  architecture structural of appendix_n_microevm_top at 260( 7414) + 0 on 50;
+file "D:\git\sifovm\" "coursework_project\src\cache_4way_age.vhd" "1b649421b0328f9d62479bdc5472a39660d9490b" "20260521172024.642":
+  entity cache_4way_age at 1( 0) + 0 on 33;
+  architecture rtl of cache_4way_age at 29( 681) + 0 on 34;
+file "D:\git\sifovm\" "coursework_project\src\branch_predictor.vhd" "c57c37ed3ddba8c5743f1ae5a82a70f6cc851ca9" "20260521172024.641":
+  entity branch_predictor at 1( 0) + 0 on 31;
+  architecture rtl of branch_predictor at 23( 613) + 0 on 32;
+file "D:\git\sifovm\" "coursework_project\src\dma_controller_3word.vhd" "d8a69f0ef65f2288a30a326cca5646e5eb2cd918" "20260521172024.640":
+  entity dma_controller_3word at 1( 0) + 0 on 29;
+  architecture rtl of dma_controller_3word at 26( 599) + 0 on 30;
+file "D:\git\sifovm\" "coursework_project\src\bus_arbiter_2master.vhd" "a5180dd860b82300ce1e9ac1cb5df75c5c854cc8" "20260521172024.640":
+  entity bus_arbiter_2master at 1( 0) + 0 on 27;
+  architecture rtl of bus_arbiter_2master at 13( 232) + 0 on 28;
+file "D:\git\sifovm\" "coursework_project\src\ram_sync.vhd" "0ac094042f1cee4c9f7e10360fd4abc55bd7af5f" "20260521172024.639":
+  entity ram_sync at 1( 0) + 0 on 25;
+  architecture rtl of ram_sync at 18( 335) + 0 on 26;
+file "D:\git\sifovm\" "coursework_project\src\rom_sync.vhd" "84cf0c83def8e39b6b8b7b4b455e9348aeaa5f9f" "20260521172024.639":
+  entity rom_sync at 1( 0) + 0 on 23;
+  architecture rtl of rom_sync at 16( 285) + 0 on 24;
+file "D:\git\sifovm\" "coursework_project\src\stack7x16.vhd" "75069caef6cc3851ab049669a0880c560255599d" "20260521172024.638":
+  entity stack7x16 at 1( 0) + 0 on 21;
+  architecture rtl of stack7x16 at 20( 414) + 0 on 22;
+file "D:\git\sifovm\" "coursework_project\src\flags_reg.vhd" "865db122d8aa116fa55556409a4a87e5cb5df61f" "20260521172024.638":
+  entity flags_reg at 1( 0) + 0 on 19;
+  architecture rtl of flags_reg at 20( 387) + 0 on 20;
+file "D:\git\sifovm\" "coursework_project\src\reg_file12x16_dbg.vhd" "2118ed92ebf715578651195aed89c02f0f9f417a" "20260521172024.637":
+  entity reg_file12x16_dbg at 1( 0) + 0 on 17;
+  architecture rtl of reg_file12x16_dbg at 32( 804) + 0 on 18;
+file "D:\git\sifovm\" "coursework_project\src\alu_core.vhd" "27f4ac6aead0775f8557b43811c3f632db48ffab" "20260521172024.637":
+  entity alu_core at 1( 0) + 0 on 15;
+  architecture rtl of alu_core at 20( 427) + 0 on 16;
+file "D:\git\sifovm\" "coursework_project\src\data_image_pkg.vhd" "583157b3021d907a84ca12e4ce96c2b0ae6f40bb" "20260521172024.636":
+  package data_image_pkg at 1( 0) + 0 on 14;
+file "D:\git\sifovm\" "coursework_project\src\program_image_pkg.vhd" "3d657b4e5f00916af5ff816c8771fa4a209cd26a" "20260521172024.636":
+  package program_image_pkg at 1( 0) + 0 on 13;
+file "D:\git\sifovm\" "coursework_project\src\microcomputer_pkg.vhd" "78f5d2c6aa4e9479250f430883f1098e938e4f56" "20260521172024.635":
+  package microcomputer_pkg at 1( 0) + 0 on 11 body;
+  package body microcomputer_pkg at 40( 1645) + 0 on 12;

@@ -1,0 +1,106 @@
+      7
+ГУИР.400201.30
+
+
+                                                             RAM
+
+                        ROM                                     ADD_IN[7..0]    DATA_OUT[7..0]
+                                                                CLK
+                           ADD_IN[7..0]   DATA_OUT[7..0]
+                                                                WR_RAM
+                           CLK
+                                                                RD_RAM
+                           RD_ROM
+                                                                DATA_IN[7..0]
+                        inst
+                                                             inst1
+
+
+                                                                                                                                                                                                                                OUTPUT             CLOCK
+                                                                                                                                                                                                                                OUTPUT             ADD_BUS[7..0]
+                                                                                                                                                                                                                                OUTPUT             DATA_BUS[7..0]
+
+
+
+
+                                                                                                 ALU
+
+                                                                                                     CF_IN                         CF_OUT
+                                                                                                     DATA_IN[7..0]          DATA_OUT[7..0]
+                                                                                                     ADDC                                 ZF
+                   CU                                                                                AND                       ALU_R1[7..0]
+                                                                                                                                                 OUTPUT    ALU_R1[7..0]
+                                                                                                                                                 OUTPUT    ALU_R2[7..0]
+  CLK      INPUT                                                                                     NOT                       ALU_R2[7..0]
+            VCC         CLK                        CLOCK
+  ON_INT   INPUT                                                                                     ROL
+            VCC         ON_INT             ADD_OUT[7..0]                                                                                                                         REGISTERS
+                                                                                                     CMP
+                        DATA_IN[7..0]     DATA_OUT[7..0]
+                                                                                                     CLK                                                                                                               OUTPUT   REGISTER0[7..0]
+                        ZF_IN                     RD_CMD                                                                                                                            DATA_IN[7..0]    REGISTER0[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER1[7..0]
+                        CF_IN                    WR_RAM                                                                                                                             ADD_IN[7..0]     REGISTER1[7..0]
+                                                                                                  inst15                                                                                                               OUTPUT   REGISTER2[7..0]
+                                                  RD_RAM                                                                                                                            CLK              REGISTER2[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER3[7..0]
+                                                 WR_REG                                                                                                                             WR_REG           REGISTER3[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER4[7..0]
+                                                  RD_REG                                                                                                                            RD_REG           REGISTER4[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER5[7..0]
+                                                     PUSH                                        STACK                                                                                               REGISTER5[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER6[7..0]
+                                                       POP                                                                                                                                           REGISTER6[7..0]
+                                                                                                                                                 OUTPUT    STACK0[7..0]                                                OUTPUT   REGISTER7[7..0]
+                                                     ADDC                                            DATA_IN[7..0]             STACK0[7..0]                                                          REGISTER7[7..0]
+                                                                                                                                                 OUTPUT    STACK1[7..0]                                                OUTPUT   REGISTER8[7..0]
+                                                      AND                                            CLK                       STACK1[7..0]                                                          REGISTER8[7..0]
+                                                                                                                                                 OUTPUT    STACK2[7..0]                                                OUTPUT   REGISTER9[7..0]
+                                                      NOT                                            POP                       STACK2[7..0]                                                          REGISTER9[7..0]
+                                                                                                                                                 OUTPUT    STACK3[7..0]                                                OUTPUT   REGISTER10[7..0]
+                                                      ROL                                            PUSH                      STACK3[7..0]                                                         REGISTER10[7..0]
+                                                                                                                                                 OUTPUT    STACK4[7..0]                                                OUTPUT   REGISTER11[7..0]
+                                                      CMP                                                                      STACK4[7..0]                                                         REGISTER11[7..0]
+                                                                                                                                                 OUTPUT    STACK5[7..0]                                                OUTPUT   REGISTER12[7..0]
+                                                  ZF_OUT                                                                       STACK5[7..0]                                                         REGISTER12[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER13[7..0]
+                                                  CF_OUT                                                                    DATA_OUT[7..0]                                                          REGISTER13[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER14[7..0]
+                                              INSTR[23..0]                                        inst2                                                                                             REGISTER14[7..0]
+                                                                                                                                                                                                                       OUTPUT   REGISTER15[7..0]
+                                                                                                                                                                                                    REGISTER15[7..0]
+                                                                                                 OUTPUT              RD_CMD                                                                                            OUTPUT   REGISTER16[7..0]
+                   inst7                                                                                                                                                                            REGISTER16[7..0]
+                                                                                                 OUTPUT              WR_RAM                                                                                            OUTPUT   REGISTER17[7..0]
+                                                                                                                                                                                                    REGISTER17[7..0]
+                                                                                                 OUTPUT              RD_RAM                                                                                            OUTPUT   REGISTER18[7..0]
+                                                                                                                                                                                                    REGISTER18[7..0]
+                                                                                                 OUTPUT              WR_REG                                                                                            OUTPUT   REGISTER19[7..0]
+                                                                                                                                                                                                    REGISTER19[7..0]
+                                                                                                 OUTPUT              RD_REG
+                                                                                                                                                                                                     DATA_OUT[7..0]
+                                                                                                 OUTPUT              PUSH
+                                                                                                                                                                                 inst4
+                                                                                                 OUTPUT              POP
+                                                                                                 OUTPUT              ADDC
+                                                                                                 OUTPUT              AND
+                                                                                                 OUTPUT              NOT
+                                                                                                 OUTPUT              ROL
+                                                                                                 OUTPUT              CMP
+                                                                                                 OUTPUT              ZF_OUT
+                                                                                                 OUTPUT              CF_OUT
+                                                                                                 OUTPUT              INSTR[23..0]
+
+
+
+
+                                                                                                                                                                                               ГУИР.400201.307
+                                                                                                                                                                                                                                 Лит.              Масса            Масштаб
+                                                                                                                           Изм. Лист            N докум.     Подп.        Дата
+                                                                                                                            Разраб.           Каминская                                             CPU                             У
+                                                                                                                            Пров.             Третьяков
+                                                                                                                            Т. контр.                                                                                           Лист         1       Листов            1
+                                                                                                                            Реценз.
+                                                                                                                            Н. контр.                                                                                              ЭВМ, гр. 550503
+                                                                                                                            Утв.
+

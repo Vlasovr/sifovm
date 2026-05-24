@@ -1,0 +1,844 @@
+|appendix_b_decoder_top
+cmd[0] => eq8:c_hlt.a[0]
+cmd[0] => eq8:c_mr.a[0]
+cmd[0] => eq8:c_rm.a[0]
+cmd[0] => eq8:c_or.a[0]
+cmd[0] => eq8:c_nor.a[0]
+cmd[0] => eq8:c_sra.a[0]
+cmd[0] => eq8:c_inc.a[0]
+cmd[0] => eq8:c_psh.a[0]
+cmd[0] => eq8:c_pop.a[0]
+cmd[0] => eq8:c_jmp.a[0]
+cmd[0] => eq8:c_jz.a[0]
+cmd[0] => ra[0].DATAIN
+cmd[1] => eq8:c_hlt.a[1]
+cmd[1] => eq8:c_mr.a[1]
+cmd[1] => eq8:c_rm.a[1]
+cmd[1] => eq8:c_or.a[1]
+cmd[1] => eq8:c_nor.a[1]
+cmd[1] => eq8:c_sra.a[1]
+cmd[1] => eq8:c_inc.a[1]
+cmd[1] => eq8:c_psh.a[1]
+cmd[1] => eq8:c_pop.a[1]
+cmd[1] => eq8:c_jmp.a[1]
+cmd[1] => eq8:c_jz.a[1]
+cmd[1] => ra[1].DATAIN
+cmd[2] => eq8:c_hlt.a[2]
+cmd[2] => eq8:c_mr.a[2]
+cmd[2] => eq8:c_rm.a[2]
+cmd[2] => eq8:c_or.a[2]
+cmd[2] => eq8:c_nor.a[2]
+cmd[2] => eq8:c_sra.a[2]
+cmd[2] => eq8:c_inc.a[2]
+cmd[2] => eq8:c_psh.a[2]
+cmd[2] => eq8:c_pop.a[2]
+cmd[2] => eq8:c_jmp.a[2]
+cmd[2] => eq8:c_jz.a[2]
+cmd[2] => ra[2].DATAIN
+cmd[3] => eq8:c_hlt.a[3]
+cmd[3] => eq8:c_mr.a[3]
+cmd[3] => eq8:c_rm.a[3]
+cmd[3] => eq8:c_or.a[3]
+cmd[3] => eq8:c_nor.a[3]
+cmd[3] => eq8:c_sra.a[3]
+cmd[3] => eq8:c_inc.a[3]
+cmd[3] => eq8:c_psh.a[3]
+cmd[3] => eq8:c_pop.a[3]
+cmd[3] => eq8:c_jmp.a[3]
+cmd[3] => eq8:c_jz.a[3]
+cmd[3] => ra[3].DATAIN
+cmd[4] => eq8:c_hlt.a[4]
+cmd[4] => eq8:c_mr.a[4]
+cmd[4] => eq8:c_rm.a[4]
+cmd[4] => eq8:c_or.a[4]
+cmd[4] => eq8:c_nor.a[4]
+cmd[4] => eq8:c_sra.a[4]
+cmd[4] => eq8:c_inc.a[4]
+cmd[4] => eq8:c_psh.a[4]
+cmd[4] => eq8:c_pop.a[4]
+cmd[4] => eq8:c_jmp.a[4]
+cmd[4] => eq8:c_jz.a[4]
+cmd[5] => eq8:c_hlt.a[5]
+cmd[5] => eq8:c_mr.a[5]
+cmd[5] => eq8:c_rm.a[5]
+cmd[5] => eq8:c_or.a[5]
+cmd[5] => eq8:c_nor.a[5]
+cmd[5] => eq8:c_sra.a[5]
+cmd[5] => eq8:c_inc.a[5]
+cmd[5] => eq8:c_psh.a[5]
+cmd[5] => eq8:c_pop.a[5]
+cmd[5] => eq8:c_jmp.a[5]
+cmd[5] => eq8:c_jz.a[5]
+cmd[6] => eq8:c_hlt.a[6]
+cmd[6] => eq8:c_mr.a[6]
+cmd[6] => eq8:c_rm.a[6]
+cmd[6] => eq8:c_or.a[6]
+cmd[6] => eq8:c_nor.a[6]
+cmd[6] => eq8:c_sra.a[6]
+cmd[6] => eq8:c_inc.a[6]
+cmd[6] => eq8:c_psh.a[6]
+cmd[6] => eq8:c_pop.a[6]
+cmd[6] => eq8:c_jmp.a[6]
+cmd[6] => eq8:c_jz.a[6]
+cmd[7] => eq8:c_hlt.a[7]
+cmd[7] => eq8:c_mr.a[7]
+cmd[7] => eq8:c_rm.a[7]
+cmd[7] => eq8:c_or.a[7]
+cmd[7] => eq8:c_nor.a[7]
+cmd[7] => eq8:c_sra.a[7]
+cmd[7] => eq8:c_inc.a[7]
+cmd[7] => eq8:c_psh.a[7]
+cmd[7] => eq8:c_pop.a[7]
+cmd[7] => eq8:c_jmp.a[7]
+cmd[7] => eq8:c_jz.a[7]
+z => g_and2:jz_and.b
+z => g_not1:n_z.a
+ex => g_and2:ld_and.a
+ex => g_and2:inc_and.a
+ex => g_or2:sl_or.a
+br <= g_or2:br_or.y
+ipl <= g_and2:ld_and.y
+ipi <= g_and2:inc_and.y
+hlt <= hlt.DB_MAX_OUTPUT_PORT_TYPE
+alu[0] <= g_or2:alu0_or.y
+alu[1] <= g_or2:alu1_or.y
+alu[2] <= alu[2].DB_MAX_OUTPUT_PORT_TYPE
+rw <= g_or6:rw_or.y
+nz <= g_and2:nz_and.y
+mw <= mw.DB_MAX_OUTPUT_PORT_TYPE
+mr <= mr.DB_MAX_OUTPUT_PORT_TYPE
+psh <= psh.DB_MAX_OUTPUT_PORT_TYPE
+pop <= pop.DB_MAX_OUTPUT_PORT_TYPE
+sl <= g_or2:sl_or.y
+ra[0] <= cmd[0].DB_MAX_OUTPUT_PORT_TYPE
+ra[1] <= cmd[1].DB_MAX_OUTPUT_PORT_TYPE
+ra[2] <= cmd[2].DB_MAX_OUTPUT_PORT_TYPE
+ra[3] <= cmd[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|eq8:c_hlt
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_hlt|LPM_COMPARE:cmp
+dataa[0] => cmpr_33k:auto_generated.dataa[0]
+dataa[1] => cmpr_33k:auto_generated.dataa[1]
+dataa[2] => cmpr_33k:auto_generated.dataa[2]
+dataa[3] => cmpr_33k:auto_generated.dataa[3]
+dataa[4] => cmpr_33k:auto_generated.dataa[4]
+dataa[5] => cmpr_33k:auto_generated.dataa[5]
+dataa[6] => cmpr_33k:auto_generated.dataa[6]
+dataa[7] => cmpr_33k:auto_generated.dataa[7]
+datab[0] => ~NO_FANOUT~
+datab[1] => ~NO_FANOUT~
+datab[2] => ~NO_FANOUT~
+datab[3] => ~NO_FANOUT~
+datab[4] => ~NO_FANOUT~
+datab[5] => ~NO_FANOUT~
+datab[6] => ~NO_FANOUT~
+datab[7] => ~NO_FANOUT~
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_33k:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_hlt|LPM_COMPARE:cmp|cmpr_33k:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+
+
+|appendix_b_decoder_top|eq8:c_mr
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_mr|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_mr|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_rm
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_rm|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_rm|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_or
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_or|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_or|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_nor
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_nor|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_nor|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_sra
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_sra|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_sra|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_inc
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_inc|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_inc|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_psh
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_psh|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_psh|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_pop
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_pop|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_pop|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_jmp
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_jmp|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_jmp|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|eq8:c_jz
+a[0] => LPM_COMPARE:cmp.DATAA[0]
+a[1] => LPM_COMPARE:cmp.DATAA[1]
+a[2] => LPM_COMPARE:cmp.DATAA[2]
+a[3] => LPM_COMPARE:cmp.DATAA[3]
+a[4] => LPM_COMPARE:cmp.DATAA[4]
+a[5] => LPM_COMPARE:cmp.DATAA[5]
+a[6] => LPM_COMPARE:cmp.DATAA[6]
+a[7] => LPM_COMPARE:cmp.DATAA[7]
+y <= LPM_COMPARE:cmp.AEB
+
+
+|appendix_b_decoder_top|eq8:c_jz|LPM_COMPARE:cmp
+dataa[0] => cmpr_vjk:auto_generated.dataa[0]
+dataa[1] => cmpr_vjk:auto_generated.dataa[1]
+dataa[2] => cmpr_vjk:auto_generated.dataa[2]
+dataa[3] => cmpr_vjk:auto_generated.dataa[3]
+dataa[4] => cmpr_vjk:auto_generated.dataa[4]
+dataa[5] => cmpr_vjk:auto_generated.dataa[5]
+dataa[6] => cmpr_vjk:auto_generated.dataa[6]
+dataa[7] => cmpr_vjk:auto_generated.dataa[7]
+datab[0] => cmpr_vjk:auto_generated.datab[0]
+datab[1] => cmpr_vjk:auto_generated.datab[1]
+datab[2] => cmpr_vjk:auto_generated.datab[2]
+datab[3] => cmpr_vjk:auto_generated.datab[3]
+datab[4] => cmpr_vjk:auto_generated.datab[4]
+datab[5] => cmpr_vjk:auto_generated.datab[5]
+datab[6] => cmpr_vjk:auto_generated.datab[6]
+datab[7] => cmpr_vjk:auto_generated.datab[7]
+clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+alb <= <GND>
+aeb <= cmpr_vjk:auto_generated.aeb
+agb <= <GND>
+aleb <= <GND>
+aneb <= <GND>
+ageb <= <GND>
+
+
+|appendix_b_decoder_top|eq8:c_jz|LPM_COMPARE:cmp|cmpr_vjk:auto_generated
+aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
+dataa[0] => data_wire[0].IN0
+dataa[1] => data_wire[0].IN0
+dataa[2] => data_wire[1].IN0
+dataa[3] => data_wire[1].IN0
+dataa[4] => data_wire[2].IN0
+dataa[5] => data_wire[2].IN0
+dataa[6] => data_wire[3].IN0
+dataa[7] => data_wire[3].IN0
+datab[0] => data_wire[0].IN1
+datab[1] => data_wire[0].IN1
+datab[2] => data_wire[1].IN1
+datab[3] => data_wire[1].IN1
+datab[4] => data_wire[2].IN1
+datab[5] => data_wire[2].IN1
+datab[6] => data_wire[3].IN1
+datab[7] => data_wire[3].IN1
+
+
+|appendix_b_decoder_top|g_or2:br_or
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_and2:jz_and
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_or2:ld_or
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_and2:ld_and
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_not1:n_br
+a => y.DATAIN
+y <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_and2:inc_and
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_not1:n_z
+a => y.DATAIN
+y <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_and2:nz_and
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_or6:rw_or
+a => y.IN0
+b => y.IN1
+c => y.IN1
+d => y.IN1
+e => y.IN1
+f => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_or2:sl_or
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_or2:alu0_or
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|appendix_b_decoder_top|g_or2:alu1_or
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+

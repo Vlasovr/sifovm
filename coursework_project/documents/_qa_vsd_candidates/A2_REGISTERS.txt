@@ -1,0 +1,206 @@
+      7
+ГУИР.400201.30
+                 DATA_IN[7..0]   INPUT
+                                  VCC
+
+                                                                                                                        lpm_dff0
+                                                                                 lpm_decode0                                       DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]              inst50         sel[4..0]
+                                                                                                eq0
+                                                                                                                   clock       q[7..0]   data0x[7..0]
+                                                                                                eq1
+                                                                                                      inst28   inst                      data1x[7..0]
+                                                                                                eq2
+                                                                                                eq3                                      data2x[7..0]
+                                         ADD_IN[7..0]
+                 ADD_IN[7..0]    INPUT
+                                  VCC                                                           eq4                     lpm_dff0         data3x[7..0]
+                                                                                                eq5                                DFF   data4x[7..0]
+                                                                                                      AND2
+                                                                                                                  data[7..0]             data5x[7..0]
+                                                                                                eq6
+                                                                                                                   clock       q[7..0]   data6x[7..0]
+                                                                                                eq7
+                                                                                                      inst31   inst8                     data7x[7..0]
+                                                                                                eq8
+                                                     ADD_IN[4..0]                               eq9                                      data8x[7..0]                        lpm_bustri1
+                                                                               data[4..0]                                                data9x[7..0]                                      OUTPUT          DATA_OUT[7..0]
+                                                                                               eq10                     lpm_dff0                          result[7..0]       inst51
+                                                                                                                                                                               8      8
+                                                                                               eq11                                DFF   data10x[7..0]
+                                                                                                      AND2
+                                                                                                                  data[7..0]             data11x[7..0]
+                                                                                               eq12
+                                                                                                                   clock       q[7..0]   data12x[7..0]
+                                                                                               eq13
+                                                                                                      inst30   inst9                     data13x[7..0]
+                                                                                               eq14
+                                                                                               eq15                                      data14x[7..0]
+                                                                                               eq16                     lpm_dff0         data15x[7..0]
+                                                                                               eq17                                DFF   data16x[7..0]
+                                                                                                      AND2
+                                                                                                                  data[7..0]             data17x[7..0]
+                                                                                               eq18
+                                                                                                                   clock       q[7..0]   data18x[7..0]
+                                                                                               eq19
+                                                                                                      inst32   inst10                    data19x[7..0]
+                                                                             inst27
+                                                                                                                                                   lpm_mux2
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2                               OUTPUT           REGISTER0[7..0]
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]   OUTPUT           REGISTER1[7..0]
+                                                                                      AND2
+                 CLK             INPUT                                                                inst33   inst11
+                                  VCC                                                                                                    OUTPUT           REGISTER2[7..0]
+
+                                                                                      inst55                                             OUTPUT           REGISTER3[7..0]
+                                             DFF                                                                        lpm_dff0
+                                                    PRN             AND2                                                           DFF
+                 WR_REG          INPUT                                                                AND2                               OUTPUT           REGISTER4[7..0]
+                                  VCC           D         Q                                                       data[7..0]
+                                                                                                                   clock       q[7..0]   OUTPUT           REGISTER5[7..0]
+                                                                    inst54
+                                                  CLRN                                                inst35   inst12
+                                                                                                                                         OUTPUT           REGISTER6[7..0]
+                                             inst52
+
+                                                                                                                                         OUTPUT           REGISTER7[7..0]
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2                               OUTPUT           REGISTER8[7..0]
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]   OUTPUT           REGISTER9[7..0]
+                 RD_REG          INPUT                                                                inst34   inst13
+                                  VCC                                                                                                    OUTPUT           REGISTER10[7..0]
+
+                                                                                                                                         OUTPUT           REGISTER11[7..0]
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2                               OUTPUT           REGISTER12[7..0]
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]   OUTPUT           REGISTER13[7..0]
+                                                                                                      inst36   inst14
+                                                                                                                                         OUTPUT           REGISTER14[7..0]
+
+                                                                                                                                         OUTPUT           REGISTER15[7..0]
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2                               OUTPUT           REGISTER16[7..0]
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]   OUTPUT           REGISTER17[7..0]
+                                                                                                      inst37   inst15
+                                                                                                                                         OUTPUT           REGISTER18[7..0]
+
+                                                                                                                                         OUTPUT           REGISTER19[7..0]
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst39   inst16
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst38   inst17
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst40   inst18
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst41   inst19
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst43   inst20
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst42   inst21
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst44   inst22
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst45   inst23
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst47   inst24
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst46   inst25
+
+
+
+                                                                                                                        lpm_dff0
+                                                                                                                                   DFF
+                                                                                                      AND2
+                                                                                                                  data[7..0]
+                                                                                                                   clock       q[7..0]
+                                                                                                      inst48   inst26
+
+
+
+                                                                                                                                                                                                                                                      ГУИР.400201.307
+                                                                                                                                                                                                                                                                  Лит.       Масса     Масштаб
+                                                                                                                                                                                                    Изм. Лист               N докум.   Подп.   Дата
+                                                                                                                                                                                                    Разраб.           Каминская                       REGISTERS     У
+                                                                                                                                                                                                    Пров.             Третьяков
+                                                                                                                                                                                                    Т. контр.                                                     Лист   1    Листов      1
+                                                                                                                                                                                                    Реценз.
+                                                                                                                                                                                                    Н. контр.                                                      ЭВМ, гр. 550503
+                                                                                                                                                                                                    Утв.
+

@@ -1,0 +1,95 @@
+      7
+ГУИР.400201.30
+
+
+
+
+     CF_IN           INPUT
+                      VCC
+
+                                                                                                                                    lpm_dff3                               lpm_add_sub5
+                                                                                                                                               DFF               cin
+     DATA_IN[7..0]   INPUT                                                                                                                                                                                                                                                                                       OUTPUT       CF_OUT
+                      VCC                                                                                                    data[7..0]
+                                               OR5                                                                            clock                   op[7..0]
+                                                                                                                                                                 dataa[7..0]
+     ADDC            INPUT                                                                                                                 q[7..0]                                A                                                lpm_bustri4                                                     lpm_bustri4
+                      VCC                IN1                                                                                 enable                                                        result[7..0]                                                                                                          OUTPUT       DATA_OUT[7..0]
+     AND             INPUT                                                                                                                                                         A+B                                             inst17
+                                                                                                                                                                                                                                     8        8                                                    inst21
+                                                                                                                                                                                                                                                                                                     8      8
+                      VCC                IN2
+                                                                                                                           inst10                                datab[7..0]
+     NOT             INPUT                                                                                                                                                        B                                              ADDC                                            AND2
+                      VCC                IN3                                                                                                                                                                 lpm_bustri3                                    OR3       EN_OUT_2            OR2
+     ROL             INPUT                                                                                                                                                                        cout                                              ADDC
+                      VCC                IN4         OUT
+                                                                                                                                                                  inst13                                     inst14     1                            ROL
+     CMP             INPUT                                                                                                                                                                                                                           AND
+                      VCC                IN5                                                                                                                                                                                                                                     inst25
+                                                                    lpm_counter3                                                                                                                          ADDC                                              inst26                        inst28
+                             NOT     inst3                                   up counter        lpm_decode3                          lpm_dff3
+     CLK             INPUT                                                                                      EN_OUT_1                       DFF                                                                                                                               AND2
+                      VCC                                         clock      modulus 4                                                                           lpm_and0                                                                                              NOT
+                             inst6                                                                        eq1   EN_OUT_2     data[7..0]                                                                                            lpm_bustri4
+                                                                 clk_en                                                                                           8                                                                                                  EN_OUT_1
+                                                                                 q[2..0]     data[2..0]   eq2   EN_OUT_3      clock                                           8                                                    inst18
+                                                                                                                                                                                                                                     8        8
+                                                                                                                                           q[7..0]                8                                                                                                              inst27
+                                                                                                          eq3                enable                               inst15
+
+
+
+
+                                                                          aclr
+                                                                                                                                                                                                                             AND
+                                                                                           inst29                          inst11
+                                                            inst7
+                                                                                                                                                                      lpm_inv0                                                     lpm_bustri4
+                                                           NOT
+                                                                                                                                                                  inst16
+                                                                                                                                                                   8              8                                                inst19
+                                                                                                                                                                                                                                     8        8
+                                                           inst8
+                                                                                                                                                                                                                             NOT
+
+
+
+
+                                                                                                                                                                              lpm_clshift0                                         lpm_bustri4
+                                                                                                                                                                       data[7..0]          result[7..0]                            inst20
+                                                                                                                                                                                                                                     8        8
+                                                                                                                                           op[2..0]                    distance[2..0]
+                                                                                                                                                                     ROTATE lef t                                            ROL
+                                                                                                                                                                  inst12
+
+
+
+                                                                                                                                                                       lpm_compare2
+                                                                                                                                                                                      compare
+
+                                                                                                                                                                                                                                   lpm_bustri3
+                                                                                                                                                                       dataa[7..0]                                                                                                                               OUTPUT       ZF
+                                                                                                                                                                                        aeb                                        inst22     1
+                                                                                                                                                                       datab[7..0]
+                                                                                                                                                                  inst1                                                      CMP
+
+
+
+                                                                                                                                                                 OUTPUT                 ALU_R1[7..0]
+
+                                                                                                                                                                 OUTPUT                 ALU_R2[7..0]
+
+
+
+
+                                                                                                                                                                                                                                                                                 ГУИР.400201.307
+                                                                                                                                                                                                                                                                                                                  Лит.        Масса            Масштаб
+                                                                                                                                                                                          Изм. Лист                   N докум.              Подп.    Дата
+                                                                                                                                                                                           Разраб.               Каминская                                                          ALU                             У
+                                                                                                                                                                                           Пров.                 Третьяков
+                                                                                                                                                                                           Т. контр.                                                                                                             Лист     1        Листов         1
+                                                                                                                                                                                           Реценз.
+                                                                                                                                                                                           Н. контр.                                                                                                               ЭВМ, гр. 550503
+                                                                                                                                                                                           Утв.
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="appendix_b_decoder">
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_hlt|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_33k.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_jz|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_jmp|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_mr|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_nor|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_or|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_pop|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_psh|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_rm|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_inc|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_b_decoder_top|eq8:c_sra|LPM_COMPARE:cmp" CBX_FILE_NAME="cmpr_vjk.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

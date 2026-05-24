@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clock'
+Slack : -4.360
+TNS   : -544.560
+
+Type  : Slow 1100mV 85C Model Hold 'clock'
+Slack : -1.012
+TNS   : -6.915
+
+Type  : Slow 1100mV 85C Model Recovery 'clock'
+Slack : -0.128
+TNS   : -1.024
+
+Type  : Slow 1100mV 85C Model Removal 'clock'
+Slack : 0.112
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -1.666
+TNS   : -410.936
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'dmac_controller:inst46|fsm_rom:inst22|altsyncram:altsyncram_component|altsyncram_n5h1:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'clock'
+Slack : -3.956
+TNS   : -477.594
+
+Type  : Slow 1100mV 0C Model Hold 'clock'
+Slack : -0.934
+TNS   : -6.422
+
+Type  : Slow 1100mV 0C Model Recovery 'clock'
+Slack : -0.079
+TNS   : -0.632
+
+Type  : Slow 1100mV 0C Model Removal 'clock'
+Slack : 0.117
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -1.666
+TNS   : -412.764
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'dmac_controller:inst46|fsm_rom:inst22|altsyncram:altsyncram_component|altsyncram_n5h1:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clock'
+Slack : -2.771
+TNS   : -278.855
+
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : -0.839
+TNS   : -6.081
+
+Type  : Fast 1100mV 0C Model Recovery 'clock'
+Slack : 0.222
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'clock'
+Slack : -0.038
+TNS   : -0.304
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.600
+TNS   : -200.167
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'dmac_controller:inst46|fsm_rom:inst22|altsyncram:altsyncram_component|altsyncram_n5h1:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : 0.421
+TNS   : 0.000
+
+------------------------------------------------------------

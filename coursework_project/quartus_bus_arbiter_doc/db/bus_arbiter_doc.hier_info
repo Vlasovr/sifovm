@@ -1,0 +1,283 @@
+|bus_arbiter_doc_full_top
+cpu_req_i => arb2:U_ARB.req_cpu_i
+cpu_req_i => g_and:U_CPU_EN.a
+cpu_we_i => mux1:U_RAM_WE.d0_i
+cpu_addr_i[0] => mux16:U_RAM_ADDR.d0_i[0]
+cpu_addr_i[1] => mux16:U_RAM_ADDR.d0_i[1]
+cpu_addr_i[2] => mux16:U_RAM_ADDR.d0_i[2]
+cpu_addr_i[3] => mux16:U_RAM_ADDR.d0_i[3]
+cpu_addr_i[4] => mux16:U_RAM_ADDR.d0_i[4]
+cpu_addr_i[5] => mux16:U_RAM_ADDR.d0_i[5]
+cpu_addr_i[6] => mux16:U_RAM_ADDR.d0_i[6]
+cpu_addr_i[7] => mux16:U_RAM_ADDR.d0_i[7]
+cpu_addr_i[8] => mux16:U_RAM_ADDR.d0_i[8]
+cpu_addr_i[9] => mux16:U_RAM_ADDR.d0_i[9]
+cpu_addr_i[10] => mux16:U_RAM_ADDR.d0_i[10]
+cpu_addr_i[11] => mux16:U_RAM_ADDR.d0_i[11]
+cpu_addr_i[12] => mux16:U_RAM_ADDR.d0_i[12]
+cpu_addr_i[13] => mux16:U_RAM_ADDR.d0_i[13]
+cpu_addr_i[14] => mux16:U_RAM_ADDR.d0_i[14]
+cpu_addr_i[15] => mux16:U_RAM_ADDR.d0_i[15]
+cpu_wdata_i[0] => mux16:U_RAM_WDATA.d0_i[0]
+cpu_wdata_i[1] => mux16:U_RAM_WDATA.d0_i[1]
+cpu_wdata_i[2] => mux16:U_RAM_WDATA.d0_i[2]
+cpu_wdata_i[3] => mux16:U_RAM_WDATA.d0_i[3]
+cpu_wdata_i[4] => mux16:U_RAM_WDATA.d0_i[4]
+cpu_wdata_i[5] => mux16:U_RAM_WDATA.d0_i[5]
+cpu_wdata_i[6] => mux16:U_RAM_WDATA.d0_i[6]
+cpu_wdata_i[7] => mux16:U_RAM_WDATA.d0_i[7]
+cpu_wdata_i[8] => mux16:U_RAM_WDATA.d0_i[8]
+cpu_wdata_i[9] => mux16:U_RAM_WDATA.d0_i[9]
+cpu_wdata_i[10] => mux16:U_RAM_WDATA.d0_i[10]
+cpu_wdata_i[11] => mux16:U_RAM_WDATA.d0_i[11]
+cpu_wdata_i[12] => mux16:U_RAM_WDATA.d0_i[12]
+cpu_wdata_i[13] => mux16:U_RAM_WDATA.d0_i[13]
+cpu_wdata_i[14] => mux16:U_RAM_WDATA.d0_i[14]
+cpu_wdata_i[15] => mux16:U_RAM_WDATA.d0_i[15]
+dma_req_i => arb2:U_ARB.req_dma_i
+dma_we_i => g_and:U_DMA_EN.a
+dma_we_i => mux1:U_RAM_WE.d1_i
+dma_addr_i[0] => mux16:U_RAM_ADDR.d1_i[0]
+dma_addr_i[1] => mux16:U_RAM_ADDR.d1_i[1]
+dma_addr_i[2] => mux16:U_RAM_ADDR.d1_i[2]
+dma_addr_i[3] => mux16:U_RAM_ADDR.d1_i[3]
+dma_addr_i[4] => mux16:U_RAM_ADDR.d1_i[4]
+dma_addr_i[5] => mux16:U_RAM_ADDR.d1_i[5]
+dma_addr_i[6] => mux16:U_RAM_ADDR.d1_i[6]
+dma_addr_i[7] => mux16:U_RAM_ADDR.d1_i[7]
+dma_addr_i[8] => mux16:U_RAM_ADDR.d1_i[8]
+dma_addr_i[9] => mux16:U_RAM_ADDR.d1_i[9]
+dma_addr_i[10] => mux16:U_RAM_ADDR.d1_i[10]
+dma_addr_i[11] => mux16:U_RAM_ADDR.d1_i[11]
+dma_addr_i[12] => mux16:U_RAM_ADDR.d1_i[12]
+dma_addr_i[13] => mux16:U_RAM_ADDR.d1_i[13]
+dma_addr_i[14] => mux16:U_RAM_ADDR.d1_i[14]
+dma_addr_i[15] => mux16:U_RAM_ADDR.d1_i[15]
+dma_wdata_i[0] => mux16:U_RAM_WDATA.d1_i[0]
+dma_wdata_i[1] => mux16:U_RAM_WDATA.d1_i[1]
+dma_wdata_i[2] => mux16:U_RAM_WDATA.d1_i[2]
+dma_wdata_i[3] => mux16:U_RAM_WDATA.d1_i[3]
+dma_wdata_i[4] => mux16:U_RAM_WDATA.d1_i[4]
+dma_wdata_i[5] => mux16:U_RAM_WDATA.d1_i[5]
+dma_wdata_i[6] => mux16:U_RAM_WDATA.d1_i[6]
+dma_wdata_i[7] => mux16:U_RAM_WDATA.d1_i[7]
+dma_wdata_i[8] => mux16:U_RAM_WDATA.d1_i[8]
+dma_wdata_i[9] => mux16:U_RAM_WDATA.d1_i[9]
+dma_wdata_i[10] => mux16:U_RAM_WDATA.d1_i[10]
+dma_wdata_i[11] => mux16:U_RAM_WDATA.d1_i[11]
+dma_wdata_i[12] => mux16:U_RAM_WDATA.d1_i[12]
+dma_wdata_i[13] => mux16:U_RAM_WDATA.d1_i[13]
+dma_wdata_i[14] => mux16:U_RAM_WDATA.d1_i[14]
+dma_wdata_i[15] => mux16:U_RAM_WDATA.d1_i[15]
+grant_cpu_o <= arb2:U_ARB.grant_cpu_o
+grant_dma_o <= arb2:U_ARB.grant_dma_o
+bus_busy_o <= g_or:U_BUSY.y
+ram_en_o <= g_or:U_RAM_EN.y
+ram_we_o <= mux1:U_RAM_WE.y_o
+ram_addr_o[0] <= mux16:U_RAM_ADDR.y_o[0]
+ram_addr_o[1] <= mux16:U_RAM_ADDR.y_o[1]
+ram_addr_o[2] <= mux16:U_RAM_ADDR.y_o[2]
+ram_addr_o[3] <= mux16:U_RAM_ADDR.y_o[3]
+ram_addr_o[4] <= mux16:U_RAM_ADDR.y_o[4]
+ram_addr_o[5] <= mux16:U_RAM_ADDR.y_o[5]
+ram_addr_o[6] <= mux16:U_RAM_ADDR.y_o[6]
+ram_addr_o[7] <= mux16:U_RAM_ADDR.y_o[7]
+ram_addr_o[8] <= mux16:U_RAM_ADDR.y_o[8]
+ram_addr_o[9] <= mux16:U_RAM_ADDR.y_o[9]
+ram_addr_o[10] <= mux16:U_RAM_ADDR.y_o[10]
+ram_addr_o[11] <= mux16:U_RAM_ADDR.y_o[11]
+ram_addr_o[12] <= mux16:U_RAM_ADDR.y_o[12]
+ram_addr_o[13] <= mux16:U_RAM_ADDR.y_o[13]
+ram_addr_o[14] <= mux16:U_RAM_ADDR.y_o[14]
+ram_addr_o[15] <= mux16:U_RAM_ADDR.y_o[15]
+ram_wdata_o[0] <= mux16:U_RAM_WDATA.y_o[0]
+ram_wdata_o[1] <= mux16:U_RAM_WDATA.y_o[1]
+ram_wdata_o[2] <= mux16:U_RAM_WDATA.y_o[2]
+ram_wdata_o[3] <= mux16:U_RAM_WDATA.y_o[3]
+ram_wdata_o[4] <= mux16:U_RAM_WDATA.y_o[4]
+ram_wdata_o[5] <= mux16:U_RAM_WDATA.y_o[5]
+ram_wdata_o[6] <= mux16:U_RAM_WDATA.y_o[6]
+ram_wdata_o[7] <= mux16:U_RAM_WDATA.y_o[7]
+ram_wdata_o[8] <= mux16:U_RAM_WDATA.y_o[8]
+ram_wdata_o[9] <= mux16:U_RAM_WDATA.y_o[9]
+ram_wdata_o[10] <= mux16:U_RAM_WDATA.y_o[10]
+ram_wdata_o[11] <= mux16:U_RAM_WDATA.y_o[11]
+ram_wdata_o[12] <= mux16:U_RAM_WDATA.y_o[12]
+ram_wdata_o[13] <= mux16:U_RAM_WDATA.y_o[13]
+ram_wdata_o[14] <= mux16:U_RAM_WDATA.y_o[14]
+ram_wdata_o[15] <= mux16:U_RAM_WDATA.y_o[15]
+
+
+|bus_arbiter_doc_full_top|arb2:U_ARB
+req_cpu_i => grant_cpu_o.IN0
+req_dma_i => grant_dma_o.DATAIN
+req_dma_i => grant_cpu_o.IN1
+grant_cpu_o <= grant_cpu_o.DB_MAX_OUTPUT_PORT_TYPE
+grant_dma_o <= req_dma_i.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|g_and:U_CPU_EN
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|g_and:U_DMA_EN
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|g_or:U_RAM_EN
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|mux1:U_RAM_WE
+sel_i => y_o.OUTPUTSELECT
+d0_i => y_o.DATAA
+d1_i => y_o.DATAB
+y_o <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|mux16:U_RAM_ADDR
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+d0_i[0] => y_o.DATAA
+d0_i[1] => y_o.DATAA
+d0_i[2] => y_o.DATAA
+d0_i[3] => y_o.DATAA
+d0_i[4] => y_o.DATAA
+d0_i[5] => y_o.DATAA
+d0_i[6] => y_o.DATAA
+d0_i[7] => y_o.DATAA
+d0_i[8] => y_o.DATAA
+d0_i[9] => y_o.DATAA
+d0_i[10] => y_o.DATAA
+d0_i[11] => y_o.DATAA
+d0_i[12] => y_o.DATAA
+d0_i[13] => y_o.DATAA
+d0_i[14] => y_o.DATAA
+d0_i[15] => y_o.DATAA
+d1_i[0] => y_o.DATAB
+d1_i[1] => y_o.DATAB
+d1_i[2] => y_o.DATAB
+d1_i[3] => y_o.DATAB
+d1_i[4] => y_o.DATAB
+d1_i[5] => y_o.DATAB
+d1_i[6] => y_o.DATAB
+d1_i[7] => y_o.DATAB
+d1_i[8] => y_o.DATAB
+d1_i[9] => y_o.DATAB
+d1_i[10] => y_o.DATAB
+d1_i[11] => y_o.DATAB
+d1_i[12] => y_o.DATAB
+d1_i[13] => y_o.DATAB
+d1_i[14] => y_o.DATAB
+d1_i[15] => y_o.DATAB
+y_o[0] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[1] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[2] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[3] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[4] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[5] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[6] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[7] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[8] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[9] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[10] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[11] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[12] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[13] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[14] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[15] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|mux16:U_RAM_WDATA
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+sel_i => y_o.OUTPUTSELECT
+d0_i[0] => y_o.DATAA
+d0_i[1] => y_o.DATAA
+d0_i[2] => y_o.DATAA
+d0_i[3] => y_o.DATAA
+d0_i[4] => y_o.DATAA
+d0_i[5] => y_o.DATAA
+d0_i[6] => y_o.DATAA
+d0_i[7] => y_o.DATAA
+d0_i[8] => y_o.DATAA
+d0_i[9] => y_o.DATAA
+d0_i[10] => y_o.DATAA
+d0_i[11] => y_o.DATAA
+d0_i[12] => y_o.DATAA
+d0_i[13] => y_o.DATAA
+d0_i[14] => y_o.DATAA
+d0_i[15] => y_o.DATAA
+d1_i[0] => y_o.DATAB
+d1_i[1] => y_o.DATAB
+d1_i[2] => y_o.DATAB
+d1_i[3] => y_o.DATAB
+d1_i[4] => y_o.DATAB
+d1_i[5] => y_o.DATAB
+d1_i[6] => y_o.DATAB
+d1_i[7] => y_o.DATAB
+d1_i[8] => y_o.DATAB
+d1_i[9] => y_o.DATAB
+d1_i[10] => y_o.DATAB
+d1_i[11] => y_o.DATAB
+d1_i[12] => y_o.DATAB
+d1_i[13] => y_o.DATAB
+d1_i[14] => y_o.DATAB
+d1_i[15] => y_o.DATAB
+y_o[0] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[1] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[2] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[3] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[4] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[5] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[6] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[7] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[8] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[9] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[10] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[11] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[12] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[13] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[14] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+y_o[15] <= y_o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|bus_arbiter_doc_full_top|g_or:U_BUSY
+a => y.IN0
+b => y.IN1
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+

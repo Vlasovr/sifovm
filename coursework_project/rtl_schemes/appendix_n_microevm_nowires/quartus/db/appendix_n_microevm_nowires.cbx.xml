@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="appendix_n_microevm_nowires">
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_n_microevm_nowires_top|appendix_n_a2_command_rom:U_03_COMMAND_MEMORY_ROM|rom_sync:U_COMMAND_MEMORY_ROM|altsyncram:Mux0_rtl_1" CBX_FILE_NAME="altsyncram_at41.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_n_microevm_nowires_top|appendix_n_a2_memory:U_23_MEMORY|ram_sync:U_MEMORY|altsyncram:mem_rtl_0" CBX_FILE_NAME="altsyncram_0q91.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

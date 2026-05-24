@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu May 21 20:02:59 2026
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : appendix_n_microevm_row1
+Top-level Entity Name : appendix_n_microevm_row1_control_top
+Family : Cyclone II
+Total logic elements : 1,209
+    Total combinational functions : 747
+    Dedicated logic registers : 536
+Total registers : 536
+Total pins : 202
+Total virtual pins : 0
+Total memory bits : 2,816
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

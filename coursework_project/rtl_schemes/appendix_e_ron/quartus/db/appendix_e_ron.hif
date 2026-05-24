@@ -1,0 +1,467 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+11
+3500
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+appendix_e_ron_top
+# storage
+db|appendix_e_ron.(0).cnf
+db|appendix_e_ron.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+dec12
+# storage
+db|appendix_e_ron.(1).cnf
+db|appendix_e_ron.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(y)
+11 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+dec12:u_dec
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+a2
+# storage
+db|appendix_e_ron.(2).cnf
+db|appendix_e_ron.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+a2:u_w0
+a2:u_w1
+a2:u_w2
+a2:u_w3
+a2:u_w4
+a2:u_w5
+a2:u_w6
+a2:u_w7
+a2:u_w8
+a2:u_w9
+a2:u_w10
+a2:u_w11
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+sel12
+# storage
+db|appendix_e_ron.(3).cnf
+db|appendix_e_ron.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(lo)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(hi)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+sel12:u_sa
+sel12:u_sb
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+bank6
+# storage
+db|appendix_e_ron.(4).cnf
+db|appendix_e_ron.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(w)
+5 downto 0
+PARAMETER_STRING
+USR
+ constraint(di)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(sa)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(sb)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(qa)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(qb)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+bank6:u_lo
+bank6:u_hi
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+r16
+# storage
+db|appendix_e_ron.(5).cnf
+db|appendix_e_ron.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(d)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+bank6:u_lo|r16:u_r0
+bank6:u_lo|r16:u_r1
+bank6:u_lo|r16:u_r2
+bank6:u_lo|r16:u_r3
+bank6:u_lo|r16:u_r4
+bank6:u_lo|r16:u_r5
+bank6:u_hi|r16:u_r0
+bank6:u_hi|r16:u_r1
+bank6:u_hi|r16:u_r2
+bank6:u_hi|r16:u_r3
+bank6:u_hi|r16:u_r4
+bank6:u_hi|r16:u_r5
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+mx6
+# storage
+db|appendix_e_ron.(6).cnf
+db|appendix_e_ron.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(q0)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q1)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q2)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q3)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q4)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q5)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(y)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+bank6:u_lo|mx6:u_ma
+bank6:u_lo|mx6:u_mb
+bank6:u_hi|mx6:u_ma
+bank6:u_hi|mx6:u_mb
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+mx2
+# storage
+db|appendix_e_ron.(7).cnf
+db|appendix_e_ron.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(b)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(y)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+mx2:u_xa
+mx2:u_xb
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+msk16
+# storage
+db|appendix_e_ron.(8).cnf
+db|appendix_e_ron.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|appendix_e_ron|src|appendix_e_ron_top.vhd
+8543f64c933653c4c3ba9cff7d4e17c8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(y)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+msk16:u_qa
+msk16:u_qb
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

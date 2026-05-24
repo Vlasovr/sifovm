@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat May 23 23:41:50 2026
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : appendix_i_cache
+Top-level Entity Name : appendix_i_cache_top
+Family : Cyclone II
+Total logic elements : 3,508
+    Total combinational functions : 1,624
+    Dedicated logic registers : 1,993
+Total registers : 1993
+Total pins : 298
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

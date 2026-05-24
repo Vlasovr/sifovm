@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="appendix_g_ip_ir">
+		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_g_ip_ir_top|ip_inc16:u_ip_inc|LPM_ADD_SUB:ip_plus_one" CBX_FILE_NAME="add_sub_jfg.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
