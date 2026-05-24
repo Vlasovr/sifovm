@@ -16,3 +16,42 @@ Icon
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+### Windows / office / editor leftovers
+Thumbs.db
+desktop.ini
+~$*
+.~lock*
+.$*
+*.tmp
+*.bak
+*.bkp
+
+### Python cache
+__pycache__/
+*.py[cod]
+
+### Local render / QA scratch folders
+_tmp*/
+_pdf_pages*/
+qa_*/
+rendered/
+lo_test/
+_check*/
+_migulin*/
+_qa*/
+_ref*/
+
+### Quartus generated outputs
+db/
+incremental_db/
+output_files/
+simulation/
+*.rpt
+*.summary
+*.smsg
+*.done
+*.pin
+*.sof
+*.pof
+*.qws

@@ -1,7 +1,0 @@
-
-State Machine - |appendix_i_cache_top|ct:u_ct|st
-Name st.wgnt st.rfil st.rgnt st.id 
-st.id 0 0 0 0 
-st.rgnt 0 0 1 1 
-st.rfil 0 1 0 1 
-st.wgnt 1 0 0 1 

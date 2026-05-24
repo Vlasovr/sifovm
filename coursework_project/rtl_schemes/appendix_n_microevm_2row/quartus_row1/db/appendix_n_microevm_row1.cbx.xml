@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<LOG_ROOT>
-	<PROJECT NAME="appendix_n_microevm_row1">
-		<CBX_INST_ENTRY INSTANCE_NAME="|appendix_n_microevm_row1_control_top|rom_sync:U_COMMAND_MEMORY_ROM|altsyncram:Mux0_rtl_0" CBX_FILE_NAME="altsyncram_e051.tdf"/>
-	</PROJECT>
-</LOG_ROOT>
