@@ -68,491 +68,903 @@
  ---------------------------------------------------------------------------------
 
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
-CHIP  "coursework"  ASSIGNED TO AN: EP2C15AF484C6
+CHIP  "coursework"  ASSIGNED TO AN: EP2C70F896C6
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
-GND                          : A1        : gnd    :                   :         :           :                
-VCCIO3                       : A2        : power  :                   : 3.3V    : 3         :                
-DBG_R6[14]                   : A3        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R3[7]                    : A4        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R5[10]                   : A5        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R7[0]                    : A6        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R7[15]                   : A7        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R4[1]                    : A8        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R3[8]                    : A9        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_IR0[5]                   : A10       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_IR0[9]                   : A11       : output : 3.3-V LVTTL       :         : 3         : N              
-GND+                         : A12       :        :                   :         : 4         :                
-DBG_PC[8]                    : A13       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_PC[10]                   : A14       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_PC[7]                    : A15       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_IR1[2]                   : A16       : output : 3.3-V LVTTL       :         : 4         : N              
-DMA_DATA[4]                  : A17       : input  : 3.3-V LVTTL       :         : 4         : N              
-DBG_BP_TARGET[5]             : A18       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_RAM_ADDR[5]              : A19       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_IR1[12]                  : A20       : output : 3.3-V LVTTL       :         : 4         : N              
-VCCIO4                       : A21       : power  :                   : 3.3V    : 4         :                
-GND                          : A22       : gnd    :                   :         :           :                
-VCCIO1                       : AA1       : power  :                   : 3.3V    : 1         :                
-GND                          : AA2       : gnd    :                   :         :           :                
-RESERVED_INPUT               : AA3       :        :                   :         : 8         :                
-RESERVED_INPUT               : AA4       :        :                   :         : 8         :                
-DBG_IR1[7]                   : AA5       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R3[10]                   : AA6       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R5[15]                   : AA7       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_SP[0]                    : AA8       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R6[0]                    : AA9       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_STATE[2]                 : AA10      : output : 3.3-V LVTTL       :         : 8         : N              
-RESERVED_INPUT               : AA11      :        :                   :         : 8         :                
-DBG_RAM_RDATA[9]             : AA12      : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : AA13      :        :                   :         : 7         :                
-DBG_BP_TARGET[14]            : AA14      : output : 3.3-V LVTTL       :         : 7         : N              
-DMA_DATA[8]                  : AA15      : input  : 3.3-V LVTTL       :         : 7         : N              
-DBG_GNT_DMA                  : AA16      : output : 3.3-V LVTTL       :         : 7         : N              
-DMA_DATA[15]                 : AA17      : input  : 3.3-V LVTTL       :         : 7         : N              
-DBG_IR0[7]                   : AA18      : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : AA19      :        :                   :         : 7         :                
-RESERVED_INPUT               : AA20      :        :                   :         : 7         :                
-GND                          : AA21      : gnd    :                   :         :           :                
-VCCIO6                       : AA22      : power  :                   : 3.3V    : 6         :                
-GND                          : AB1       : gnd    :                   :         :           :                
-VCCIO8                       : AB2       : power  :                   : 3.3V    : 8         :                
-DBG_IR0[13]                  : AB3       : output : 3.3-V LVTTL       :         : 8         : N              
-RESERVED_INPUT               : AB4       :        :                   :         : 8         :                
-DBG_R5[1]                    : AB5       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R2[2]                    : AB6       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_SP[2]                    : AB7       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R2[4]                    : AB8       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R6[4]                    : AB9       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_IR1[5]                   : AB10      : output : 3.3-V LVTTL       :         : 8         : N              
-HALT                         : AB11      : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_RAM_ADDR[7]              : AB12      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_RDATA[13]            : AB13      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_RDATA[5]             : AB14      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_RDATA[8]             : AB15      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_REQ_DMA                  : AB16      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_ADDR[9]              : AB17      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_BP_TARGET[3]             : AB18      : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_ADDR[14]             : AB19      : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : AB20      :        :                   :         : 7         :                
-VCCIO7                       : AB21      : power  :                   : 3.3V    : 7         :                
-GND                          : AB22      : gnd    :                   :         :           :                
-VCCIO2                       : B1        : power  :                   : 3.3V    : 2         :                
-GND                          : B2        : gnd    :                   :         :           :                
-DBG_R1[11]                   : B3        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R3[12]                   : B4        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R5[7]                    : B5        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R7[6]                    : B6        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R7[10]                   : B7        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R1[1]                    : B8        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R4[0]                    : B9        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_IR0[4]                   : B10       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_IR0[11]                  : B11       : output : 3.3-V LVTTL       :         : 3         : N              
-GND+                         : B12       :        :                   :         : 4         :                
-DBG_PC[5]                    : B13       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_PC[2]                    : B14       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_R3[1]                    : B15       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_IR0[6]                   : B16       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_REQ_CPU                  : B17       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_BP_TARGET[6]             : B18       : output : 3.3-V LVTTL       :         : 4         : N              
-DMA_DATA[5]                  : B19       : input  : 3.3-V LVTTL       :         : 4         : N              
-DBG_RAM_WDATA[5]             : B20       : output : 3.3-V LVTTL       :         : 4         : N              
-GND                          : B21       : gnd    :                   :         :           :                
-VCCIO5                       : B22       : power  :                   : 3.3V    : 5         :                
-DBG_R7[4]                    : C1        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R1[14]                   : C2        : output : 3.3-V LVTTL       :         : 2         : N              
-~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C3        : input  : 3.3-V LVTTL       :         : 2         : N              
-~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C4        : input  : 3.3-V LVTTL       :         : 2         : N              
-GND                          : C5        : gnd    :                   :         :           :                
-VCCIO3                       : C6        : power  :                   : 3.3V    : 3         :                
-DBG_R5[11]                   : C7        : output : 3.3-V LVTTL       :         : 3         : N              
-GND                          : C8        : gnd    :                   :         :           :                
-DBG_R7[13]                   : C9        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R6[15]                   : C10       : output : 3.3-V LVTTL       :         : 3         : N              
+GND                          : A2        : gnd    :                   :         :           :                
+DBG_RAM_ADDR[15]             : A3        : output : 3.3-V LVTTL       :         : 3         : N              
+VCCIO3                       : A4        : power  :                   : 3.3V    : 3         :                
+DBG_R4[14]                   : A5        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_WDATA[13]            : A6        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_B[7]                 : A7        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_B[0]                 : A8        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_A[9]                 : A9        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_Y[7]                 : A10       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_Y[6]                 : A11       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_GNT_CPU                  : A12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND                          : A13       : gnd    :                   :         :           :                
+DBG_STACK_DOUT[11]           : A14       : output : 3.3-V LVTTL       :         : 3         : N              
+VCCIO3                       : A15       : power  :                   : 3.3V    : 3         :                
+VCCIO4                       : A16       : power  :                   : 3.3V    : 4         :                
+DBG_PC[1]                    : A17       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : A18       : gnd    :                   :         :           :                
+DBG_R4[13]                   : A19       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R7[5]                    : A20       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[3]             : A21       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[9]                    : A22       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R6[1]                    : A23       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[7]                    : A24       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R6[7]                    : A25       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R5[11]                   : A26       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : A27       : power  :                   : 3.3V    : 4         :                
+DBG_REQ_DMA                  : A28       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : A29       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AA1       :        :                   :         : 1         :                
+RESERVED_INPUT               : AA2       :        :                   :         : 1         :                
+RESERVED_INPUT               : AA3       :        :                   :         : 1         :                
+DBG_ROM_DATA[13]             : AA4       : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_CACHE_ADDR[14]           : AA5       : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : AA6       :        :                   :         : 1         :                
+DBG_BP_TARGET[12]            : AA7       : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : AA8       :        :                   :         : 1         :                
+RESERVED_INPUT               : AA9       :        :                   :         : 1         :                
+RESERVED_INPUT               : AA10      :        :                   :         : 1         :                
+GND                          : AA11      : gnd    :                   :         :           :                
+GND                          : AA12      : gnd    :                   :         :           :                
+VCCINT                       : AA13      : power  :                   : 1.2V    :           :                
+VCCINT                       : AA14      : power  :                   : 1.2V    :           :                
+GND                          : AA15      : gnd    :                   :         :           :                
+GND                          : AA16      : gnd    :                   :         :           :                
+VCCINT                       : AA17      : power  :                   : 1.2V    :           :                
+VCCINT                       : AA18      : power  :                   : 1.2V    :           :                
+GND                          : AA19      : gnd    :                   :         :           :                
+GND                          : AA20      : gnd    :                   :         :           :                
+GND_PLL4                     : AA21      : gnd    :                   :         :           :                
+GND_PLL4                     : AA22      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AA23      :        :                   :         : 6         :                
+RESERVED_INPUT               : AA24      :        :                   :         : 6         :                
+DBG_RAM_ADDR[12]             : AA25      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AA26      :        :                   :         : 6         :                
+RESERVED_INPUT               : AA27      :        :                   :         : 6         :                
+DBG_R5[14]                   : AA28      : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_R5[10]                   : AA29      : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_R3[5]                    : AA30      : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_IR0[15]                  : AB1       : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : AB2       :        :                   :         : 1         :                
+VCCIO1                       : AB3       : power  :                   : 3.3V    : 1         :                
+GND                          : AB4       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AB5       :        :                   :         : 1         :                
+RESERVED_INPUT               : AB6       :        :                   :         : 1         :                
+RESERVED_INPUT               : AB7       :        :                   :         : 1         :                
+GND_PLL1                     : AB8       : gnd    :                   :         :           :                
+VCCD_PLL1                    : AB9       : power  :                   : 1.2V    :           :                
+GND                          : AB10      : gnd    :                   :         :           :                
+VCCIO8                       : AB11      : power  :                   : 3.3V    : 8         :                
+DMA_DATA[14]                 : AB12      : input  : 3.3-V LVTTL       :         : 8         : N              
+DBG_ALU_A[0]                 : AB13      : output : 3.3-V LVTTL       :         : 8         : N              
+GND                          : AB14      : gnd    :                   :         :           :                
+VCCIO8                       : AB15      : power  :                   : 3.3V    : 8         :                
+VCCIO7                       : AB16      : power  :                   : 3.3V    : 7         :                
+GND                          : AB17      : gnd    :                   :         :           :                
+DBG_ROM_DATA[6]              : AB18      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R5[4]                    : AB19      : output : 3.3-V LVTTL       :         : 7         : N              
+VCCIO7                       : AB20      : power  :                   : 3.3V    : 7         :                
+GND                          : AB21      : gnd    :                   :         :           :                
+VCCD_PLL4                    : AB22      : power  :                   : 1.2V    :           :                
+RESERVED_INPUT               : AB23      :        :                   :         : 6         :                
+RESERVED_INPUT               : AB24      :        :                   :         : 6         :                
+RESERVED_INPUT               : AB25      :        :                   :         : 6         :                
+RESERVED_INPUT               : AB26      :        :                   :         : 6         :                
+GND                          : AB27      : gnd    :                   :         :           :                
+VCCIO6                       : AB28      : power  :                   : 3.3V    : 6         :                
+RESERVED_INPUT               : AB29      :        :                   :         : 6         :                
+DBG_R1[1]                    : AB30      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AC1       :        :                   :         : 1         :                
+RESERVED_INPUT               : AC2       :        :                   :         : 1         :                
+RESERVED_INPUT               : AC3       :        :                   :         : 1         :                
+RESERVED_INPUT               : AC4       :        :                   :         : 1         :                
+DBG_IR1[13]                  : AC5       : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : AC6       :        :                   :         : 1         :                
+DBG_CACHE_ADDR[13]           : AC7       : output : 3.3-V LVTTL       :         : 1         : N              
+GND_PLL1                     : AC8       : gnd    :                   :         :           :                
+VCCA_PLL1                    : AC9       : power  :                   : 1.2V    :           :                
+GNDA_PLL1                    : AC10      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AC11      :        :                   :         : 8         :                
+DMA_START                    : AC12      : input  : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_ADDR[5]              : AC13      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_STACK_DOUT[10]           : AC14      : output : 3.3-V LVTTL       :         : 8         : N              
+GND+                         : AC15      :        :                   :         : 7         :                
+DBG_CACHE_RDATA[5]           : AC16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_PC[3]                    : AC17      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_ROM_ADDR[10]             : AC18      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R7[7]                    : AC19      : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : AC20      :        :                   :         : 7         :                
+RESERVED_INPUT               : AC21      :        :                   :         : 7         :                
+VCCA_PLL4                    : AC22      : power  :                   : 1.2V    :           :                
+RESERVED_INPUT               : AC23      :        :                   :         : 6         :                
+DBG_CACHE_ADDR[12]           : AC24      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AC25      :        :                   :         : 6         :                
+RESERVED_INPUT               : AC26      :        :                   :         : 6         :                
+RESERVED_INPUT               : AC27      :        :                   :         : 6         :                
+RESERVED_INPUT               : AC28      :        :                   :         : 6         :                
+RESERVED_INPUT               : AC29      :        :                   :         : 6         :                
+DBG_ROM_ADDR[8]              : AC30      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AD1       :        :                   :         : 1         :                
+RESERVED_INPUT               : AD2       :        :                   :         : 1         :                
+RESERVED_INPUT               : AD3       :        :                   :         : 1         :                
+RESERVED_INPUT               : AD4       :        :                   :         : 1         :                
+RESERVED_INPUT               : AD5       :        :                   :         : 1         :                
+RESERVED_INPUT               : AD6       :        :                   :         : 1         :                
+RESERVED_INPUT               : AD7       :        :                   :         : 1         :                
+DBG_RAM_ADDR[7]              : AD8       : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : AD9       :        :                   :         : 8         :                
+RESERVED_INPUT               : AD10      :        :                   :         : 8         :                
+DBG_IR0[0]                   : AD11      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_CACHE_ADDR[8]            : AD12      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR0[4]                   : AD13      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RF_DIN[10]               : AD14      : output : 3.3-V LVTTL       :         : 8         : N              
+GND+                         : AD15      :        :                   :         : 7         :                
+DBG_R6[11]                   : AD16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_PC[7]                    : AD17      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_ROM_ADDR[11]             : AD18      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R4[8]                    : AD19      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_IR1[14]                  : AD20      : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : AD21      :        :                   :         : 7         :                
+DBG_BP_TARGET[13]            : AD22      : output : 3.3-V LVTTL       :         : 7         : N              
+GNDA_PLL4                    : AD23      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AD24      :        :                   :         : 6         :                
+~LVDS195p/nCEO~              : AD25      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AD26      :        :                   :         : 6         :                
+RESERVED_INPUT               : AD27      :        :                   :         : 6         :                
+RESERVED_INPUT               : AD28      :        :                   :         : 6         :                
+RESERVED_INPUT               : AD29      :        :                   :         : 6         :                
+RESERVED_INPUT               : AD30      :        :                   :         : 6         :                
+RESERVED_INPUT               : AE1       :        :                   :         : 1         :                
+RESERVED_INPUT               : AE2       :        :                   :         : 1         :                
+RESERVED_INPUT               : AE3       :        :                   :         : 1         :                
+RESERVED_INPUT               : AE4       :        :                   :         : 1         :                
+VCCIO1                       : AE5       : power  :                   : 3.3V    : 1         :                
+GND                          : AE6       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AE7       :        :                   :         : 8         :                
+RESERVED_INPUT               : AE8       :        :                   :         : 8         :                
+GND                          : AE9       : gnd    :                   :         :           :                
+VCCIO8                       : AE10      : power  :                   : 3.3V    : 8         :                
+DBG_ALU_B[12]                : AE11      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_RDATA[14]            : AE12      : output : 3.3-V LVTTL       :         : 8         : N              
+RESET                        : AE13      : input  : 3.3-V LVTTL       :         : 8         : N              
+GND                          : AE14      : gnd    :                   :         :           :                
+DBG_ROM_DATA[8]              : AE15      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_R6[9]                    : AE16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R5[15]                   : AE17      : output : 3.3-V LVTTL       :         : 7         : N              
+GND                          : AE18      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AE19      :        :                   :         : 7         :                
+DBG_IR1[9]                   : AE20      : output : 3.3-V LVTTL       :         : 7         : N              
+VCCIO7                       : AE21      : power  :                   : 3.3V    : 7         :                
+GND                          : AE22      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AE23      :        :                   :         : 7         :                
+RESERVED_INPUT               : AE24      :        :                   :         : 7         :                
+GND                          : AE25      : gnd    :                   :         :           :                
+VCCIO6                       : AE26      : power  :                   : 3.3V    : 6         :                
+RESERVED_INPUT               : AE27      :        :                   :         : 6         :                
+RESERVED_INPUT               : AE28      :        :                   :         : 6         :                
+DBG_BP_TARGET[7]             : AE29      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AE30      :        :                   :         : 6         :                
+RESERVED_INPUT               : AF1       :        :                   :         : 1         :                
+RESERVED_INPUT               : AF2       :        :                   :         : 1         :                
+RESERVED_INPUT               : AF3       :        :                   :         : 1         :                
+RESERVED_INPUT               : AF4       :        :                   :         : 1         :                
+GND                          : AF5       : gnd    :                   :         :           :                
+VCCIO8                       : AF6       : power  :                   : 3.3V    : 8         :                
+RESERVED_INPUT               : AF7       :        :                   :         : 8         :                
+RESERVED_INPUT               : AF8       :        :                   :         : 8         :                
+RESERVED_INPUT               : AF9       :        :                   :         : 8         :                
+DBG_ROM_DATA[12]             : AF10      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR0[8]                   : AF11      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_WDATA[1]             : AF12      : output : 3.3-V LVTTL       :         : 8         : N              
+VCCIO8                       : AF13      : power  :                   : 3.3V    : 8         :                
+DBG_STATE[2]                 : AF14      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_SP[2]                    : AF15      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_R6[14]                   : AF16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_ROM_ADDR[6]              : AF17      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R1[2]                    : AF18      : output : 3.3-V LVTTL       :         : 7         : N              
+VCCIO7                       : AF19      : power  :                   : 3.3V    : 7         :                
+DBG_ROM_ADDR[15]             : AF20      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_CACHE_ADDR[4]            : AF21      : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : AF22      :        :                   :         : 7         :                
+RESERVED_INPUT               : AF23      :        :                   :         : 7         :                
+DBG_IR0[7]                   : AF24      : output : 3.3-V LVTTL       :         : 7         : N              
+VCCIO7                       : AF25      : power  :                   : 3.3V    : 7         :                
+GND                          : AF26      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AF27      :        :                   :         : 6         :                
+RESERVED_INPUT               : AF28      :        :                   :         : 6         :                
+RESERVED_INPUT               : AF29      :        :                   :         : 6         :                
+RESERVED_INPUT               : AF30      :        :                   :         : 6         :                
+VCCIO1                       : AG1       : power  :                   : 3.3V    : 1         :                
+RESERVED_INPUT               : AG2       :        :                   :         : 1         :                
+RESERVED_INPUT               : AG3       :        :                   :         : 1         :                
+RESERVED_INPUT               : AG4       :        :                   :         : 8         :                
+DBG_IR1[15]                  : AG5       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR0[14]                  : AG6       : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : AG7       :        :                   :         : 8         :                
+RESERVED_INPUT               : AG8       :        :                   :         : 8         :                
+DBG_IR0[5]                   : AG9       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_RDATA[11]            : AG10      : output : 3.3-V LVTTL       :         : 8         : N              
+GND                          : AG11      : gnd    :                   :         :           :                
+DBG_IR0[9]                   : AG12      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_CACHE_RDATA[10]          : AG13      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_ALU_A[13]                : AG14      : output : 3.3-V LVTTL       :         : 8         : N              
+GND+                         : AG15      :        :                   :         : 8         :                
+DBG_R6[8]                    : AG16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R7[12]                   : AG17      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R3[3]                    : AG18      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R7[4]                    : AG19      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_ROM_ADDR[14]             : AG20      : output : 3.3-V LVTTL       :         : 7         : N              
+GND                          : AG21      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG22      :        :                   :         : 7         :                
+RESERVED_INPUT               : AG23      :        :                   :         : 7         :                
+RESERVED_INPUT               : AG24      :        :                   :         : 7         :                
+RESERVED_INPUT               : AG25      :        :                   :         : 7         :                
+RESERVED_INPUT               : AG26      :        :                   :         : 7         :                
+RESERVED_INPUT               : AG27      :        :                   :         : 7         :                
+RESERVED_INPUT               : AG28      :        :                   :         : 6         :                
+RESERVED_INPUT               : AG29      :        :                   :         : 6         :                
+VCCIO6                       : AG30      : power  :                   : 3.3V    : 6         :                
+RESERVED_INPUT               : AH1       :        :                   :         : 1         :                
+DBG_RAM_ADDR[13]             : AH2       : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : AH3       :        :                   :         : 8         :                
+RESERVED_INPUT               : AH4       :        :                   :         : 8         :                
+RESERVED_INPUT               : AH5       :        :                   :         : 8         :                
+GND                          : AH6       : gnd    :                   :         :           :                
+DBG_ROM_DATA[15]             : AH7       : output : 3.3-V LVTTL       :         : 8         : N              
+VCCIO8                       : AH8       : power  :                   : 3.3V    : 8         :                
+DBG_ROM_DATA[2]              : AH9       : output : 3.3-V LVTTL       :         : 8         : N              
+DMA_DATA[0]                  : AH10      : input  : 3.3-V LVTTL       :         : 8         : N              
+VCCIO8                       : AH11      : power  :                   : 3.3V    : 8         :                
+DBG_IR0[3]                   : AH12      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_CACHE_RDATA[8]           : AH13      : output : 3.3-V LVTTL       :         : 8         : N              
+GND+                         : AH14      :        :                   :         : 8         :                
+DBG_CACHE_WDATA[9]           : AH15      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_R2[13]                   : AH16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R2[7]                    : AH17      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_PC[6]                    : AH18      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R7[3]                    : AH19      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_CACHE_MISS               : AH20      : output : 3.3-V LVTTL       :         : 7         : N              
+VCCIO7                       : AH21      : power  :                   : 3.3V    : 7         :                
+DBG_CACHE_ADDR[9]            : AH22      : output : 3.3-V LVTTL       :         : 7         : N              
+VCCIO7                       : AH23      : power  :                   : 3.3V    : 7         :                
+RESERVED_INPUT               : AH24      :        :                   :         : 7         :                
+GND                          : AH25      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AH26      :        :                   :         : 7         :                
+RESERVED_INPUT               : AH27      :        :                   :         : 7         :                
+DBG_ROM_DATA[7]              : AH28      : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : AH29      :        :                   :         : 6         :                
+RESERVED_INPUT               : AH30      :        :                   :         : 6         :                
+GND                          : AJ1       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AJ2       :        :                   :         : 8         :                
+RESERVED_INPUT               : AJ3       :        :                   :         : 8         :                
+RESERVED_INPUT               : AJ4       :        :                   :         : 8         :                
+DBG_BP_TARGET[15]            : AJ5       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR1[7]                   : AJ6       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_ALU_B[13]                : AJ7       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR1[8]                   : AJ8       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_WDATA[4]             : AJ9       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR0[2]                   : AJ10      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_IR0[1]                   : AJ11      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_CACHE_WE                 : AJ12      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_CACHE_WDATA[10]          : AJ13      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_CACHE_WDATA[8]           : AJ14      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_R3[12]                   : AJ15      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_R4[3]                    : AJ16      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_PC[9]                    : AJ17      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_PC[13]                   : AJ18      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_ROM_ADDR[12]             : AJ19      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R3[11]                   : AJ20      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R7[1]                    : AJ21      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R3[1]                    : AJ22      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_IR1[4]                   : AJ23      : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : AJ24      :        :                   :         : 7         :                
+RESERVED_INPUT               : AJ25      :        :                   :         : 7         :                
+RESERVED_INPUT               : AJ26      :        :                   :         : 7         :                
+RESERVED_INPUT               : AJ27      :        :                   :         : 7         :                
+RESERVED_INPUT               : AJ28      :        :                   :         : 7         :                
+RESERVED_INPUT               : AJ29      :        :                   :         : 6         :                
+GND                          : AJ30      : gnd    :                   :         :           :                
+GND                          : AK2       : gnd    :                   :         :           :                
+DBG_RF_WR[3]                 : AK3       : output : 3.3-V LVTTL       :         : 8         : N              
+VCCIO8                       : AK4       : power  :                   : 3.3V    : 8         :                
+RESERVED_INPUT               : AK5       :        :                   :         : 8         :                
+RESERVED_INPUT               : AK6       :        :                   :         : 8         :                
+DBG_BP_TARGET[14]            : AK7       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_WDATA[11]            : AK8       : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_ADDR[3]              : AK9       : output : 3.3-V LVTTL       :         : 8         : N              
+DMA_VALID                    : AK10      : input  : 3.3-V LVTTL       :         : 8         : N              
+DBG_RAM_WDATA[2]             : AK11      : output : 3.3-V LVTTL       :         : 8         : N              
+DBG_STACK_POP                : AK12      : output : 3.3-V LVTTL       :         : 8         : N              
+GND                          : AK13      : gnd    :                   :         :           :                
+DBG_CACHE_WDATA[14]          : AK14      : output : 3.3-V LVTTL       :         : 8         : N              
+VCCIO8                       : AK15      : power  :                   : 3.3V    : 8         :                
+VCCIO7                       : AK16      : power  :                   : 3.3V    : 7         :                
+DBG_PC[5]                    : AK17      : output : 3.3-V LVTTL       :         : 7         : N              
+GND                          : AK18      : gnd    :                   :         :           :                
+DBG_RAM_RDATA[4]             : AK19      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R1[10]                   : AK20      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R1[11]                   : AK21      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_ROM_ADDR[13]             : AK22      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_R2[10]                   : AK23      : output : 3.3-V LVTTL       :         : 7         : N              
+DBG_RAM_ADDR[14]             : AK24      : output : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT               : AK25      :        :                   :         : 7         :                
+RESERVED_INPUT               : AK26      :        :                   :         : 7         :                
+VCCIO7                       : AK27      : power  :                   : 3.3V    : 7         :                
+RESERVED_INPUT               : AK28      :        :                   :         : 7         :                
+GND                          : AK29      : gnd    :                   :         :           :                
+GND                          : B1        : gnd    :                   :         :           :                
+RESERVED_INPUT               : B2        :        :                   :         : 2         :                
+DBG_RF_DIN[7]                : B3        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_FLAGS[1]                 : B4        : output : 3.3-V LVTTL       :         : 3         : N              
+DMA_DATA[12]                 : B5        : input  : 3.3-V LVTTL       :         : 3         : N              
+DBG_RF_DIN[9]                : B6        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_B[6]                 : B7        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_ADDR[6]              : B8        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_WDATA[9]             : B9        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_WDATA[15]            : B10       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_RDATA[0]             : B11       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_IR0[10]                  : B12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_OP[1]                : B13       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_WDATA[11]          : B14       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_WDATA[15]          : B15       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RF_DIN[13]               : B16       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_ROM_EN                   : B17       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_HIST[1]               : B18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_RF_WR[2]                 : B19       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_ROM_DATA[5]              : B20       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R1[5]                    : B21       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R1[0]                    : B22       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[4]                    : B23       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R5[7]                    : B24       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[15]                   : B25       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R7[6]                    : B26       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[0]             : B27       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R7[10]                   : B28       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R7[8]                    : B29       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : B30       : gnd    :                   :         :           :                
+DBG_ALU_B[2]                 : C1        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : C2        :        :                   :         : 2         :                
+RESERVED_INPUT               : C3        :        :                   :         : 2         :                
+DBG_CACHE_ADDR[6]            : C4        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_WDATA[0]             : C5        : output : 3.3-V LVTTL       :         : 3         : N              
+GND                          : C6        : gnd    :                   :         :           :                
+DBG_RF_DIN[12]               : C7        : output : 3.3-V LVTTL       :         : 3         : N              
+VCCIO3                       : C8        : power  :                   : 3.3V    : 3         :                
+DBG_STACK_DOUT[5]            : C9        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_R4[0]                    : C10       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : C11       : power  :                   : 3.3V    : 3         :                
-VCCIO4                       : C12       : power  :                   : 3.3V    : 4         :                
-DBG_PC[12]                   : C13       : output : 3.3-V LVTTL       :         : 4         : N              
-DMA_DATA[6]                  : C14       : input  : 3.3-V LVTTL       :         : 4         : N              
-GND                          : C15       : gnd    :                   :         :           :                
-DBG_IR1[11]                  : C16       : output : 3.3-V LVTTL       :         : 4         : N              
-RESERVED_INPUT               : C17       :        :                   :         : 4         :                
-DBG_RAM_RDATA[3]             : C18       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_BP_TARGET[2]             : C19       : output : 3.3-V LVTTL       :         : 5         : N              
-RESERVED_INPUT               : C20       :        :                   :         : 5         :                
-DBG_PC[15]                   : C21       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_BP_TARGET[4]             : C22       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_R4[12]                   : D1        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R1[5]                    : D2        : output : 3.3-V LVTTL       :         : 2         : N              
-RESERVED_INPUT               : D3        :        :                   :         : 2         :                
-DBG_R4[9]                    : D4        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R7[1]                    : D5        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R5[3]                    : D6        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R7[12]                   : D7        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R6[7]                    : D8        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R1[2]                    : D9        : output : 3.3-V LVTTL       :         : 3         : N              
-GND                          : D10       : gnd    :                   :         :           :                
-DBG_IR0[10]                  : D11       : output : 3.3-V LVTTL       :         : 3         : N              
-GND+                         : D12       :        :                   :         : 3         :                
-GND                          : D13       : gnd    :                   :         :           :                
-DBG_CACHE_HIT                : D14       : output : 3.3-V LVTTL       :         : 4         : N              
-DMA_DATA[7]                  : D15       : input  : 3.3-V LVTTL       :         : 4         : N              
-DBG_RAM_ADDR[4]              : D16       : output : 3.3-V LVTTL       :         : 4         : N              
-VCCIO4                       : D17       : power  :                   : 3.3V    : 4         :                
-GND                          : D18       : gnd    :                   :         :           :                
-DBG_RAM_ADDR[12]             : D19       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_IR1[13]                  : D20       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_IR1[6]                   : D21       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_IR1[9]                   : D22       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_R5[4]                    : E1        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R5[14]                   : E2        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R1[10]                   : E3        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R3[14]                   : E4        : output : 3.3-V LVTTL       :         : 2         : N              
-VCCD_PLL3                    : E5        : power  :                   : 1.2V    :           :                
-VCCA_PLL3                    : E6        : power  :                   : 1.2V    :           :                
-DBG_R4[10]                   : E7        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R5[0]                    : E8        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R2[1]                    : E9        : output : 3.3-V LVTTL       :         : 3         : N              
-VCCIO3                       : E10       : power  :                   : 3.3V    : 3         :                
-DBG_IR0[8]                   : E11       : output : 3.3-V LVTTL       :         : 3         : N              
-GND+                         : E12       :        :                   :         : 3         :                
-VCCIO4                       : E13       : power  :                   : 3.3V    : 4         :                
-DBG_IR1[10]                  : E14       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_RAM_WDATA[15]            : E15       : output : 3.3-V LVTTL       :         : 4         : N              
-GNDA_PLL2                    : E16       : gnd    :                   :         :           :                
-GND_PLL2                     : E17       : gnd    :                   :         :           :                
-DBG_IR0[0]                   : E18       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_STATE[4]                 : E19       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_PC[9]                    : E20       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_PC[13]                   : E21       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_IR0[1]                   : E22       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_R3[9]                    : F1        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R7[3]                    : F2        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R3[13]                   : F3        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R2[10]                   : F4        : output : 3.3-V LVTTL       :         : 2         : N              
-GND_PLL3                     : F5        : gnd    :                   :         :           :                
-GND_PLL3                     : F6        : gnd    :                   :         :           :                
-GNDA_PLL3                    : F7        : gnd    :                   :         :           :                
-DBG_R7[2]                    : F8        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R7[7]                    : F9        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R6[1]                    : F10       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_IR0[3]                   : F11       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_PC[14]                   : F12       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_IR1[1]                   : F13       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_IR1[0]                   : F14       : output : 3.3-V LVTTL       :         : 4         : N              
-DMA_DATA[1]                  : F15       : input  : 3.3-V LVTTL       :         : 4         : N              
-VCCA_PLL2                    : F16       : power  :                   : 1.2V    :           :                
-VCCD_PLL2                    : F17       : power  :                   : 1.2V    :           :                
-GND_PLL2                     : F18       : gnd    :                   :         :           :                
-GND                          : F19       : gnd    :                   :         :           :                
-DBG_STATE[0]                 : F20       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_STATE[3]                 : F21       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_R3[6]                    : F22       : output : 3.3-V LVTTL       :         : 5         : N              
-NC                           : G1        :        :                   :         :           :                
-NC                           : G2        :        :                   :         :           :                
-DBG_PC[4]                    : G3        : output : 3.3-V LVTTL       :         : 2         : N              
-GND                          : G4        : gnd    :                   :         :           :                
-DBG_R7[8]                    : G5        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R4[11]                   : G6        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R2[14]                   : G7        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R5[5]                    : G8        : output : 3.3-V LVTTL       :         : 3         : N              
-VCCIO3                       : G9        : power  :                   : 3.3V    : 3         :                
-GND                          : G10       : gnd    :                   :         :           :                
-DBG_R1[4]                    : G11       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_STATE[1]                 : G12       : output : 3.3-V LVTTL       :         : 4         : N              
-GND                          : G13       : gnd    :                   :         :           :                
-VCCIO4                       : G14       : power  :                   : 3.3V    : 4         :                
-DBG_RAM_RDATA[14]            : G15       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_PC[1]                    : G16       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_BP_TARGET[10]            : G17       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_IR1[8]                   : G18       : output : 3.3-V LVTTL       :         : 5         : N              
-VCCIO5                       : G19       : power  :                   : 3.3V    : 5         :                
-DBG_RAM_ADDR[6]              : G20       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_BP_HIST[0]               : G21       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_BP_TARGET[9]             : G22       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_R2[9]                    : H1        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R6[13]                   : H2        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R2[6]                    : H3        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_PC[3]                    : H4        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R3[11]                   : H5        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_PC[11]                   : H6        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R4[7]                    : H7        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R7[5]                    : H8        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R2[0]                    : H9        : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R2[15]                   : H10       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_R6[5]                    : H11       : output : 3.3-V LVTTL       :         : 3         : N              
-DBG_PC[6]                    : H12       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_IR1[3]                   : H13       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_RAM_RDATA[11]            : H14       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_BP_TARGET[0]             : H15       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_BP_PRED                  : H16       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_PC[0]                    : H17       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_FLAGS[3]                 : H18       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_RAM_WDATA[13]            : H19       : output : 3.3-V LVTTL       :         : 5         : N              
-GND                          : H20       : gnd    :                   :         :           :                
-NC                           : H21       :        :                   :         :           :                
-NC                           : H22       :        :                   :         :           :                
-DBG_R5[9]                    : J1        : output : 3.3-V LVTTL       :         : 2         : N              
-DBG_R4[13]                   : J2        : output : 3.3-V LVTTL       :         : 2         : N              
-NC                           : J3        :        :                   :         :           :                
-DBG_R6[3]                    : J4        : output : 3.3-V LVTTL       :         : 2         : N              
-NC                           : J5        :        :                   :         :           :                
-NC                           : J6        :        :                   :         :           :                
-VCCIO2                       : J7        : power  :                   : 3.3V    : 2         :                
-NC                           : J8        :        :                   :         :           :                
-NC                           : J9        :        :                   :         :           :                
-VCCINT                       : J10       : power  :                   : 1.2V    :           :                
-VCCINT                       : J11       : power  :                   : 1.2V    :           :                
-VCCINT                       : J12       : power  :                   : 1.2V    :           :                
-VCCINT                       : J13       : power  :                   : 1.2V    :           :                
-DBG_RAM_WDATA[14]            : J14       : output : 3.3-V LVTTL       :         : 4         : N              
-DBG_RAM_ADDR[11]             : J15       : output : 3.3-V LVTTL       :         : 5         : N              
-VCCIO5                       : J16       : power  :                   : 3.3V    : 5         :                
-DBG_RAM_ADDR[10]             : J17       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_BP_TARGET[11]            : J18       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_BP_HIST[1]               : J19       : output : 3.3-V LVTTL       :         : 5         : N              
-DMA_DATA[14]                 : J20       : input  : 3.3-V LVTTL       :         : 5         : N              
-DBG_RAM_RDATA[15]            : J21       : output : 3.3-V LVTTL       :         : 5         : N              
-DMA_DATA[11]                 : J22       : input  : 3.3-V LVTTL       :         : 5         : N              
-nCE                          : K1        :        :                   :         : 2         :                
-TCK                          : K2        : input  :                   :         : 2         :                
-GND                          : K3        : gnd    :                   :         :           :                
-DATA0                        : K4        : input  :                   :         : 2         :                
-TDI                          : K5        : input  :                   :         : 2         :                
-TMS                          : K6        : input  :                   :         : 2         :                
-GND                          : K7        : gnd    :                   :         :           :                
-NC                           : K8        :        :                   :         :           :                
-VCCINT                       : K9        : power  :                   : 1.2V    :           :                
-GND                          : K10       : gnd    :                   :         :           :                
+DBG_ALU_B[1]                 : C12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_STACK_DOUT[9]            : C13       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RF_WR[0]                 : C14       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_WDATA[13]          : C15       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_WDATA[7]           : C16       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R6[15]                   : C17       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_PC[0]                    : C18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R3[10]                   : C19       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : C20       : power  :                   : 3.3V    : 4         :                
+DBG_CACHE_WDATA[4]           : C21       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[1]                    : C22       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : C23       : power  :                   : 3.3V    : 4         :                
+DBG_R6[4]                    : C24       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : C25       : gnd    :                   :         :           :                
+DBG_R5[1]                    : C26       : output : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : C27       :        :                   :         : 4         :                
+RESERVED_INPUT               : C28       :        :                   :         : 4         :                
+DBG_R2[1]                    : C29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RF_DIN[6]                : C30       : output : 3.3-V LVTTL       :         : 5         : N              
+VCCIO2                       : D1        : power  :                   : 3.3V    : 2         :                
+DBG_ALU_A[11]                : D2        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_B[8]                 : D3        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : D4        :        :                   :         : 3         :                
+RESERVED_INPUT               : D5        :        :                   :         : 3         :                
+DBG_RAM_WDATA[8]             : D6        : output : 3.3-V LVTTL       :         : 3         : N              
+DMA_DATA[9]                  : D7        : input  : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_B[14]                : D8        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_REQ                : D9        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_Y[2]                 : D10       : output : 3.3-V LVTTL       :         : 3         : N              
+GND                          : D11       : gnd    :                   :         :           :                
+DBG_CACHE_ADDR[2]            : D12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_B[5]                 : D13       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_FLAGS[3]                 : D14       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_STACK_DOUT[15]           : D15       : output : 3.3-V LVTTL       :         : 3         : N              
+GND+                         : D16       :        :                   :         : 4         :                
+DBG_BP_TARGET[11]            : D17       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[8]             : D18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R5[0]                    : D19       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : D20       : gnd    :                   :         :           :                
+DBG_ALU_Y[10]                : D21       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[12]                   : D22       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R2[5]                    : D23       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_PRED                  : D24       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R7[11]                   : D25       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_ROM_DATA[14]             : D26       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R1[3]                    : D27       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R7[2]                    : D28       : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : D29       :        :                   :         : 5         :                
+VCCIO5                       : D30       : power  :                   : 3.3V    : 5         :                
+DBG_IR0[11]                  : E1        : output : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[7]                  : E2        : input  : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_Y[14]                : E3        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : E4        :        :                   :         : 2         :                
+GND                          : E5        : gnd    :                   :         :           :                
+VCCIO3                       : E6        : power  :                   : 3.3V    : 3         :                
+DBG_ALU_A[12]                : E7        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_R1[12]                   : E8        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RF_DIN[14]               : E9        : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_A[6]                 : E10       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_RDATA[12]          : E11       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_STACK_DOUT[8]            : E12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_B[11]                : E13       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_Y[11]                : E14       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_Y[12]                : E15       : output : 3.3-V LVTTL       :         : 3         : N              
+GND+                         : E16       :        :                   :         : 4         :                
+DBG_BP_TARGET[4]             : E17       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : E18       : power  :                   : 3.3V    : 4         :                
+DBG_R7[14]                   : E19       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R3[0]                    : E20       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_ROM_DATA[10]             : E21       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R4[5]                    : E22       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R5[5]                    : E23       : output : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : E24       :        :                   :         : 4         :                
+VCCIO4                       : E25       : power  :                   : 3.3V    : 4         :                
+GND                          : E26       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E27       :        :                   :         : 5         :                
+RESERVED_INPUT               : E28       :        :                   :         : 5         :                
+DBG_ALU_B[4]                 : E29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R2[4]                    : E30       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_HIT                : F1        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_A[5]                 : F2        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : F3        :        :                   :         : 2         :                
+RESERVED_INPUT               : F4        :        :                   :         : 2         :                
+VCCIO2                       : F5        : power  :                   : 3.3V    : 2         :                
+GND                          : F6        : gnd    :                   :         :           :                
+DBG_R6[2]                    : F7        : output : 3.3-V LVTTL       :         : 3         : N              
+DMA_DATA[3]                  : F8        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND                          : F9        : gnd    :                   :         :           :                
+VCCIO3                       : F10       : power  :                   : 3.3V    : 3         :                
+DBG_RAM_ADDR[10]             : F11       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_ADDR[2]              : F12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_IR1[0]                   : F13       : output : 3.3-V LVTTL       :         : 3         : N              
+GND                          : F14       : gnd    :                   :         :           :                
+VCCIO3                       : F15       : power  :                   : 3.3V    : 3         :                
+DBG_R2[3]                    : F16       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : F17       : gnd    :                   :         :           :                
+DBG_RF_DIN[15]               : F18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[1]             : F19       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_ALU_Y[3]                 : F20       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : F21       : power  :                   : 3.3V    : 4         :                
+GND                          : F22       : gnd    :                   :         :           :                
+RESERVED_INPUT               : F23       :        :                   :         : 4         :                
+DBG_CACHE_ADDR[15]           : F24       : output : 3.3-V LVTTL       :         : 4         : N              
+GND                          : F25       : gnd    :                   :         :           :                
+VCCIO5                       : F26       : power  :                   : 3.3V    : 5         :                
+DBG_R1[8]                    : F27       : output : 3.3-V LVTTL       :         : 5         : N              
+RESERVED_INPUT               : F28       :        :                   :         : 5         :                
+DBG_R7[15]                   : F29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R5[9]                    : F30       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R6[13]                   : G1        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_A[2]                 : G2        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : G3        :        :                   :         : 2         :                
+DBG_IR0[13]                  : G4        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : G5        :        :                   :         : 2         :                
+RESERVED_INPUT               : G6        :        :                   :         : 2         :                
+~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : G7        : input  : 3.3-V LVTTL       :         : 2         : N              
+GNDA_PLL3                    : G8        : gnd    :                   :         :           :                
+DMA_DATA[10]                 : G9        : input  : 3.3-V LVTTL       :         : 3         : N              
+DMA_DATA[4]                  : G10       : input  : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_A[3]                 : G11       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_WDATA[7]             : G12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_IR1[2]                   : G13       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_A[8]                 : G14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND+                         : G15       :        :                   :         : 3         :                
+DBG_R2[15]                   : G16       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_HIST[0]               : G17       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[6]             : G18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R5[8]                    : G19       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[10]            : G20       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_BP_TARGET[5]             : G21       : output : 3.3-V LVTTL       :         : 4         : N              
+RESERVED_INPUT               : G22       :        :                   :         : 4         :                
+GNDA_PLL2                    : G23       : gnd    :                   :         :           :                
+RESERVED_INPUT               : G24       :        :                   :         : 5         :                
+RESERVED_INPUT               : G25       :        :                   :         : 5         :                
+RESERVED_INPUT               : G26       :        :                   :         : 5         :                
+DBG_R2[0]                    : G27       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_BP_TARGET[9]             : G28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R4[10]                   : G29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_A[14]                : G30       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_B[15]                : H1        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_A[15]                : H2        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R2[9]                    : H3        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_STACK_DOUT[12]           : H4        : output : 3.3-V LVTTL       :         : 2         : N              
+RESERVED_INPUT               : H5        :        :                   :         : 2         :                
+RESERVED_INPUT               : H6        :        :                   :         : 2         :                
+RESERVED_INPUT               : H7        :        :                   :         : 2         :                
+RESERVED_INPUT               : H8        :        :                   :         : 2         :                
+VCCA_PLL3                    : H9        : power  :                   : 1.2V    :           :                
+DBG_IR1[6]                   : H10       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RF_WE                    : H11       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_STACK_DOUT[14]           : H12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_RAM_WDATA[3]             : H13       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_ALU_OP[0]                : H14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND+                         : H15       :        :                   :         : 3         :                
+DBG_CACHE_WDATA[5]           : H16       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_CACHE_WDATA[2]           : H17       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R1[4]                    : H18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_RF_DIN[2]                : H19       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_R2[14]                   : H20       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_GNT_DMA                  : H21       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCA_PLL2                    : H22       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT               : H23       :        :                   :         : 5         :                
+RESERVED_INPUT               : H24       :        :                   :         : 5         :                
+RESERVED_INPUT               : H25       :        :                   :         : 5         :                
+DBG_R7[0]                    : H26       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_BP_TARGET[2]             : H27       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R7[13]                   : H28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R3[6]                    : H29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R6[5]                    : H30       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R1[13]                   : J1        : output : 3.3-V LVTTL       :         : 2         : N              
+DMA_DONE                     : J2        : output : 3.3-V LVTTL       :         : 2         : N              
+VCCIO2                       : J3        : power  :                   : 3.3V    : 2         :                
+GND                          : J4        : gnd    :                   :         :           :                
+DBG_ALU_Y[15]                : J5        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_STACK_DOUT[7]            : J6        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_Y[8]                 : J7        : output : 3.3-V LVTTL       :         : 2         : N              
+GND_PLL3                     : J8        : gnd    :                   :         :           :                
+VCCD_PLL3                    : J9        : power  :                   : 1.2V    :           :                
+GND                          : J10       : gnd    :                   :         :           :                
+VCCIO3                       : J11       : power  :                   : 3.3V    : 3         :                
+DBG_SP[0]                    : J12       : output : 3.3-V LVTTL       :         : 3         : N              
+DBG_CACHE_ADDR[0]            : J13       : output : 3.3-V LVTTL       :         : 3         : N              
+GND                          : J14       : gnd    :                   :         :           :                
+VCCIO3                       : J15       : power  :                   : 3.3V    : 3         :                
+VCCIO4                       : J16       : power  :                   : 3.3V    : 4         :                
+GND                          : J17       : gnd    :                   :         :           :                
+DBG_R3[14]                   : J18       : output : 3.3-V LVTTL       :         : 4         : N              
+DBG_ROM_DATA[3]              : J19       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : J20       : power  :                   : 3.3V    : 4         :                
+GND                          : J21       : gnd    :                   :         :           :                
+VCCD_PLL2                    : J22       : power  :                   : 1.2V    :           :                
+VCCIO5                       : J23       : power  :                   : 3.3V    : 5         :                
+RESERVED_INPUT               : J24       :        :                   :         : 5         :                
+DBG_R5[6]                    : J25       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_FLAGS[2]                 : J26       : output : 3.3-V LVTTL       :         : 5         : N              
+GND                          : J27       : gnd    :                   :         :           :                
+VCCIO5                       : J28       : power  :                   : 3.3V    : 5         :                
+DBG_R3[7]                    : J29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R3[8]                    : J30       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RAM_ADDR[8]              : K1        : output : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[13]                 : K2        : input  : 3.3-V LVTTL       :         : 2         : N              
+DBG_SP[1]                    : K3        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_OP[2]                : K4        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_RAM_ADDR[0]              : K5        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_A[10]                : K6        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_B[3]                 : K7        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_Y[1]                 : K8        : output : 3.3-V LVTTL       :         : 2         : N              
+~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : K9        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND_PLL3                     : K10       : gnd    :                   :         :           :                
 GND                          : K11       : gnd    :                   :         :           :                
 GND                          : K12       : gnd    :                   :         :           :                
-GND                          : K13       : gnd    :                   :         :           :                
+VCCINT                       : K13       : power  :                   : 1.2V    :           :                
 VCCINT                       : K14       : power  :                   : 1.2V    :           :                
-NC                           : K15       :        :                   :         :           :                
+GND                          : K15       : gnd    :                   :         :           :                
 GND                          : K16       : gnd    :                   :         :           :                
-NC                           : K17       :        :                   :         :           :                
-NC                           : K18       :        :                   :         :           :                
+VCCINT                       : K17       : power  :                   : 1.2V    :           :                
+VCCINT                       : K18       : power  :                   : 1.2V    :           :                
 GND                          : K19       : gnd    :                   :         :           :                
-DBG_RAM_ADDR[2]              : K20       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_RAM_WDATA[0]             : K21       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_RAM_WE                   : K22       : output : 3.3-V LVTTL       :         : 5         : N              
-GND+                         : L1        :        :                   :         : 2         :                
-GND+                         : L2        :        :                   :         : 2         :                
-VCCIO2                       : L3        : power  :                   : 3.3V    : 2         :                
-nCONFIG                      : L4        :        :                   :         : 2         :                
-TDO                          : L5        : output :                   :         : 2         :                
-DCLK                         : L6        :        :                   :         : 2         :                
-NC                           : L7        :        :                   :         :           :                
-DBG_R2[7]                    : L8        : output : 3.3-V LVTTL       :         : 2         : N              
-VCCINT                       : L9        : power  :                   : 1.2V    :           :                
-GND                          : L10       : gnd    :                   :         :           :                
-GND                          : L11       : gnd    :                   :         :           :                
+GND                          : K20       : gnd    :                   :         :           :                
+GND_PLL2                     : K21       : gnd    :                   :         :           :                
+GND_PLL2                     : K22       : gnd    :                   :         :           :                
+DBG_STACK_DOUT[13]           : K23       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_Y[5]                 : K24       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R3[9]                    : K25       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R3[15]                   : K26       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_Y[4]                 : K27       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R5[13]                   : K28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R3[2]                    : K29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R5[2]                    : K30       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RF_DIN[1]                : L1        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_RAM_ADDR[1]              : L2        : output : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[2]                  : L3        : input  : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[5]                  : L4        : input  : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_B[9]                 : L5        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R2[6]                    : L6        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_ALU_A[4]                 : L7        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R6[0]                    : L8        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_FLAGS[0]                 : L9        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_IR1[1]                   : L10       : output : 3.3-V LVTTL       :         : 2         : N              
+VCCIO2                       : L11       : power  :                   : 3.3V    : 2         :                
 GND                          : L12       : gnd    :                   :         :           :                
-GND                          : L13       : gnd    :                   :         :           :                
+VCCINT                       : L13       : power  :                   : 1.2V    :           :                
 VCCINT                       : L14       : power  :                   : 1.2V    :           :                
-NC                           : L15       :        :                   :         :           :                
-NC                           : L16       :        :                   :         :           :                
-NC                           : L17       :        :                   :         :           :                
-DBG_RAM_ADDR[1]              : L18       : output : 3.3-V LVTTL       :         : 5         : N              
-DBG_RAM_ADDR[0]              : L19       : output : 3.3-V LVTTL       :         : 5         : N              
+VCCINT                       : L15       : power  :                   : 1.2V    :           :                
+VCCINT                       : L16       : power  :                   : 1.2V    :           :                
+VCCINT                       : L17       : power  :                   : 1.2V    :           :                
+VCCINT                       : L18       : power  :                   : 1.2V    :           :                
+VCCINT                       : L19       : power  :                   : 1.2V    :           :                
 VCCIO5                       : L20       : power  :                   : 3.3V    : 5         :                
-GND+                         : L21       :        :                   :         : 5         :                
-GND+                         : L22       :        :                   :         : 5         :                
-CLK                          : M1        : input  : 3.3-V LVTTL       :         : 1         : N              
-GND+                         : M2        :        :                   :         : 1         :                
-VCCIO1                       : M3        : power  :                   : 3.3V    : 1         :                
-GND                          : M4        : gnd    :                   :         :           :                
-DBG_R2[3]                    : M5        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R6[9]                    : M6        : output : 3.3-V LVTTL       :         : 1         : N              
-NC                           : M7        :        :                   :         :           :                
-NC                           : M8        :        :                   :         :           :                
-VCCINT                       : M9        : power  :                   : 1.2V    :           :                
-GND                          : M10       : gnd    :                   :         :           :                
+DBG_R1[15]                   : L21       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R5[12]                   : L22       : output : 3.3-V LVTTL       :         : 5         : N              
+GND                          : L23       : gnd    :                   :         :           :                
+DBG_RF_DIN[5]                : L24       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_Y[9]                 : L25       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_Y[0]                 : L26       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RF_DIN[8]                : L27       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RF_WR[1]                 : L28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R4[2]                    : L29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_WDATA[0]           : L30       : output : 3.3-V LVTTL       :         : 5         : N              
+HALT                         : M1        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_STATE[1]                 : M2        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_RAM_ADDR[4]              : M3        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_STACK_PUSH               : M4        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R2[12]                   : M5        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_STACK_DOUT[0]            : M6        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_STACK_DOUT[6]            : M7        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R6[3]                    : M8        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R2[2]                    : M9        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_R6[6]                    : M10       : output : 3.3-V LVTTL       :         : 2         : N              
 GND                          : M11       : gnd    :                   :         :           :                
-GND                          : M12       : gnd    :                   :         :           :                
-GND                          : M13       : gnd    :                   :         :           :                
+VCCINT                       : M12       : power  :                   : 1.2V    :           :                
+VCCINT                       : M13       : power  :                   : 1.2V    :           :                
 VCCINT                       : M14       : power  :                   : 1.2V    :           :                
-NC                           : M15       :        :                   :         :           :                
-NC                           : M16       :        :                   :         :           :                
-MSEL0                        : M17       :        :                   :         : 6         :                
-DBG_RAM_WDATA[12]            : M18       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_ADDR[3]              : M19       : output : 3.3-V LVTTL       :         : 6         : N              
-VCCIO6                       : M20       : power  :                   : 3.3V    : 6         :                
-GND+                         : M21       :        :                   :         : 6         :                
-GND+                         : M22       :        :                   :         : 6         :                
-DMA_DATA[9]                  : N1        : input  : 3.3-V LVTTL       :         : 1         : N              
-DBG_R7[14]                   : N2        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_SP[1]                    : N3        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R1[7]                    : N4        : output : 3.3-V LVTTL       :         : 1         : N              
-NC                           : N5        :        :                   :         :           :                
-DBG_R6[2]                    : N6        : output : 3.3-V LVTTL       :         : 1         : N              
-GND                          : N7        : gnd    :                   :         :           :                
-NC                           : N8        :        :                   :         :           :                
-VCCINT                       : N9        : power  :                   : 1.2V    :           :                
-GND                          : N10       : gnd    :                   :         :           :                
-GND                          : N11       : gnd    :                   :         :           :                
-GND                          : N12       : gnd    :                   :         :           :                
+VCCINT                       : M15       : power  :                   : 1.2V    :           :                
+GND                          : M16       : gnd    :                   :         :           :                
+VCCINT                       : M17       : power  :                   : 1.2V    :           :                
+VCCINT                       : M18       : power  :                   : 1.2V    :           :                
+VCCINT                       : M19       : power  :                   : 1.2V    :           :                
+GND                          : M20       : gnd    :                   :         :           :                
+DBG_STACK_DOUT[1]            : M21       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_STACK_DOUT[2]            : M22       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_STACK_DOUT[3]            : M23       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_A[1]                 : M24       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ALU_A[7]                 : M25       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R1[14]                   : M26       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R1[6]                    : M27       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R1[7]                    : M28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R5[3]                    : M29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R6[12]                   : M30       : output : 3.3-V LVTTL       :         : 5         : N              
+GND                          : N1        : gnd    :                   :         :           :                
+DBG_RAM_RDATA[8]             : N2        : output : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[8]                  : N3        : input  : 3.3-V LVTTL       :         : 2         : N              
+DBG_CACHE_RDATA[3]           : N4        : output : 3.3-V LVTTL       :         : 2         : N              
+VCCIO2                       : N5        : power  :                   : 3.3V    : 2         :                
+GND                          : N6        : gnd    :                   :         :           :                
+DBG_ALU_Y[13]                : N7        : output : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[11]                 : N8        : input  : 3.3-V LVTTL       :         : 2         : N              
+DMA_DATA[6]                  : N9        : input  : 3.3-V LVTTL       :         : 2         : N              
+DBG_RF_DIN[11]               : N10       : output : 3.3-V LVTTL       :         : 2         : N              
+VCCINT                       : N11       : power  :                   : 1.2V    :           :                
+VCCINT                       : N12       : power  :                   : 1.2V    :           :                
 GND                          : N13       : gnd    :                   :         :           :                
-VCCINT                       : N14       : power  :                   : 1.2V    :           :                
-DMA_DATA[0]                  : N15       : input  : 3.3-V LVTTL       :         : 6         : N              
+GND                          : N14       : gnd    :                   :         :           :                
+GND                          : N15       : gnd    :                   :         :           :                
 GND                          : N16       : gnd    :                   :         :           :                
-MSEL1                        : N17       :        :                   :         : 6         :                
-CONF_DONE                    : N18       :        :                   :         : 6         :                
-GND                          : N19       : gnd    :                   :         :           :                
-nSTATUS                      : N20       :        :                   :         : 6         :                
-DBG_RAM_RDATA[4]             : N21       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_RDATA[12]            : N22       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_R6[10]                   : P1        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R4[15]                   : P2        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R6[8]                    : P3        : output : 3.3-V LVTTL       :         : 1         : N              
-NC                           : P4        :        :                   :         :           :                
-DBG_R5[8]                    : P5        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_FLAGS[1]                 : P6        : output : 3.3-V LVTTL       :         : 1         : N              
-VCCIO1                       : P7        : power  :                   : 3.3V    : 1         :                
-DBG_R4[14]                   : P8        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R2[12]                   : P9        : output : 3.3-V LVTTL       :         : 8         : N              
-VCCINT                       : P10       : power  :                   : 1.2V    :           :                
+GND                          : N17       : gnd    :                   :         :           :                
+GND                          : N18       : gnd    :                   :         :           :                
+VCCINT                       : N19       : power  :                   : 1.2V    :           :                
+VCCINT                       : N20       : power  :                   : 1.2V    :           :                
+DBG_STATE[0]                 : N21       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_REQ_CPU                  : N22       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RF_DIN[3]                : N23       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R1[9]                    : N24       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_R2[8]                    : N25       : output : 3.3-V LVTTL       :         : 5         : N              
+GND                          : N26       : gnd    :                   :         :           :                
+VCCIO5                       : N27       : power  :                   : 3.3V    : 5         :                
+DBG_ROM_DATA[4]              : N28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_WDATA[1]           : N29       : output : 3.3-V LVTTL       :         : 5         : N              
+GND                          : N30       : gnd    :                   :         :           :                
+DBG_CACHE_RDATA[0]           : P1        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_CACHE_RDATA[6]           : P2        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_CACHE_RDATA[4]           : P3        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_CACHE_RDATA[1]           : P4        : output : 3.3-V LVTTL       :         : 2         : N              
+TCK                          : P5        : input  :                   :         : 2         :                
+DBG_RAM_WDATA[12]            : P6        : output : 3.3-V LVTTL       :         : 2         : N              
+DBG_RAM_WDATA[6]             : P7        : output : 3.3-V LVTTL       :         : 2         : N              
+TDI                          : P8        : input  :                   :         : 2         :                
+DBG_ALU_B[10]                : P9        : output : 3.3-V LVTTL       :         : 2         : N              
+GND                          : P10       : gnd    :                   :         :           :                
 VCCINT                       : P11       : power  :                   : 1.2V    :           :                
 VCCINT                       : P12       : power  :                   : 1.2V    :           :                
-VCCINT                       : P13       : power  :                   : 1.2V    :           :                
-NC                           : P14       :        :                   :         :           :                
-DBG_RAM_RDATA[0]             : P15       : output : 3.3-V LVTTL       :         : 6         : N              
-VCCIO6                       : P16       : power  :                   : 3.3V    : 6         :                
-DBG_RAM_WDATA[7]             : P17       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_WDATA[4]             : P18       : output : 3.3-V LVTTL       :         : 6         : N              
-NC                           : P19       :        :                   :         :           :                
-NC                           : P20       :        :                   :         :           :                
-NC                           : P21       :        :                   :         :           :                
-NC                           : P22       :        :                   :         :           :                
-DBG_R3[0]                    : R1        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R5[2]                    : R2        : output : 3.3-V LVTTL       :         : 1         : N              
-GND                          : R3        : gnd    :                   :         :           :                
-NC                           : R4        :        :                   :         :           :                
-DBG_R3[15]                   : R5        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R2[8]                    : R6        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R4[8]                    : R7        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R6[6]                    : R8        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R4[3]                    : R9        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R3[2]                    : R10       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_IR1[4]                   : R11       : output : 3.3-V LVTTL       :         : 8         : N              
-DMA_DATA[10]                 : R12       : input  : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_WDATA[6]             : R13       : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_IR1[15]                  : R14       : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_IR1[14]                  : R15       : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_WDATA[1]             : R16       : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : R17       :        :                   :         : 6         :                
-DBG_RAM_WDATA[10]            : R18       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_WDATA[3]             : R19       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_RDATA[10]            : R20       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_RDATA[6]             : R21       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_RDATA[2]             : R22       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_R2[5]                    : T1        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R1[8]                    : T2        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R4[4]                    : T3        : output : 3.3-V LVTTL       :         : 1         : N              
-VCCIO1                       : T4        : power  :                   : 3.3V    : 1         :                
-DBG_R7[11]                   : T5        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R1[15]                   : T6        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R4[5]                    : T7        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R2[13]                   : T8        : output : 3.3-V LVTTL       :         : 8         : N              
-VCCIO8                       : T9        : power  :                   : 3.3V    : 8         :                
-GND                          : T10       : gnd    :                   :         :           :                
-DBG_IR0[2]                   : T11       : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_BP_TARGET[12]            : T12       : output : 3.3-V LVTTL       :         : 7         : N              
+GND                          : P13       : gnd    :                   :         :           :                
+GND                          : P14       : gnd    :                   :         :           :                
+GND                          : P15       : gnd    :                   :         :           :                
+GND                          : P16       : gnd    :                   :         :           :                
+GND                          : P17       : gnd    :                   :         :           :                
+GND                          : P18       : gnd    :                   :         :           :                
+VCCINT                       : P19       : power  :                   : 1.2V    :           :                
+VCCINT                       : P20       : power  :                   : 1.2V    :           :                
+GND                          : P21       : gnd    :                   :         :           :                
+DBG_STACK_DOUT[4]            : P22       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RAM_RDATA[10]            : P23       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_WDATA[6]           : P24       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_RDATA[2]           : P25       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_PC[14]                   : P26       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_RDATA[7]           : P27       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_CACHE_READY              : P28       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_PC[2]                    : P29       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_PC[4]                    : P30       : output : 3.3-V LVTTL       :         : 5         : N              
+VCCIO2                       : R1        : power  :                   : 3.3V    : 2         :                
+GND+                         : R2        :        :                   :         : 2         :                
+GND+                         : R3        :        :                   :         : 2         :                
+TDO                          : R4        : output :                   :         : 2         :                
+nCONFIG                      : R5        :        :                   :         : 2         :                
+nCE                          : R6        :        :                   :         : 2         :                
+TMS                          : R7        : input  :                   :         : 2         :                
+DATA0                        : R8        : input  :                   :         : 2         :                
+DCLK                         : R9        :        :                   :         : 2         :                
+VCCIO2                       : R10       : power  :                   : 3.3V    : 2         :                
+GND                          : R11       : gnd    :                   :         :           :                
+VCCINT                       : R12       : power  :                   : 1.2V    :           :                
+GND                          : R13       : gnd    :                   :         :           :                
+GND                          : R14       : gnd    :                   :         :           :                
+GND                          : R15       : gnd    :                   :         :           :                
+GND                          : R16       : gnd    :                   :         :           :                
+GND                          : R17       : gnd    :                   :         :           :                
+GND                          : R18       : gnd    :                   :         :           :                
+VCCINT                       : R19       : power  :                   : 1.2V    :           :                
+GND                          : R20       : gnd    :                   :         :           :                
+VCCIO5                       : R21       : power  :                   : 3.3V    : 5         :                
+DBG_CACHE_RDATA[14]          : R22       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RAM_RDATA[9]             : R23       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ROM_ADDR[4]              : R24       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_PC[8]                    : R25       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_PC[12]                   : R26       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_RAM_RDATA[13]            : R27       : output : 3.3-V LVTTL       :         : 5         : N              
+GND+                         : R28       :        :                   :         : 5         :                
+GND+                         : R29       :        :                   :         : 5         :                
+VCCIO5                       : R30       : power  :                   : 3.3V    : 5         :                
+VCCIO1                       : T1        : power  :                   : 3.3V    : 1         :                
+CLK                          : T2        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND+                         : T3        :        :                   :         : 1         :                
+DBG_CACHE_ADDR[1]            : T4        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_ROM_ADDR[3]              : T5        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_CACHE_ADDR[3]            : T6        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_IR1[3]                   : T7        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_RDATA[1]             : T8        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_PC[11]                   : T9        : output : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : T10       : power  :                   : 3.3V    : 1         :                
+GND                          : T11       : gnd    :                   :         :           :                
+VCCINT                       : T12       : power  :                   : 1.2V    :           :                
 GND                          : T13       : gnd    :                   :         :           :                
-VCCIO7                       : T14       : power  :                   : 3.3V    : 7         :                
-DMA_DATA[12]                 : T15       : input  : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : T16       :        :                   :         : 7         :                
-GND_PLL4                     : T17       : gnd    :                   :         :           :                
-RESERVED_INPUT               : T18       :        :                   :         : 6         :                
-VCCIO6                       : T19       : power  :                   : 3.3V    : 6         :                
+GND                          : T14       : gnd    :                   :         :           :                
+GND                          : T15       : gnd    :                   :         :           :                
+GND                          : T16       : gnd    :                   :         :           :                
+GND                          : T17       : gnd    :                   :         :           :                
+GND                          : T18       : gnd    :                   :         :           :                
+VCCINT                       : T19       : power  :                   : 1.2V    :           :                
 GND                          : T20       : gnd    :                   :         :           :                
-DBG_GNT_CPU                  : T21       : output : 3.3-V LVTTL       :         : 6         : N              
-RESET                        : T22       : input  : 3.3-V LVTTL       :         : 6         : N              
-DBG_R4[2]                    : U1        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R4[6]                    : U2        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_R6[12]                   : U3        : output : 3.3-V LVTTL       :         : 1         : N              
-RESERVED_INPUT               : U4        :        :                   :         : 1         :                
-GND_PLL1                     : U5        : gnd    :                   :         :           :                
-VCCD_PLL1                    : U6        : power  :                   : 1.2V    :           :                
-VCCA_PLL1                    : U7        : power  :                   : 1.2V    :           :                
-DBG_R1[13]                   : U8        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R3[5]                    : U9        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R3[4]                    : U10       : output : 3.3-V LVTTL       :         : 8         : N              
-GND+                         : U11       :        :                   :         : 8         :                
-GND+                         : U12       :        :                   :         : 8         :                
-DBG_CACHE_MISS               : U13       : output : 3.3-V LVTTL       :         : 7         : N              
-DMA_DATA[3]                  : U14       : input  : 3.3-V LVTTL       :         : 7         : N              
-DBG_BP_TARGET[1]             : U15       : output : 3.3-V LVTTL       :         : 7         : N              
-VCCA_PLL4                    : U16       : power  :                   : 1.2V    :           :                
-VCCD_PLL4                    : U17       : power  :                   : 1.2V    :           :                
-DBG_BP_TARGET[15]            : U18       : output : 3.3-V LVTTL       :         : 6         : N              
-DMA_DONE                     : U19       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_WDATA[8]             : U20       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_RDATA[7]             : U21       : output : 3.3-V LVTTL       :         : 6         : N              
-DMA_DATA[2]                  : U22       : input  : 3.3-V LVTTL       :         : 6         : N              
-DBG_R5[12]                   : V1        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_FLAGS[2]                 : V2        : output : 3.3-V LVTTL       :         : 1         : N              
-GND                          : V3        : gnd    :                   :         :           :                
-RESERVED_INPUT               : V4        :        :                   :         : 1         :                
-GND_PLL1                     : V5        : gnd    :                   :         :           :                
+VCCIO6                       : T21       : power  :                   : 3.3V    : 6         :                
+DBG_ROM_ADDR[7]              : T22       : output : 3.3-V LVTTL       :         : 5         : N              
+DBG_ROM_ADDR[1]              : T23       : output : 3.3-V LVTTL       :         : 5         : N              
+GND+                         : T24       :        :                   :         : 6         :                
+GND+                         : T25       :        :                   :         : 6         :                
+DBG_CACHE_RDATA[11]          : T26       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_ROM_ADDR[9]              : T27       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_RAM_RDATA[6]             : T28       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_RAM_RDATA[2]             : T29       : output : 3.3-V LVTTL       :         : 6         : N              
+VCCIO6                       : T30       : power  :                   : 3.3V    : 6         :                
+DBG_RAM_RDATA[7]             : U1        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_CACHE_RDATA[9]           : U2        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_WE                   : U3        : output : 3.3-V LVTTL       :         : 1         : N              
+DMA_DATA[1]                  : U4        : input  : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_RDATA[15]            : U5        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_WDATA[10]            : U6        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_WDATA[5]             : U7        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_RDATA[12]            : U8        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RAM_RDATA[5]             : U9        : output : 3.3-V LVTTL       :         : 1         : N              
+GND                          : U10       : gnd    :                   :         :           :                
+VCCINT                       : U11       : power  :                   : 1.2V    :           :                
+VCCINT                       : U12       : power  :                   : 1.2V    :           :                
+GND                          : U13       : gnd    :                   :         :           :                
+GND                          : U14       : gnd    :                   :         :           :                
+GND                          : U15       : gnd    :                   :         :           :                
+GND                          : U16       : gnd    :                   :         :           :                
+GND                          : U17       : gnd    :                   :         :           :                
+GND                          : U18       : gnd    :                   :         :           :                
+VCCINT                       : U19       : power  :                   : 1.2V    :           :                
+VCCINT                       : U20       : power  :                   : 1.2V    :           :                
+GND                          : U21       : gnd    :                   :         :           :                
+MSEL0                        : U22       :        :                   :         : 6         :                
+DBG_ROM_DATA[9]              : U23       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_CACHE_WDATA[3]           : U24       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_ROM_DATA[1]              : U25       : output : 3.3-V LVTTL       :         : 6         : N              
+nSTATUS                      : U26       :        :                   :         : 6         :                
+CONF_DONE                    : U27       :        :                   :         : 6         :                
+MSEL1                        : U28       :        :                   :         : 6         :                
+DBG_CACHE_RDATA[15]          : U29       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_ROM_ADDR[2]              : U30       : output : 3.3-V LVTTL       :         : 6         : N              
+GND                          : V1        : gnd    :                   :         :           :                
+DBG_RAM_ADDR[9]              : V2        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_CACHE_ADDR[11]           : V3        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_R7[9]                    : V4        : output : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : V5        : power  :                   : 3.3V    : 1         :                
 GND                          : V6        : gnd    :                   :         :           :                
-GNDA_PLL1                    : V7        : gnd    :                   :         :           :                
-DBG_R6[11]                   : V8        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R5[13]                   : V9        : output : 3.3-V LVTTL       :         : 8         : N              
-VCCIO8                       : V10       : power  :                   : 3.3V    : 8         :                
-DBG_R1[6]                    : V11       : output : 3.3-V LVTTL       :         : 8         : N              
-GND+                         : V12       :        :                   :         : 7         :                
-VCCIO7                       : V13       : power  :                   : 3.3V    : 7         :                
-DMA_DATA[13]                 : V14       : input  : 3.3-V LVTTL       :         : 7         : N              
-DBG_IR0[15]                  : V15       : output : 3.3-V LVTTL       :         : 7         : N              
-GNDA_PLL4                    : V16       : gnd    :                   :         :           :                
+DBG_RAM_WDATA[14]            : V7        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_CACHE_ADDR[5]            : V8        : output : 3.3-V LVTTL       :         : 1         : N              
+DMA_DATA[15]                 : V9        : input  : 3.3-V LVTTL       :         : 1         : N              
+DBG_IR1[5]                   : V10       : output : 3.3-V LVTTL       :         : 1         : N              
+VCCINT                       : V11       : power  :                   : 1.2V    :           :                
+VCCINT                       : V12       : power  :                   : 1.2V    :           :                
+GND                          : V13       : gnd    :                   :         :           :                
+GND                          : V14       : gnd    :                   :         :           :                
+GND                          : V15       : gnd    :                   :         :           :                
+GND                          : V16       : gnd    :                   :         :           :                
 GND                          : V17       : gnd    :                   :         :           :                
-GND_PLL4                     : V18       : gnd    :                   :         :           :                
-RESERVED_INPUT               : V19       :        :                   :         : 6         :                
-RESERVED_INPUT               : V20       :        :                   :         : 6         :                
-DBG_RAM_WDATA[11]            : V21       : output : 3.3-V LVTTL       :         : 6         : N              
-DMA_START                    : V22       : input  : 3.3-V LVTTL       :         : 6         : N              
-DBG_BP_TARGET[13]            : W1        : output : 3.3-V LVTTL       :         : 1         : N              
-RESERVED_INPUT               : W2        :        :                   :         : 1         :                
-RESERVED_INPUT               : W3        :        :                   :         : 1         :                
-RESERVED_INPUT               : W4        :        :                   :         : 1         :                
-RESERVED_INPUT               : W5        :        :                   :         : 1         :                
-VCCIO8                       : W6        : power  :                   : 3.3V    : 8         :                
-DBG_R1[12]                   : W7        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R7[9]                    : W8        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R3[3]                    : W9        : output : 3.3-V LVTTL       :         : 8         : N              
-GND                          : W10       : gnd    :                   :         :           :                
-DBG_R1[3]                    : W11       : output : 3.3-V LVTTL       :         : 8         : N              
-GND+                         : W12       :        :                   :         : 7         :                
-GND                          : W13       : gnd    :                   :         :           :                
-DBG_RAM_ADDR[8]              : W14       : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_WDATA[2]             : W15       : output : 3.3-V LVTTL       :         : 7         : N              
-DBG_RAM_ADDR[13]             : W16       : output : 3.3-V LVTTL       :         : 7         : N              
-VCCIO7                       : W17       : power  :                   : 3.3V    : 7         :                
-NC                           : W18       :        :                   :         :           :                
-GND                          : W19       : gnd    :                   :         :           :                
-~LVDS91p/nCEO~               : W20       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_BP_TARGET[7]             : W21       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_BP_TARGET[8]             : W22       : output : 3.3-V LVTTL       :         : 6         : N              
-RESERVED_INPUT               : Y1        :        :                   :         : 1         :                
-DBG_R5[6]                    : Y2        : output : 3.3-V LVTTL       :         : 1         : N              
-DBG_IR0[12]                  : Y3        : output : 3.3-V LVTTL       :         : 1         : N              
-RESERVED_INPUT               : Y4        :        :                   :         : 1         :                
-DBG_RAM_ADDR[15]             : Y5        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_FLAGS[0]                 : Y6        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R2[11]                   : Y7        : output : 3.3-V LVTTL       :         : 8         : N              
-GND                          : Y8        : gnd    :                   :         :           :                
-DBG_R1[0]                    : Y9        : output : 3.3-V LVTTL       :         : 8         : N              
-DBG_R1[9]                    : Y10       : output : 3.3-V LVTTL       :         : 8         : N              
-VCCIO8                       : Y11       : power  :                   : 3.3V    : 8         :                
-VCCIO7                       : Y12       : power  :                   : 3.3V    : 7         :                
-RESERVED_INPUT               : Y13       :        :                   :         : 7         :                
-DMA_VALID                    : Y14       : input  : 3.3-V LVTTL       :         : 7         : N              
-GND                          : Y15       : gnd    :                   :         :           :                
-DBG_IR0[14]                  : Y16       : output : 3.3-V LVTTL       :         : 7         : N              
-RESERVED_INPUT               : Y17       :        :                   :         : 7         :                
-RESERVED_INPUT               : Y18       :        :                   :         : 6         :                
-RESERVED_INPUT               : Y19       :        :                   :         : 6         :                
-RESERVED_INPUT               : Y20       :        :                   :         : 6         :                
-DBG_RAM_RDATA[1]             : Y21       : output : 3.3-V LVTTL       :         : 6         : N              
-DBG_RAM_WDATA[9]             : Y22       : output : 3.3-V LVTTL       :         : 6         : N              
+GND                          : V18       : gnd    :                   :         :           :                
+VCCINT                       : V19       : power  :                   : 1.2V    :           :                
+VCCINT                       : V20       : power  :                   : 1.2V    :           :                
+DBG_STATE[4]                 : V21       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_IR1[10]                  : V22       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_R4[11]                   : V23       : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : V24       :        :                   :         : 6         :                
+GND                          : V25       : gnd    :                   :         :           :                
+VCCIO6                       : V26       : power  :                   : 3.3V    : 6         :                
+DBG_PC[10]                   : V27       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_RF_DIN[4]                : V28       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_CACHE_WDATA[12]          : V29       : output : 3.3-V LVTTL       :         : 6         : N              
+GND                          : V30       : gnd    :                   :         :           :                
+DBG_ROM_ADDR[0]              : W1        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_IR1[11]                  : W2        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_R2[11]                   : W3        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_IR0[6]                   : W4        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_IR0[12]                  : W5        : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : W6        :        :                   :         : 1         :                
+RESERVED_INPUT               : W7        :        :                   :         : 1         :                
+RESERVED_INPUT               : W8        :        :                   :         : 1         :                
+RESERVED_INPUT               : W9        :        :                   :         : 1         :                
+RESERVED_INPUT               : W10       :        :                   :         : 1         :                
+GND                          : W11       : gnd    :                   :         :           :                
+VCCINT                       : W12       : power  :                   : 1.2V    :           :                
+VCCINT                       : W13       : power  :                   : 1.2V    :           :                
+VCCINT                       : W14       : power  :                   : 1.2V    :           :                
+GND                          : W15       : gnd    :                   :         :           :                
+VCCINT                       : W16       : power  :                   : 1.2V    :           :                
+VCCINT                       : W17       : power  :                   : 1.2V    :           :                
+VCCINT                       : W18       : power  :                   : 1.2V    :           :                
+VCCINT                       : W19       : power  :                   : 1.2V    :           :                
+GND                          : W20       : gnd    :                   :         :           :                
+RESERVED_INPUT               : W21       :        :                   :         : 6         :                
+RESERVED_INPUT               : W22       :        :                   :         : 6         :                
+RESERVED_INPUT               : W23       :        :                   :         : 6         :                
+RESERVED_INPUT               : W24       :        :                   :         : 6         :                
+DBG_R6[10]                   : W25       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_CACHE_ADDR[10]           : W26       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_ROM_ADDR[5]              : W27       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_PC[15]                   : W28       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_CACHE_RDATA[13]          : W29       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_RAM_RDATA[3]             : W30       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_RAM_ADDR[11]             : Y1        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_RF_DIN[0]                : Y2        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_R3[13]                   : Y3        : output : 3.3-V LVTTL       :         : 1         : N              
+DBG_STATE[3]                 : Y4        : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : Y5        :        :                   :         : 1         :                
+RESERVED_INPUT               : Y6        :        :                   :         : 1         :                
+RESERVED_INPUT               : Y7        :        :                   :         : 1         :                
+RESERVED_INPUT               : Y8        :        :                   :         : 1         :                
+DBG_CACHE_ADDR[7]            : Y9        : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : Y10       :        :                   :         : 1         :                
+VCCIO1                       : Y11       : power  :                   : 3.3V    : 1         :                
+VCCINT                       : Y12       : power  :                   : 1.2V    :           :                
+VCCINT                       : Y13       : power  :                   : 1.2V    :           :                
+VCCINT                       : Y14       : power  :                   : 1.2V    :           :                
+VCCINT                       : Y15       : power  :                   : 1.2V    :           :                
+VCCINT                       : Y16       : power  :                   : 1.2V    :           :                
+VCCINT                       : Y17       : power  :                   : 1.2V    :           :                
+VCCINT                       : Y18       : power  :                   : 1.2V    :           :                
+GND                          : Y19       : gnd    :                   :         :           :                
+VCCIO6                       : Y20       : power  :                   : 3.3V    : 6         :                
+RESERVED_INPUT               : Y21       :        :                   :         : 6         :                
+RESERVED_INPUT               : Y22       :        :                   :         : 6         :                
+DBG_IR1[12]                  : Y23       : output : 3.3-V LVTTL       :         : 6         : N              
+RESERVED_INPUT               : Y24       :        :                   :         : 6         :                
+RESERVED_INPUT               : Y25       :        :                   :         : 6         :                
+RESERVED_INPUT               : Y26       :        :                   :         : 6         :                
+DBG_R3[4]                    : Y27       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_ROM_DATA[0]              : Y28       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_ROM_DATA[11]             : Y29       : output : 3.3-V LVTTL       :         : 6         : N              
+DBG_R4[6]                    : Y30       : output : 3.3-V LVTTL       :         : 6         : N              

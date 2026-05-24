@@ -1,0 +1,4 @@
+QUARTUS_VERSION = "9.1"
+DATE = "May 24, 2026"
+
+PROJECT_REVISION = "section_2_fetch_decode"

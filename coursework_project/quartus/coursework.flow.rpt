@@ -1,5 +1,5 @@
 Flow report for coursework
-Thu May 21 19:15:31 2026
+Sun May 24 23:04:17 2026
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +------------------------------------+-----------------------------------------+
-; Flow Status                        ; Successful - Thu May 21 19:15:31 2026   ;
+; Flow Status                        ; Successful - Sun May 24 23:04:17 2026   ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name                      ; coursework                              ;
-; Top-level Entity Name              ; appendix_n_microevm_top                 ;
+; Top-level Entity Name              ; microcomputer_debug_top                 ;
 ; Family                             ; Cyclone II                              ;
 ; Met timing requirements            ; N/A                                     ;
-; Total logic elements               ; 4,897                                   ;
-;     Total combinational functions  ; 2,850                                   ;
-;     Dedicated logic registers      ; 2,440                                   ;
-; Total registers                    ; 2440                                    ;
-; Total pins                         ; 92                                      ;
+; Total logic elements               ; 4,593                                   ;
+;     Total combinational functions  ; 2,687                                   ;
+;     Dedicated logic registers      ; 2,350                                   ;
+; Total registers                    ; 2350                                    ;
+; Total pins                         ; 268                                     ;
 ; Total virtual pins                 ; 0                                       ;
 ; Total memory bits                  ; 6,912                                   ;
 ; Embedded Multiplier 9-bit elements ; 0                                       ;
@@ -61,7 +61,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/21/2026 19:14:23 ;
+; Start date & time ; 05/24/2026 23:03:57 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; coursework          ;
 +-------------------+---------------------+
@@ -72,13 +72,13 @@ applicable agreement for further details.
 +------------------------+--------------------------------------+---------------+-------------------------+------------+
 ; Assignment Name        ; Value                                ; Default Value ; Entity Name             ; Section Id ;
 +------------------------+--------------------------------------+---------------+-------------------------+------------+
-; COMPILER_SIGNATURE_ID  ; 300159283300.177938006303144         ; --            ; --                      ; --         ;
+; COMPILER_SIGNATURE_ID  ; 300159283300.177965303726980         ; --            ; --                      ; --         ;
 ; MISC_FILE              ; ../memory/rom_program.mif            ; --            ; --                      ; --         ;
 ; MISC_FILE              ; ../memory/ram_initial.mif            ; --            ; --                      ; --         ;
 ; MISC_FILE              ; ../memory/ram_expected_after_hlt.mif ; --            ; --                      ; --         ;
-; PARTITION_COLOR        ; 16764057                             ; --            ; appendix_n_microevm_top ; Top        ;
-; PARTITION_NETLIST_TYPE ; SOURCE                               ; --            ; appendix_n_microevm_top ; Top        ;
-; TOP_LEVEL_ENTITY       ; appendix_n_microevm_top              ; coursework    ; --                      ; --         ;
+; PARTITION_COLOR        ; 16764057                             ; --            ; microcomputer_debug_top ; Top        ;
+; PARTITION_NETLIST_TYPE ; SOURCE                               ; --            ; microcomputer_debug_top ; Top        ;
+; TOP_LEVEL_ENTITY       ; microcomputer_debug_top              ; coursework    ; --                      ; --         ;
 +------------------------+--------------------------------------+---------------+-------------------------+------------+
 
 
@@ -87,8 +87,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:10     ; 1.0                     ; 276 MB              ; 00:01:04                           ;
-; Total                ; 00:01:10     ; --                      ; --                  ; 00:01:04                           ;
+; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 276 MB              ; 00:00:20                           ;
+; Total                ; 00:00:19     ; --                      ; --                  ; 00:00:20                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -104,7 +104,7 @@ applicable agreement for further details.
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off coursework -c coursework
+quartus_map coursework --read_settings_files=on --write_settings_files=off
 
 
 

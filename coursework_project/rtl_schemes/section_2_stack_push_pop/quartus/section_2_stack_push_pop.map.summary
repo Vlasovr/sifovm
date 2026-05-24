@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon May 25 00:04:30 2026
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : section_2_stack_push_pop
+Top-level Entity Name : section_2_stack_push_pop_top
+Family : Cyclone II
+Total logic elements : 213
+    Total combinational functions : 101
+    Dedicated logic registers : 131
+Total registers : 131
+Total pins : 50
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

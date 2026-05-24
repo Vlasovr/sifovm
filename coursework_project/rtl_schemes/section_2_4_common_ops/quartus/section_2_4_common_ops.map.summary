@@ -1,0 +1,15 @@
+Flow Status : Successful - Sun May 24 21:23:46 2026
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : section_2_4_common_ops
+Top-level Entity Name : section_2_4_common_ops_top
+Family : Cyclone II
+Met timing requirements : N/A
+Total logic elements : N/A until Partition Merge
+    Total combinational functions : N/A until Partition Merge
+    Dedicated logic registers : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total memory bits : N/A until Partition Merge
+Embedded Multiplier 9-bit elements : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge

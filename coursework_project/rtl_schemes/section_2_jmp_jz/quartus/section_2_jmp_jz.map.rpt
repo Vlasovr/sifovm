@@ -1,0 +1,634 @@
+Analysis & Synthesis report for section_2_jmp_jz
+Mon May 25 00:04:26 2026
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Protected by Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Source assignments for Top-level Entity: |section_2_jmp_jz_top
+ 12. Source assignments for ir_pair_j:u_ir
+ 13. Source assignments for z_reg:u_z
+ 14. Source assignments for pc_reg_j:u_pc
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++------------------------------------+-----------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon May 25 00:04:26 2026   ;
+; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
+; Revision Name                      ; section_2_jmp_jz                        ;
+; Top-level Entity Name              ; section_2_jmp_jz_top                    ;
+; Family                             ; Cyclone II                              ;
+; Total logic elements               ; 142                                     ;
+;     Total combinational functions  ; 142                                     ;
+;     Dedicated logic registers      ; 45                                      ;
+; Total registers                    ; 45                                      ;
+; Total pins                         ; 138                                     ;
+; Total virtual pins                 ; 0                                       ;
+; Total memory bits                  ; 0                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                       ;
+; Total PLLs                         ; 0                                       ;
++------------------------------------+-----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                          ;
++----------------------------------------------------------------------------+----------------------+--------------------+
+; Option                                                                     ; Setting              ; Default Value      ;
++----------------------------------------------------------------------------+----------------------+--------------------+
+; Top-level entity name                                                      ; section_2_jmp_jz_top ; section_2_jmp_jz   ;
+; Family name                                                                ; Cyclone II           ; Stratix II         ;
+; Use smart compilation                                                      ; Off                  ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                   ; On                 ;
+; Enable compact report table                                                ; Off                  ; Off                ;
+; Restructure Multiplexers                                                   ; Auto                 ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                  ; Off                ;
+; Preserve fewer node names                                                  ; On                   ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                  ; Off                ;
+; Verilog Version                                                            ; Verilog_2001         ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993            ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto                 ; Auto               ;
+; Safe State Machine                                                         ; Off                  ; Off                ;
+; Extract Verilog State Machines                                             ; On                   ; On                 ;
+; Extract VHDL State Machines                                                ; On                   ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                  ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000                 ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                  ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                   ; On                 ;
+; Parallel Synthesis                                                         ; On                   ; On                 ;
+; DSP Block Balancing                                                        ; Auto                 ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                   ; On                 ;
+; Power-Up Don't Care                                                        ; On                   ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                  ; Off                ;
+; Remove Duplicate Registers                                                 ; On                   ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                  ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                  ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                  ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                  ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                  ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                   ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                  ; Off                ;
+; Optimization Technique                                                     ; Balanced             ; Balanced           ;
+; Carry Chain Length                                                         ; 70                   ; 70                 ;
+; Auto Carry Chains                                                          ; On                   ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                   ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                  ; Off                ;
+; Auto ROM Replacement                                                       ; On                   ; On                 ;
+; Auto RAM Replacement                                                       ; On                   ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto                 ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                   ; On                 ;
+; Strict RAM Replacement                                                     ; Off                  ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                   ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                  ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                  ; Off                ;
+; Auto Resource Sharing                                                      ; Off                  ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                  ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                  ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                  ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                   ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                  ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                  ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                   ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                  ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                    ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation   ; Normal compilation ;
+; HDL message level                                                          ; Level2               ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                  ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 100                  ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                  ; 100                ;
+; Clock MUX Protection                                                       ; On                   ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                  ; Off                ;
+; Block Design Naming                                                        ; Auto                 ; Auto               ;
+; SDC constraint protection                                                  ; Off                  ; Off                ;
+; Synthesis Effort                                                           ; Auto                 ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                   ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium               ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto                 ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                   ; On                 ;
++----------------------------------------------------------------------------+----------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                               ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------+
+; ../src/section_2_jmp_jz_top.vhd  ; yes             ; User VHDL File  ; D:/git/sifovm/coursework_project/rtl_schemes/section_2_jmp_jz/src/section_2_jmp_jz_top.vhd ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 142   ;
+;                                             ;       ;
+; Total combinational functions               ; 142   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 5     ;
+;     -- 3 input functions                    ; 19    ;
+;     -- <=2 input functions                  ; 118   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 129   ;
+;     -- arithmetic mode                      ; 13    ;
+;                                             ;       ;
+; Total registers                             ; 45    ;
+;     -- Dedicated logic registers            ; 45    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 138   ;
+; Maximum fan-out node                        ; rst   ;
+; Maximum fan-out                             ; 48    ;
+; Total fan-out                               ; 489   ;
+; Average fan-out                             ; 1.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; |section_2_jmp_jz_top      ; 142 (74)          ; 45 (0)       ; 0           ; 0            ; 0       ; 0         ; 138  ; 0            ; |section_2_jmp_jz_top                ; work         ;
+;    |dec_j:u_dec|           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |section_2_jmp_jz_top|dec_j:u_dec    ; work         ;
+;    |ir_pair_j:u_ir|        ; 30 (30)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |section_2_jmp_jz_top|ir_pair_j:u_ir ;              ;
+;    |pc_add2:u_add|         ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |section_2_jmp_jz_top|pc_add2:u_add  ; work         ;
+;    |pc_reg_j:u_pc|         ; 17 (17)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |section_2_jmp_jz_top|pc_reg_j:u_pc  ; work         ;
+;    |take_j:u_take|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |section_2_jmp_jz_top|take_j:u_take  ; work         ;
+;    |z_reg:u_z|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |section_2_jmp_jz_top|z_reg:u_z      ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                       ;
++------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name          ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++------------------------+------------------------------------------------------------------+--------------------------------------------+
+; ir_pair_j:u_ir|ir0[4]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[5]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[6]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[7]  ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[0]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[1]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[2]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[3]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[4]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[5]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[6]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[7]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[8]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[9]    ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[10]   ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[11]   ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[12]   ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[13]   ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[14]   ; yes                                                              ; yes                                        ;
+; pc_reg_j:u_pc|pc[15]   ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[0]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[1]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[2]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[3]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[4]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[5]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[6]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[7]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[8]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[9]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[10] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[11] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[12] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[13] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[14] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir1[15] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[8]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[9]  ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[10] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[11] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[12] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[13] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[14] ; yes                                                              ; yes                                        ;
+; ir_pair_j:u_ir|ir0[15] ; yes                                                              ; yes                                        ;
+; z_reg:u_z|z            ; yes                                                              ; yes                                        ;
++------------------------+------------------------------------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 45    ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 44    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |section_2_jmp_jz_top|ir_pair_j:u_ir|ir0[15] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |section_2_jmp_jz_top|pc_reg_j:u_pc|pc[8]    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |section_2_jmp_jz_top|ir_pair_j:u_ir|ir1[14] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Source assignments for Top-level Entity: |section_2_jmp_jz_top ;
++------------------------------+-------+------+------------------+
+; Assignment                   ; Value ; From ; To               ;
++------------------------------+-------+------+------------------+
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[7]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[7]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[6]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[6]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[5]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[5]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[4]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[4]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[3]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[3]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[2]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[2]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[1]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[1]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; cmd_s[0]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; cmd_s[0]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[15]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[15]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[14]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[14]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[13]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[13]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[12]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[12]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[11]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[11]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[10]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[10]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[9]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[9]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[8]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[8]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[7]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[7]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[6]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[6]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[5]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[5]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[4]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[4]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[3]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[3]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[2]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[2]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[1]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[1]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; adr_s[0]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; adr_s[0]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; z_s              ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; z_s              ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; take_s           ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; take_s           ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[15]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[15]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[14]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[14]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[13]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[13]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[12]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[12]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[11]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[11]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[10]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[10]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[9]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[9]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[8]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[8]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[7]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[7]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[6]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[6]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[5]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[5]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[4]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[4]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[3]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[3]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[2]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[2]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[1]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[1]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; seq_s[0]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; seq_s[0]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[15]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[15]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[14]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[14]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[13]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[13]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[12]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[12]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[11]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[11]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[10]        ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[10]        ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[9]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[9]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[8]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[8]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[7]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[7]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[6]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[6]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[5]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[5]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[4]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[4]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[3]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[3]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[2]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[2]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[1]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[1]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; nxt_s[0]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; nxt_s[0]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[15]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[15]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[14]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[14]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[13]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[13]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[12]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[12]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[11]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[11]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[10]         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[10]         ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[9]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[9]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[8]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[8]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[7]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[7]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[6]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[6]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[5]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[5]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[4]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[4]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[3]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[3]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[2]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[2]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[1]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[1]          ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; pc_s[0]          ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; pc_s[0]          ;
++------------------------------+-------+------+------------------+
+
+
++--------------------------------------------+
+; Source assignments for ir_pair_j:u_ir      ;
++-------------------+-------+------+---------+
+; Assignment        ; Value ; From ; To      ;
++-------------------+-------+------+---------+
+; PRESERVE_REGISTER ; on    ; -    ; ir1[3]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[2]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[1]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[0]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[4]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[5]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[6]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[7]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[8]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[9]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[10] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[11] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[12] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[13] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[14] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir1[15] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[4]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[5]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[6]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[7]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[8]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[9]  ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[10] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[11] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[12] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[13] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[14] ;
+; PRESERVE_REGISTER ; on    ; -    ; ir0[15] ;
++-------------------+-------+------+---------+
+
+
++---------------------------------------+
+; Source assignments for z_reg:u_z      ;
++-------------------+-------+------+----+
+; Assignment        ; Value ; From ; To ;
++-------------------+-------+------+----+
+; PRESERVE_REGISTER ; on    ; -    ; z  ;
++-------------------+-------+------+----+
+
+
++-------------------------------------------+
+; Source assignments for pc_reg_j:u_pc      ;
++-------------------+-------+------+--------+
+; Assignment        ; Value ; From ; To     ;
++-------------------+-------+------+--------+
+; PRESERVE_REGISTER ; on    ; -    ; pc[0]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[1]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[2]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[3]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[4]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[5]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[6]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[7]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[8]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[9]  ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[10] ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[11] ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[12] ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[13] ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[14] ;
+; PRESERVE_REGISTER ; on    ; -    ; pc[15] ;
++-------------------+-------+------+--------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon May 25 00:04:25 2026
+Info: Command: quartus_map section_2_jmp_jz --read_settings_files=on --write_settings_files=off
+Info: Found 18 design units, including 9 entities, in source file /git/sifovm/coursework_project/rtl_schemes/section_2_jmp_jz/src/section_2_jmp_jz_top.vhd
+    Info: Found design unit 1: ir_pair_j-rtl
+    Info: Found design unit 2: dec_j-rtl
+    Info: Found design unit 3: z_reg-rtl
+    Info: Found design unit 4: take_j-rtl
+    Info: Found design unit 5: pc_add2-rtl
+    Info: Found design unit 6: pc_mux_j-rtl
+    Info: Found design unit 7: pc_reg_j-rtl
+    Info: Found design unit 8: bp_j-rtl
+    Info: Found design unit 9: section_2_jmp_jz_top-structural
+    Info: Found entity 1: ir_pair_j
+    Info: Found entity 2: dec_j
+    Info: Found entity 3: z_reg
+    Info: Found entity 4: take_j
+    Info: Found entity 5: pc_add2
+    Info: Found entity 6: pc_mux_j
+    Info: Found entity 7: pc_reg_j
+    Info: Found entity 8: bp_j
+    Info: Found entity 9: section_2_jmp_jz_top
+Info: Elaborating entity "section_2_jmp_jz_top" for the top level hierarchy
+Info: Elaborating entity "ir_pair_j" for hierarchy "ir_pair_j:u_ir"
+Info: Elaborating entity "dec_j" for hierarchy "dec_j:u_dec"
+Info: Elaborating entity "z_reg" for hierarchy "z_reg:u_z"
+Info: Elaborating entity "take_j" for hierarchy "take_j:u_take"
+Info: Elaborating entity "pc_add2" for hierarchy "pc_add2:u_add"
+Info: Elaborating entity "pc_mux_j" for hierarchy "pc_mux_j:u_mux"
+Info: Elaborating entity "pc_reg_j" for hierarchy "pc_reg_j:u_pc"
+Info: Elaborating entity "bp_j" for hierarchy "bp_j:u_bp"
+Info: Found the following redundant logic cells in design
+    Info (17048): Logic cell "pc_s[0]"
+    Info (17048): Logic cell "pc_s[1]"
+    Info (17048): Logic cell "pc_s[2]"
+    Info (17048): Logic cell "pc_s[3]"
+    Info (17048): Logic cell "pc_s[4]"
+    Info (17048): Logic cell "pc_s[5]"
+    Info (17048): Logic cell "pc_s[6]"
+    Info (17048): Logic cell "pc_s[7]"
+    Info (17048): Logic cell "pc_s[8]"
+    Info (17048): Logic cell "pc_s[9]"
+    Info (17048): Logic cell "pc_s[10]"
+    Info (17048): Logic cell "pc_s[11]"
+    Info (17048): Logic cell "pc_s[12]"
+    Info (17048): Logic cell "pc_s[13]"
+    Info (17048): Logic cell "pc_s[14]"
+    Info (17048): Logic cell "pc_s[15]"
+    Info (17048): Logic cell "adr_s[0]"
+    Info (17048): Logic cell "adr_s[1]"
+    Info (17048): Logic cell "adr_s[2]"
+    Info (17048): Logic cell "adr_s[3]"
+    Info (17048): Logic cell "adr_s[4]"
+    Info (17048): Logic cell "adr_s[5]"
+    Info (17048): Logic cell "adr_s[6]"
+    Info (17048): Logic cell "adr_s[7]"
+    Info (17048): Logic cell "adr_s[8]"
+    Info (17048): Logic cell "adr_s[9]"
+    Info (17048): Logic cell "adr_s[10]"
+    Info (17048): Logic cell "adr_s[11]"
+    Info (17048): Logic cell "adr_s[12]"
+    Info (17048): Logic cell "adr_s[13]"
+    Info (17048): Logic cell "adr_s[14]"
+    Info (17048): Logic cell "adr_s[15]"
+    Info (17048): Logic cell "cmd_s[0]"
+    Info (17048): Logic cell "cmd_s[1]"
+    Info (17048): Logic cell "cmd_s[2]"
+    Info (17048): Logic cell "cmd_s[3]"
+    Info (17048): Logic cell "cmd_s[4]"
+    Info (17048): Logic cell "cmd_s[5]"
+    Info (17048): Logic cell "cmd_s[6]"
+    Info (17048): Logic cell "cmd_s[7]"
+    Info (17048): Logic cell "z_s"
+    Info (17048): Logic cell "seq_s[0]"
+    Info (17048): Logic cell "seq_s[1]"
+    Info (17048): Logic cell "seq_s[2]"
+    Info (17048): Logic cell "seq_s[3]"
+    Info (17048): Logic cell "seq_s[4]"
+    Info (17048): Logic cell "seq_s[5]"
+    Info (17048): Logic cell "seq_s[6]"
+    Info (17048): Logic cell "seq_s[7]"
+    Info (17048): Logic cell "seq_s[8]"
+    Info (17048): Logic cell "seq_s[9]"
+    Info (17048): Logic cell "seq_s[10]"
+    Info (17048): Logic cell "seq_s[11]"
+    Info (17048): Logic cell "seq_s[12]"
+    Info (17048): Logic cell "seq_s[13]"
+    Info (17048): Logic cell "seq_s[14]"
+    Info (17048): Logic cell "seq_s[15]"
+Warning: Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ir0_i[0]"
+    Warning (15610): No output dependent on input pin "ir0_i[1]"
+    Warning (15610): No output dependent on input pin "ir0_i[2]"
+    Warning (15610): No output dependent on input pin "ir0_i[3]"
+Info: Implemented 280 device resources after synthesis - the final resource count might be different
+    Info: Implemented 39 input pins
+    Info: Implemented 99 output pins
+    Info: Implemented 142 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 250 megabytes
+    Info: Processing ended: Mon May 25 00:04:26 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

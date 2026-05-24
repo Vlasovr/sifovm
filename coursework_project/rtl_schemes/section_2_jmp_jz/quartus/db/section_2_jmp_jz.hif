@@ -1,0 +1,400 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+11
+3500
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+section_2_jmp_jz_top
+# storage
+db|section_2_jmp_jz.(0).cnf
+db|section_2_jmp_jz.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ir_pair_j
+# storage
+db|section_2_jmp_jz.(1).cnf
+db|section_2_jmp_jz.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(d0)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(d1)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cmd)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(ra)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(adr)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+ir_pair_j:u_ir
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+dec_j
+# storage
+db|section_2_jmp_jz.(2).cnf
+db|section_2_jmp_jz.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(cmd)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+dec_j:u_dec
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+z_reg
+# storage
+db|section_2_jmp_jz.(3).cnf
+db|section_2_jmp_jz.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+z_reg:u_z
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+take_j
+# storage
+db|section_2_jmp_jz.(4).cnf
+db|section_2_jmp_jz.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+take_j:u_take
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+pc_add2
+# storage
+db|section_2_jmp_jz.(5).cnf
+db|section_2_jmp_jz.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(pc)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(pc2)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+pc_add2:u_add
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+pc_mux_j
+# storage
+db|section_2_jmp_jz.(6).cnf
+db|section_2_jmp_jz.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(seq)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(adr)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(y)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+pc_mux_j:u_mux
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+pc_reg_j
+# storage
+db|section_2_jmp_jz.(7).cnf
+db|section_2_jmp_jz.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(d)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(q)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+pc_reg_j:u_pc
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+bp_j
+# storage
+db|section_2_jmp_jz.(8).cnf
+db|section_2_jmp_jz.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|rtl_schemes|section_2_jmp_jz|src|section_2_jmp_jz_top.vhd
+5b36a11c333c28f71be7a2134dedd66d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(pc)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(adr)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bpc)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bad)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+bp_j:u_bp
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

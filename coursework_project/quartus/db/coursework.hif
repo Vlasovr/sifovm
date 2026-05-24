@@ -20,284 +20,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-system_core
-# storage
-db|coursework.(1).cnf
-db|coursework.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|system_core.vhd
-ea2a9137fdd5136968b5d9b15aa0c036
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(dma_data_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_state_o)
-4 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_pc_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ir0_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ir1_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r1_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r2_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r3_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r4_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r5_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r6_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r7_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_flags_o)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_sp_o)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ram_addr_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ram_wdata_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ram_rdata_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_bp_hist_o)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_bp_target_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|cpu_core.vhd
-253866e719f625ee41cf852b4eefa7f
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-cpu_core
-# storage
-db|coursework.(2).cnf
-db|coursework.(2).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|cpu_core.vhd
-253866e719f625ee41cf852b4eefa7f
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(rom_addr_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(rom_data_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(cache_addr_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(cache_wdata_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(cache_rdata_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(bp_pc_query_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(bp_hist_i)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(bp_target_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(bp_pc_update_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(bp_hist_o)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(bp_target_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_state_o)
-4 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_pc_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ir0_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_ir1_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r1_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r2_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r3_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r4_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r5_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r6_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_r7_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_flags_o)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(dbg_sp_o)
-2 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 reg_file12x16_dbg
 # storage
 db|coursework.(3).cnf
@@ -400,7 +122,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-reg_file12x16_dbg:U_ALU_RON_REGISTER_FILE
+system_core:U_SYSTEM|cpu_core:U_CPU|reg_file12x16_dbg:U_RF
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -455,7 +177,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-alu_core:U_ALU_UNIT
+system_core:U_SYSTEM|cpu_core:U_CPU|alu_core:U_ALU
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -488,7 +210,7 @@ AUTO_ROM_RECOGNITION
 ON
 }
 # hierarchies {
-flags_reg:U_FLAGS_REGISTER
+system_core:U_SYSTEM|cpu_core:U_CPU|flags_reg:U_FLAGS
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -539,7 +261,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-stack7x16:U_STACK_CONTROL
+system_core:U_SYSTEM|cpu_core:U_CPU|stack7x16:U_STACK
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -588,7 +310,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-rom_sync:U_COMMAND_MEMORY_ROM
+system_core:U_SYSTEM|rom_sync:U_ROM
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -651,7 +373,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-cache_4way_age:U_DATA_CACHE
+system_core:U_SYSTEM|cache_4way_age:U_CACHE
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -704,7 +426,7 @@ b15ee067652d42bdfbbbc96e9018da6
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-ram_sync:U_MEMORY
+system_core:U_SYSTEM|ram_sync:U_RAM
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -737,7 +459,7 @@ AUTO_ROM_RECOGNITION
 ON
 }
 # hierarchies {
-bus_arbiter_2master:U_BUS_ARBITER
+system_core:U_SYSTEM|bus_arbiter_2master:U_ARB
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -796,7 +518,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-dma_controller_3word:U_DMAC_CONTROLLER
+system_core:U_SYSTEM|dma_controller_3word:U_DMA
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -859,7 +581,7 @@ USR
 693a5dad29a91e15867d3b388159aee1
 }
 # hierarchies {
-branch_predictor:U_BRANCH_PREDICTOR
+system_core:U_SYSTEM|branch_predictor:U_BP
 }
 # lmf
 |quartus|lmf|maxplus2.lmf
@@ -2003,130 +1725,6 @@ coursework.microcomputer_top0.rtl.mif
 
 # end
 # entity
-microcomputer_top
-# storage
-db|coursework.(0).cnf
-db|coursework.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|microcomputer_top.vhd
-67a6f032e87d376842b364f2dc97f7
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|coursework_project|src|cpu_core.vhd
-253866e719f625ee41cf852b4eefa7f
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|system_core.vhd
-ea2a9137fdd5136968b5d9b15aa0c036
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-microcomputer_debug_top
-# storage
-db|coursework.(18).cnf
-db|coursework.(18).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|microcomputer_debug_top.vhd
-48247687c8a93be9885d920d0c3c3fe
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|system_core.vhd
-ea2a9137fdd5136968b5d9b15aa0c036
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|cpu_core.vhd
-253866e719f625ee41cf852b4eefa7f
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 altsyncram
 # storage
 db|coursework.(19).cnf
@@ -2485,571 +2083,6 @@ address_a0
 coursework.microcomputer_debug_top0.rtl.mif
 63dd86c851a0976c55668b72ae137f7c
 }
-# macro_sequence
-
-# end
-# entity
-appendix_n_microevm_top
-# storage
-db|coursework.(21).cnf
-db|coursework.(21).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-|
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_phase_counter_unit
-# storage
-db|coursework.(22).cnf
-db|coursework.(22).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_phase_counter_unit:U_PHASE_COUNTER_UNIT
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_special_registers
-# storage
-db|coursework.(23).cnf
-db|coursework.(23).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(cache_cpu_data_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(jmp_target_addr_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(ip_out_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(ir_out_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(addr_h_out_o)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(addr_l_out_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_special_registers:U_SPECIAL_REGISTERS
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_cmp_is_jmp
-# storage
-db|coursework.(24).cnf
-db|coursework.(24).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(cmd_code_i)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_cmp_is_jmp:U_CMP_IS_JMP
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_cmp_is_mem_to_reg
-# storage
-db|coursework.(25).cnf
-db|coursework.(25).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(cmd_code_i)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_cmp_is_mem_to_reg:U_CMP_IS_MEM_TO_REG
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_cmp_is_reg_to_mem
-# storage
-db|coursework.(26).cnf
-db|coursework.(26).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(cmd_code_i)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_cmp_is_reg_to_mem:U_CMP_IS_REG_TO_MEM
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_decoder_unit
-# storage
-db|coursework.(27).cnf
-db|coursework.(27).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(cmd_code_i)
-7 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_op_o)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(reg_addr_o)
-3 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_decoder_unit:U_DECODER_UNIT
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-appendix_n_mux2_16
-# storage
-db|coursework.(28).cnf
-db|coursework.(28).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-|git|sifovm|coursework_project|src|appendix_n_microevm_top.vhd
-32d4ae74b86db0ef6fb37c56f24da66b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(data0_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(data1_i)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(result_o)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# include_file {
-|git|sifovm|coursework_project|src|cache_4way_age.vhd
-249930fcbde4826e4622a86b45e7229
-|git|sifovm|coursework_project|src|alu_core.vhd
-29ed9bc385d41bed1d425c2c4745324
-|git|sifovm|coursework_project|src|stack7x16.vhd
-e8ca595d2353c66563e9cda9d255749
-|git|sifovm|coursework_project|src|flags_reg.vhd
-447e3a5f9d74b61739c8e98845feed61
-|git|sifovm|coursework_project|src|rom_sync.vhd
-b73b99daa0307fc9b7ed76eef452066
-|git|sifovm|coursework_project|src|program_image_pkg.vhd
-4c16bbc67c26b820142e1dcf3855fb5b
-|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
-487de377f9d13fa2c13af26cee1e8bdb
-|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
-693a5dad29a91e15867d3b388159aee1
-|git|sifovm|coursework_project|src|dma_controller_3word.vhd
-eeff20fa2d215d4b4cc1efd98eeb18
-|git|sifovm|coursework_project|src|ram_sync.vhd
-9669cde3b143996c6fb6adfd2ed30
-|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
-632b3c1f2f2fce22fbc1bc0fa9db98
-|git|sifovm|coursework_project|src|data_image_pkg.vhd
-b15ee067652d42bdfbbbc96e9018da6
-|git|sifovm|coursework_project|src|branch_predictor.vhd
-58d0f5c5a3faabe4c05940b22349df
-}
-# hierarchies {
-appendix_n_mux2_16:U_MUX_DATA_SOURCE
-appendix_n_mux2_16:U_MUX_MEM_STACK
-appendix_n_mux2_16:U_MUX_CPU_ADDR
-appendix_n_mux2_16:U_MUX_SYS_ADDR
-appendix_n_mux2_16:U_MUX_FINAL_ADDR
-appendix_n_mux2_16:U_LPM_MUX_MEM
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
 # macro_sequence
 
 # end
@@ -3785,6 +2818,355 @@ address_a0
 coursework.appendix_n_microevm_top0.rtl.mif
 63dd86c851a0976c55668b72ae137f7c
 }
+# macro_sequence
+
+# end
+# entity
+microcomputer_debug_top
+# storage
+db|coursework.(0).cnf
+db|coursework.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|microcomputer_debug_top.vhd
+48247687c8a93be9885d920d0c3c3fe
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# include_file {
+|git|sifovm|coursework_project|src|cpu_core.vhd
+253866e719f625ee41cf852b4eefa7f
+|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
+632b3c1f2f2fce22fbc1bc0fa9db98
+|git|sifovm|coursework_project|src|program_image_pkg.vhd
+4c16bbc67c26b820142e1dcf3855fb5b
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+|git|sifovm|coursework_project|src|ram_sync.vhd
+9669cde3b143996c6fb6adfd2ed30
+|git|sifovm|coursework_project|src|system_core.vhd
+ea2a9137fdd5136968b5d9b15aa0c036
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+|git|sifovm|coursework_project|src|cache_4way_age.vhd
+249930fcbde4826e4622a86b45e7229
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+|git|sifovm|coursework_project|src|data_image_pkg.vhd
+b15ee067652d42bdfbbbc96e9018da6
+|git|sifovm|coursework_project|src|branch_predictor.vhd
+58d0f5c5a3faabe4c05940b22349df
+|git|sifovm|coursework_project|src|rom_sync.vhd
+b73b99daa0307fc9b7ed76eef452066
+|git|sifovm|coursework_project|src|dma_controller_3word.vhd
+eeff20fa2d215d4b4cc1efd98eeb18
+}
+# hierarchies {
+|
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+system_core
+# storage
+db|coursework.(1).cnf
+db|coursework.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|system_core.vhd
+ea2a9137fdd5136968b5d9b15aa0c036
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(dma_data_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_state_o)
+4 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_pc_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir0_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r2_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r3_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r4_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r5_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r6_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r7_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_flags_o)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_sp_o)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ram_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ram_wdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ram_rdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_bp_hist_o)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_bp_target_o)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|cpu_core.vhd
+253866e719f625ee41cf852b4eefa7f
+|git|sifovm|coursework_project|src|bus_arbiter_2master.vhd
+632b3c1f2f2fce22fbc1bc0fa9db98
+|git|sifovm|coursework_project|src|program_image_pkg.vhd
+4c16bbc67c26b820142e1dcf3855fb5b
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+|git|sifovm|coursework_project|src|ram_sync.vhd
+9669cde3b143996c6fb6adfd2ed30
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+|git|sifovm|coursework_project|src|cache_4way_age.vhd
+249930fcbde4826e4622a86b45e7229
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+|git|sifovm|coursework_project|src|data_image_pkg.vhd
+b15ee067652d42bdfbbbc96e9018da6
+|git|sifovm|coursework_project|src|branch_predictor.vhd
+58d0f5c5a3faabe4c05940b22349df
+|git|sifovm|coursework_project|src|rom_sync.vhd
+b73b99daa0307fc9b7ed76eef452066
+|git|sifovm|coursework_project|src|dma_controller_3word.vhd
+eeff20fa2d215d4b4cc1efd98eeb18
+}
+# hierarchies {
+system_core:U_SYSTEM
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+cpu_core
+# storage
+db|coursework.(2).cnf
+db|coursework.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|git|sifovm|coursework_project|src|cpu_core.vhd
+253866e719f625ee41cf852b4eefa7f
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(rom_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(rom_data_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cache_addr_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cache_wdata_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(cache_rdata_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_pc_query_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_hist_i)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_target_i)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_pc_update_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_hist_o)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(bp_target_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_state_o)
+4 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_pc_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir0_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_ir1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r1_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r2_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r3_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r4_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r5_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r6_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_r7_o)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_flags_o)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(dbg_sp_o)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# include_file {
+|git|sifovm|coursework_project|src|stack7x16.vhd
+e8ca595d2353c66563e9cda9d255749
+|git|sifovm|coursework_project|src|flags_reg.vhd
+447e3a5f9d74b61739c8e98845feed61
+|git|sifovm|coursework_project|src|microcomputer_pkg.vhd
+693a5dad29a91e15867d3b388159aee1
+|git|sifovm|coursework_project|src|reg_file12x16_dbg.vhd
+487de377f9d13fa2c13af26cee1e8bdb
+|git|sifovm|coursework_project|src|alu_core.vhd
+29ed9bc385d41bed1d425c2c4745324
+}
+# hierarchies {
+system_core:U_SYSTEM|cpu_core:U_CPU
+}
+# lmf
+|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
 # macro_sequence
 
 # end
